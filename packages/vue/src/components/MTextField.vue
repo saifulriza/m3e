@@ -31,7 +31,7 @@
         <slot name="suffix" />
       </span>
     </div>
-    <div v-if="supporting || error || ($slots.supporting)" :id="supportingId" class="m3e-form-field__supporting" aria-live="polite">
+    <div v-if="supporting || error || ($slots.supporting)" :id="supportingId" class="m3e-form-field__supporting" :aria-live="error ? 'polite' : undefined">
       <slot name="supporting">
         <span v-if="errorMessage && error" role="alert">{{ errorMessage }}</span>
         <span v-else-if="supporting">{{ supporting }}</span>

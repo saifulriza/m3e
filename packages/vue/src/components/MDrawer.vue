@@ -18,7 +18,6 @@
       v-if="modal"
       :class="['m3e-drawer-container__scrim', modelValue && 'm3e-drawer-container__scrim--visible']"
       @click="close"
-      @keydown.escape="close"
     ></div>
     <main class="m3e-drawer-container__content">
       <slot />

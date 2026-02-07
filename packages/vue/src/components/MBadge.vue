@@ -23,7 +23,7 @@ export default defineComponent({
     ]);
     const badgeAriaLabel = computed(() => {
       if (props.dot) return "New notification";
-      if (props.text != null) return `${props.text} notifications`;
+      if (props.text != null) return `${props.text} notification${props.text == 1 ? '' : 's'}`;
       return undefined;
     });
     return { classes, badgeAriaLabel };

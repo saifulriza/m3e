@@ -1,6 +1,6 @@
 <template>
   <div ref="anchorRef" class="m3e-menu-anchor" style="position: relative; display: inline-block;">
-    <div @click="toggle" @keydown.down.prevent="open" @keydown.enter.prevent="toggle" @keydown.space.prevent="toggle">
+    <div @click="toggle" @keydown.down.prevent="openMenu" @keydown.enter.prevent="toggle" @keydown.space.prevent="toggle">
       <slot name="activator" :open="modelValue" :toggle="toggle" />
     </div>
     <div
@@ -33,7 +33,7 @@ export default defineComponent({
     const menuRef = ref(null);
 
     const toggle = () => emit("update:modelValue", !props.modelValue);
-    const open = () => emit("update:modelValue", true);
+    const openMenu = () => emit("update:modelValue", true);
     const close = () => emit("update:modelValue", false);
 
     const getMenuItems = () => {
@@ -106,7 +106,7 @@ export default defineComponent({
       document.removeEventListener("click", onClickOutside);
     });
 
-    return { anchorRef, menuRef, toggle, close, onMenuKeydown };
+    return { anchorRef, menuRef, toggle, openMenu, close, onMenuKeydown };
   },
 });
 </script>
