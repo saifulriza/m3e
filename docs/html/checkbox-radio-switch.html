@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Checkbox, Radio &amp; Switch — M3E CSS Demo</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet" />
+  <link rel="stylesheet" href="../../packages/css/src/tokens.css" />
+  <link rel="stylesheet" href="../../packages/css/src/components/checkbox.css" />
+  <link rel="stylesheet" href="../../packages/css/src/components/radio.css" />
+  <link rel="stylesheet" href="../../packages/css/src/components/switch.css" />
+  <link rel="stylesheet" href="demo-shared.css" />
+</head>
+<body>
+  <a class="back" href="index.html">← Back to all demos</a>
+  <h1>Checkbox, Radio &amp; Switch</h1>
+  <p class="page-subtitle">Selection controls for toggling options on/off, choosing from lists, or switching states.</p>
+
+  <!-- Checkbox -->
+  <section>
+    <h2>Checkbox</h2>
+    <h3>States</h3>
+    <div class="demo-row">
+      <label class="m3e-checkbox">
+        <input type="checkbox" class="m3e-checkbox__input" />
+        <span class="m3e-checkbox__indicator"></span>
+        <span class="m3e-checkbox__label">Unchecked</span>
+      </label>
+      <label class="m3e-checkbox">
+        <input type="checkbox" class="m3e-checkbox__input" checked />
+        <span class="m3e-checkbox__indicator"></span>
+        <span class="m3e-checkbox__label">Checked</span>
+      </label>
+      <label class="m3e-checkbox">
+        <input type="checkbox" class="m3e-checkbox__input" id="indeterminate-cb" />
+        <span class="m3e-checkbox__indicator"></span>
+        <span class="m3e-checkbox__label">Indeterminate</span>
+      </label>
+    </div>
+
+    <h3>Error State</h3>
+    <div class="demo-row">
+      <label class="m3e-checkbox m3e-checkbox--error">
+        <input type="checkbox" class="m3e-checkbox__input" />
+        <span class="m3e-checkbox__indicator"></span>
+        <span class="m3e-checkbox__label">Required field</span>
+      </label>
+      <label class="m3e-checkbox m3e-checkbox--error">
+        <input type="checkbox" class="m3e-checkbox__input" checked />
+        <span class="m3e-checkbox__indicator"></span>
+        <span class="m3e-checkbox__label">Error checked</span>
+      </label>
+    </div>
+
+    <h3>Disabled</h3>
+    <div class="demo-row">
+      <label class="m3e-checkbox">
+        <input type="checkbox" class="m3e-checkbox__input" disabled />
+        <span class="m3e-checkbox__indicator"></span>
+        <span class="m3e-checkbox__label">Disabled</span>
+      </label>
+      <label class="m3e-checkbox">
+        <input type="checkbox" class="m3e-checkbox__input" checked disabled />
+        <span class="m3e-checkbox__indicator"></span>
+        <span class="m3e-checkbox__label">Disabled checked</span>
+      </label>
+    </div>
+
+    <pre class="code">&lt;label class="m3e-checkbox"&gt;
+  &lt;input type="checkbox" class="m3e-checkbox__input" /&gt;
+  &lt;span class="m3e-checkbox__indicator"&gt;&lt;/span&gt;
+  &lt;span class="m3e-checkbox__label"&gt;Label&lt;/span&gt;
+&lt;/label&gt;</pre>
+  </section>
+
+  <!-- Radio -->
+  <section>
+    <h2>Radio Buttons</h2>
+    <h3>Radio Group</h3>
+    <div class="demo-row" role="radiogroup" aria-label="Choose an option">
+      <label class="m3e-radio">
+        <input type="radio" name="option" class="m3e-radio__input" value="1" checked />
+        <span class="m3e-radio__indicator"></span>
+        <span class="m3e-radio__label">Option A</span>
+      </label>
+      <label class="m3e-radio">
+        <input type="radio" name="option" class="m3e-radio__input" value="2" />
+        <span class="m3e-radio__indicator"></span>
+        <span class="m3e-radio__label">Option B</span>
+      </label>
+      <label class="m3e-radio">
+        <input type="radio" name="option" class="m3e-radio__input" value="3" />
+        <span class="m3e-radio__indicator"></span>
+        <span class="m3e-radio__label">Option C</span>
+      </label>
+    </div>
+
+    <h3>Disabled</h3>
+    <div class="demo-row">
+      <label class="m3e-radio">
+        <input type="radio" name="disabled-radio" class="m3e-radio__input" disabled />
+        <span class="m3e-radio__indicator"></span>
+        <span class="m3e-radio__label">Disabled</span>
+      </label>
+      <label class="m3e-radio">
+        <input type="radio" name="disabled-radio" class="m3e-radio__input" checked disabled />
+        <span class="m3e-radio__indicator"></span>
+        <span class="m3e-radio__label">Disabled selected</span>
+      </label>
+    </div>
+
+    <pre class="code">&lt;label class="m3e-radio"&gt;
+  &lt;input type="radio" name="group" class="m3e-radio__input" /&gt;
+  &lt;span class="m3e-radio__indicator"&gt;&lt;/span&gt;
+  &lt;span class="m3e-radio__label"&gt;Label&lt;/span&gt;
+&lt;/label&gt;</pre>
+  </section>
+
+  <!-- Switch -->
+  <section>
+    <h2>Switch</h2>
+    <h3>States</h3>
+    <div class="demo-row">
+      <label class="m3e-switch">
+        <input type="checkbox" class="m3e-switch__input" role="switch" />
+        <span class="m3e-switch__track">
+          <span class="m3e-switch__thumb"></span>
+        </span>
+        <span class="m3e-switch__label">Off</span>
+      </label>
+      <label class="m3e-switch">
+        <input type="checkbox" class="m3e-switch__input" role="switch" checked />
+        <span class="m3e-switch__track">
+          <span class="m3e-switch__thumb"></span>
+        </span>
+        <span class="m3e-switch__label">On</span>
+      </label>
+    </div>
+
+    <h3>Disabled</h3>
+    <div class="demo-row">
+      <label class="m3e-switch">
+        <input type="checkbox" class="m3e-switch__input" role="switch" disabled />
+        <span class="m3e-switch__track">
+          <span class="m3e-switch__thumb"></span>
+        </span>
+        <span class="m3e-switch__label">Disabled off</span>
+      </label>
+      <label class="m3e-switch">
+        <input type="checkbox" class="m3e-switch__input" role="switch" checked disabled />
+        <span class="m3e-switch__track">
+          <span class="m3e-switch__thumb"></span>
+        </span>
+        <span class="m3e-switch__label">Disabled on</span>
+      </label>
+    </div>
+
+    <pre class="code">&lt;label class="m3e-switch"&gt;
+  &lt;input type="checkbox" class="m3e-switch__input" role="switch" /&gt;
+  &lt;span class="m3e-switch__track"&gt;
+    &lt;span class="m3e-switch__thumb"&gt;&lt;/span&gt;
+  &lt;/span&gt;
+  &lt;span class="m3e-switch__label"&gt;Label&lt;/span&gt;
+&lt;/label&gt;</pre>
+  </section>
+
+  <script>
+    // Set indeterminate state via JS (cannot be set in HTML)
+    document.getElementById('indeterminate-cb').indeterminate = true;
+  </script>
+</body>
+</html>

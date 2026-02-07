@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Icon Buttons — M3E CSS Demo</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet" />
+  <link rel="stylesheet" href="../../packages/css/src/tokens.css" />
+  <link rel="stylesheet" href="../../packages/css/src/components/icon-button.css" />
+  <link rel="stylesheet" href="demo-shared.css" />
+</head>
+<body>
+  <a class="back" href="index.html">← Back to all demos</a>
+  <h1>Icon Buttons</h1>
+  <p class="page-subtitle">Icon buttons for actions. Standard, filled, tonal, outlined and toggle states.</p>
+
+  <!-- Variants -->
+  <section>
+    <h2>Variants</h2>
+    <div class="demo-row">
+      <button class="m3e-icon-button" aria-label="Settings">
+        <span class="material-symbols-outlined">settings</span>
+      </button>
+      <button class="m3e-icon-button m3e-icon-button--filled" aria-label="Favorite">
+        <span class="material-symbols-outlined">favorite</span>
+      </button>
+      <button class="m3e-icon-button m3e-icon-button--tonal" aria-label="Bookmark">
+        <span class="material-symbols-outlined">bookmark</span>
+      </button>
+      <button class="m3e-icon-button m3e-icon-button--outlined" aria-label="Share">
+        <span class="material-symbols-outlined">share</span>
+      </button>
+    </div>
+    <pre class="code">&lt;button class="m3e-icon-button" aria-label="Settings"&gt;
+  &lt;span class="material-symbols-outlined"&gt;settings&lt;/span&gt;
+&lt;/button&gt;
+&lt;button class="m3e-icon-button m3e-icon-button--filled" aria-label="Favorite"&gt;
+  &lt;span class="material-symbols-outlined"&gt;favorite&lt;/span&gt;
+&lt;/button&gt;</pre>
+  </section>
+
+  <!-- Toggle / Selected -->
+  <section>
+    <h2>Toggle (Selected State)</h2>
+    <div class="demo-row">
+      <button class="m3e-icon-button" aria-label="Not bookmarked" aria-pressed="false">
+        <span class="material-symbols-outlined">bookmark_border</span>
+      </button>
+      <button class="m3e-icon-button m3e-icon-button--selected" aria-label="Bookmarked" aria-pressed="true">
+        <span class="material-symbols-outlined">bookmark</span>
+      </button>
+    </div>
+    <div class="demo-row">
+      <button class="m3e-icon-button m3e-icon-button--filled" aria-label="Not liked" aria-pressed="false">
+        <span class="material-symbols-outlined">favorite_border</span>
+      </button>
+      <button class="m3e-icon-button m3e-icon-button--filled m3e-icon-button--selected" aria-label="Liked" aria-pressed="true">
+        <span class="material-symbols-outlined">favorite</span>
+      </button>
+    </div>
+    <div class="demo-row">
+      <button class="m3e-icon-button m3e-icon-button--tonal" aria-pressed="false" aria-label="Star">
+        <span class="material-symbols-outlined">star_border</span>
+      </button>
+      <button class="m3e-icon-button m3e-icon-button--tonal m3e-icon-button--selected" aria-pressed="true" aria-label="Starred">
+        <span class="material-symbols-outlined">star</span>
+      </button>
+    </div>
+    <div class="demo-row">
+      <button class="m3e-icon-button m3e-icon-button--outlined" aria-pressed="false" aria-label="Pin">
+        <span class="material-symbols-outlined">push_pin</span>
+      </button>
+      <button class="m3e-icon-button m3e-icon-button--outlined m3e-icon-button--selected" aria-pressed="true" aria-label="Pinned">
+        <span class="material-symbols-outlined">push_pin</span>
+      </button>
+    </div>
+  </section>
+
+  <!-- Disabled -->
+  <section>
+    <h2>Disabled</h2>
+    <div class="demo-row">
+      <button class="m3e-icon-button" disabled aria-label="Disabled">
+        <span class="material-symbols-outlined">settings</span>
+      </button>
+      <button class="m3e-icon-button m3e-icon-button--filled" disabled aria-label="Disabled">
+        <span class="material-symbols-outlined">favorite</span>
+      </button>
+      <button class="m3e-icon-button m3e-icon-button--tonal" disabled aria-label="Disabled">
+        <span class="material-symbols-outlined">bookmark</span>
+      </button>
+      <button class="m3e-icon-button m3e-icon-button--outlined" disabled aria-label="Disabled">
+        <span class="material-symbols-outlined">share</span>
+      </button>
+    </div>
+  </section>
+</body>
+</html>

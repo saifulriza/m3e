@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Lists &amp; Menus — M3E CSS Demo</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet" />
+  <link rel="stylesheet" href="../../packages/css/src/tokens.css" />
+  <link rel="stylesheet" href="../../packages/css/src/components/list.css" />
+  <link rel="stylesheet" href="../../packages/css/src/components/menu.css" />
+  <link rel="stylesheet" href="../../packages/css/src/components/option.css" />
+  <link rel="stylesheet" href="../../packages/css/src/components/divider.css" />
+  <link rel="stylesheet" href="demo-shared.css" />
+</head>
+<body>
+  <a class="back" href="index.html">← Back to all demos</a>
+  <h1>Lists &amp; Menus</h1>
+  <p class="page-subtitle">List items with supporting text, leading/trailing elements. Menu with items and dividers.</p>
+
+  <!-- One-line List -->
+  <section>
+    <h2>One-line List</h2>
+    <div style="max-width: 400px;">
+      <div class="m3e-list" role="list">
+        <div class="m3e-list-item m3e-list-item--interactive" role="listitem" tabindex="0">
+          <div class="m3e-list-item__leading material-symbols-outlined">inbox</div>
+          <div class="m3e-list-item__text">
+            <span class="m3e-list-item__headline">Inbox</span>
+          </div>
+          <div class="m3e-list-item__trailing">24</div>
+        </div>
+        <div class="m3e-list-item m3e-list-item--interactive" role="listitem" tabindex="0">
+          <div class="m3e-list-item__leading material-symbols-outlined">send</div>
+          <div class="m3e-list-item__text">
+            <span class="m3e-list-item__headline">Sent</span>
+          </div>
+        </div>
+        <div class="m3e-list-item m3e-list-item--interactive" role="listitem" tabindex="0">
+          <div class="m3e-list-item__leading material-symbols-outlined">drafts</div>
+          <div class="m3e-list-item__text">
+            <span class="m3e-list-item__headline">Drafts</span>
+          </div>
+          <div class="m3e-list-item__trailing">3</div>
+        </div>
+      </div>
+    </div>
+    <pre class="code">&lt;div class="m3e-list" role="list"&gt;
+  &lt;div class="m3e-list-item m3e-list-item--interactive" tabindex="0"&gt;
+    &lt;div class="m3e-list-item__leading material-symbols-outlined"&gt;inbox&lt;/div&gt;
+    &lt;div class="m3e-list-item__text"&gt;
+      &lt;span class="m3e-list-item__headline"&gt;Inbox&lt;/span&gt;
+    &lt;/div&gt;
+    &lt;div class="m3e-list-item__trailing"&gt;24&lt;/div&gt;
+  &lt;/div&gt;
+&lt;/div&gt;</pre>
+  </section>
+
+  <!-- Two-line List -->
+  <section>
+    <h2>Two-line List</h2>
+    <div style="max-width: 400px;">
+      <div class="m3e-list" role="list">
+        <div class="m3e-list-item m3e-list-item--interactive" role="listitem" tabindex="0">
+          <div class="m3e-list-item__leading material-symbols-outlined">person</div>
+          <div class="m3e-list-item__text">
+            <span class="m3e-list-item__headline">Alice Johnson</span>
+            <span class="m3e-list-item__supporting">Software Engineer</span>
+          </div>
+        </div>
+        <div class="m3e-list-item m3e-list-item--interactive" role="listitem" tabindex="0">
+          <div class="m3e-list-item__leading material-symbols-outlined">person</div>
+          <div class="m3e-list-item__text">
+            <span class="m3e-list-item__headline">Bob Smith</span>
+            <span class="m3e-list-item__supporting">Product Designer</span>
+          </div>
+        </div>
+        <div class="m3e-list-item m3e-list-item--interactive" role="listitem" tabindex="0">
+          <div class="m3e-list-item__leading material-symbols-outlined">person</div>
+          <div class="m3e-list-item__text">
+            <span class="m3e-list-item__headline">Carol Lee</span>
+            <span class="m3e-list-item__supporting">Project Manager</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Selected & Disabled -->
+  <section>
+    <h2>States</h2>
+    <div style="max-width: 400px;">
+      <div class="m3e-list" role="listbox">
+        <div class="m3e-list-item m3e-list-item--selected" role="option" aria-selected="true" tabindex="0">
+          <div class="m3e-list-item__leading material-symbols-outlined">check</div>
+          <div class="m3e-list-item__text">
+            <span class="m3e-list-item__headline">Selected Item</span>
+          </div>
+        </div>
+        <div class="m3e-list-item m3e-list-item--interactive" role="option" tabindex="0">
+          <div class="m3e-list-item__text">
+            <span class="m3e-list-item__headline">Normal Item</span>
+          </div>
+        </div>
+        <div class="m3e-list-item m3e-list-item--disabled" role="option" aria-disabled="true">
+          <div class="m3e-list-item__text">
+            <span class="m3e-list-item__headline">Disabled Item</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Dense List -->
+  <section>
+    <h2>Dense List</h2>
+    <div style="max-width: 400px;">
+      <div class="m3e-list m3e-list--dense" role="list">
+        <div class="m3e-list-item m3e-list-item--interactive" role="listitem" tabindex="0">
+          <div class="m3e-list-item__text"><span class="m3e-list-item__headline">Compact Item 1</span></div>
+        </div>
+        <div class="m3e-list-item m3e-list-item--interactive" role="listitem" tabindex="0">
+          <div class="m3e-list-item__text"><span class="m3e-list-item__headline">Compact Item 2</span></div>
+        </div>
+        <div class="m3e-list-item m3e-list-item--interactive" role="listitem" tabindex="0">
+          <div class="m3e-list-item__text"><span class="m3e-list-item__headline">Compact Item 3</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Menu -->
+  <section>
+    <h2>Menu</h2>
+    <div style="max-width: 280px;">
+      <div class="m3e-menu-container">
+        <div class="m3e-menu m3e-menu--open" role="menu">
+          <button class="m3e-menu-item" role="menuitem">
+            <span class="m3e-menu-item__icon material-symbols-outlined">content_cut</span>
+            Cut
+            <span class="m3e-menu-item__trailing">⌘X</span>
+          </button>
+          <button class="m3e-menu-item" role="menuitem">
+            <span class="m3e-menu-item__icon material-symbols-outlined">content_copy</span>
+            Copy
+            <span class="m3e-menu-item__trailing">⌘C</span>
+          </button>
+          <button class="m3e-menu-item" role="menuitem">
+            <span class="m3e-menu-item__icon material-symbols-outlined">content_paste</span>
+            Paste
+            <span class="m3e-menu-item__trailing">⌘V</span>
+          </button>
+          <hr class="m3e-divider" />
+          <button class="m3e-menu-item" role="menuitem">
+            <span class="m3e-menu-item__icon material-symbols-outlined">select_all</span>
+            Select all
+            <span class="m3e-menu-item__trailing">⌘A</span>
+          </button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Option Items -->
+  <section>
+    <h2>Option Items</h2>
+    <div style="max-width: 280px; border: 1px solid var(--md-sys-color-outline-variant); border-radius: 12px; overflow: hidden;">
+      <div class="m3e-option m3e-option--selected" role="option" aria-selected="true" tabindex="0">
+        <span class="m3e-option__check material-symbols-outlined">check</span>
+        <span class="m3e-option__text">Indonesia</span>
+      </div>
+      <div class="m3e-option" role="option" tabindex="0">
+        <span class="m3e-option__check"></span>
+        <span class="m3e-option__text">United States</span>
+      </div>
+      <div class="m3e-option" role="option" tabindex="0">
+        <span class="m3e-option__check"></span>
+        <span class="m3e-option__text">Japan</span>
+      </div>
+      <div class="m3e-option m3e-option--disabled" role="option" aria-disabled="true">
+        <span class="m3e-option__check"></span>
+        <span class="m3e-option__text">Unavailable</span>
+      </div>
+    </div>
+  </section>
+</body>
+</html>

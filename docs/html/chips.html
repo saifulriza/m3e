@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Chips — M3E CSS Demo</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet" />
+  <link rel="stylesheet" href="../../packages/css/src/tokens.css" />
+  <link rel="stylesheet" href="../../packages/css/src/components/chips.css" />
+  <link rel="stylesheet" href="demo-shared.css" />
+</head>
+<body>
+  <a class="back" href="index.html">← Back to all demos</a>
+  <h1>Chips</h1>
+  <p class="page-subtitle">Chips help users enter information, make selections, filter content, or trigger actions.</p>
+
+  <!-- Assist Chips -->
+  <section>
+    <h2>Assist Chips</h2>
+    <div class="demo-row">
+      <button class="m3e-chip">
+        <span class="m3e-chip__icon material-symbols-outlined">event</span>
+        Add to calendar
+      </button>
+      <button class="m3e-chip">
+        <span class="m3e-chip__icon material-symbols-outlined">directions</span>
+        Get directions
+      </button>
+      <button class="m3e-chip">
+        <span class="m3e-chip__icon material-symbols-outlined">call</span>
+        Call
+      </button>
+    </div>
+    <pre class="code">&lt;button class="m3e-chip"&gt;
+  &lt;span class="m3e-chip__icon material-symbols-outlined"&gt;event&lt;/span&gt;
+  Add to calendar
+&lt;/button&gt;</pre>
+  </section>
+
+  <!-- Filter Chips -->
+  <section>
+    <h2>Filter Chips</h2>
+    <div class="demo-row">
+      <button class="m3e-chip m3e-chip--selected" aria-selected="true">
+        <span class="m3e-chip__icon material-symbols-outlined">check</span>
+        Running
+      </button>
+      <button class="m3e-chip" aria-selected="false">
+        Walking
+      </button>
+      <button class="m3e-chip m3e-chip--selected" aria-selected="true">
+        <span class="m3e-chip__icon material-symbols-outlined">check</span>
+        Cycling
+      </button>
+      <button class="m3e-chip" aria-selected="false">
+        Hiking
+      </button>
+    </div>
+  </section>
+
+  <!-- Input Chips -->
+  <section>
+    <h2>Input Chips (Removable)</h2>
+    <div class="demo-row">
+      <span class="m3e-chip">
+        <span class="m3e-chip__icon material-symbols-outlined">person</span>
+        Alice
+        <button class="m3e-chip__remove" aria-label="Remove Alice">
+          <span class="material-symbols-outlined" style="font-size: 18px;">close</span>
+        </button>
+      </span>
+      <span class="m3e-chip">
+        <span class="m3e-chip__icon material-symbols-outlined">person</span>
+        Bob
+        <button class="m3e-chip__remove" aria-label="Remove Bob">
+          <span class="material-symbols-outlined" style="font-size: 18px;">close</span>
+        </button>
+      </span>
+      <span class="m3e-chip m3e-chip--selected">
+        <span class="m3e-chip__icon material-symbols-outlined">person</span>
+        Carol
+        <button class="m3e-chip__remove" aria-label="Remove Carol">
+          <span class="material-symbols-outlined" style="font-size: 18px;">close</span>
+        </button>
+      </span>
+    </div>
+  </section>
+
+  <!-- Suggestion Chips -->
+  <section>
+    <h2>Suggestion Chips</h2>
+    <div class="demo-row">
+      <button class="m3e-chip">Price: Low to High</button>
+      <button class="m3e-chip">Free shipping</button>
+      <button class="m3e-chip">On sale</button>
+      <button class="m3e-chip">4+ stars</button>
+    </div>
+  </section>
+
+  <!-- Elevated Chips -->
+  <section>
+    <h2>Elevated Chips</h2>
+    <div class="demo-row">
+      <button class="m3e-chip m3e-chip--elevated">
+        <span class="m3e-chip__icon material-symbols-outlined">location_on</span>
+        Nearby
+      </button>
+      <button class="m3e-chip m3e-chip--elevated">
+        <span class="m3e-chip__icon material-symbols-outlined">restaurant</span>
+        Restaurants
+      </button>
+      <button class="m3e-chip m3e-chip--elevated m3e-chip--selected" aria-selected="true">
+        <span class="m3e-chip__icon material-symbols-outlined">check</span>
+        Open now
+      </button>
+    </div>
+  </section>
+
+  <!-- Disabled -->
+  <section>
+    <h2>Disabled Chips</h2>
+    <div class="demo-row">
+      <button class="m3e-chip" disabled>Disabled</button>
+      <button class="m3e-chip m3e-chip--selected" disabled aria-selected="true">
+        <span class="m3e-chip__icon material-symbols-outlined">check</span>
+        Disabled Selected
+      </button>
+      <button class="m3e-chip m3e-chip--elevated" disabled>Disabled Elevated</button>
+    </div>
+  </section>
+</body>
+</html>

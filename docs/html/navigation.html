@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Navigation — M3E CSS Demo</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet" />
+  <link rel="stylesheet" href="../../packages/css/src/tokens.css" />
+  <link rel="stylesheet" href="../../packages/css/src/components/app-bar.css" />
+  <link rel="stylesheet" href="../../packages/css/src/components/nav-bar.css" />
+  <link rel="stylesheet" href="../../packages/css/src/components/nav-rail.css" />
+  <link rel="stylesheet" href="../../packages/css/src/components/nav-menu.css" />
+  <link rel="stylesheet" href="../../packages/css/src/components/tabs.css" />
+  <link rel="stylesheet" href="../../packages/css/src/components/drawer.css" />
+  <link rel="stylesheet" href="../../packages/css/src/components/drawer-container.css" />
+  <link rel="stylesheet" href="../../packages/css/src/components/icon-button.css" />
+  <link rel="stylesheet" href="demo-shared.css" />
+  <style>
+    .nav-preview {
+      background: var(--md-sys-color-surface-container);
+      border-radius: 16px;
+      overflow: hidden;
+      margin-bottom: 16px;
+    }
+  </style>
+</head>
+<body>
+  <a class="back" href="index.html">← Back to all demos</a>
+  <h1>Navigation</h1>
+  <p class="page-subtitle">App bars, navigation bars, rails, menus, drawers, and tabs — all per M3 spec.</p>
+
+  <!-- App Bar -->
+  <section>
+    <h2>App Bar (Top)</h2>
+    <h3>Small (default)</h3>
+    <div class="nav-preview">
+      <header class="m3e-app-bar" role="banner">
+        <button class="m3e-icon-button" aria-label="Menu">
+          <span class="material-symbols-outlined">menu</span>
+        </button>
+        <span class="m3e-app-bar__title">My App</span>
+        <div class="m3e-app-bar__actions">
+          <button class="m3e-icon-button" aria-label="Search">
+            <span class="material-symbols-outlined">search</span>
+          </button>
+          <button class="m3e-icon-button" aria-label="Account">
+            <span class="material-symbols-outlined">account_circle</span>
+          </button>
+        </div>
+      </header>
+    </div>
+
+    <h3>Center-aligned</h3>
+    <div class="nav-preview">
+      <header class="m3e-app-bar m3e-app-bar--center" role="banner">
+        <button class="m3e-icon-button" aria-label="Back">
+          <span class="material-symbols-outlined">arrow_back</span>
+        </button>
+        <span class="m3e-app-bar__title">Page Title</span>
+        <div class="m3e-app-bar__actions">
+          <button class="m3e-icon-button" aria-label="More">
+            <span class="material-symbols-outlined">more_vert</span>
+          </button>
+        </div>
+      </header>
+    </div>
+
+    <h3>Medium</h3>
+    <div class="nav-preview">
+      <header class="m3e-app-bar m3e-app-bar--medium" role="banner">
+        <button class="m3e-icon-button" aria-label="Menu">
+          <span class="material-symbols-outlined">menu</span>
+        </button>
+        <span class="m3e-app-bar__title">Medium App Bar</span>
+        <div class="m3e-app-bar__actions">
+          <button class="m3e-icon-button" aria-label="Search">
+            <span class="material-symbols-outlined">search</span>
+          </button>
+        </div>
+      </header>
+    </div>
+
+    <h3>Large</h3>
+    <div class="nav-preview">
+      <header class="m3e-app-bar m3e-app-bar--large" role="banner">
+        <button class="m3e-icon-button" aria-label="Menu">
+          <span class="material-symbols-outlined">menu</span>
+        </button>
+        <span class="m3e-app-bar__title">Large App Bar Title</span>
+        <div class="m3e-app-bar__actions">
+          <button class="m3e-icon-button" aria-label="Attach">
+            <span class="material-symbols-outlined">attach_file</span>
+          </button>
+          <button class="m3e-icon-button" aria-label="Calendar">
+            <span class="material-symbols-outlined">today</span>
+          </button>
+          <button class="m3e-icon-button" aria-label="More">
+            <span class="material-symbols-outlined">more_vert</span>
+          </button>
+        </div>
+      </header>
+    </div>
+
+    <h3>Elevated</h3>
+    <div class="nav-preview">
+      <header class="m3e-app-bar m3e-app-bar--elevated" role="banner">
+        <button class="m3e-icon-button" aria-label="Menu">
+          <span class="material-symbols-outlined">menu</span>
+        </button>
+        <span class="m3e-app-bar__title">Elevated App Bar</span>
+        <div class="m3e-app-bar__actions">
+          <button class="m3e-icon-button" aria-label="More">
+            <span class="material-symbols-outlined">more_vert</span>
+          </button>
+        </div>
+      </header>
+    </div>
+  </section>
+
+  <!-- Bottom Nav Bar -->
+  <section>
+    <h2>Bottom Navigation Bar</h2>
+    <div class="nav-preview">
+      <nav class="m3e-nav-bar" aria-label="Main navigation">
+        <a class="m3e-nav-bar__item m3e-nav-bar__item--active" href="#" aria-current="page">
+          <span class="m3e-nav-bar__icon material-symbols-outlined">home</span>
+          <span class="m3e-nav-bar__label">Home</span>
+        </a>
+        <a class="m3e-nav-bar__item" href="#">
+          <span class="m3e-nav-bar__icon material-symbols-outlined">explore</span>
+          <span class="m3e-nav-bar__label">Explore</span>
+        </a>
+        <a class="m3e-nav-bar__item" href="#">
+          <span class="m3e-nav-bar__icon material-symbols-outlined">library_books</span>
+          <span class="m3e-nav-bar__label">Library</span>
+        </a>
+        <a class="m3e-nav-bar__item" href="#">
+          <span class="m3e-nav-bar__icon material-symbols-outlined">person</span>
+          <span class="m3e-nav-bar__label">Profile</span>
+        </a>
+      </nav>
+    </div>
+    <pre class="code">&lt;nav class="m3e-nav-bar" aria-label="Main navigation"&gt;
+  &lt;a class="m3e-nav-bar__item m3e-nav-bar__item--active" aria-current="page"&gt;
+    &lt;span class="m3e-nav-bar__icon material-symbols-outlined"&gt;home&lt;/span&gt;
+    &lt;span class="m3e-nav-bar__label"&gt;Home&lt;/span&gt;
+  &lt;/a&gt;
+&lt;/nav&gt;</pre>
+  </section>
+
+  <!-- Navigation Rail -->
+  <section>
+    <h2>Navigation Rail</h2>
+    <div class="nav-preview" style="display: flex; height: 320px;">
+      <nav class="m3e-nav-rail" aria-label="Side navigation" style="position: relative; height: 100%;">
+        <div class="m3e-nav-rail__fab" style="margin-bottom: 24px; text-align: center;">
+          <button style="width: 56px; height: 56px; border-radius: 16px; border: none; background: var(--md-sys-color-primary-container); color: var(--md-sys-color-on-primary-container); cursor: pointer;" aria-label="Compose">
+            <span class="material-symbols-outlined">edit</span>
+          </button>
+        </div>
+        <a class="m3e-nav-rail__item m3e-nav-rail__item--active" href="#" aria-current="page">
+          <span class="m3e-nav-rail__icon material-symbols-outlined">inbox</span>
+          <span class="m3e-nav-rail__label">Inbox</span>
+        </a>
+        <a class="m3e-nav-rail__item" href="#">
+          <span class="m3e-nav-rail__icon material-symbols-outlined">article</span>
+          <span class="m3e-nav-rail__label">Articles</span>
+        </a>
+        <a class="m3e-nav-rail__item" href="#">
+          <span class="m3e-nav-rail__icon material-symbols-outlined">chat</span>
+          <span class="m3e-nav-rail__label">Chat</span>
+        </a>
+        <a class="m3e-nav-rail__item" href="#">
+          <span class="m3e-nav-rail__icon material-symbols-outlined">videocam</span>
+          <span class="m3e-nav-rail__label">Rooms</span>
+        </a>
+      </nav>
+      <div style="flex: 1; padding: 16px; color: var(--md-sys-color-on-surface-variant);">
+        Content area next to navigation rail
+      </div>
+    </div>
+  </section>
+
+  <!-- Expanded Navigation Rail -->
+  <section>
+    <h2>Navigation Rail — Expanded</h2>
+    <div class="nav-preview" style="display: flex; height: 320px;">
+      <nav class="m3e-nav-rail m3e-nav-rail--expanded" aria-label="Expanded navigation" style="position: relative; height: 100%;">
+        <a class="m3e-nav-rail__item m3e-nav-rail__item--active" href="#" aria-current="page">
+          <span class="m3e-nav-rail__icon material-symbols-outlined">dashboard</span>
+          <span class="m3e-nav-rail__label">Dashboard</span>
+        </a>
+        <a class="m3e-nav-rail__item" href="#">
+          <span class="m3e-nav-rail__icon material-symbols-outlined">analytics</span>
+          <span class="m3e-nav-rail__label">Analytics</span>
+        </a>
+        <a class="m3e-nav-rail__item" href="#">
+          <span class="m3e-nav-rail__icon material-symbols-outlined">settings</span>
+          <span class="m3e-nav-rail__label">Settings</span>
+        </a>
+      </nav>
+      <div style="flex: 1; padding: 16px; color: var(--md-sys-color-on-surface-variant);">
+        Content area next to expanded rail
+      </div>
+    </div>
+  </section>
+
+  <!-- Navigation Menu -->
+  <section>
+    <h2>Navigation Menu</h2>
+    <div class="nav-preview" style="padding: 16px;">
+      <nav class="m3e-nav-menu" aria-label="File menu" style="max-width: 280px;">
+        <div class="m3e-nav-menu__section-header">Main</div>
+        <a class="m3e-nav-menu__item m3e-nav-menu__item--active" href="#">
+          <span class="m3e-nav-menu__icon material-symbols-outlined">home</span>
+          <span class="m3e-nav-menu__label">Home</span>
+        </a>
+        <a class="m3e-nav-menu__item" href="#">
+          <span class="m3e-nav-menu__icon material-symbols-outlined">inbox</span>
+          <span class="m3e-nav-menu__label">Inbox</span>
+          <span class="m3e-nav-menu__badge">24</span>
+        </a>
+        <div class="m3e-nav-menu__divider"></div>
+        <div class="m3e-nav-menu__section-header">Categories</div>
+        <div class="m3e-nav-menu__group m3e-nav-menu__group--expanded">
+          <a class="m3e-nav-menu__item" href="#">
+            <span class="m3e-nav-menu__icon material-symbols-outlined">folder</span>
+            <span class="m3e-nav-menu__label">Projects</span>
+          </a>
+          <div class="m3e-nav-menu__group-items">
+            <a class="m3e-nav-menu__item" href="#" style="padding-left: 48px;">
+              <span class="m3e-nav-menu__label">Design</span>
+            </a>
+            <a class="m3e-nav-menu__item" href="#" style="padding-left: 48px;">
+              <span class="m3e-nav-menu__label">Development</span>
+            </a>
+          </div>
+        </div>
+        <a class="m3e-nav-menu__item" href="#">
+          <span class="m3e-nav-menu__icon material-symbols-outlined">settings</span>
+          <span class="m3e-nav-menu__label">Settings</span>
+        </a>
+      </nav>
+    </div>
+  </section>
+
+  <!-- Tabs -->
+  <section>
+    <h2>Tabs — Primary</h2>
+    <div class="nav-preview">
+      <div class="m3e-tabs" role="tablist" aria-label="Content tabs">
+        <button class="m3e-tab m3e-tab--active" role="tab" aria-selected="true">
+          <span class="m3e-tab__icon material-symbols-outlined">flight</span>
+          Flights
+        </button>
+        <button class="m3e-tab" role="tab" aria-selected="false">
+          <span class="m3e-tab__icon material-symbols-outlined">hotel</span>
+          Hotels
+        </button>
+        <button class="m3e-tab" role="tab" aria-selected="false">
+          <span class="m3e-tab__icon material-symbols-outlined">explore</span>
+          Explore
+        </button>
+      </div>
+    </div>
+
+    <h2>Tabs — Secondary</h2>
+    <div class="nav-preview">
+      <div class="m3e-tabs m3e-tabs--secondary" role="tablist" aria-label="Section tabs">
+        <button class="m3e-tab m3e-tab--active" role="tab" aria-selected="true">Overview</button>
+        <button class="m3e-tab" role="tab" aria-selected="false">Specifications</button>
+        <button class="m3e-tab" role="tab" aria-selected="false">Reviews</button>
+        <button class="m3e-tab" role="tab" aria-selected="false">Related</button>
+      </div>
+    </div>
+
+    <h2>Tabs — Scrollable</h2>
+    <div class="nav-preview">
+      <div class="m3e-tabs m3e-tabs--scrollable" role="tablist" aria-label="Long tabs">
+        <button class="m3e-tab m3e-tab--active" role="tab">Tab One</button>
+        <button class="m3e-tab" role="tab">Tab Two</button>
+        <button class="m3e-tab" role="tab">Tab Three</button>
+        <button class="m3e-tab" role="tab">Tab Four</button>
+        <button class="m3e-tab" role="tab">Tab Five</button>
+        <button class="m3e-tab" role="tab">Tab Six</button>
+        <button class="m3e-tab" role="tab">Tab Seven</button>
+        <button class="m3e-tab" role="tab">Tab Eight</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- Drawer -->
+  <section>
+    <h2>Navigation Drawer</h2>
+    <div class="nav-preview" style="display: flex; height: 320px; position: relative;">
+      <nav class="m3e-drawer m3e-drawer--open" role="navigation" style="position: relative;">
+        <div class="m3e-drawer__header">
+          <div class="m3e-drawer__title">Mail</div>
+        </div>
+        <div class="m3e-drawer__content">
+          <a class="m3e-drawer__item m3e-drawer__item--active" href="#">
+            <span class="m3e-drawer__item-icon material-symbols-outlined">inbox</span>
+            <span class="m3e-drawer__item-label">Inbox</span>
+            <span class="m3e-drawer__item-badge">24</span>
+          </a>
+          <a class="m3e-drawer__item" href="#">
+            <span class="m3e-drawer__item-icon material-symbols-outlined">send</span>
+            <span class="m3e-drawer__item-label">Sent</span>
+          </a>
+          <a class="m3e-drawer__item" href="#">
+            <span class="m3e-drawer__item-icon material-symbols-outlined">drafts</span>
+            <span class="m3e-drawer__item-label">Drafts</span>
+            <span class="m3e-drawer__item-badge">3</span>
+          </a>
+          <a class="m3e-drawer__item" href="#">
+            <span class="m3e-drawer__item-icon material-symbols-outlined">delete</span>
+            <span class="m3e-drawer__item-label">Trash</span>
+          </a>
+        </div>
+      </nav>
+      <div style="flex: 1; padding: 16px; color: var(--md-sys-color-on-surface-variant);">
+        Content area next to drawer
+      </div>
+    </div>
+  </section>
+</body>
+</html>
