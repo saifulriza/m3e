@@ -1,77 +1,267 @@
 /* ==========================================================================
    M3E FAB Menu
-   CSS classes for Material 3 Expressive FAB menus.
+   CSS classes for Material 3 Expressive floating action button menus.
+   Matches the Lit web component (m3e-fab-menu, m3e-fab-menu-item) spec.
 
    Usage:
-     <div class="m3e-fab-menu">
-       <button class="m3e-fab">
-         <span class="m3e-fab__icon">add</span>
+     <div class="m3e-fab-menu-wrapper">
+       <button class="m3e-fab m3e-fab--large">
+         <span class="m3e-fab__icon">edit</span>
        </button>
-       <div class="m3e-fab-menu__items m3e-fab-menu__items--open">
-         <button class="m3e-fab m3e-fab--small m3e-fab--secondary">
-           <span class="m3e-fab__icon">edit</span>
-         </button>
-         <button class="m3e-fab m3e-fab--small m3e-fab--tertiary">
-           <span class="m3e-fab__icon">share</span>
+       <div class="m3e-fab-menu m3e-fab-menu--open m3e-fab-menu--secondary">
+         <button class="m3e-fab-menu-item">
+           <span class="m3e-fab-menu-item__wrapper">
+             <span class="m3e-fab-menu-item__icon">share</span>
+             <span class="m3e-fab-menu-item__label">Share</span>
+           </span>
          </button>
        </div>
      </div>
    ========================================================================== */
 
+/* --------------------------------------------------------------------------
+   Menu container
+   -------------------------------------------------------------------------- */
+
 .m3e-fab-menu {
+  position: absolute;
+  display: none;
+  flex-direction: column;
+  row-gap: var(--m3e-fab-menu-spacing, 0.25rem);
+  max-width: var(--m3e-fab-menu-max-width, 17.5rem);
+  opacity: 0;
+  transform: scaleX(0.8);
+  background-color: transparent;
+  padding: 0;
+  margin: 0;
+  border: none;
+  overflow: visible;
+  z-index: 50;
+  list-style: none;
+}
+
+/* Alignment */
+.m3e-fab-menu--align-start {
+  align-items: flex-start;
+  transform-origin: left;
+}
+
+.m3e-fab-menu--align-end {
+  align-items: flex-end;
+  transform-origin: right;
+}
+
+/* Open state */
+.m3e-fab-menu--open {
+  display: inline-flex;
+  opacity: 1;
+  transform: scaleX(1);
+}
+
+/* Animation */
+.m3e-fab-menu--animated {
+  transition:
+    opacity var(--md-sys-motion-duration-medium-2) var(--md-sys-motion-easing-emphasized-decelerate),
+    transform var(--md-sys-motion-duration-medium-2) var(--md-sys-motion-easing-emphasized-decelerate);
+}
+
+/* --------------------------------------------------------------------------
+   Variant color tokens (applied to menu, inherited by items)
+   -------------------------------------------------------------------------- */
+
+/* Primary (default) */
+.m3e-fab-menu,
+.m3e-fab-menu--primary {
+  --_fab-menu-item-color: var(--m3e-primary-fab-color, var(--md-sys-color-on-primary-container));
+  --_fab-menu-item-container-color: var(--m3e-primary-fab-container-color, var(--md-sys-color-primary-container));
+  --_fab-menu-item-hover-color: var(--m3e-primary-fab-hover-color, var(--md-sys-color-on-primary-container));
+  --_fab-menu-item-focus-color: var(--m3e-primary-fab-focus-color, var(--md-sys-color-on-primary-container));
+}
+
+/* Secondary */
+.m3e-fab-menu--secondary {
+  --_fab-menu-item-color: var(--m3e-secondary-fab-color, var(--md-sys-color-on-secondary-container));
+  --_fab-menu-item-container-color: var(--m3e-secondary-fab-container-color, var(--md-sys-color-secondary-container));
+  --_fab-menu-item-hover-color: var(--m3e-secondary-fab-hover-color, var(--md-sys-color-on-secondary-container));
+  --_fab-menu-item-focus-color: var(--m3e-secondary-fab-focus-color, var(--md-sys-color-on-secondary-container));
+}
+
+/* Tertiary */
+.m3e-fab-menu--tertiary {
+  --_fab-menu-item-color: var(--m3e-tertiary-fab-color, var(--md-sys-color-on-tertiary-container));
+  --_fab-menu-item-container-color: var(--m3e-tertiary-fab-container-color, var(--md-sys-color-tertiary-container));
+  --_fab-menu-item-hover-color: var(--m3e-tertiary-fab-hover-color, var(--md-sys-color-on-tertiary-container));
+  --_fab-menu-item-focus-color: var(--m3e-tertiary-fab-focus-color, var(--md-sys-color-on-tertiary-container));
+}
+
+/* --------------------------------------------------------------------------
+   Menu item
+   -------------------------------------------------------------------------- */
+
+.m3e-fab-menu-item {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  width: 100%;
+  box-sizing: border-box;
+  height: var(--m3e-fab-menu-item-height, 3.5rem);
+  border-radius: var(--m3e-fab-menu-item-shape, 1.75rem);
+  background-color: var(--_fab-menu-item-container-color);
+  color: var(--_fab-menu-item-color);
+  border: none;
+  cursor: pointer;
+  outline: none;
+  user-select: none;
+  -webkit-tap-highlight-color: transparent;
+  font-family: var(--md-sys-typescale-label-large-font-family, var(--md-ref-typeface-plain, system-ui));
+  font-size: var(--m3e-fab-menu-item-font-size, var(--md-sys-typescale-label-large-font-size, 0.875rem));
+  font-weight: var(--m3e-fab-menu-item-font-weight, var(--md-sys-typescale-label-large-font-weight, 500));
+  line-height: var(--m3e-fab-menu-item-line-height, var(--md-sys-typescale-label-large-line-height, 1.25rem));
+  letter-spacing: var(--m3e-fab-menu-item-tracking, var(--md-sys-typescale-label-large-letter-spacing, 0.01em));
+  text-decoration: none;
+  transition:
+    background-color var(--md-sys-motion-duration-short4, 200ms) var(--md-sys-motion-easing-standard, cubic-bezier(0.2, 0, 0, 1)),
+    box-shadow var(--md-sys-motion-duration-short4, 200ms) var(--md-sys-motion-easing-standard, cubic-bezier(0.2, 0, 0, 1));
+  box-shadow: var(--md-sys-elevation-1, 0 1px 3px 1px rgba(0,0,0,.15), 0 1px 2px rgba(0,0,0,.3));
+}
+
+/* Item content layout */
+.m3e-fab-menu-item__wrapper {
+  display: inline-flex;
+  align-items: center;
+  width: 100%;
+  overflow: hidden;
+  padding-inline-start: var(--m3e-fab-menu-item-leading-space, 1rem);
+  padding-inline-end: var(--m3e-fab-menu-item-trailing-space, 1.5rem);
+  column-gap: var(--m3e-fab-menu-item-spacing, 0.75rem);
+}
+
+/* Icon */
+.m3e-fab-menu-item__icon {
+  font-family: "Material Symbols Outlined", sans-serif;
+  font-size: var(--m3e-fab-menu-item-icon-size, 1.5rem);
+  color: inherit;
+  flex: none;
+  font-weight: normal;
+  font-style: normal;
+  line-height: 1;
+  letter-spacing: normal;
+  text-transform: none;
+  white-space: nowrap;
+  word-wrap: normal;
+  direction: ltr;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Label */
+.m3e-fab-menu-item__label {
+  flex: 1 1 auto;
+  text-align: start;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  color: inherit;
+}
+
+/* Touch target */
+.m3e-fab-menu-item__touch {
+  position: absolute;
+  height: 3rem;
+  left: 0;
+  right: 0;
+}
+
+/* --------------------------------------------------------------------------
+   Item states
+   -------------------------------------------------------------------------- */
+
+/* Hover */
+.m3e-fab-menu-item:hover:not(:disabled) {
+  box-shadow: var(--md-sys-elevation-2, 0 2px 6px 2px rgba(0,0,0,.15), 0 1px 2px rgba(0,0,0,.3));
+  background-image: linear-gradient(
+    color-mix(in srgb, var(--_fab-menu-item-hover-color) 8%, transparent),
+    color-mix(in srgb, var(--_fab-menu-item-hover-color) 8%, transparent)
+  );
+}
+
+/* Focus-visible */
+.m3e-fab-menu-item:focus-visible:not(:disabled) {
+  outline: 3px solid var(--md-sys-color-secondary, #625b71);
+  outline-offset: 2px;
+  background-image: linear-gradient(
+    color-mix(in srgb, var(--_fab-menu-item-focus-color) 10%, transparent),
+    color-mix(in srgb, var(--_fab-menu-item-focus-color) 10%, transparent)
+  );
+}
+
+/* Active / pressed */
+.m3e-fab-menu-item:active:not(:disabled) {
+  box-shadow: var(--md-sys-elevation-1, 0 1px 3px 1px rgba(0,0,0,.15), 0 1px 2px rgba(0,0,0,.3));
+  background-image: linear-gradient(
+    color-mix(in srgb, var(--_fab-menu-item-hover-color) 10%, transparent),
+    color-mix(in srgb, var(--_fab-menu-item-hover-color) 10%, transparent)
+  );
+}
+
+/* Disabled */
+.m3e-fab-menu-item:disabled,
+.m3e-fab-menu-item--disabled {
+  cursor: default;
+  background-color: color-mix(in srgb, var(--md-sys-color-on-surface) 12%, transparent);
+  color: color-mix(in srgb, var(--md-sys-color-on-surface) 38%, transparent);
+  box-shadow: none;
+  pointer-events: none;
+}
+
+/* Link variant (anchor tag) */
+a.m3e-fab-menu-item {
+  display: inline-flex;
+}
+
+/* --------------------------------------------------------------------------
+   Wrapper: positions trigger + menu together
+   -------------------------------------------------------------------------- */
+
+.m3e-fab-menu-wrapper {
   display: inline-flex;
   flex-direction: column-reverse;
   align-items: center;
   position: relative;
 }
 
-.m3e-fab-menu__items {
-  display: none;
-  flex-direction: column;
-  align-items: center;
-  gap: var(--m3e-fab-menu-spacing, 0.25rem);
-  padding-bottom: 0.5rem;
-  max-width: 17.5rem;
+.m3e-fab-menu-wrapper .m3e-fab-menu {
+  bottom: 100%;
+  margin-bottom: 0.5rem;
 }
 
-.m3e-fab-menu__items--open {
-  display: flex;
-}
-
-/* Animation for items appearing */
-.m3e-fab-menu__items--animated {
-  animation: m3e-fab-menu-in var(--md-sys-motion-duration-medium-2) var(--md-sys-motion-easing-emphasized-decelerate);
-}
-
-@keyframes m3e-fab-menu-in {
-  from {
-    opacity: 0;
-    transform: scale(0.8) translateY(0.5rem);
-  }
-  to {
-    opacity: 1;
-    transform: scale(1) translateY(0);
-  }
-}
-
-/* Label for items */
-.m3e-fab-menu__label {
-  font-size: var(--md-sys-typescale-label-large-font-size);
-  font-weight: var(--md-sys-typescale-label-large-font-weight);
-  color: var(--md-sys-color-on-surface);
-  white-space: nowrap;
-}
-
-/* Item with label */
-.m3e-fab-menu__item {
-  display: flex;
-  align-items: center;
-  gap: 0.75rem;
-  flex-direction: row-reverse;
-}
+/* --------------------------------------------------------------------------
+   Reduced motion & forced colors
+   -------------------------------------------------------------------------- */
 
 @media (prefers-reduced-motion) {
-  .m3e-fab-menu__items--animated {
-    animation: none;
+  .m3e-fab-menu--animated {
+    transition: none;
+  }
+
+  .m3e-fab-menu-item {
+    transition: none;
+  }
+}
+
+@media (forced-colors: active) {
+  .m3e-fab-menu {
+    border-radius: 0.75rem;
+    border: 1px solid MenuText;
+    background-color: Menu;
+  }
+
+  .m3e-fab-menu-item:not(:disabled) {
+    background-color: Menu;
+    color: MenuText;
+  }
+
+  .m3e-fab-menu-item:disabled {
+    color: GrayText;
   }
 }

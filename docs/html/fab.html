@@ -84,31 +84,59 @@
   <!-- FAB Menu -->
   <section>
     <h2>FAB Menu</h2>
-    <div style="position: relative; height: 280px;">
-      <div class="m3e-fab-menu" style="position: absolute; bottom: 16px; right: 16px;">
-        <div class="m3e-fab-menu__items m3e-fab-menu__items--open m3e-fab-menu__items--animated">
-          <div class="m3e-fab-menu__item">
-            <span class="m3e-fab-menu__label">New file</span>
-            <button class="m3e-fab m3e-fab--small m3e-fab--tertiary" aria-label="New file">
-              <span class="m3e-fab__icon material-symbols-outlined">description</span>
-            </button>
-          </div>
-          <div class="m3e-fab-menu__item">
-            <span class="m3e-fab-menu__label">New folder</span>
-            <button class="m3e-fab m3e-fab--small m3e-fab--secondary" aria-label="New folder">
-              <span class="m3e-fab__icon material-symbols-outlined">folder</span>
-            </button>
-          </div>
-          <div class="m3e-fab-menu__item">
-            <span class="m3e-fab-menu__label">Upload</span>
-            <button class="m3e-fab m3e-fab--small m3e-fab--surface" aria-label="Upload">
-              <span class="m3e-fab__icon material-symbols-outlined">upload</span>
-            </button>
-          </div>
-        </div>
-        <button class="m3e-fab" aria-label="Menu" aria-expanded="true">
+    <div style="position: relative; height: 300px;">
+      <!-- Primary variant with secondary items -->
+      <div class="m3e-fab-menu-wrapper" style="position: absolute; bottom: 16px; right: 16px;">
+        <button class="m3e-fab m3e-fab--large m3e-fab--primary" aria-label="Menu" aria-expanded="true" aria-haspopup="menu">
           <span class="m3e-fab__icon material-symbols-outlined">add</span>
         </button>
+        <div class="m3e-fab-menu m3e-fab-menu--open m3e-fab-menu--animated m3e-fab-menu--secondary" role="menu" aria-label="Create actions">
+          <button class="m3e-fab-menu-item" role="menuitem">
+            <span class="m3e-fab-menu-item__wrapper">
+              <span class="m3e-fab-menu-item__icon material-symbols-outlined">description</span>
+              <span class="m3e-fab-menu-item__label">New file</span>
+            </span>
+          </button>
+          <button class="m3e-fab-menu-item" role="menuitem">
+            <span class="m3e-fab-menu-item__wrapper">
+              <span class="m3e-fab-menu-item__icon material-symbols-outlined">folder</span>
+              <span class="m3e-fab-menu-item__label">New folder</span>
+            </span>
+          </button>
+          <button class="m3e-fab-menu-item" role="menuitem">
+            <span class="m3e-fab-menu-item__wrapper">
+              <span class="m3e-fab-menu-item__icon material-symbols-outlined">upload</span>
+              <span class="m3e-fab-menu-item__label">Upload</span>
+            </span>
+          </button>
+          <button class="m3e-fab-menu-item" role="menuitem" disabled>
+            <span class="m3e-fab-menu-item__wrapper">
+              <span class="m3e-fab-menu-item__icon material-symbols-outlined">block</span>
+              <span class="m3e-fab-menu-item__label">Disabled</span>
+            </span>
+          </button>
+        </div>
+      </div>
+
+      <!-- Tertiary variant -->
+      <div class="m3e-fab-menu-wrapper" style="position: absolute; bottom: 16px; left: 16px;">
+        <button class="m3e-fab m3e-fab--large m3e-fab--tertiary" aria-label="Edit" aria-expanded="true" aria-haspopup="menu">
+          <span class="m3e-fab__icon material-symbols-outlined">edit</span>
+        </button>
+        <div class="m3e-fab-menu m3e-fab-menu--open m3e-fab-menu--animated m3e-fab-menu--tertiary" role="menu" aria-label="Edit actions">
+          <button class="m3e-fab-menu-item" role="menuitem">
+            <span class="m3e-fab-menu-item__wrapper">
+              <span class="m3e-fab-menu-item__icon material-symbols-outlined">draw</span>
+              <span class="m3e-fab-menu-item__label">Draw</span>
+            </span>
+          </button>
+          <button class="m3e-fab-menu-item" role="menuitem">
+            <span class="m3e-fab-menu-item__wrapper">
+              <span class="m3e-fab-menu-item__icon material-symbols-outlined">highlight</span>
+              <span class="m3e-fab-menu-item__label">Highlight</span>
+            </span>
+          </button>
+        </div>
       </div>
     </div>
   </section>

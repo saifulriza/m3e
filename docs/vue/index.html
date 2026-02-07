@@ -860,27 +860,76 @@
     <!-- ======== FAB MENU ======== -->
     <section>
       <h2>FAB Menu</h2>
-      <div style="position: relative; height: 200px; border: 1px solid var(--md-sys-color-outline-variant); border-radius: 16px; overflow: visible;">
-        <div class="m3e-fab-menu" style="position: absolute; bottom: 16px; right: 16px;">
-          <div class="m3e-fab-menu__items" :class="{ 'm3e-fab-menu__items--open': fabMenuOpen }">
-            <button v-for="action in fabMenuActions" :key="action.label"
-                    class="m3e-fab m3e-fab--small m3e-fab--surface m3e-fab-menu__item"
-                    :aria-label="action.label"
-                    @click="fabMenuResult = action.label; fabMenuOpen = false">
-              <span class="m3e-fab__icon material-symbols-outlined">{{ action.icon }}</span>
-              <span class="m3e-fab-menu__label">{{ action.label }}</span>
-            </button>
-          </div>
-          <button class="m3e-fab m3e-fab--primary" :aria-expanded="fabMenuOpen" aria-haspopup="true"
-                  @click="fabMenuOpen = !fabMenuOpen" :aria-label="fabMenuOpen ? 'Close menu' : 'Open actions'">
+      <div style="position: relative; height: 280px; border: 1px solid var(--md-sys-color-outline-variant); border-radius: 16px; overflow: visible;">
+        <!-- Primary variant -->
+        <div class="m3e-fab-menu-wrapper" style="position: absolute; bottom: 16px; right: 16px;">
+          <button class="m3e-fab m3e-fab--large m3e-fab--primary"
+                  :aria-expanded="String(fabMenuOpen)" aria-haspopup="menu"
+                  :aria-label="fabMenuOpen ? 'Close menu' : 'Open actions'"
+                  @click.stop="fabMenuOpen = !fabMenuOpen">
             <span class="m3e-fab__icon material-symbols-outlined"
                   :style="{ transform: fabMenuOpen ? 'rotate(45deg)' : '', transition: 'transform 0.2s' }">
               add
             </span>
           </button>
+          <div class="m3e-fab-menu m3e-fab-menu--secondary"
+               :class="{ 'm3e-fab-menu--open': fabMenuOpen, 'm3e-fab-menu--animated': true }"
+               role="menu" aria-label="Actions">
+            <button v-for="action in fabMenuActions" :key="action.label"
+                    class="m3e-fab-menu-item" role="menuitem"
+                    @click="fabMenuResult = action.label; fabMenuOpen = false">
+              <span class="m3e-fab-menu-item__wrapper">
+                <span class="m3e-fab-menu-item__icon material-symbols-outlined">{{ action.icon }}</span>
+                <span class="m3e-fab-menu-item__label">{{ action.label }}</span>
+              </span>
+            </button>
+            <button class="m3e-fab-menu-item" role="menuitem" disabled>
+              <span class="m3e-fab-menu-item__wrapper">
+                <span class="m3e-fab-menu-item__icon material-symbols-outlined">block</span>
+                <span class="m3e-fab-menu-item__label">Disabled</span>
+              </span>
+            </button>
+          </div>
+        </div>
+
+        <!-- Tertiary variant -->
+        <div class="m3e-fab-menu-wrapper" style="position: absolute; bottom: 16px; left: 16px;">
+          <button class="m3e-fab m3e-fab--large m3e-fab--tertiary"
+                  :aria-expanded="String(fabMenu2Open)" aria-haspopup="menu"
+                  @click.stop="fabMenu2Open = !fabMenu2Open">
+            <span class="m3e-fab__icon material-symbols-outlined"
+                  :style="{ transform: fabMenu2Open ? 'rotate(45deg)' : '', transition: 'transform 0.2s' }">
+              edit
+            </span>
+          </button>
+          <div class="m3e-fab-menu m3e-fab-menu--tertiary"
+               :class="{ 'm3e-fab-menu--open': fabMenu2Open, 'm3e-fab-menu--animated': true }"
+               role="menu" aria-label="Edit actions">
+            <button class="m3e-fab-menu-item" role="menuitem"
+                    @click="fabMenuResult = 'Draw'; fabMenu2Open = false">
+              <span class="m3e-fab-menu-item__wrapper">
+                <span class="m3e-fab-menu-item__icon material-symbols-outlined">draw</span>
+                <span class="m3e-fab-menu-item__label">Draw</span>
+              </span>
+            </button>
+            <button class="m3e-fab-menu-item" role="menuitem"
+                    @click="fabMenuResult = 'Highlight'; fabMenu2Open = false">
+              <span class="m3e-fab-menu-item__wrapper">
+                <span class="m3e-fab-menu-item__icon material-symbols-outlined">highlight</span>
+                <span class="m3e-fab-menu-item__label">Highlight</span>
+              </span>
+            </button>
+            <button class="m3e-fab-menu-item" role="menuitem"
+                    @click="fabMenuResult = 'Erase'; fabMenu2Open = false">
+              <span class="m3e-fab-menu-item__wrapper">
+                <span class="m3e-fab-menu-item__icon material-symbols-outlined">ink_eraser</span>
+                <span class="m3e-fab-menu-item__label">Erase</span>
+              </span>
+            </button>
+          </div>
         </div>
       </div>
-      <span class="state-display">fabMenuOpen: {{ fabMenuOpen }} | action: "{{ fabMenuResult }}"</span>
+      <span class="state-display">fabMenuOpen: {{ fabMenuOpen }} | fabMenu2Open: {{ fabMenu2Open }} | action: "{{ fabMenuResult }}"</span>
     </section>
 
     <!-- ======== SPLIT BUTTON ======== -->
@@ -1087,7 +1136,7 @@
 
   <script src="https://unpkg.com/vue@3/dist/vue.global.prod.js"></script>
   <script>
-    const { createApp, ref, reactive, computed, watch } = Vue;
+    const { createApp, ref, reactive, computed, watch, onMounted, onBeforeUnmount } = Vue;
 
     createApp({
       setup() {
@@ -1301,12 +1350,22 @@
 
         // FAB Menu
         const fabMenuOpen = ref(false);
+        const fabMenu2Open = ref(false);
         const fabMenuResult = ref('');
         const fabMenuActions = [
           { icon: 'image', label: 'Photo' },
           { icon: 'videocam', label: 'Video' },
           { icon: 'mic', label: 'Audio' },
         ];
+        // Click outside closes FAB menus
+        const closeFabMenus = (e) => {
+          if (!e.target.closest('.m3e-fab-menu-wrapper')) {
+            fabMenuOpen.value = false;
+            fabMenu2Open.value = false;
+          }
+        };
+        onMounted(() => document.addEventListener('click', closeFabMenus));
+        onBeforeUnmount(() => document.removeEventListener('click', closeFabMenus));
 
         // Split Button
         const splitOpen = ref(false);
@@ -1399,7 +1458,7 @@
           shapes,
           acQuery, acValue, acOpen, filteredCountries,
           bgAlign,
-          fabMenuOpen, fabMenuResult, fabMenuActions,
+          fabMenuOpen, fabMenu2Open, fabMenuResult, fabMenuActions,
           splitOpen, splitPrimary, splitAction, splitIcons,
           navRailExpanded, navRailItems, activeNavRailItem,
           navMenuItems, activeNavMenuItem, navMenuGroupOpen,

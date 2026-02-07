@@ -14,6 +14,7 @@ import MDrawer from "./components/MDrawer.vue";
 import MExpansionPanel from "./components/MExpansionPanel.vue";
 import MFab from "./components/MFab.vue";
 import MFabMenu from "./components/MFabMenu.vue";
+import MFabMenuItem from "./components/MFabMenuItem.vue";
 import MHeading from "./components/MHeading.vue";
 import MIcon from "./components/MIcon.vue";
 import MIconButton from "./components/MIconButton.vue";
@@ -65,6 +66,7 @@ export {
   MExpansionPanel,
   MFab,
   MFabMenu,
+  MFabMenuItem,
   MHeading,
   MIcon,
   MIconButton,
@@ -118,6 +120,7 @@ const allComponents = {
   MExpansionPanel,
   MFab,
   MFabMenu,
+  MFabMenuItem,
   MHeading,
   MIcon,
   MIconButton,
