@@ -1,0 +1,162 @@
+/* ==========================================================================
+   M3E Typography
+   CSS utility classes for Material 3 Expressive typescale.
+
+   Usage:
+     <h1 class="m3e-display-large">Display Large</h1>
+     <p class="m3e-body-large">Body text</p>
+     <span class="m3e-label-small">Label</span>
+   ========================================================================== */
+
+/* --------------------------------------------------------------------------
+   Display
+   -------------------------------------------------------------------------- */
+.m3e-display-large {
+  font-size: var(--md-sys-typescale-display-large-font-size);
+  font-weight: var(--md-sys-typescale-display-large-font-weight);
+  line-height: var(--md-sys-typescale-display-large-line-height);
+  letter-spacing: var(--md-sys-typescale-display-large-tracking);
+}
+
+.m3e-display-medium {
+  font-size: var(--md-sys-typescale-display-medium-font-size);
+  font-weight: var(--md-sys-typescale-display-medium-font-weight);
+  line-height: var(--md-sys-typescale-display-medium-line-height);
+  letter-spacing: var(--md-sys-typescale-display-medium-tracking);
+}
+
+.m3e-display-small {
+  font-size: var(--md-sys-typescale-display-small-font-size);
+  font-weight: var(--md-sys-typescale-display-small-font-weight);
+  line-height: var(--md-sys-typescale-display-small-line-height);
+  letter-spacing: var(--md-sys-typescale-display-small-tracking);
+}
+
+/* --------------------------------------------------------------------------
+   Headline
+   -------------------------------------------------------------------------- */
+.m3e-headline-large {
+  font-size: var(--md-sys-typescale-headline-large-font-size);
+  font-weight: var(--md-sys-typescale-headline-large-font-weight);
+  line-height: var(--md-sys-typescale-headline-large-line-height);
+  letter-spacing: var(--md-sys-typescale-headline-large-tracking);
+}
+
+.m3e-headline-medium {
+  font-size: var(--md-sys-typescale-headline-medium-font-size);
+  font-weight: var(--md-sys-typescale-headline-medium-font-weight);
+  line-height: var(--md-sys-typescale-headline-medium-line-height);
+  letter-spacing: var(--md-sys-typescale-headline-medium-tracking);
+}
+
+.m3e-headline-small {
+  font-size: var(--md-sys-typescale-headline-small-font-size);
+  font-weight: var(--md-sys-typescale-headline-small-font-weight);
+  line-height: var(--md-sys-typescale-headline-small-line-height);
+  letter-spacing: var(--md-sys-typescale-headline-small-tracking);
+}
+
+/* --------------------------------------------------------------------------
+   Title
+   -------------------------------------------------------------------------- */
+.m3e-title-large {
+  font-size: var(--md-sys-typescale-title-large-font-size);
+  font-weight: var(--md-sys-typescale-title-large-font-weight);
+  line-height: var(--md-sys-typescale-title-large-line-height);
+  letter-spacing: var(--md-sys-typescale-title-large-tracking);
+}
+
+.m3e-title-medium {
+  font-size: var(--md-sys-typescale-title-medium-font-size);
+  font-weight: var(--md-sys-typescale-title-medium-font-weight);
+  line-height: var(--md-sys-typescale-title-medium-line-height);
+  letter-spacing: var(--md-sys-typescale-title-medium-tracking);
+}
+
+.m3e-title-small {
+  font-size: var(--md-sys-typescale-title-small-font-size);
+  font-weight: var(--md-sys-typescale-title-small-font-weight);
+  line-height: var(--md-sys-typescale-title-small-line-height);
+  letter-spacing: var(--md-sys-typescale-title-small-tracking);
+}
+
+/* --------------------------------------------------------------------------
+   Body
+   -------------------------------------------------------------------------- */
+.m3e-body-large {
+  font-size: var(--md-sys-typescale-body-large-font-size);
+  font-weight: var(--md-sys-typescale-body-large-font-weight);
+  line-height: var(--md-sys-typescale-body-large-line-height);
+  letter-spacing: var(--md-sys-typescale-body-large-tracking);
+}
+
+.m3e-body-medium {
+  font-size: var(--md-sys-typescale-body-medium-font-size);
+  font-weight: var(--md-sys-typescale-body-medium-font-weight);
+  line-height: var(--md-sys-typescale-body-medium-line-height);
+  letter-spacing: var(--md-sys-typescale-body-medium-tracking);
+}
+
+.m3e-body-small {
+  font-size: var(--md-sys-typescale-body-small-font-size);
+  font-weight: var(--md-sys-typescale-body-small-font-weight);
+  line-height: var(--md-sys-typescale-body-small-line-height);
+  letter-spacing: var(--md-sys-typescale-body-small-tracking);
+}
+
+/* --------------------------------------------------------------------------
+   Label
+   -------------------------------------------------------------------------- */
+.m3e-label-large {
+  font-size: var(--md-sys-typescale-label-large-font-size);
+  font-weight: var(--md-sys-typescale-label-large-font-weight);
+  line-height: var(--md-sys-typescale-label-large-line-height);
+  letter-spacing: var(--md-sys-typescale-label-large-tracking);
+}
+
+.m3e-label-medium {
+  font-size: var(--md-sys-typescale-label-medium-font-size);
+  font-weight: var(--md-sys-typescale-label-medium-font-weight);
+  line-height: var(--md-sys-typescale-label-medium-line-height);
+  letter-spacing: var(--md-sys-typescale-label-medium-tracking);
+}
+
+.m3e-label-small {
+  font-size: var(--md-sys-typescale-label-small-font-size);
+  font-weight: var(--md-sys-typescale-label-small-font-weight);
+  line-height: var(--md-sys-typescale-label-small-line-height);
+  letter-spacing: var(--md-sys-typescale-label-small-tracking);
+}
+
+/* --------------------------------------------------------------------------
+   Color Utilities
+   -------------------------------------------------------------------------- */
+.m3e-text-primary { color: var(--md-sys-color-primary); }
+.m3e-text-secondary { color: var(--md-sys-color-secondary); }
+.m3e-text-tertiary { color: var(--md-sys-color-tertiary); }
+.m3e-text-error { color: var(--md-sys-color-error); }
+.m3e-text-on-surface { color: var(--md-sys-color-on-surface); }
+.m3e-text-on-surface-variant { color: var(--md-sys-color-on-surface-variant); }
+
+/* --------------------------------------------------------------------------
+   Surface Color Utilities
+   -------------------------------------------------------------------------- */
+.m3e-surface { background-color: var(--md-sys-color-surface); color: var(--md-sys-color-on-surface); }
+.m3e-surface-dim { background-color: var(--md-sys-color-surface-dim); }
+.m3e-surface-bright { background-color: var(--md-sys-color-surface-bright); }
+.m3e-surface-container-lowest { background-color: var(--md-sys-color-surface-container-lowest); }
+.m3e-surface-container-low { background-color: var(--md-sys-color-surface-container-low); }
+.m3e-surface-container { background-color: var(--md-sys-color-surface-container); }
+.m3e-surface-container-high { background-color: var(--md-sys-color-surface-container-high); }
+.m3e-surface-container-highest { background-color: var(--md-sys-color-surface-container-highest); }
+
+/* --------------------------------------------------------------------------
+   Shape Utilities
+   -------------------------------------------------------------------------- */
+.m3e-shape-none { border-radius: var(--md-sys-shape-corner-none); }
+.m3e-shape-extra-small { border-radius: var(--md-sys-shape-corner-extra-small); }
+.m3e-shape-small { border-radius: var(--md-sys-shape-corner-small); }
+.m3e-shape-medium { border-radius: var(--md-sys-shape-corner-medium); }
+.m3e-shape-large { border-radius: var(--md-sys-shape-corner-large); }
+.m3e-shape-extra-large { border-radius: var(--md-sys-shape-corner-extra-large); }
+.m3e-shape-full { border-radius: var(--md-sys-shape-corner-full); }

@@ -1,0 +1,121 @@
+/* ==========================================================================
+   M3E FAB (Floating Action Button)
+   CSS classes for Material 3 Expressive floating action buttons.
+
+   Usage:
+     <button class="m3e-fab">
+       <span class="m3e-fab__icon">+</span>
+     </button>
+     <button class="m3e-fab m3e-fab--extended">
+       <span class="m3e-fab__icon">+</span>
+       <span class="m3e-fab__label">Create</span>
+     </button>
+   ========================================================================== */
+
+.m3e-fab {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  cursor: pointer;
+  user-select: none;
+  font-family: inherit;
+  -webkit-tap-highlight-color: transparent;
+  background-color: var(--md-sys-color-primary-container);
+  color: var(--md-sys-color-on-primary-container);
+  border-radius: var(--md-sys-shape-corner-large);
+  box-shadow: var(--md-sys-elevation-level3);
+  width: 3.5rem;
+  height: 3.5rem;
+  padding: 0;
+  transition: background-color var(--md-sys-motion-duration-short-4) var(--md-sys-motion-easing-standard),
+    box-shadow var(--md-sys-motion-duration-short-4) var(--md-sys-motion-easing-standard);
+}
+
+.m3e-fab:hover {
+  box-shadow: var(--md-sys-elevation-level4);
+  background-color: color-mix(in srgb, var(--md-sys-color-on-primary-container) var(--md-sys-state-hover-state-layer-opacity), var(--md-sys-color-primary-container));
+}
+
+.m3e-fab:focus-visible {
+  background-color: color-mix(in srgb, var(--md-sys-color-on-primary-container) var(--md-sys-state-focus-state-layer-opacity), var(--md-sys-color-primary-container));
+}
+
+.m3e-fab:active {
+  box-shadow: var(--md-sys-elevation-level3);
+  background-color: color-mix(in srgb, var(--md-sys-color-on-primary-container) var(--md-sys-state-pressed-state-layer-opacity), var(--md-sys-color-primary-container));
+}
+
+.m3e-fab__icon {
+  font-size: 1.5rem;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.m3e-fab__label {
+  font-size: var(--md-sys-typescale-label-large-font-size);
+  font-weight: var(--md-sys-typescale-label-large-font-weight);
+  letter-spacing: var(--md-sys-typescale-label-large-tracking);
+}
+
+/* Small FAB */
+.m3e-fab--small {
+  width: 2.5rem;
+  height: 2.5rem;
+  border-radius: var(--md-sys-shape-corner-medium);
+}
+
+.m3e-fab--small .m3e-fab__icon {
+  font-size: 1.25rem;
+}
+
+/* Large FAB */
+.m3e-fab--large {
+  width: 6rem;
+  height: 6rem;
+  border-radius: var(--md-sys-shape-corner-extra-large);
+}
+
+.m3e-fab--large .m3e-fab__icon {
+  font-size: 2.25rem;
+}
+
+/* Extended FAB */
+.m3e-fab--extended {
+  width: auto;
+  height: 3.5rem;
+  padding: 0 1rem;
+  gap: 0.75rem;
+  border-radius: var(--md-sys-shape-corner-large);
+}
+
+/* Surface variant */
+.m3e-fab--surface {
+  background-color: var(--md-sys-color-surface-container-high);
+  color: var(--md-sys-color-primary);
+}
+
+/* Secondary variant */
+.m3e-fab--secondary {
+  background-color: var(--md-sys-color-secondary-container);
+  color: var(--md-sys-color-on-secondary-container);
+}
+
+/* Tertiary variant */
+.m3e-fab--tertiary {
+  background-color: var(--md-sys-color-tertiary-container);
+  color: var(--md-sys-color-on-tertiary-container);
+}
+
+@media (forced-colors: active) {
+  .m3e-fab {
+    outline: 1px solid ButtonText;
+  }
+}
+
+@media (prefers-reduced-motion) {
+  .m3e-fab {
+    transition: none;
+  }
+}

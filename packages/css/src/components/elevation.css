@@ -1,0 +1,32 @@
+/* ==========================================================================
+   M3E Elevation
+   CSS utility classes for Material 3 Expressive elevation.
+
+   Usage:
+     <div class="m3e-elevation-1">Level 1</div>
+     <div class="m3e-elevation-3">Level 3</div>
+   ========================================================================== */
+
+.m3e-elevation-0 {
+  box-shadow: var(--md-sys-elevation-level0);
+}
+
+.m3e-elevation-1 {
+  box-shadow: var(--md-sys-elevation-level1);
+}
+
+.m3e-elevation-2 {
+  box-shadow: var(--md-sys-elevation-level2);
+}
+
+.m3e-elevation-3 {
+  box-shadow: var(--md-sys-elevation-level3);
+}
+
+.m3e-elevation-4 {
+  box-shadow: var(--md-sys-elevation-level4);
+}
+
+.m3e-elevation-5 {
+  box-shadow: var(--md-sys-elevation-level5);
+}

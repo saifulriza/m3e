@@ -1,0 +1,121 @@
+/* ==========================================================================
+   M3E Switch
+   CSS classes for Material 3 Expressive switches.
+
+   Usage:
+     <label class="m3e-switch">
+       <input type="checkbox" class="m3e-switch__input" role="switch" />
+       <span class="m3e-switch__track">
+         <span class="m3e-switch__thumb"></span>
+       </span>
+       <span class="m3e-switch__label">Label</span>
+     </label>
+   ========================================================================== */
+
+.m3e-switch {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.75rem;
+  cursor: pointer;
+  user-select: none;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.m3e-switch__input {
+  position: absolute;
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.m3e-switch__track {
+  display: inline-flex;
+  align-items: center;
+  width: var(--m3e-switch-track-width, 3.25rem);
+  height: var(--m3e-switch-track-height, 2rem);
+  border-radius: var(--md-sys-shape-corner-full);
+  background-color: var(--md-sys-color-surface-container-highest);
+  border: 2px solid var(--md-sys-color-outline);
+  position: relative;
+  transition: background-color var(--md-sys-motion-duration-short-4) var(--md-sys-motion-easing-standard),
+    border-color var(--md-sys-motion-duration-short-4) var(--md-sys-motion-easing-standard);
+  flex-shrink: 0;
+}
+
+.m3e-switch__thumb {
+  display: block;
+  width: var(--m3e-switch-thumb-size, 1rem);
+  height: var(--m3e-switch-thumb-size, 1rem);
+  border-radius: var(--md-sys-shape-corner-full);
+  background-color: var(--md-sys-color-outline);
+  position: absolute;
+  left: 0.25rem;
+  transition: left var(--md-sys-motion-spring-fast-spatial),
+    width var(--md-sys-motion-spring-fast-effects),
+    height var(--md-sys-motion-spring-fast-effects),
+    background-color var(--md-sys-motion-duration-short-4) var(--md-sys-motion-easing-standard);
+}
+
+/* Checked */
+.m3e-switch__input:checked + .m3e-switch__track {
+  background-color: var(--md-sys-color-primary);
+  border-color: var(--md-sys-color-primary);
+}
+
+.m3e-switch__input:checked + .m3e-switch__track .m3e-switch__thumb {
+  background-color: var(--md-sys-color-on-primary);
+  left: calc(100% - 1rem - 0.25rem);
+  width: 1.5rem;
+  height: 1.5rem;
+}
+
+/* Hover */
+.m3e-switch:hover .m3e-switch__thumb {
+  width: 1.25rem;
+  height: 1.25rem;
+}
+
+.m3e-switch:hover .m3e-switch__input:checked + .m3e-switch__track .m3e-switch__thumb {
+  width: 1.625rem;
+  height: 1.625rem;
+}
+
+/* Focus */
+.m3e-switch__input:focus-visible + .m3e-switch__track {
+  outline: 2px solid var(--md-sys-color-primary);
+  outline-offset: 2px;
+}
+
+/* Disabled */
+.m3e-switch__input:disabled + .m3e-switch__track {
+  opacity: 0.38;
+}
+
+.m3e-switch__input:disabled ~ .m3e-switch__label {
+  color: color-mix(in srgb, var(--md-sys-color-on-surface) 38%, transparent);
+}
+
+.m3e-switch__label {
+  font-size: var(--md-sys-typescale-body-large-font-size);
+  line-height: var(--md-sys-typescale-body-large-line-height);
+  color: var(--md-sys-color-on-surface);
+}
+
+@media (forced-colors: active) {
+  .m3e-switch__track {
+    border-color: ButtonText;
+  }
+  .m3e-switch__thumb {
+    background-color: ButtonText;
+  }
+  .m3e-switch__input:disabled + .m3e-switch__track {
+    border-color: GrayText;
+  }
+}
+
+@media (prefers-reduced-motion) {
+  .m3e-switch__track,
+  .m3e-switch__thumb {
+    transition: none;
+  }
+}

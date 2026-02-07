@@ -1,0 +1,128 @@
+/* ==========================================================================
+   M3E List
+   CSS classes for Material 3 Expressive lists.
+
+   Usage:
+     <ul class="m3e-list">
+       <li class="m3e-list-item">
+         <span class="m3e-list-item__text">Item 1</span>
+       </li>
+       <li class="m3e-list-item">
+         <span class="m3e-list-item__leading">A</span>
+         <span class="m3e-list-item__text">
+           <span class="m3e-list-item__headline">Headline</span>
+           <span class="m3e-list-item__supporting">Supporting text</span>
+         </span>
+         <span class="m3e-list-item__trailing">100+</span>
+       </li>
+     </ul>
+   ========================================================================== */
+
+.m3e-list {
+  list-style: none;
+  margin: 0;
+  padding: 0.5rem 0;
+}
+
+.m3e-list-item {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 0.5rem 1rem;
+  min-height: 3rem;
+  color: var(--md-sys-color-on-surface);
+  cursor: default;
+  transition: background-color var(--md-sys-motion-duration-short-4) var(--md-sys-motion-easing-standard);
+}
+
+/* Interactive item */
+.m3e-list-item--interactive {
+  cursor: pointer;
+}
+
+.m3e-list-item--interactive:hover {
+  background-color: color-mix(in srgb, var(--md-sys-color-on-surface) var(--md-sys-state-hover-state-layer-opacity), transparent);
+}
+
+.m3e-list-item--interactive:focus-visible {
+  background-color: color-mix(in srgb, var(--md-sys-color-on-surface) var(--md-sys-state-focus-state-layer-opacity), transparent);
+  outline: none;
+}
+
+.m3e-list-item--interactive:active {
+  background-color: color-mix(in srgb, var(--md-sys-color-on-surface) var(--md-sys-state-pressed-state-layer-opacity), transparent);
+}
+
+/* Selected / Active item */
+.m3e-list-item--selected {
+  background-color: var(--md-sys-color-secondary-container);
+  color: var(--md-sys-color-on-secondary-container);
+}
+
+/* Disabled */
+.m3e-list-item--disabled {
+  opacity: 0.38;
+  pointer-events: none;
+}
+
+/* Leading element */
+.m3e-list-item__leading {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  font-size: 1.5rem;
+  color: var(--md-sys-color-on-surface-variant);
+}
+
+/* Trailing element */
+.m3e-list-item__trailing {
+  display: inline-flex;
+  align-items: center;
+  flex-shrink: 0;
+  font-size: var(--md-sys-typescale-label-small-font-size);
+  color: var(--md-sys-color-on-surface-variant);
+  margin-inline-start: auto;
+}
+
+/* Text container */
+.m3e-list-item__text {
+  flex: 1 1 auto;
+  min-width: 0;
+}
+
+.m3e-list-item__headline {
+  display: block;
+  font-size: var(--md-sys-typescale-body-large-font-size);
+  line-height: var(--md-sys-typescale-body-large-line-height);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.m3e-list-item__supporting {
+  display: block;
+  font-size: var(--md-sys-typescale-body-medium-font-size);
+  line-height: var(--md-sys-typescale-body-medium-line-height);
+  color: var(--md-sys-color-on-surface-variant);
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* Dense list */
+.m3e-list--dense .m3e-list-item {
+  min-height: 2.5rem;
+  padding: 0.25rem 1rem;
+}
+
+@media (forced-colors: active) {
+  .m3e-list-item--selected {
+    outline: 1px solid Highlight;
+  }
+}
+
+@media (prefers-reduced-motion) {
+  .m3e-list-item {
+    transition: none;
+  }
+}

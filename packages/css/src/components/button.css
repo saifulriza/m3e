@@ -1,0 +1,292 @@
+/* ==========================================================================
+   M3E Button
+   CSS classes for Material 3 Expressive buttons.
+
+   Usage:
+     <button class="m3e-button m3e-button--filled">Label</button>
+     <button class="m3e-button m3e-button--outlined m3e-button--large">Label</button>
+     <button class="m3e-button m3e-button--tonal" disabled>Label</button>
+   ========================================================================== */
+
+/* --------------------------------------------------------------------------
+   Base
+   -------------------------------------------------------------------------- */
+.m3e-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  user-select: none;
+  text-decoration: none;
+  vertical-align: middle;
+  -webkit-tap-highlight-color: transparent;
+  font-family: inherit;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  gap: var(--m3e-button-icon-label-space, 0.5rem);
+  transition: background-color var(--md-sys-motion-duration-short-4) var(--md-sys-motion-easing-standard),
+    color var(--md-sys-motion-duration-short-4) var(--md-sys-motion-easing-standard),
+    box-shadow var(--md-sys-motion-duration-short-4) var(--md-sys-motion-easing-standard),
+    outline-color var(--md-sys-motion-duration-short-4) var(--md-sys-motion-easing-standard),
+    border-radius var(--md-sys-motion-spring-fast-effects);
+}
+
+.m3e-button:disabled,
+.m3e-button[aria-disabled="true"] {
+  cursor: not-allowed;
+  pointer-events: none;
+}
+
+.m3e-button .m3e-button__icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  font-size: inherit;
+}
+
+.m3e-button .m3e-button__icon svg {
+  width: 1em;
+  height: 1em;
+}
+
+/* --------------------------------------------------------------------------
+   Sizes
+   -------------------------------------------------------------------------- */
+
+/* Extra Small */
+.m3e-button--extra-small {
+  height: var(--m3e-button-extra-small-container-height, 2rem);
+  padding-inline: var(--m3e-button-extra-small-leading-space, 0.75rem);
+  font-size: var(--md-sys-typescale-label-large-font-size);
+  font-weight: var(--md-sys-typescale-label-large-font-weight);
+  line-height: var(--md-sys-typescale-label-large-line-height);
+  letter-spacing: var(--md-sys-typescale-label-large-tracking);
+  border-radius: var(--md-sys-shape-corner-full);
+}
+.m3e-button--extra-small .m3e-button__icon {
+  font-size: var(--m3e-button-extra-small-icon-size, 1.25rem);
+}
+
+/* Small (default) */
+.m3e-button,
+.m3e-button--small {
+  height: var(--m3e-button-small-container-height, 2.5rem);
+  padding-inline: var(--m3e-button-small-leading-space, 1rem);
+  font-size: var(--md-sys-typescale-label-large-font-size);
+  font-weight: var(--md-sys-typescale-label-large-font-weight);
+  line-height: var(--md-sys-typescale-label-large-line-height);
+  letter-spacing: var(--md-sys-typescale-label-large-tracking);
+  border-radius: var(--md-sys-shape-corner-full);
+}
+.m3e-button .m3e-button__icon,
+.m3e-button--small .m3e-button__icon {
+  font-size: var(--m3e-button-small-icon-size, 1.25rem);
+}
+
+/* Medium */
+.m3e-button--medium {
+  height: var(--m3e-button-medium-container-height, 3.5rem);
+  padding-inline: var(--m3e-button-medium-leading-space, 1.5rem);
+  font-size: var(--md-sys-typescale-body-large-font-size);
+  font-weight: var(--md-sys-typescale-body-large-font-weight);
+  line-height: var(--md-sys-typescale-body-large-line-height);
+  letter-spacing: var(--md-sys-typescale-body-large-tracking);
+  border-radius: var(--md-sys-shape-corner-full);
+}
+.m3e-button--medium .m3e-button__icon {
+  font-size: var(--m3e-button-medium-icon-size, 1.5rem);
+}
+
+/* Large */
+.m3e-button--large {
+  height: var(--m3e-button-large-container-height, 6rem);
+  padding-inline: var(--m3e-button-large-leading-space, 3rem);
+  font-size: var(--md-sys-typescale-headline-small-font-size);
+  font-weight: var(--md-sys-typescale-headline-small-font-weight);
+  line-height: var(--md-sys-typescale-headline-small-line-height);
+  letter-spacing: var(--md-sys-typescale-headline-small-tracking);
+  border-radius: var(--md-sys-shape-corner-full);
+  gap: var(--m3e-button-large-icon-label-space, 0.75rem);
+}
+.m3e-button--large .m3e-button__icon {
+  font-size: var(--m3e-button-large-icon-size, 2rem);
+}
+
+/* Extra Large */
+.m3e-button--extra-large {
+  height: var(--m3e-button-extra-large-container-height, 8.5rem);
+  padding-inline: var(--m3e-button-extra-large-leading-space, 4rem);
+  font-size: var(--md-sys-typescale-headline-large-font-size);
+  font-weight: var(--md-sys-typescale-headline-large-font-weight);
+  line-height: var(--md-sys-typescale-headline-large-line-height);
+  letter-spacing: var(--md-sys-typescale-headline-large-tracking);
+  border-radius: var(--md-sys-shape-corner-full);
+  gap: var(--m3e-button-extra-large-icon-label-space, 1rem);
+}
+.m3e-button--extra-large .m3e-button__icon {
+  font-size: var(--m3e-button-extra-large-icon-size, 2.5rem);
+}
+
+/* --------------------------------------------------------------------------
+   Shape: Square
+   -------------------------------------------------------------------------- */
+.m3e-button--square {
+  border-radius: var(--md-sys-shape-corner-medium);
+}
+.m3e-button--square.m3e-button--medium {
+  border-radius: var(--md-sys-shape-corner-large);
+}
+.m3e-button--square.m3e-button--large,
+.m3e-button--square.m3e-button--extra-large {
+  border-radius: var(--md-sys-shape-corner-extra-large);
+}
+
+/* --------------------------------------------------------------------------
+   Variant: Text (default)
+   -------------------------------------------------------------------------- */
+.m3e-button,
+.m3e-button--text {
+  background-color: transparent;
+  color: var(--md-sys-color-primary);
+}
+.m3e-button:hover:not(:disabled),
+.m3e-button--text:hover:not(:disabled) {
+  background-color: color-mix(in srgb, var(--md-sys-color-primary) var(--md-sys-state-hover-state-layer-opacity), transparent);
+}
+.m3e-button:focus-visible:not(:disabled),
+.m3e-button--text:focus-visible:not(:disabled) {
+  background-color: color-mix(in srgb, var(--md-sys-color-primary) var(--md-sys-state-focus-state-layer-opacity), transparent);
+}
+.m3e-button:active:not(:disabled),
+.m3e-button--text:active:not(:disabled) {
+  background-color: color-mix(in srgb, var(--md-sys-color-primary) var(--md-sys-state-pressed-state-layer-opacity), transparent);
+}
+
+/* --------------------------------------------------------------------------
+   Variant: Filled
+   -------------------------------------------------------------------------- */
+.m3e-button--filled {
+  background-color: var(--md-sys-color-primary);
+  color: var(--md-sys-color-on-primary);
+}
+.m3e-button--filled:hover:not(:disabled) {
+  background-color: color-mix(in srgb, var(--md-sys-color-on-primary) var(--md-sys-state-hover-state-layer-opacity), var(--md-sys-color-primary));
+  box-shadow: var(--md-sys-elevation-level1);
+}
+.m3e-button--filled:focus-visible:not(:disabled) {
+  background-color: color-mix(in srgb, var(--md-sys-color-on-primary) var(--md-sys-state-focus-state-layer-opacity), var(--md-sys-color-primary));
+}
+.m3e-button--filled:active:not(:disabled) {
+  background-color: color-mix(in srgb, var(--md-sys-color-on-primary) var(--md-sys-state-pressed-state-layer-opacity), var(--md-sys-color-primary));
+  box-shadow: var(--md-sys-elevation-level0);
+}
+.m3e-button--filled:disabled {
+  background-color: color-mix(in srgb, var(--md-sys-color-on-surface) 12%, transparent);
+  color: color-mix(in srgb, var(--md-sys-color-on-surface) 38%, transparent);
+}
+
+/* --------------------------------------------------------------------------
+   Variant: Tonal
+   -------------------------------------------------------------------------- */
+.m3e-button--tonal {
+  background-color: var(--md-sys-color-secondary-container);
+  color: var(--md-sys-color-on-secondary-container);
+}
+.m3e-button--tonal:hover:not(:disabled) {
+  background-color: color-mix(in srgb, var(--md-sys-color-on-secondary-container) var(--md-sys-state-hover-state-layer-opacity), var(--md-sys-color-secondary-container));
+  box-shadow: var(--md-sys-elevation-level1);
+}
+.m3e-button--tonal:focus-visible:not(:disabled) {
+  background-color: color-mix(in srgb, var(--md-sys-color-on-secondary-container) var(--md-sys-state-focus-state-layer-opacity), var(--md-sys-color-secondary-container));
+}
+.m3e-button--tonal:active:not(:disabled) {
+  background-color: color-mix(in srgb, var(--md-sys-color-on-secondary-container) var(--md-sys-state-pressed-state-layer-opacity), var(--md-sys-color-secondary-container));
+  box-shadow: var(--md-sys-elevation-level0);
+}
+.m3e-button--tonal:disabled {
+  background-color: color-mix(in srgb, var(--md-sys-color-on-surface) 12%, transparent);
+  color: color-mix(in srgb, var(--md-sys-color-on-surface) 38%, transparent);
+}
+
+/* --------------------------------------------------------------------------
+   Variant: Elevated
+   -------------------------------------------------------------------------- */
+.m3e-button--elevated {
+  background-color: var(--md-sys-color-surface-container-low);
+  color: var(--md-sys-color-primary);
+  box-shadow: var(--md-sys-elevation-level1);
+}
+.m3e-button--elevated:hover:not(:disabled) {
+  background-color: color-mix(in srgb, var(--md-sys-color-primary) var(--md-sys-state-hover-state-layer-opacity), var(--md-sys-color-surface-container-low));
+  box-shadow: var(--md-sys-elevation-level2);
+}
+.m3e-button--elevated:focus-visible:not(:disabled) {
+  background-color: color-mix(in srgb, var(--md-sys-color-primary) var(--md-sys-state-focus-state-layer-opacity), var(--md-sys-color-surface-container-low));
+  box-shadow: var(--md-sys-elevation-level1);
+}
+.m3e-button--elevated:active:not(:disabled) {
+  background-color: color-mix(in srgb, var(--md-sys-color-primary) var(--md-sys-state-pressed-state-layer-opacity), var(--md-sys-color-surface-container-low));
+  box-shadow: var(--md-sys-elevation-level1);
+}
+.m3e-button--elevated:disabled {
+  background-color: color-mix(in srgb, var(--md-sys-color-on-surface) 12%, transparent);
+  color: color-mix(in srgb, var(--md-sys-color-on-surface) 38%, transparent);
+  box-shadow: var(--md-sys-elevation-level0);
+}
+
+/* --------------------------------------------------------------------------
+   Variant: Outlined
+   -------------------------------------------------------------------------- */
+.m3e-button--outlined {
+  background-color: transparent;
+  color: var(--md-sys-color-primary);
+  outline: 1px solid var(--md-sys-color-outline);
+  outline-offset: -1px;
+}
+.m3e-button--outlined:hover:not(:disabled) {
+  background-color: color-mix(in srgb, var(--md-sys-color-primary) var(--md-sys-state-hover-state-layer-opacity), transparent);
+}
+.m3e-button--outlined:focus-visible:not(:disabled) {
+  background-color: color-mix(in srgb, var(--md-sys-color-primary) var(--md-sys-state-focus-state-layer-opacity), transparent);
+  outline-color: var(--md-sys-color-primary);
+}
+.m3e-button--outlined:active:not(:disabled) {
+  background-color: color-mix(in srgb, var(--md-sys-color-primary) var(--md-sys-state-pressed-state-layer-opacity), transparent);
+  outline-color: var(--md-sys-color-primary);
+}
+.m3e-button--outlined:disabled {
+  outline-color: color-mix(in srgb, var(--md-sys-color-on-surface) 12%, transparent);
+  color: color-mix(in srgb, var(--md-sys-color-on-surface) 38%, transparent);
+}
+
+/* --------------------------------------------------------------------------
+   Accessibility: Forced Colors
+   -------------------------------------------------------------------------- */
+@media (forced-colors: active) {
+  .m3e-button {
+    transition: none;
+  }
+  .m3e-button:not(:disabled) {
+    background-color: ButtonFace;
+    color: ButtonText;
+    outline: 1px solid ButtonText;
+  }
+  .m3e-button:disabled {
+    color: GrayText;
+    outline-color: GrayText;
+  }
+}
+
+/* --------------------------------------------------------------------------
+   Accessibility: Reduced Motion
+   -------------------------------------------------------------------------- */
+@media (prefers-reduced-motion) {
+  .m3e-button {
+    transition: none;
+  }
+}

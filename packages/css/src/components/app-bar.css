@@ -1,0 +1,91 @@
+/* ==========================================================================
+   M3E App Bar
+   CSS classes for Material 3 Expressive app bars.
+
+   Usage:
+     <header class="m3e-app-bar">
+       <button class="m3e-icon-button">menu</button>
+       <span class="m3e-app-bar__title">Title</span>
+       <div class="m3e-app-bar__actions">
+         <button class="m3e-icon-button">search</button>
+       </div>
+     </header>
+   ========================================================================== */
+
+.m3e-app-bar {
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+  height: 4rem;
+  padding: 0 0.5rem;
+  background-color: var(--md-sys-color-surface);
+  color: var(--md-sys-color-on-surface);
+}
+
+.m3e-app-bar__title {
+  flex: 1 1 auto;
+  font-size: var(--md-sys-typescale-title-large-font-size);
+  font-weight: var(--md-sys-typescale-title-large-font-weight);
+  line-height: var(--md-sys-typescale-title-large-line-height);
+  letter-spacing: var(--md-sys-typescale-title-large-tracking);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  padding-inline-start: 0.5rem;
+}
+
+.m3e-app-bar__actions {
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+  margin-inline-start: auto;
+}
+
+/* Center-aligned */
+.m3e-app-bar--center .m3e-app-bar__title {
+  text-align: center;
+}
+
+/* Medium app bar */
+.m3e-app-bar--medium {
+  height: auto;
+  flex-wrap: wrap;
+  padding-bottom: 1.5rem;
+}
+
+.m3e-app-bar--medium .m3e-app-bar__title {
+  order: 1;
+  flex-basis: 100%;
+  font-size: var(--md-sys-typescale-headline-small-font-size);
+  padding-inline-start: 1rem;
+}
+
+/* Large app bar */
+.m3e-app-bar--large {
+  height: auto;
+  flex-wrap: wrap;
+  padding-bottom: 1.75rem;
+}
+
+.m3e-app-bar--large .m3e-app-bar__title {
+  order: 1;
+  flex-basis: 100%;
+  font-size: var(--md-sys-typescale-headline-medium-font-size);
+  padding-inline-start: 1rem;
+}
+
+/* Elevated */
+.m3e-app-bar--elevated {
+  box-shadow: var(--md-sys-elevation-level2);
+}
+
+/* Surface container color */
+.m3e-app-bar--scrolled {
+  background-color: var(--md-sys-color-surface-container);
+}
+
+@media (forced-colors: active) {
+  .m3e-app-bar {
+    border-bottom: 1px solid CanvasText;
+  }
+}

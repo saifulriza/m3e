@@ -45,7 +45,8 @@
     "packages/toolbar",
     "packages/tooltip",
     "packages/paginator",
-    "packages/all"
+    "packages/all",
+    "packages/css"
   ],
   "scripts": {
     "build": "npm run build --workspaces",

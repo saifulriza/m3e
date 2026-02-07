@@ -1,0 +1,55 @@
+/* ==========================================================================
+   M3E Avatar
+   CSS classes for Material 3 Expressive avatars.
+
+   Usage:
+     <div class="m3e-avatar">
+       <img src="photo.jpg" alt="Name" />
+     </div>
+     <div class="m3e-avatar m3e-avatar--large">AB</div>
+   ========================================================================== */
+
+.m3e-avatar {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: var(--m3e-avatar-size, 2.5rem);
+  height: var(--m3e-avatar-size, 2.5rem);
+  border-radius: var(--md-sys-shape-corner-full);
+  background-color: var(--md-sys-color-primary-container);
+  color: var(--md-sys-color-on-primary-container);
+  font-size: var(--md-sys-typescale-title-medium-font-size);
+  font-weight: var(--md-sys-typescale-title-medium-font-weight);
+  overflow: hidden;
+  flex-shrink: 0;
+  user-select: none;
+}
+
+.m3e-avatar img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Small */
+.m3e-avatar--small {
+  --m3e-avatar-size: 1.5rem;
+  font-size: var(--md-sys-typescale-label-small-font-size);
+}
+
+/* Large */
+.m3e-avatar--large {
+  --m3e-avatar-size: 3.5rem;
+  font-size: var(--md-sys-typescale-headline-small-font-size);
+}
+
+/* Extra Large */
+.m3e-avatar--extra-large {
+  --m3e-avatar-size: 5rem;
+  font-size: var(--md-sys-typescale-headline-medium-font-size);
+}
+
+/* Square shape */
+.m3e-avatar--square {
+  border-radius: var(--md-sys-shape-corner-medium);
+}

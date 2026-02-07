@@ -1,0 +1,117 @@
+/* ==========================================================================
+   M3E Tooltip
+   CSS classes for Material 3 Expressive tooltips.
+
+   Usage:
+     <div class="m3e-tooltip-container">
+       <button class="m3e-button">Hover me</button>
+       <div class="m3e-tooltip" role="tooltip">Tooltip text</div>
+     </div>
+   ========================================================================== */
+
+.m3e-tooltip-container {
+  position: relative;
+  display: inline-flex;
+}
+
+.m3e-tooltip {
+  position: absolute;
+  z-index: 300;
+  padding: 0.25rem 0.5rem;
+  border-radius: var(--md-sys-shape-corner-extra-small);
+  background-color: var(--md-sys-color-inverse-surface);
+  color: var(--md-sys-color-inverse-on-surface);
+  font-size: var(--md-sys-typescale-body-small-font-size);
+  line-height: var(--md-sys-typescale-body-small-line-height);
+  white-space: nowrap;
+  pointer-events: none;
+  opacity: 0;
+  transform: scale(0.9);
+  transition: opacity var(--md-sys-motion-duration-short-3) var(--md-sys-motion-easing-standard),
+    transform var(--md-sys-motion-duration-short-3) var(--md-sys-motion-easing-standard);
+  /* Default placement: below */
+  top: calc(100% + 0.5rem);
+  left: 50%;
+  transform: translateX(-50%) scale(0.9);
+}
+
+/* Visible */
+.m3e-tooltip-container:hover .m3e-tooltip,
+.m3e-tooltip-container:focus-within .m3e-tooltip,
+.m3e-tooltip--visible {
+  opacity: 1;
+  transform: translateX(-50%) scale(1);
+}
+
+/* Placement: top */
+.m3e-tooltip--top {
+  top: auto;
+  bottom: calc(100% + 0.5rem);
+}
+
+/* Placement: start */
+.m3e-tooltip--start {
+  top: 50%;
+  left: auto;
+  right: calc(100% + 0.5rem);
+  transform: translateY(-50%) scale(0.9);
+}
+
+.m3e-tooltip-container:hover .m3e-tooltip--start,
+.m3e-tooltip-container:focus-within .m3e-tooltip--start,
+.m3e-tooltip--start.m3e-tooltip--visible {
+  transform: translateY(-50%) scale(1);
+}
+
+/* Placement: end */
+.m3e-tooltip--end {
+  top: 50%;
+  left: calc(100% + 0.5rem);
+  right: auto;
+  transform: translateY(-50%) scale(0.9);
+}
+
+.m3e-tooltip-container:hover .m3e-tooltip--end,
+.m3e-tooltip-container:focus-within .m3e-tooltip--end,
+.m3e-tooltip--end.m3e-tooltip--visible {
+  transform: translateY(-50%) scale(1);
+}
+
+/* Rich tooltip */
+.m3e-tooltip--rich {
+  padding: 0.75rem 1rem;
+  border-radius: var(--md-sys-shape-corner-medium);
+  background-color: var(--md-sys-color-surface-container);
+  color: var(--md-sys-color-on-surface-variant);
+  box-shadow: var(--md-sys-elevation-level2);
+  white-space: normal;
+  min-width: 12rem;
+  max-width: 20rem;
+  pointer-events: auto;
+}
+
+.m3e-tooltip__title {
+  font-size: var(--md-sys-typescale-title-small-font-size);
+  font-weight: var(--md-sys-typescale-title-small-font-weight);
+  color: var(--md-sys-color-on-surface);
+  margin-bottom: 0.25rem;
+}
+
+.m3e-tooltip__actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 0.5rem;
+  margin-top: 0.5rem;
+}
+
+@media (forced-colors: active) {
+  .m3e-tooltip {
+    outline: 1px solid CanvasText;
+  }
+}
+
+@media (prefers-reduced-motion) {
+  .m3e-tooltip {
+    transition: none;
+  }
+}

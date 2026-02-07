@@ -1,0 +1,142 @@
+/* ==========================================================================
+   M3E Progress Indicator
+   CSS classes for Material 3 Expressive progress indicators.
+
+   Usage:
+     Linear:
+       <div class="m3e-progress m3e-progress--linear">
+         <div class="m3e-progress__bar" style="width: 60%"></div>
+       </div>
+
+     Indeterminate Linear:
+       <div class="m3e-progress m3e-progress--linear m3e-progress--indeterminate">
+         <div class="m3e-progress__bar"></div>
+       </div>
+
+     Circular:
+       <div class="m3e-progress m3e-progress--circular">
+         <svg viewBox="0 0 48 48">
+           <circle class="m3e-progress__track" cx="24" cy="24" r="20" />
+           <circle class="m3e-progress__indicator" cx="24" cy="24" r="20"
+                   stroke-dasharray="125.6" stroke-dashoffset="50" />
+         </svg>
+       </div>
+   ========================================================================== */
+
+/* --------------------------------------------------------------------------
+   Linear Progress
+   -------------------------------------------------------------------------- */
+.m3e-progress--linear {
+  width: 100%;
+  height: 0.25rem;
+  background-color: var(--md-sys-color-surface-container-highest);
+  border-radius: var(--md-sys-shape-corner-full);
+  overflow: hidden;
+  position: relative;
+}
+
+.m3e-progress--linear .m3e-progress__bar {
+  height: 100%;
+  background-color: var(--md-sys-color-primary);
+  border-radius: inherit;
+  transition: width var(--md-sys-motion-duration-medium-2) var(--md-sys-motion-easing-standard);
+}
+
+/* Indeterminate linear */
+.m3e-progress--linear.m3e-progress--indeterminate .m3e-progress__bar {
+  width: 40%;
+  animation: m3e-progress-linear-indeterminate 2s var(--md-sys-motion-easing-standard) infinite;
+}
+
+@keyframes m3e-progress-linear-indeterminate {
+  0% {
+    transform: translateX(-100%);
+  }
+  60% {
+    transform: translateX(250%);
+  }
+  100% {
+    transform: translateX(250%);
+  }
+}
+
+/* --------------------------------------------------------------------------
+   Circular Progress
+   -------------------------------------------------------------------------- */
+.m3e-progress--circular {
+  display: inline-flex;
+  width: 3rem;
+  height: 3rem;
+}
+
+.m3e-progress--circular svg {
+  width: 100%;
+  height: 100%;
+  transform: rotate(-90deg);
+}
+
+.m3e-progress--circular .m3e-progress__track {
+  fill: none;
+  stroke: var(--md-sys-color-surface-container-highest);
+  stroke-width: 4;
+}
+
+.m3e-progress--circular .m3e-progress__indicator {
+  fill: none;
+  stroke: var(--md-sys-color-primary);
+  stroke-width: 4;
+  stroke-linecap: round;
+  transition: stroke-dashoffset var(--md-sys-motion-duration-medium-2) var(--md-sys-motion-easing-standard);
+}
+
+/* Indeterminate circular */
+.m3e-progress--circular.m3e-progress--indeterminate svg {
+  animation: m3e-progress-circular-rotate 2s linear infinite;
+}
+
+.m3e-progress--circular.m3e-progress--indeterminate .m3e-progress__indicator {
+  stroke-dasharray: 80, 200;
+  animation: m3e-progress-circular-dash 1.5s var(--md-sys-motion-easing-emphasized) infinite;
+}
+
+@keyframes m3e-progress-circular-rotate {
+  100% {
+    transform: rotate(270deg);
+  }
+}
+
+@keyframes m3e-progress-circular-dash {
+  0% {
+    stroke-dashoffset: 280;
+  }
+  50% {
+    stroke-dashoffset: 75;
+  }
+  100% {
+    stroke-dashoffset: 280;
+  }
+}
+
+/* Small size */
+.m3e-progress--small.m3e-progress--circular {
+  width: 2rem;
+  height: 2rem;
+}
+
+/* Large size */
+.m3e-progress--large.m3e-progress--circular {
+  width: 4rem;
+  height: 4rem;
+}
+
+@media (prefers-reduced-motion) {
+  .m3e-progress--linear .m3e-progress__bar,
+  .m3e-progress--circular .m3e-progress__indicator {
+    transition: none;
+  }
+  .m3e-progress--linear.m3e-progress--indeterminate .m3e-progress__bar,
+  .m3e-progress--circular.m3e-progress--indeterminate svg,
+  .m3e-progress--circular.m3e-progress--indeterminate .m3e-progress__indicator {
+    animation: none;
+  }
+}
