@@ -1,0 +1,162 @@
+/* ==========================================================================
+   M3E Form Field
+   CSS classes for Material 3 Expressive form fields (text inputs).
+
+   Usage:
+     <div class="m3e-form-field">
+       <label class="m3e-form-field__label">Label</label>
+       <input class="m3e-form-field__input" type="text" placeholder="Enter text" />
+       <span class="m3e-form-field__supporting">Supporting text</span>
+     </div>
+     <div class="m3e-form-field m3e-form-field--outlined">
+       <label class="m3e-form-field__label">Label</label>
+       <input class="m3e-form-field__input" type="text" />
+     </div>
+   ========================================================================== */
+
+.m3e-form-field {
+  display: inline-flex;
+  flex-direction: column;
+  position: relative;
+  width: var(--m3e-form-field-width, 14.5rem);
+  font-family: inherit;
+}
+
+.m3e-form-field__container {
+  display: flex;
+  align-items: center;
+  position: relative;
+  min-height: 3.5rem;
+  border-start-start-radius: var(--m3e-form-field-container-shape, var(--md-sys-shape-corner-extra-small));
+  border-start-end-radius: var(--m3e-form-field-container-shape, var(--md-sys-shape-corner-extra-small));
+  background-color: var(--m3e-form-field-container-color, var(--md-sys-color-surface-container-highest));
+  border-bottom: 1px solid var(--md-sys-color-on-surface-variant);
+  transition: border-color var(--md-sys-motion-duration-short-4) var(--md-sys-motion-easing-standard);
+}
+
+.m3e-form-field__container:hover {
+  background-color: color-mix(in srgb, var(--md-sys-color-on-surface) var(--md-sys-state-hover-state-layer-opacity), var(--md-sys-color-surface-container-highest));
+}
+
+.m3e-form-field__container:focus-within {
+  border-bottom: 2px solid var(--md-sys-color-primary);
+}
+
+.m3e-form-field__input {
+  flex: 1 1 auto;
+  border: none;
+  background: none;
+  color: var(--md-sys-color-on-surface);
+  font-size: var(--md-sys-typescale-body-large-font-size);
+  font-weight: var(--md-sys-typescale-body-large-font-weight);
+  line-height: var(--md-sys-typescale-body-large-line-height);
+  padding: 1.5rem 1rem 0.5rem;
+  width: 100%;
+  outline: none;
+  font-family: inherit;
+}
+
+.m3e-form-field__input::placeholder {
+  color: var(--md-sys-color-on-surface-variant);
+}
+
+.m3e-form-field__label {
+  position: absolute;
+  top: 0.5rem;
+  left: 1rem;
+  inset-inline-start: 1rem;
+  font-size: var(--md-sys-typescale-body-small-font-size);
+  font-weight: var(--md-sys-typescale-body-small-font-weight);
+  line-height: var(--md-sys-typescale-body-small-line-height);
+  color: var(--md-sys-color-on-surface-variant);
+  pointer-events: none;
+  transition: font-size var(--md-sys-motion-duration-short-4) var(--md-sys-motion-easing-standard),
+    top var(--md-sys-motion-duration-short-4) var(--md-sys-motion-easing-standard),
+    color var(--md-sys-motion-duration-short-4) var(--md-sys-motion-easing-standard);
+}
+
+.m3e-form-field__container:focus-within .m3e-form-field__label {
+  color: var(--md-sys-color-primary);
+}
+
+.m3e-form-field__prefix,
+.m3e-form-field__suffix {
+  display: inline-flex;
+  align-items: center;
+  color: var(--md-sys-color-on-surface-variant);
+  padding: 0 0.25rem;
+  flex-shrink: 0;
+}
+
+.m3e-form-field__prefix {
+  padding-inline-start: 1rem;
+}
+
+.m3e-form-field__suffix {
+  padding-inline-end: 1rem;
+}
+
+.m3e-form-field__supporting {
+  padding: 0.25rem 1rem 0;
+  font-size: var(--md-sys-typescale-body-small-font-size);
+  line-height: var(--md-sys-typescale-body-small-line-height);
+  color: var(--md-sys-color-on-surface-variant);
+}
+
+.m3e-form-field__counter {
+  margin-inline-start: auto;
+}
+
+/* Outlined variant */
+.m3e-form-field--outlined .m3e-form-field__container {
+  background-color: transparent;
+  border-bottom: none;
+  border-radius: var(--m3e-form-field-outlined-shape, var(--md-sys-shape-corner-extra-small));
+  outline: 1px solid var(--md-sys-color-outline);
+  outline-offset: -1px;
+}
+
+.m3e-form-field--outlined .m3e-form-field__container:hover {
+  background-color: transparent;
+  outline-color: var(--md-sys-color-on-surface);
+}
+
+.m3e-form-field--outlined .m3e-form-field__container:focus-within {
+  outline: 2px solid var(--md-sys-color-primary);
+  outline-offset: -2px;
+}
+
+/* Error */
+.m3e-form-field--error .m3e-form-field__container {
+  border-color: var(--md-sys-color-error);
+}
+
+.m3e-form-field--error .m3e-form-field__label,
+.m3e-form-field--error .m3e-form-field__supporting {
+  color: var(--md-sys-color-error);
+}
+
+.m3e-form-field--error.m3e-form-field--outlined .m3e-form-field__container {
+  outline-color: var(--md-sys-color-error);
+}
+
+/* Disabled */
+.m3e-form-field--disabled {
+  opacity: 0.38;
+  pointer-events: none;
+}
+
+@media (forced-colors: active) {
+  .m3e-form-field__container {
+    outline: 1px solid ButtonText;
+  }
+  .m3e-form-field--disabled .m3e-form-field__container {
+    outline-color: GrayText;
+  }
+}
+
+@media (prefers-reduced-motion) {
+  .m3e-form-field__label {
+    transition: none;
+  }
+}

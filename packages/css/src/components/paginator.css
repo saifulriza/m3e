@@ -1,0 +1,62 @@
+/* ==========================================================================
+   M3E Paginator
+   CSS classes for Material 3 Expressive paginators.
+
+   Usage:
+     <div class="m3e-paginator">
+       <span class="m3e-paginator__label">Rows per page:</span>
+       <select class="m3e-paginator__page-size">
+         <option>10</option>
+         <option>25</option>
+         <option>50</option>
+       </select>
+       <span class="m3e-paginator__range">1 – 10 of 100</span>
+       <div class="m3e-paginator__actions">
+         <button class="m3e-icon-button" aria-label="First page">first_page</button>
+         <button class="m3e-icon-button" aria-label="Previous">chevron_left</button>
+         <button class="m3e-icon-button" aria-label="Next">chevron_right</button>
+         <button class="m3e-icon-button" aria-label="Last page">last_page</button>
+       </div>
+     </div>
+   ========================================================================== */
+
+.m3e-paginator {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.5rem;
+  font-size: var(--md-sys-typescale-body-small-font-size);
+  font-weight: var(--md-sys-typescale-body-small-font-weight);
+  line-height: var(--md-sys-typescale-body-small-line-height);
+  color: var(--md-sys-color-on-surface);
+}
+
+.m3e-paginator__label {
+  padding-inline: 0.5rem;
+  white-space: nowrap;
+}
+
+.m3e-paginator__page-size {
+  appearance: none;
+  -webkit-appearance: none;
+  border: 1px solid var(--md-sys-color-outline);
+  border-radius: var(--md-sys-shape-corner-extra-small);
+  background: none;
+  color: inherit;
+  font: inherit;
+  padding: 0.25rem 0.5rem;
+  min-width: 4rem;
+  cursor: pointer;
+}
+
+.m3e-paginator__range {
+  padding-inline: 1.5rem;
+  white-space: nowrap;
+}
+
+.m3e-paginator__actions {
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+  margin-inline-start: auto;
+}

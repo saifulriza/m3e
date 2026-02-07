@@ -417,5 +417,219 @@
         </div>
       </div>
     </section>
+
+    <!-- Expansion Panel -->
+    <section>
+      <h2 class="m3e-headline-medium">Expansion Panel</h2>
+      <div class="m3e-expansion-panel m3e-expansion-panel--expanded" style="max-width: 30rem">
+        <button class="m3e-expansion-panel__header" aria-expanded="true">
+          <span class="m3e-expansion-panel__title">Panel Title (Expanded)</span>
+          <span class="m3e-expansion-panel__icon material-symbols-outlined">expand_more</span>
+        </button>
+        <div class="m3e-expansion-panel__content">
+          <p class="m3e-body-medium">This is the expanded content of the panel. It reveals additional information.</p>
+        </div>
+      </div>
+      <div class="m3e-expansion-panel" style="max-width: 30rem; margin-top: 0.5rem">
+        <button class="m3e-expansion-panel__header" aria-expanded="false">
+          <span class="m3e-expansion-panel__title">Collapsed Panel</span>
+          <span class="m3e-expansion-panel__icon material-symbols-outlined">expand_more</span>
+        </button>
+        <div class="m3e-expansion-panel__content">
+          <p class="m3e-body-medium">Hidden content.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Segmented Button -->
+    <section>
+      <h2 class="m3e-headline-medium">Segmented Button</h2>
+      <div class="m3e-segmented-button" role="group">
+        <button class="m3e-segmented-button__segment m3e-segmented-button__segment--selected">Day</button>
+        <button class="m3e-segmented-button__segment">Week</button>
+        <button class="m3e-segmented-button__segment">Month</button>
+        <button class="m3e-segmented-button__segment">Year</button>
+      </div>
+    </section>
+
+    <!-- Form Field -->
+    <section>
+      <h2 class="m3e-headline-medium">Form Field</h2>
+      <div class="demo-row">
+        <div class="m3e-form-field">
+          <div class="m3e-form-field__container">
+            <label class="m3e-form-field__label">Filled</label>
+            <input class="m3e-form-field__input" type="text" placeholder="Enter text" />
+          </div>
+          <span class="m3e-form-field__supporting">Supporting text</span>
+        </div>
+        <div class="m3e-form-field m3e-form-field--outlined">
+          <div class="m3e-form-field__container">
+            <label class="m3e-form-field__label">Outlined</label>
+            <input class="m3e-form-field__input" type="text" placeholder="Enter text" />
+          </div>
+        </div>
+        <div class="m3e-form-field m3e-form-field--error">
+          <div class="m3e-form-field__container">
+            <label class="m3e-form-field__label">Error</label>
+            <input class="m3e-form-field__input" type="text" value="Invalid" />
+          </div>
+          <span class="m3e-form-field__supporting">Error message</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- Select -->
+    <section>
+      <h2 class="m3e-headline-medium">Select</h2>
+      <div class="demo-row">
+        <div class="m3e-select">
+          <span class="m3e-select__label">Category</span>
+          <select class="m3e-select__input">
+            <option>Option 1</option>
+            <option>Option 2</option>
+            <option>Option 3</option>
+          </select>
+          <span class="m3e-select__icon material-symbols-outlined">arrow_drop_down</span>
+        </div>
+        <div class="m3e-select m3e-select--outlined">
+          <span class="m3e-select__label">Outlined</span>
+          <select class="m3e-select__input">
+            <option>Option A</option>
+            <option>Option B</option>
+          </select>
+          <span class="m3e-select__icon material-symbols-outlined">arrow_drop_down</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- Stepper -->
+    <section>
+      <h2 class="m3e-headline-medium">Stepper</h2>
+      <div class="m3e-stepper m3e-stepper--horizontal">
+        <div class="m3e-stepper__step m3e-stepper__step--completed">
+          <div class="m3e-stepper__header">
+            <span class="m3e-stepper__icon material-symbols-outlined">check</span>
+            <span class="m3e-stepper__label">Details</span>
+          </div>
+        </div>
+        <div class="m3e-stepper__step m3e-stepper__step--active">
+          <div class="m3e-stepper__header">
+            <span class="m3e-stepper__icon">2</span>
+            <span class="m3e-stepper__label">Address</span>
+          </div>
+        </div>
+        <div class="m3e-stepper__step">
+          <div class="m3e-stepper__header">
+            <span class="m3e-stepper__icon">3</span>
+            <span class="m3e-stepper__label">Payment</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Toolbar -->
+    <section>
+      <h2 class="m3e-headline-medium">Toolbar</h2>
+      <div class="demo-row">
+        <div class="m3e-toolbar">
+          <button class="m3e-icon-button"><span class="material-symbols-outlined">format_bold</span></button>
+          <button class="m3e-icon-button"><span class="material-symbols-outlined">format_italic</span></button>
+          <button class="m3e-icon-button"><span class="material-symbols-outlined">format_underlined</span></button>
+        </div>
+        <div class="m3e-toolbar m3e-toolbar--vibrant">
+          <button class="m3e-icon-button"><span class="material-symbols-outlined">undo</span></button>
+          <button class="m3e-icon-button"><span class="material-symbols-outlined">redo</span></button>
+        </div>
+      </div>
+    </section>
+
+    <!-- Loading Indicator -->
+    <section>
+      <h2 class="m3e-headline-medium">Loading Indicator</h2>
+      <div class="demo-row">
+        <div class="m3e-loading-indicator m3e-loading-indicator--small">
+          <div class="m3e-loading-indicator__spinner"></div>
+        </div>
+        <div class="m3e-loading-indicator">
+          <div class="m3e-loading-indicator__spinner"></div>
+        </div>
+        <div class="m3e-loading-indicator m3e-loading-indicator--contained">
+          <div class="m3e-loading-indicator__spinner"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Button Group -->
+    <section>
+      <h2 class="m3e-headline-medium">Button Group</h2>
+      <div class="demo-row">
+        <div class="m3e-button-group">
+          <button class="m3e-button m3e-button--tonal">Left</button>
+          <button class="m3e-button m3e-button--tonal">Center</button>
+          <button class="m3e-button m3e-button--tonal">Right</button>
+        </div>
+      </div>
+      <div class="demo-row">
+        <div class="m3e-button-group m3e-button-group--connected">
+          <button class="m3e-button m3e-button--filled">Left</button>
+          <button class="m3e-button m3e-button--filled">Center</button>
+          <button class="m3e-button m3e-button--filled">Right</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- Split Button -->
+    <section>
+      <h2 class="m3e-headline-medium">Split Button</h2>
+      <div class="demo-row">
+        <div class="m3e-split-button">
+          <button class="m3e-button m3e-button--tonal">Save</button>
+          <button class="m3e-button m3e-button--tonal m3e-split-button__toggle" aria-label="More options">
+            <span class="m3e-split-button__arrow material-symbols-outlined">arrow_drop_down</span>
+          </button>
+        </div>
+        <div class="m3e-split-button">
+          <button class="m3e-button m3e-button--filled">Send</button>
+          <button class="m3e-button m3e-button--filled m3e-split-button__toggle" aria-label="More options">
+            <span class="m3e-split-button__arrow material-symbols-outlined">arrow_drop_down</span>
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- Shape -->
+    <section>
+      <h2 class="m3e-headline-medium">Shape</h2>
+      <div class="demo-row">
+        <div class="m3e-shape m3e-shape--circle m3e-shape--large"></div>
+        <div class="m3e-shape m3e-shape--diamond m3e-shape--large"></div>
+        <div class="m3e-shape m3e-shape--hexagon m3e-shape--large"></div>
+        <div class="m3e-shape m3e-shape--star m3e-shape--large"></div>
+        <div class="m3e-shape m3e-shape--heart m3e-shape--large"></div>
+        <div class="m3e-shape m3e-shape--rounded-square m3e-shape--large"></div>
+      </div>
+    </section>
+
+    <!-- Icon -->
+    <section>
+      <h2 class="m3e-headline-medium">Icon</h2>
+      <div class="demo-row">
+        <span class="m3e-icon m3e-icon--small material-symbols-outlined">home</span>
+        <span class="m3e-icon material-symbols-outlined">home</span>
+        <span class="m3e-icon m3e-icon--large material-symbols-outlined">home</span>
+        <span class="m3e-icon m3e-icon--filled material-symbols-outlined">favorite</span>
+        <span class="m3e-icon material-symbols-outlined">favorite</span>
+      </div>
+    </section>
+
+    <!-- Heading -->
+    <section>
+      <h2 class="m3e-headline-medium">Heading</h2>
+      <h1 class="m3e-heading m3e-heading--display-small">Display Small</h1>
+      <h2 class="m3e-heading m3e-heading--headline-large">Headline Large</h2>
+      <h3 class="m3e-heading m3e-heading--title-large">Title Large</h3>
+      <h4 class="m3e-heading m3e-heading--label-large">Label Large</h4>
+    </section>
   </body>
 </html>

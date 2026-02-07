@@ -1,0 +1,107 @@
+/* ==========================================================================
+   M3E Heading
+   CSS classes for Material 3 Expressive headings.
+
+   Usage:
+     <h1 class="m3e-heading m3e-heading--display-large">Display Large</h1>
+     <h2 class="m3e-heading m3e-heading--headline-medium">Headline Medium</h2>
+     <h3 class="m3e-heading m3e-heading--title-small">Title Small</h3>
+   ========================================================================== */
+
+.m3e-heading {
+  margin: 0;
+  color: var(--md-sys-color-on-surface);
+}
+
+/* Display */
+.m3e-heading--display-large {
+  font-size: var(--md-sys-typescale-display-large-font-size);
+  font-weight: var(--md-sys-typescale-display-large-font-weight);
+  line-height: var(--md-sys-typescale-display-large-line-height);
+  letter-spacing: var(--md-sys-typescale-display-large-tracking);
+}
+
+.m3e-heading--display-medium {
+  font-size: var(--md-sys-typescale-display-medium-font-size);
+  font-weight: var(--md-sys-typescale-display-medium-font-weight);
+  line-height: var(--md-sys-typescale-display-medium-line-height);
+  letter-spacing: var(--md-sys-typescale-display-medium-tracking);
+}
+
+.m3e-heading--display-small {
+  font-size: var(--md-sys-typescale-display-small-font-size);
+  font-weight: var(--md-sys-typescale-display-small-font-weight);
+  line-height: var(--md-sys-typescale-display-small-line-height);
+  letter-spacing: var(--md-sys-typescale-display-small-tracking);
+}
+
+/* Headline */
+.m3e-heading--headline-large {
+  font-size: var(--md-sys-typescale-headline-large-font-size);
+  font-weight: var(--md-sys-typescale-headline-large-font-weight);
+  line-height: var(--md-sys-typescale-headline-large-line-height);
+  letter-spacing: var(--md-sys-typescale-headline-large-tracking);
+}
+
+.m3e-heading--headline-medium {
+  font-size: var(--md-sys-typescale-headline-medium-font-size);
+  font-weight: var(--md-sys-typescale-headline-medium-font-weight);
+  line-height: var(--md-sys-typescale-headline-medium-line-height);
+  letter-spacing: var(--md-sys-typescale-headline-medium-tracking);
+}
+
+.m3e-heading--headline-small {
+  font-size: var(--md-sys-typescale-headline-small-font-size);
+  font-weight: var(--md-sys-typescale-headline-small-font-weight);
+  line-height: var(--md-sys-typescale-headline-small-line-height);
+  letter-spacing: var(--md-sys-typescale-headline-small-tracking);
+}
+
+/* Title */
+.m3e-heading--title-large {
+  font-size: var(--md-sys-typescale-title-large-font-size);
+  font-weight: var(--md-sys-typescale-title-large-font-weight);
+  line-height: var(--md-sys-typescale-title-large-line-height);
+  letter-spacing: var(--md-sys-typescale-title-large-tracking);
+}
+
+.m3e-heading--title-medium {
+  font-size: var(--md-sys-typescale-title-medium-font-size);
+  font-weight: var(--md-sys-typescale-title-medium-font-weight);
+  line-height: var(--md-sys-typescale-title-medium-line-height);
+  letter-spacing: var(--md-sys-typescale-title-medium-tracking);
+}
+
+.m3e-heading--title-small {
+  font-size: var(--md-sys-typescale-title-small-font-size);
+  font-weight: var(--md-sys-typescale-title-small-font-weight);
+  line-height: var(--md-sys-typescale-title-small-line-height);
+  letter-spacing: var(--md-sys-typescale-title-small-tracking);
+}
+
+/* Label */
+.m3e-heading--label-large {
+  font-size: var(--md-sys-typescale-label-large-font-size);
+  font-weight: var(--md-sys-typescale-label-large-font-weight);
+  line-height: var(--md-sys-typescale-label-large-line-height);
+  letter-spacing: var(--md-sys-typescale-label-large-tracking);
+}
+
+.m3e-heading--label-medium {
+  font-size: var(--md-sys-typescale-label-medium-font-size);
+  font-weight: var(--md-sys-typescale-label-medium-font-weight);
+  line-height: var(--md-sys-typescale-label-medium-line-height);
+  letter-spacing: var(--md-sys-typescale-label-medium-tracking);
+}
+
+.m3e-heading--label-small {
+  font-size: var(--md-sys-typescale-label-small-font-size);
+  font-weight: var(--md-sys-typescale-label-small-font-weight);
+  line-height: var(--md-sys-typescale-label-small-line-height);
+  letter-spacing: var(--md-sys-typescale-label-small-tracking);
+}
+
+/* Emphasized variants (bolder weight) */
+.m3e-heading--emphasized {
+  font-weight: 700;
+}

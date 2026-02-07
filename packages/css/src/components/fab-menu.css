@@ -1,0 +1,77 @@
+/* ==========================================================================
+   M3E FAB Menu
+   CSS classes for Material 3 Expressive FAB menus.
+
+   Usage:
+     <div class="m3e-fab-menu">
+       <button class="m3e-fab">
+         <span class="m3e-fab__icon">add</span>
+       </button>
+       <div class="m3e-fab-menu__items m3e-fab-menu__items--open">
+         <button class="m3e-fab m3e-fab--small m3e-fab--secondary">
+           <span class="m3e-fab__icon">edit</span>
+         </button>
+         <button class="m3e-fab m3e-fab--small m3e-fab--tertiary">
+           <span class="m3e-fab__icon">share</span>
+         </button>
+       </div>
+     </div>
+   ========================================================================== */
+
+.m3e-fab-menu {
+  display: inline-flex;
+  flex-direction: column-reverse;
+  align-items: center;
+  position: relative;
+}
+
+.m3e-fab-menu__items {
+  display: none;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--m3e-fab-menu-spacing, 0.25rem);
+  padding-bottom: 0.5rem;
+  max-width: 17.5rem;
+}
+
+.m3e-fab-menu__items--open {
+  display: flex;
+}
+
+/* Animation for items appearing */
+.m3e-fab-menu__items--animated {
+  animation: m3e-fab-menu-in var(--md-sys-motion-duration-medium-2) var(--md-sys-motion-easing-emphasized-decelerate);
+}
+
+@keyframes m3e-fab-menu-in {
+  from {
+    opacity: 0;
+    transform: scale(0.8) translateY(0.5rem);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+}
+
+/* Label for items */
+.m3e-fab-menu__label {
+  font-size: var(--md-sys-typescale-label-large-font-size);
+  font-weight: var(--md-sys-typescale-label-large-font-weight);
+  color: var(--md-sys-color-on-surface);
+  white-space: nowrap;
+}
+
+/* Item with label */
+.m3e-fab-menu__item {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  flex-direction: row-reverse;
+}
+
+@media (prefers-reduced-motion) {
+  .m3e-fab-menu__items--animated {
+    animation: none;
+  }
+}

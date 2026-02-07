@@ -1,0 +1,95 @@
+/* ==========================================================================
+   M3E Option
+   CSS classes for Material 3 Expressive options (for selects, menus).
+
+   Usage:
+     <div class="m3e-option" role="option">
+       <span class="m3e-option__text">Option text</span>
+     </div>
+     <div class="m3e-option m3e-option--selected" role="option" aria-selected="true">
+       <span class="m3e-option__check">✓</span>
+       <span class="m3e-option__text">Selected option</span>
+     </div>
+   ========================================================================== */
+
+.m3e-option {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  height: var(--m3e-option-container-height, 3rem);
+  padding-inline: 0.75rem;
+  color: var(--md-sys-color-on-surface);
+  font-size: var(--md-sys-typescale-label-large-font-size);
+  font-weight: var(--md-sys-typescale-label-large-font-weight);
+  line-height: var(--md-sys-typescale-label-large-line-height);
+  letter-spacing: var(--md-sys-typescale-label-large-tracking);
+  cursor: pointer;
+  user-select: none;
+  -webkit-tap-highlight-color: transparent;
+  transition: background-color var(--md-sys-motion-duration-short-4) var(--md-sys-motion-easing-standard);
+}
+
+.m3e-option:hover {
+  background-color: color-mix(in srgb, var(--md-sys-color-on-surface) var(--md-sys-state-hover-state-layer-opacity), transparent);
+}
+
+.m3e-option:focus-visible {
+  background-color: color-mix(in srgb, var(--md-sys-color-on-surface) var(--md-sys-state-focus-state-layer-opacity), transparent);
+  outline: none;
+}
+
+/* Selected */
+.m3e-option--selected {
+  background-color: var(--md-sys-color-secondary-container);
+  color: var(--md-sys-color-on-secondary-container);
+}
+
+.m3e-option--selected:hover {
+  background-color: color-mix(in srgb, var(--md-sys-color-on-secondary-container) var(--md-sys-state-hover-state-layer-opacity), var(--md-sys-color-secondary-container));
+}
+
+/* Disabled */
+.m3e-option--disabled {
+  color: color-mix(in srgb, var(--md-sys-color-on-surface) 38%, transparent);
+  pointer-events: none;
+}
+
+.m3e-option__icon {
+  font-size: 1.5rem;
+  flex-shrink: 0;
+  color: var(--md-sys-color-on-surface-variant);
+}
+
+.m3e-option__text {
+  flex: 1 1 auto;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.m3e-option__check {
+  font-size: 1.125rem;
+  flex-shrink: 0;
+  color: var(--md-sys-color-primary);
+}
+
+.m3e-option__trailing {
+  margin-inline-start: auto;
+  font-size: var(--md-sys-typescale-label-small-font-size);
+  color: var(--md-sys-color-on-surface-variant);
+}
+
+@media (forced-colors: active) {
+  .m3e-option--selected {
+    outline: 1px solid Highlight;
+  }
+  .m3e-option--disabled {
+    color: GrayText;
+  }
+}
+
+@media (prefers-reduced-motion) {
+  .m3e-option {
+    transition: none;
+  }
+}

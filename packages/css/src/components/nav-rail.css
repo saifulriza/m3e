@@ -1,0 +1,141 @@
+/* ==========================================================================
+   M3E Navigation Rail
+   CSS classes for Material 3 Expressive navigation rails.
+
+   Usage:
+     <nav class="m3e-nav-rail">
+       <a class="m3e-nav-rail__item m3e-nav-rail__item--active" href="#">
+         <span class="m3e-nav-rail__icon">home</span>
+         <span class="m3e-nav-rail__label">Home</span>
+       </a>
+       <a class="m3e-nav-rail__item" href="#">
+         <span class="m3e-nav-rail__icon">search</span>
+         <span class="m3e-nav-rail__label">Search</span>
+       </a>
+     </nav>
+   ========================================================================== */
+
+.m3e-nav-rail {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 6rem;
+  height: 100%;
+  padding-block-start: 2.75rem;
+  padding-block-end: 0.5rem;
+  overflow-y: auto;
+  overflow-x: hidden;
+  background-color: var(--md-sys-color-surface);
+  color: var(--md-sys-color-on-surface-variant);
+  scrollbar-width: thin;
+  scrollbar-color: var(--m3e-scrollbar-thumb-color, #938f94) transparent;
+}
+
+.m3e-nav-rail__item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.25rem;
+  width: 100%;
+  padding: 0.25rem 0;
+  text-decoration: none;
+  color: inherit;
+  cursor: pointer;
+  border: none;
+  background: none;
+  font-family: inherit;
+  -webkit-tap-highlight-color: transparent;
+  transition: color var(--md-sys-motion-duration-short-4) var(--md-sys-motion-easing-standard);
+}
+
+.m3e-nav-rail__icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 3.5rem;
+  height: 2rem;
+  border-radius: var(--md-sys-shape-corner-full);
+  font-size: 1.5rem;
+  transition: background-color var(--md-sys-motion-duration-short-4) var(--md-sys-motion-easing-standard);
+}
+
+.m3e-nav-rail__label {
+  font-size: var(--md-sys-typescale-label-medium-font-size);
+  font-weight: var(--md-sys-typescale-label-medium-font-weight);
+  line-height: var(--md-sys-typescale-label-medium-line-height);
+  letter-spacing: var(--md-sys-typescale-label-medium-tracking);
+  white-space: nowrap;
+}
+
+/* Active item */
+.m3e-nav-rail__item--active {
+  color: var(--md-sys-color-on-surface);
+}
+
+.m3e-nav-rail__item--active .m3e-nav-rail__icon {
+  background-color: var(--md-sys-color-secondary-container);
+  color: var(--md-sys-color-on-secondary-container);
+}
+
+.m3e-nav-rail__item--active .m3e-nav-rail__label {
+  font-weight: var(--md-sys-typescale-label-large-font-weight);
+}
+
+/* Hover */
+.m3e-nav-rail__item:hover .m3e-nav-rail__icon {
+  background-color: color-mix(in srgb, var(--md-sys-color-on-surface-variant) var(--md-sys-state-hover-state-layer-opacity), transparent);
+}
+
+.m3e-nav-rail__item--active:hover .m3e-nav-rail__icon {
+  background-color: color-mix(in srgb, var(--md-sys-color-on-secondary-container) var(--md-sys-state-hover-state-layer-opacity), var(--md-sys-color-secondary-container));
+}
+
+/* Expanded mode */
+.m3e-nav-rail--expanded {
+  min-width: 13.75rem;
+  max-width: 22.5rem;
+  align-items: stretch;
+  padding-inline: 1.25rem;
+}
+
+.m3e-nav-rail--expanded .m3e-nav-rail__item {
+  flex-direction: row;
+  justify-content: flex-start;
+  gap: 0.75rem;
+  height: var(--m3e-nav-rail-expanded-item-height, 3.5rem);
+  padding: 0 1rem;
+  border-radius: var(--md-sys-shape-corner-full);
+}
+
+.m3e-nav-rail--expanded .m3e-nav-rail__icon {
+  width: auto;
+  height: auto;
+  border-radius: 0;
+  background: none;
+}
+
+.m3e-nav-rail--expanded .m3e-nav-rail__item--active {
+  background-color: var(--md-sys-color-secondary-container);
+  color: var(--md-sys-color-on-secondary-container);
+}
+
+/* FAB slot */
+.m3e-nav-rail__fab {
+  padding: 0 0 2rem;
+  display: flex;
+  justify-content: center;
+}
+
+@media (forced-colors: active) {
+  .m3e-nav-rail__item--active .m3e-nav-rail__icon {
+    outline: 2px solid Highlight;
+  }
+}
+
+@media (prefers-reduced-motion) {
+  .m3e-nav-rail__item,
+  .m3e-nav-rail__icon {
+    transition: none;
+  }
+}

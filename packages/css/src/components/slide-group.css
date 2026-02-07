@@ -1,0 +1,115 @@
+/* ==========================================================================
+   M3E Slide Group
+   CSS classes for Material 3 Expressive slide groups.
+
+   Usage:
+     <div class="m3e-slide-group">
+       <button class="m3e-slide-group__prev" aria-label="Previous">‹</button>
+       <div class="m3e-slide-group__content">
+         <div class="m3e-slide-group__item">Item 1</div>
+         <div class="m3e-slide-group__item">Item 2</div>
+         <div class="m3e-slide-group__item">Item 3</div>
+       </div>
+       <button class="m3e-slide-group__next" aria-label="Next">›</button>
+     </div>
+   ========================================================================== */
+
+.m3e-slide-group {
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+}
+
+/* Vertical */
+.m3e-slide-group--vertical {
+  flex-direction: column;
+}
+
+.m3e-slide-group__content {
+  display: flex;
+  flex: 1 1 auto;
+  overflow-x: auto;
+  overflow-y: hidden;
+  scroll-behavior: smooth;
+  scrollbar-width: none;
+  gap: var(--m3e-slide-group-gap, 0);
+}
+
+.m3e-slide-group__content::-webkit-scrollbar {
+  display: none;
+}
+
+.m3e-slide-group--vertical .m3e-slide-group__content {
+  flex-direction: column;
+  overflow-x: hidden;
+  overflow-y: auto;
+}
+
+.m3e-slide-group__item {
+  flex: 0 0 auto;
+}
+
+/* Navigation buttons */
+.m3e-slide-group__prev,
+.m3e-slide-group__next {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.5rem;
+  height: 2.5rem;
+  border: none;
+  background: none;
+  color: var(--md-sys-color-on-surface);
+  cursor: pointer;
+  border-radius: var(--md-sys-shape-corner-full);
+  font-size: var(--m3e-slide-group-button-icon-size, 1.5rem);
+  flex-shrink: 0;
+  -webkit-tap-highlight-color: transparent;
+  transition: background-color var(--md-sys-motion-duration-short-4) var(--md-sys-motion-easing-standard);
+}
+
+.m3e-slide-group__prev:hover,
+.m3e-slide-group__next:hover {
+  background-color: color-mix(in srgb, var(--md-sys-color-on-surface) var(--md-sys-state-hover-state-layer-opacity), transparent);
+}
+
+.m3e-slide-group__prev:disabled,
+.m3e-slide-group__next:disabled {
+  color: color-mix(in srgb, var(--md-sys-color-on-surface) 38%, transparent);
+  cursor: not-allowed;
+}
+
+/* Vertical button rotation */
+.m3e-slide-group--vertical .m3e-slide-group__prev,
+.m3e-slide-group--vertical .m3e-slide-group__next {
+  transform: rotate(90deg);
+}
+
+/* With dividers */
+.m3e-slide-group--divided .m3e-slide-group__content {
+  border-top: 1px solid var(--md-sys-color-outline-variant);
+  border-bottom: 1px solid var(--md-sys-color-outline-variant);
+}
+
+/* Hidden buttons when not needed */
+.m3e-slide-group__prev[hidden],
+.m3e-slide-group__next[hidden] {
+  display: none;
+}
+
+@media (forced-colors: active) {
+  .m3e-slide-group__prev,
+  .m3e-slide-group__next {
+    color: ButtonText;
+  }
+}
+
+@media (prefers-reduced-motion) {
+  .m3e-slide-group__content {
+    scroll-behavior: auto;
+  }
+  .m3e-slide-group__prev,
+  .m3e-slide-group__next {
+    transition: none;
+  }
+}

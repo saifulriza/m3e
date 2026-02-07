@@ -1,0 +1,66 @@
+/* ==========================================================================
+   M3E Toolbar
+   CSS classes for Material 3 Expressive toolbars.
+
+   Usage:
+     <div class="m3e-toolbar">
+       <button class="m3e-icon-button">format_bold</button>
+       <button class="m3e-icon-button">format_italic</button>
+       <button class="m3e-icon-button">format_underlined</button>
+     </div>
+   ========================================================================== */
+
+.m3e-toolbar {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.25rem;
+  height: 4rem;
+  padding: 0 0.5rem;
+  background-color: var(--m3e-toolbar-container-color, var(--md-sys-color-surface-container));
+  color: var(--m3e-toolbar-text-color, var(--md-sys-color-on-surface));
+  border-radius: var(--md-sys-shape-corner-full);
+  box-shadow: var(--md-sys-elevation-level0);
+  transition: box-shadow var(--md-sys-motion-duration-short-4) var(--md-sys-motion-easing-standard);
+}
+
+/* Vertical */
+.m3e-toolbar--vertical {
+  flex-direction: column;
+  height: auto;
+  width: 4rem;
+  padding: 0.5rem 0;
+}
+
+/* Square shape */
+.m3e-toolbar--square {
+  border-radius: var(--md-sys-shape-corner-medium);
+  padding-inline: 1rem;
+}
+
+.m3e-toolbar--square.m3e-toolbar--vertical {
+  padding-inline: 0.5rem;
+  padding-block: 1rem;
+}
+
+/* Vibrant color variant */
+.m3e-toolbar--vibrant {
+  background-color: var(--md-sys-color-primary-container);
+  color: var(--md-sys-color-on-primary-container);
+}
+
+/* Elevated */
+.m3e-toolbar--elevated {
+  box-shadow: var(--md-sys-elevation-level2);
+}
+
+@media (forced-colors: active) {
+  .m3e-toolbar {
+    outline: 1px solid CanvasText;
+  }
+}
+
+@media (prefers-reduced-motion) {
+  .m3e-toolbar {
+    transition: none;
+  }
+}

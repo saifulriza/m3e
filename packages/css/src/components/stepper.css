@@ -1,0 +1,152 @@
+/* ==========================================================================
+   M3E Stepper
+   CSS classes for Material 3 Expressive steppers.
+
+   Usage:
+     <div class="m3e-stepper">
+       <div class="m3e-stepper__step m3e-stepper__step--completed">
+         <div class="m3e-stepper__header">
+           <span class="m3e-stepper__icon">1</span>
+           <span class="m3e-stepper__label">Step 1</span>
+         </div>
+       </div>
+       <div class="m3e-stepper__step m3e-stepper__step--active">
+         <div class="m3e-stepper__header">
+           <span class="m3e-stepper__icon">2</span>
+           <span class="m3e-stepper__label">Step 2</span>
+         </div>
+         <div class="m3e-stepper__content">Step content</div>
+       </div>
+       <div class="m3e-stepper__step">
+         <div class="m3e-stepper__header">
+           <span class="m3e-stepper__icon">3</span>
+           <span class="m3e-stepper__label">Step 3</span>
+         </div>
+       </div>
+     </div>
+   ========================================================================== */
+
+.m3e-stepper {
+  display: flex;
+  flex-direction: column;
+}
+
+/* Horizontal stepper */
+.m3e-stepper--horizontal {
+  flex-direction: row;
+  align-items: flex-start;
+}
+
+.m3e-stepper__step {
+  display: flex;
+  flex-direction: column;
+}
+
+.m3e-stepper--horizontal .m3e-stepper__step {
+  flex: 1 1 0;
+  flex-direction: row;
+  align-items: center;
+}
+
+.m3e-stepper__header {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: var(--m3e-step-padding, 1.5rem);
+  cursor: pointer;
+  user-select: none;
+  -webkit-tap-highlight-color: transparent;
+  transition: background-color var(--md-sys-motion-duration-short-4) var(--md-sys-motion-easing-standard);
+  border-radius: var(--md-sys-shape-corner-small);
+}
+
+.m3e-stepper__header:hover {
+  background-color: color-mix(in srgb, var(--md-sys-color-on-surface) var(--md-sys-state-hover-state-layer-opacity), transparent);
+}
+
+.m3e-stepper__icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: var(--m3e-step-icon-size, 1.5rem);
+  height: var(--m3e-step-icon-size, 1.5rem);
+  border-radius: var(--md-sys-shape-corner-full);
+  background-color: var(--md-sys-color-on-surface-variant);
+  color: var(--md-sys-color-surface);
+  font-size: var(--md-sys-typescale-label-small-font-size);
+  font-weight: var(--md-sys-typescale-label-small-font-weight);
+  flex-shrink: 0;
+}
+
+.m3e-stepper__step--active .m3e-stepper__icon {
+  background-color: var(--md-sys-color-primary);
+  color: var(--md-sys-color-on-primary);
+}
+
+.m3e-stepper__step--completed .m3e-stepper__icon {
+  background-color: var(--md-sys-color-primary);
+  color: var(--md-sys-color-on-primary);
+}
+
+.m3e-stepper__step--error .m3e-stepper__icon {
+  background-color: var(--md-sys-color-error);
+  color: var(--md-sys-color-on-error);
+}
+
+.m3e-stepper__label {
+  font-size: var(--md-sys-typescale-title-small-font-size);
+  font-weight: var(--md-sys-typescale-title-small-font-weight);
+  line-height: var(--md-sys-typescale-title-small-line-height);
+  color: var(--md-sys-color-on-surface);
+}
+
+.m3e-stepper__label-optional {
+  display: block;
+  font-size: var(--md-sys-typescale-body-small-font-size);
+  color: var(--md-sys-color-on-surface-variant);
+}
+
+.m3e-stepper__content {
+  padding: 0 var(--m3e-step-padding, 1.5rem) var(--m3e-step-padding, 1.5rem);
+}
+
+.m3e-stepper__actions {
+  display: flex;
+  gap: 0.5rem;
+  padding: 0.5rem var(--m3e-step-padding, 1.5rem) var(--m3e-step-padding, 1.5rem);
+}
+
+/* Vertical divider between steps */
+.m3e-stepper:not(.m3e-stepper--horizontal) .m3e-stepper__step + .m3e-stepper__step {
+  border-inline-start: 1px solid var(--m3e-step-divider-color, var(--md-sys-color-outline-variant));
+  margin-inline-start: calc(var(--m3e-step-padding, 1.5rem) + var(--m3e-step-icon-size, 1.5rem) / 2);
+  padding-inline-start: calc(var(--m3e-step-padding, 1.5rem) + var(--m3e-step-icon-size, 1.5rem) / 2);
+}
+
+/* Horizontal divider between steps */
+.m3e-stepper--horizontal .m3e-stepper__step + .m3e-stepper__step::before {
+  content: "";
+  flex: 1 1 auto;
+  height: 1px;
+  background-color: var(--m3e-step-divider-color, var(--md-sys-color-outline-variant));
+  margin: 0 0.5rem;
+  align-self: center;
+}
+
+/* Disabled step */
+.m3e-stepper__step--disabled {
+  opacity: 0.38;
+  pointer-events: none;
+}
+
+@media (forced-colors: active) {
+  .m3e-stepper__icon {
+    outline: 1px solid ButtonText;
+  }
+}
+
+@media (prefers-reduced-motion) {
+  .m3e-stepper__header {
+    transition: none;
+  }
+}
