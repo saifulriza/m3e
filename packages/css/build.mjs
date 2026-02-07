@@ -15,7 +15,8 @@ const componentsDistDir = join(distDir, "components");
 mkdirSync(distDir, { recursive: true });
 mkdirSync(componentsDistDir, { recursive: true });
 
-const banner = `/*!\n * @m3e/css v1.1.11\n * Material 3 Expressive CSS Framework\n * MIT License\n */\n`;
+const pkg = JSON.parse(readFileSync(join(__dirname, "package.json"), "utf-8"));
+const banner = `/*!\n * @m3e/css v${pkg.version}\n * Material 3 Expressive CSS Framework\n * MIT License\n */\n`;
 
 // Build tokens.css
 const tokensSrc = readFileSync(join(srcDir, "tokens.css"), "utf-8");
