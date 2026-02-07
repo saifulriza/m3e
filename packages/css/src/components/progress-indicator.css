@@ -129,6 +129,21 @@
   height: 4rem;
 }
 
+@media (forced-colors: active) {
+  .m3e-progress--linear {
+    background-color: GrayText;
+  }
+  .m3e-progress--linear .m3e-progress__bar {
+    background-color: CanvasText;
+  }
+  .m3e-progress--circular .m3e-progress__track {
+    stroke: GrayText;
+  }
+  .m3e-progress--circular .m3e-progress__indicator {
+    stroke: CanvasText;
+  }
+}
+
 @media (prefers-reduced-motion) {
   .m3e-progress--linear .m3e-progress__bar,
   .m3e-progress--circular .m3e-progress__indicator {

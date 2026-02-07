@@ -100,6 +100,69 @@
   color: var(--md-sys-color-on-primary);
 }
 
+/* Selected per-variant */
+.m3e-icon-button--selected.m3e-icon-button--filled {
+  background-color: var(--md-sys-color-primary);
+  color: var(--md-sys-color-on-primary);
+}
+.m3e-icon-button--selected.m3e-icon-button--tonal {
+  background-color: var(--md-sys-color-secondary-container);
+  color: var(--md-sys-color-on-secondary-container);
+}
+.m3e-icon-button--selected.m3e-icon-button--outlined {
+  background-color: var(--md-sys-color-inverse-surface);
+  color: var(--md-sys-color-inverse-on-surface);
+  outline-color: transparent;
+}
+
+/* Unselected states */
+.m3e-icon-button--unselected.m3e-icon-button--filled {
+  background-color: var(--md-sys-color-surface-container-highest);
+  color: var(--md-sys-color-primary);
+}
+.m3e-icon-button--unselected.m3e-icon-button--tonal {
+  background-color: var(--md-sys-color-surface-container-highest);
+  color: var(--md-sys-color-on-surface-variant);
+}
+
+/* Elevated */
+.m3e-icon-button--elevated {
+  background-color: var(--md-sys-color-surface-container-low);
+  color: var(--md-sys-color-primary);
+  box-shadow: var(--md-sys-elevation-level1);
+}
+.m3e-icon-button--elevated:hover:not(:disabled) {
+  background-color: color-mix(in srgb, var(--md-sys-color-primary) var(--md-sys-state-hover-state-layer-opacity), var(--md-sys-color-surface-container-low));
+  box-shadow: var(--md-sys-elevation-level2);
+}
+.m3e-icon-button--elevated:focus-visible:not(:disabled) {
+  background-color: color-mix(in srgb, var(--md-sys-color-primary) var(--md-sys-state-focus-state-layer-opacity), var(--md-sys-color-surface-container-low));
+  box-shadow: var(--md-sys-elevation-level1);
+}
+.m3e-icon-button--elevated:active:not(:disabled) {
+  background-color: color-mix(in srgb, var(--md-sys-color-primary) var(--md-sys-state-pressed-state-layer-opacity), var(--md-sys-color-surface-container-low));
+  box-shadow: var(--md-sys-elevation-level1);
+}
+.m3e-icon-button--elevated:disabled {
+  background-color: color-mix(in srgb, var(--md-sys-color-on-surface) 12%, transparent);
+  color: color-mix(in srgb, var(--md-sys-color-on-surface) 38%, transparent);
+  box-shadow: var(--md-sys-elevation-level0);
+}
+.m3e-icon-button--selected.m3e-icon-button--elevated {
+  background-color: var(--md-sys-color-primary);
+  color: var(--md-sys-color-on-primary);
+}
+
+/* Touch target */
+.m3e-icon-button::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  min-width: 3rem;
+  min-height: 3rem;
+  margin: auto;
+}
+
 @media (forced-colors: active) {
   .m3e-icon-button:not(:disabled) {
     color: ButtonText;

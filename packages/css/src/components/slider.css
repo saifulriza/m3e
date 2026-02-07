@@ -85,8 +85,85 @@
 
 /* Disabled */
 .m3e-slider:disabled {
-  opacity: 0.38;
   cursor: not-allowed;
+}
+.m3e-slider:disabled::-webkit-slider-thumb {
+  background-color: color-mix(in srgb, var(--md-sys-color-on-surface) 38%, transparent);
+  box-shadow: none;
+}
+.m3e-slider:disabled::-moz-range-thumb {
+  background-color: color-mix(in srgb, var(--md-sys-color-on-surface) 38%, transparent);
+  box-shadow: none;
+}
+.m3e-slider:disabled::-webkit-slider-runnable-track {
+  background: linear-gradient(
+    to right,
+    color-mix(in srgb, var(--md-sys-color-on-surface) 38%, transparent) 0%,
+    color-mix(in srgb, var(--md-sys-color-on-surface) 38%, transparent) var(--m3e-slider-progress, 50%),
+    color-mix(in srgb, var(--md-sys-color-on-surface) 12%, transparent) var(--m3e-slider-progress, 50%),
+    color-mix(in srgb, var(--md-sys-color-on-surface) 12%, transparent) 100%
+  );
+}
+
+/* Pressed thumb */
+.m3e-slider:active:not(:disabled)::-webkit-slider-thumb {
+  width: 1.75rem;
+  height: 1.75rem;
+  margin-top: -0.75rem;
+}
+
+/* Sizes */
+.m3e-slider--small {
+  height: 2rem;
+}
+.m3e-slider--small::-webkit-slider-runnable-track {
+  height: 1rem;
+  border-radius: 0.5rem;
+}
+.m3e-slider--small::-moz-range-track {
+  height: 1rem;
+  border-radius: 0.5rem;
+}
+
+.m3e-slider--large {
+  height: 3.5rem;
+}
+.m3e-slider--large::-webkit-slider-runnable-track {
+  height: 2.5rem;
+  border-radius: 0.75rem;
+}
+.m3e-slider--large::-moz-range-track {
+  height: 2.5rem;
+  border-radius: 0.75rem;
+}
+
+/* Discrete (stepped) slider - custom track with tick marks */
+.m3e-slider-container {
+  display: inline-flex;
+  align-items: center;
+  position: relative;
+  width: 100%;
+  min-width: 12.5rem;
+}
+.m3e-slider-container__ticks {
+  position: absolute;
+  width: 100%;
+  height: 0.25rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 0.625rem;
+  box-sizing: border-box;
+  pointer-events: none;
+}
+.m3e-slider-container__tick {
+  width: 0.25rem;
+  height: 0.25rem;
+  border-radius: var(--md-sys-shape-corner-full);
+  background-color: var(--md-sys-color-on-primary);
+}
+.m3e-slider-container__tick--inactive {
+  background-color: var(--md-sys-color-primary-container);
 }
 
 @media (forced-colors: active) {

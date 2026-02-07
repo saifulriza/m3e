@@ -140,6 +140,45 @@
   border-color: var(--md-sys-color-error);
 }
 
+/* State layer circle */
+.m3e-checkbox__indicator::before {
+  content: "";
+  position: absolute;
+  width: 2.5rem;
+  height: 2.5rem;
+  border-radius: var(--md-sys-shape-corner-full);
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  pointer-events: none;
+}
+
+.m3e-checkbox:hover .m3e-checkbox__indicator::before {
+  background-color: color-mix(in srgb, var(--md-sys-color-on-surface) 8%, transparent);
+}
+
+.m3e-checkbox:hover .m3e-checkbox__input:checked + .m3e-checkbox__indicator::before {
+  background-color: color-mix(in srgb, var(--md-sys-color-primary) 8%, transparent);
+}
+
+.m3e-checkbox:active .m3e-checkbox__indicator::before {
+  background-color: color-mix(in srgb, var(--md-sys-color-on-surface) 10%, transparent);
+}
+
+.m3e-checkbox:active .m3e-checkbox__input:checked + .m3e-checkbox__indicator::before {
+  background-color: color-mix(in srgb, var(--md-sys-color-primary) 10%, transparent);
+}
+
+.m3e-checkbox--error:hover .m3e-checkbox__indicator::before {
+  background-color: color-mix(in srgb, var(--md-sys-color-error) 8%, transparent);
+}
+
+/* Touch target */
+.m3e-checkbox__indicator::after {
+  min-width: 3rem;
+  min-height: 3rem;
+}
+
 @media (forced-colors: active) {
   .m3e-checkbox__indicator {
     border-color: ButtonText;

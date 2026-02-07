@@ -74,12 +74,48 @@
 /* Actionable */
 .m3e-card--actionable {
   cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
 }
 .m3e-card--actionable:hover {
   box-shadow: var(--md-sys-elevation-level2);
 }
+.m3e-card--actionable:focus-visible {
+  outline: 2px solid var(--md-sys-color-primary);
+  outline-offset: 2px;
+}
 .m3e-card--actionable:active {
   box-shadow: var(--md-sys-elevation-level1);
+}
+
+/* Actionable filled — state layers */
+.m3e-card--actionable.m3e-card--filled:hover {
+  background-color: color-mix(in srgb, var(--md-sys-color-on-surface) 8%, var(--md-sys-color-surface-container-highest));
+}
+.m3e-card--actionable.m3e-card--filled:active {
+  background-color: color-mix(in srgb, var(--md-sys-color-on-surface) 10%, var(--md-sys-color-surface-container-highest));
+}
+
+/* Actionable elevated — elevation transitions */
+.m3e-card--actionable.m3e-card--elevated:hover {
+  box-shadow: var(--md-sys-elevation-level2);
+}
+.m3e-card--actionable.m3e-card--elevated:focus-visible {
+  box-shadow: var(--md-sys-elevation-level1);
+}
+.m3e-card--actionable.m3e-card--elevated:active {
+  box-shadow: var(--md-sys-elevation-level1);
+}
+
+/* Actionable outlined — border color changes */
+.m3e-card--actionable.m3e-card--outlined:hover {
+  outline-color: var(--md-sys-color-outline);
+  box-shadow: var(--md-sys-elevation-level1);
+}
+.m3e-card--actionable.m3e-card--outlined:focus-visible {
+  outline-color: var(--md-sys-color-primary);
+}
+.m3e-card--actionable.m3e-card--outlined:active {
+  box-shadow: var(--md-sys-elevation-level0);
 }
 
 /* Horizontal layout */

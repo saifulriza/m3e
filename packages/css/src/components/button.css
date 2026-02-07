@@ -280,6 +280,10 @@
     color: GrayText;
     outline-color: GrayText;
   }
+  .m3e-button--selected:not(:disabled) {
+    background-color: Highlight;
+    color: HighlightText;
+  }
 }
 
 /* --------------------------------------------------------------------------
@@ -289,4 +293,71 @@
   .m3e-button {
     transition: none;
   }
+}
+
+/* --------------------------------------------------------------------------
+   Toggle / Selected State
+   -------------------------------------------------------------------------- */
+.m3e-button--selected.m3e-button--filled {
+  background-color: var(--md-sys-color-primary);
+  color: var(--md-sys-color-on-primary);
+}
+.m3e-button--selected.m3e-button--tonal {
+  background-color: var(--md-sys-color-secondary-container);
+  color: var(--md-sys-color-on-secondary-container);
+}
+.m3e-button--selected.m3e-button--elevated {
+  background-color: var(--md-sys-color-primary);
+  color: var(--md-sys-color-on-primary);
+  box-shadow: var(--md-sys-elevation-level1);
+}
+.m3e-button--selected.m3e-button--outlined {
+  background-color: var(--md-sys-color-inverse-surface);
+  color: var(--md-sys-color-inverse-on-surface);
+  outline-color: transparent;
+}
+/* Unselected toggle */
+.m3e-button--unselected.m3e-button--filled {
+  background-color: var(--md-sys-color-surface-container-highest);
+  color: var(--md-sys-color-primary);
+}
+.m3e-button--unselected.m3e-button--tonal {
+  background-color: var(--md-sys-color-surface-container-highest);
+  color: var(--md-sys-color-on-surface-variant);
+}
+
+/* --------------------------------------------------------------------------
+   Disabled Icon
+   -------------------------------------------------------------------------- */
+.m3e-button:disabled .m3e-button__icon {
+  color: color-mix(in srgb, var(--md-sys-color-on-surface) 38%, transparent);
+}
+
+/* --------------------------------------------------------------------------
+   Grouped / Connected Buttons
+   -------------------------------------------------------------------------- */
+.m3e-button--grouped {
+  flex: 1 1 0;
+}
+.m3e-button--connected {
+  border-radius: 0;
+}
+.m3e-button--connected:first-child {
+  border-start-start-radius: var(--md-sys-shape-corner-full);
+  border-end-start-radius: var(--md-sys-shape-corner-full);
+}
+.m3e-button--connected:last-child {
+  border-start-end-radius: var(--md-sys-shape-corner-full);
+  border-end-end-radius: var(--md-sys-shape-corner-full);
+}
+
+/* --------------------------------------------------------------------------
+   Touch Target
+   -------------------------------------------------------------------------- */
+.m3e-button::after {
+  content: "";
+  position: absolute;
+  inset: 50% 0;
+  transform: translateY(-50%);
+  min-height: 3rem;
 }

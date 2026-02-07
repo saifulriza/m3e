@@ -75,6 +75,14 @@
   background-color: color-mix(in srgb, var(--md-sys-color-on-secondary-container) var(--md-sys-state-hover-state-layer-opacity), var(--md-sys-color-secondary-container));
 }
 
+.m3e-chip--selected:focus-visible:not(:disabled) {
+  background-color: color-mix(in srgb, var(--md-sys-color-on-secondary-container) var(--md-sys-state-focus-state-layer-opacity), var(--md-sys-color-secondary-container));
+}
+
+.m3e-chip--selected:active:not(:disabled) {
+  background-color: color-mix(in srgb, var(--md-sys-color-on-secondary-container) var(--md-sys-state-pressed-state-layer-opacity), var(--md-sys-color-secondary-container));
+}
+
 /* Elevated chip */
 .m3e-chip--elevated {
   outline: none;
@@ -84,6 +92,67 @@
 
 .m3e-chip--elevated:hover:not(:disabled) {
   box-shadow: var(--md-sys-elevation-level2);
+}
+
+.m3e-chip--elevated:disabled {
+  box-shadow: var(--md-sys-elevation-level0);
+  background-color: color-mix(in srgb, var(--md-sys-color-on-surface) 12%, transparent);
+}
+
+/* Elevated + selected */
+.m3e-chip--elevated.m3e-chip--selected {
+  background-color: var(--md-sys-color-secondary-container);
+}
+
+/* --------------------------------------------------------------------------
+   Variant: Assist
+   -------------------------------------------------------------------------- */
+.m3e-chip--assist {
+  color: var(--md-sys-color-on-surface);
+}
+.m3e-chip--assist .m3e-chip__icon {
+  color: var(--md-sys-color-primary);
+}
+
+/* --------------------------------------------------------------------------
+   Variant: Filter
+   -------------------------------------------------------------------------- */
+.m3e-chip--filter .m3e-chip__check {
+  display: none;
+  font-size: 1.125rem;
+  margin-inline-start: -0.25rem;
+}
+.m3e-chip--filter.m3e-chip--selected .m3e-chip__check {
+  display: inline-flex;
+}
+
+/* --------------------------------------------------------------------------
+   Variant: Input
+   -------------------------------------------------------------------------- */
+.m3e-chip--input {
+  padding-inline-end: 0.5rem;
+}
+.m3e-chip--input .m3e-chip__avatar {
+  width: 1.5rem;
+  height: 1.5rem;
+  border-radius: var(--md-sys-shape-corner-full);
+  margin-inline-start: -0.25rem;
+}
+
+/* --------------------------------------------------------------------------
+   Variant: Suggestion
+   -------------------------------------------------------------------------- */
+.m3e-chip--suggestion {
+  color: var(--md-sys-color-on-surface-variant);
+}
+
+/* Touch target */
+.m3e-chip::after {
+  content: "";
+  position: absolute;
+  inset: 50% 0;
+  transform: translateY(-50%);
+  min-height: 3rem;
 }
 
 @media (forced-colors: active) {
