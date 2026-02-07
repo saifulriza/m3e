@@ -2081,9 +2081,9 @@
           <label class="portal-settings__label">Direction</label>
           <div class="portal-settings__btn-row">
             <button class="m3e-button" :class="dir === 'ltr' ? 'm3e-button--filled' : 'm3e-button--outlined'"
-                    @click="dir = 'ltr'; $el.closest('html').dir = 'ltr'" style="flex:1;">LTR</button>
+                    @click="setDir('ltr')" style="flex:1;">LTR</button>
             <button class="m3e-button" :class="dir === 'rtl' ? 'm3e-button--filled' : 'm3e-button--outlined'"
-                    @click="dir = 'rtl'; $el.closest('html').dir = 'rtl'" style="flex:1;">RTL</button>
+                    @click="setDir('rtl')" style="flex:1;">RTL</button>
           </div>
         </div>
       </aside>
@@ -2179,6 +2179,11 @@
             root.style.colorScheme = '';
             root.classList.remove('dark');
           }
+        }
+
+        function setDir(d) {
+          dir.value = d;
+          document.documentElement.dir = d;
         }
 
         // ===== Component State =====
@@ -2493,7 +2498,7 @@
         return {
           // Portal
           sidebarOpen, settingsOpen, currentPage, mainContent, navComponents,
-          primaryColor, updatePrimaryColor, colorScheme, setColorScheme, dir,
+          primaryColor, updatePrimaryColor, colorScheme, setColorScheme, dir, setDir,
           // Button
           buttonCount, btnToggle, isLoading, simulateLoading,
           // Icon Button
