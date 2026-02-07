@@ -2,7 +2,9 @@
   "name": "@m3e/css",
   "version": "1.1.11",
   "description": "Material 3 Expressive CSS framework — use with any JS framework (React, Vue, Angular, Svelte, etc.).",
+  "author": "matraic <matraic@yahoo.com>",
   "license": "MIT",
+  "homepage": "https://matraic.github.io/m3e/",
   "type": "module",
   "main": "dist/m3e.css",
   "style": "dist/m3e.css",
@@ -41,8 +43,8 @@
   "scripts": {
     "build": "node build.mjs",
     "clean": "rimraf dist",
-    "lint": "echo 'lint: skip'",
-    "cem": "echo 'cem: skip'"
+    "lint": "echo \"@m3e/css: skipping lint\"",
+    "cem": "echo \"@m3e/css: skipping cem\""
   },
   "keywords": [
     "material-design",
@@ -57,7 +59,6 @@
   ],
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/nicoss01/m3e.git",
-    "directory": "packages/css"
+    "url": "git+https://github.com/matraic/m3e.git"
   }
 }

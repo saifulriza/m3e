@@ -3,7 +3,7 @@
  * Concatenates CSS source files into distributable bundles.
  */
 
-import { readFileSync, writeFileSync, mkdirSync, readdirSync, existsSync } from "fs";
+import { readFileSync, writeFileSync, mkdirSync, readdirSync } from "fs";
 import { join, dirname } from "path";
 import { fileURLToPath } from "url";
 
