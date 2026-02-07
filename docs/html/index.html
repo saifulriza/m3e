@@ -3,126 +3,1951 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>M3E CSS Framework — Component Demos</title>
+  <title>M3E CSS — Material 3 Components</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet" />
   <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet" />
+
+  <!-- Tokens -->
   <link rel="stylesheet" href="../../packages/css/src/tokens.css" />
+
+  <!-- All component CSS -->
+  <link rel="stylesheet" href="../../packages/css/src/components/app-bar.css" />
+  <link rel="stylesheet" href="../../packages/css/src/components/autocomplete.css" />
+  <link rel="stylesheet" href="../../packages/css/src/components/avatar.css" />
+  <link rel="stylesheet" href="../../packages/css/src/components/badge.css" />
+  <link rel="stylesheet" href="../../packages/css/src/components/button.css" />
+  <link rel="stylesheet" href="../../packages/css/src/components/button-group.css" />
+  <link rel="stylesheet" href="../../packages/css/src/components/card.css" />
+  <link rel="stylesheet" href="../../packages/css/src/components/checkbox.css" />
+  <link rel="stylesheet" href="../../packages/css/src/components/chips.css" />
+  <link rel="stylesheet" href="../../packages/css/src/components/dialog.css" />
+  <link rel="stylesheet" href="../../packages/css/src/components/divider.css" />
+  <link rel="stylesheet" href="../../packages/css/src/components/drawer.css" />
+  <link rel="stylesheet" href="../../packages/css/src/components/drawer-container.css" />
+  <link rel="stylesheet" href="../../packages/css/src/components/elevation.css" />
+  <link rel="stylesheet" href="../../packages/css/src/components/expansion-panel.css" />
+  <link rel="stylesheet" href="../../packages/css/src/components/fab.css" />
+  <link rel="stylesheet" href="../../packages/css/src/components/fab-menu.css" />
+  <link rel="stylesheet" href="../../packages/css/src/components/form-field.css" />
+  <link rel="stylesheet" href="../../packages/css/src/components/heading.css" />
+  <link rel="stylesheet" href="../../packages/css/src/components/icon.css" />
+  <link rel="stylesheet" href="../../packages/css/src/components/icon-button.css" />
+  <link rel="stylesheet" href="../../packages/css/src/components/list.css" />
+  <link rel="stylesheet" href="../../packages/css/src/components/loading-indicator.css" />
+  <link rel="stylesheet" href="../../packages/css/src/components/menu.css" />
+  <link rel="stylesheet" href="../../packages/css/src/components/nav-bar.css" />
+  <link rel="stylesheet" href="../../packages/css/src/components/nav-menu.css" />
+  <link rel="stylesheet" href="../../packages/css/src/components/nav-rail.css" />
+  <link rel="stylesheet" href="../../packages/css/src/components/option.css" />
+  <link rel="stylesheet" href="../../packages/css/src/components/paginator.css" />
+  <link rel="stylesheet" href="../../packages/css/src/components/progress-indicator.css" />
+  <link rel="stylesheet" href="../../packages/css/src/components/radio.css" />
+  <link rel="stylesheet" href="../../packages/css/src/components/segmented-button.css" />
+  <link rel="stylesheet" href="../../packages/css/src/components/select.css" />
+  <link rel="stylesheet" href="../../packages/css/src/components/shape.css" />
+  <link rel="stylesheet" href="../../packages/css/src/components/slide-group.css" />
+  <link rel="stylesheet" href="../../packages/css/src/components/slider.css" />
+  <link rel="stylesheet" href="../../packages/css/src/components/snackbar.css" />
+  <link rel="stylesheet" href="../../packages/css/src/components/split-button.css" />
+  <link rel="stylesheet" href="../../packages/css/src/components/stepper.css" />
+  <link rel="stylesheet" href="../../packages/css/src/components/switch.css" />
+  <link rel="stylesheet" href="../../packages/css/src/components/tabs.css" />
+  <link rel="stylesheet" href="../../packages/css/src/components/toc.css" />
+  <link rel="stylesheet" href="../../packages/css/src/components/toolbar.css" />
+  <link rel="stylesheet" href="../../packages/css/src/components/tooltip.css" />
+  <link rel="stylesheet" href="../../packages/css/src/components/typography.css" />
+
   <style>
+    /* ── Reset & Layout ─────────────────────────────────── */
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { overflow: hidden; }
     body {
       font-family: 'Roboto', sans-serif;
       background: var(--md-sys-color-surface);
       color: var(--md-sys-color-on-surface);
-      padding: 24px;
-    }
-    h1 { font-size: 2.25rem; font-weight: 400; margin-bottom: 8px; color: var(--md-sys-color-on-surface); }
-    .subtitle { font-size: 1rem; color: var(--md-sys-color-on-surface-variant); margin-bottom: 32px; }
-    .grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-      gap: 16px;
-    }
-    .demo-card {
+      height: 100vh;
+      height: 100dvh;
       display: flex;
       flex-direction: column;
-      background: var(--md-sys-color-surface-container-low);
-      border-radius: 16px;
-      padding: 24px;
-      text-decoration: none;
-      color: inherit;
-      transition: background 0.2s, box-shadow 0.2s;
+      overflow: hidden;
     }
-    .demo-card:hover {
+
+    /* ── App Bar ─────────────────────────────────────────── */
+    .portal-bar {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      height: 64px;
+      padding: 0 16px;
       background: var(--md-sys-color-surface-container);
-      box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+      color: var(--md-sys-color-on-surface);
+      flex: none;
+      z-index: 10;
     }
-    .demo-card h3 { font-size: 1.125rem; font-weight: 500; margin-bottom: 8px; }
-    .demo-card p { font-size: 0.875rem; color: var(--md-sys-color-on-surface-variant); }
-    .demo-card .icon {
-      font-family: 'Material Symbols Outlined';
-      font-size: 40px;
-      color: var(--md-sys-color-primary);
-      margin-bottom: 12px;
+    .portal-bar__title {
+      font-size: 1.125rem;
+      font-weight: 500;
+      flex: 1;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+    .portal-bar button {
+      background: none;
+      border: none;
+      color: inherit;
+      cursor: pointer;
+      width: 40px;
+      height: 40px;
+      border-radius: 20px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      transition: background 0.15s;
+    }
+    .portal-bar button:hover { background: var(--md-sys-color-on-surface-variant, #666) / 0.08; background: color-mix(in srgb, var(--md-sys-color-on-surface) 8%, transparent); }
+
+    /* ── Body Layout ─────────────────────────────────────── */
+    .portal-body {
+      display: flex;
+      flex: 1;
+      overflow: hidden;
+      position: relative;
+    }
+
+    /* ── Sidebar ─────────────────────────────────────────── */
+    .portal-sidebar {
+      width: 280px;
+      flex: none;
+      overflow-y: auto;
+      background: var(--md-sys-color-surface-container-low);
+      border-right: 1px solid var(--md-sys-color-outline-variant);
+      padding: 8px 0;
+      transition: margin-left 0.3s ease;
+      z-index: 5;
+    }
+    .portal-sidebar.hidden { margin-left: -280px; }
+    .portal-sidebar__group-title {
+      padding: 16px 16px 8px;
+      font-size: 0.6875rem;
+      font-weight: 500;
+      letter-spacing: 0.5px;
+      text-transform: uppercase;
+      color: var(--md-sys-color-on-surface-variant);
+    }
+    .portal-sidebar__item {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding: 10px 24px;
+      font-size: 0.875rem;
+      cursor: pointer;
+      border: none;
+      background: none;
+      color: var(--md-sys-color-on-surface-variant);
+      width: 100%;
+      text-align: start;
+      transition: background 0.15s;
+      border-radius: 0;
+    }
+    .portal-sidebar__item:hover { background: color-mix(in srgb, var(--md-sys-color-on-surface) 8%, transparent); }
+    .portal-sidebar__item.active {
+      background: var(--md-sys-color-secondary-container);
+      color: var(--md-sys-color-on-secondary-container);
+      font-weight: 500;
+    }
+    .portal-sidebar__item .material-symbols-outlined { font-size: 20px; }
+
+    /* ── Settings Panel ──────────────────────────────────── */
+    .portal-settings {
+      width: 260px;
+      flex: none;
+      overflow-y: auto;
+      background: var(--md-sys-color-surface-container-low);
+      border-left: 1px solid var(--md-sys-color-outline-variant);
+      padding: 16px;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+      transition: margin-right 0.3s ease;
+      z-index: 5;
+    }
+    .portal-settings.hidden { margin-right: -260px; }
+    .portal-settings__label {
+      font-size: 0.6875rem;
+      font-weight: 500;
+      letter-spacing: 0.5px;
+      text-transform: uppercase;
+      color: var(--md-sys-color-on-surface-variant);
+    }
+    .portal-settings input[type="color"] {
+      appearance: none;
+      border: none;
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      padding: 0;
+      cursor: pointer;
+      outline-color: var(--md-sys-color-secondary);
+    }
+    .portal-settings input[type="color"]::-webkit-color-swatch-wrapper { padding: 0; }
+    .portal-settings input[type="color"]::-webkit-color-swatch { border: none; border-radius: 50%; }
+    .portal-settings .toggle-group {
+      display: flex;
+      gap: 4px;
+    }
+    .portal-settings .toggle-btn {
+      flex: 1;
+      padding: 8px 4px;
+      border: 1px solid var(--md-sys-color-outline);
+      background: none;
+      color: var(--md-sys-color-on-surface);
+      cursor: pointer;
+      font-size: 0.75rem;
+      font-family: inherit;
+      transition: background 0.15s;
+    }
+    .portal-settings .toggle-btn:first-child { border-radius: 20px 0 0 20px; }
+    .portal-settings .toggle-btn:last-child { border-radius: 0 20px 20px 0; }
+    .portal-settings .toggle-btn.active {
+      background: var(--md-sys-color-secondary-container);
+      color: var(--md-sys-color-on-secondary-container);
+      border-color: var(--md-sys-color-secondary-container);
+      font-weight: 500;
+    }
+
+    /* ── Main Content ────────────────────────────────────── */
+    .portal-main {
+      flex: 1;
+      overflow-y: auto;
+      padding: 24px;
+      max-width: 100%;
+    }
+    .portal-main [data-page] { display: none; }
+    .portal-main [data-page].active { display: block; }
+
+    /* ── Demo shared styles ──────────────────────────────── */
+    .page-title { font-size: 2rem; font-weight: 400; margin-bottom: 4px; }
+    .page-subtitle { font-size: 0.875rem; color: var(--md-sys-color-on-surface-variant); margin-bottom: 32px; }
+    section { margin-bottom: 40px; }
+    section h2 { font-size: 1.375rem; font-weight: 400; margin-bottom: 16px; }
+    section h3 { font-size: 1rem; font-weight: 500; margin-bottom: 12px; color: var(--md-sys-color-on-surface-variant); }
+    .demo-row { display: flex; flex-wrap: wrap; align-items: center; gap: 12px; margin-bottom: 16px; }
+    .demo-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 16px; margin-bottom: 16px; }
+    .demo-box { border: 1px solid var(--md-sys-color-outline-variant); border-radius: 16px; padding: 24px; margin-bottom: 16px; }
+    .demo-label { font-size: 0.75rem; color: var(--md-sys-color-on-surface-variant); margin-bottom: 8px; text-transform: uppercase; letter-spacing: 0.5px; }
+    pre.code { background: var(--md-sys-color-surface-container-high); border-radius: 12px; padding: 16px; font-size: 0.8125rem; overflow-x: auto; margin-bottom: 16px; color: var(--md-sys-color-on-surface); }
+    .material-symbols-outlined { font-family: 'Material Symbols Outlined'; font-weight: normal; font-style: normal; font-size: 24px; line-height: 1; letter-spacing: normal; text-transform: none; display: inline-block; white-space: nowrap; word-wrap: normal; direction: ltr; -webkit-font-smoothing: antialiased; }
+
+    /* Preview containers */
+    .dialog-preview { position: relative; background: var(--md-sys-color-surface-container); border-radius: 16px; padding: 32px; display: flex; justify-content: center; align-items: center; min-height: 300px; margin-bottom: 16px; }
+    .dialog-preview .m3e-dialog { position: relative; z-index: 1; }
+    .nav-preview { background: var(--md-sys-color-surface-container); border-radius: 16px; overflow: hidden; margin-bottom: 16px; }
+
+    /* Responsive */
+    @media (max-width: 900px) {
+      .portal-sidebar { position: absolute; top: 0; left: 0; bottom: 0; z-index: 20; box-shadow: 4px 0 16px rgba(0,0,0,.15); }
+      .portal-sidebar.hidden { margin-left: -280px; }
+      .portal-settings { position: absolute; top: 0; right: 0; bottom: 0; z-index: 20; box-shadow: -4px 0 16px rgba(0,0,0,.15); }
+      .portal-settings.hidden { margin-right: -260px; }
     }
   </style>
 </head>
 <body>
-  <h1>M3E CSS Framework — Demos</h1>
-  <p class="subtitle">Pure HTML + CSS component demos following Material Design 3 specifications. Framework-agnostic — works everywhere.</p>
+  <!-- ═══ APP BAR ═══ -->
+  <header class="portal-bar">
+    <button id="menu-toggle" aria-label="Toggle navigation">
+      <span class="material-symbols-outlined">menu</span>
+    </button>
+    <span class="portal-bar__title">M3E CSS — Material 3 Components</span>
+    <button id="settings-toggle" aria-label="Toggle settings">
+      <span class="material-symbols-outlined">settings</span>
+    </button>
+  </header>
 
-  <div class="grid">
-    <a class="demo-card" href="buttons.html">
-      <span class="icon">smart_button</span>
-      <h3>Buttons</h3>
-      <p>Filled, outlined, tonal, elevated, text. All sizes and states.</p>
-    </a>
-    <a class="demo-card" href="icon-buttons.html">
-      <span class="icon">radio_button_checked</span>
-      <h3>Icon Buttons</h3>
-      <p>Standard, filled, tonal, outlined. Toggle states.</p>
-    </a>
-    <a class="demo-card" href="fab.html">
-      <span class="icon">add_circle</span>
-      <h3>FAB &amp; FAB Menu</h3>
-      <p>Floating action buttons: small, medium, large, extended. FAB menu.</p>
-    </a>
-    <a class="demo-card" href="cards.html">
-      <span class="icon">dashboard</span>
-      <h3>Cards</h3>
-      <p>Filled, elevated, outlined. With media, actions, horizontal layout.</p>
-    </a>
-    <a class="demo-card" href="checkbox-radio-switch.html">
-      <span class="icon">check_box</span>
-      <h3>Checkbox, Radio &amp; Switch</h3>
-      <p>Selection controls with all states: checked, indeterminate, error, disabled.</p>
-    </a>
-    <a class="demo-card" href="text-fields.html">
-      <span class="icon">text_fields</span>
-      <h3>Text Fields &amp; Select</h3>
-      <p>Filled and outlined text fields, select, autocomplete, form-field.</p>
-    </a>
-    <a class="demo-card" href="dialogs.html">
-      <span class="icon">open_in_new</span>
-      <h3>Dialogs</h3>
-      <p>Basic dialog, full-screen, alert style with actions.</p>
-    </a>
-    <a class="demo-card" href="navigation.html">
-      <span class="icon">menu</span>
-      <h3>Navigation</h3>
-      <p>App bar, nav bar, nav rail, nav menu, drawer, tabs.</p>
-    </a>
-    <a class="demo-card" href="lists-menus.html">
-      <span class="icon">list</span>
-      <h3>Lists &amp; Menus</h3>
-      <p>Lists with leading/trailing, menus with icons, option items.</p>
-    </a>
-    <a class="demo-card" href="chips.html">
-      <span class="icon">label</span>
-      <h3>Chips</h3>
-      <p>Assist, filter, input, suggestion chips. Selected and elevated states.</p>
-    </a>
-    <a class="demo-card" href="progress-loading.html">
-      <span class="icon">pending</span>
-      <h3>Progress &amp; Loading</h3>
-      <p>Linear and circular progress. Loading indicator with spinner.</p>
-    </a>
-    <a class="demo-card" href="sliders.html">
-      <span class="icon">tune</span>
-      <h3>Sliders</h3>
-      <p>Continuous and discrete sliders with range styling.</p>
-    </a>
-    <a class="demo-card" href="snackbar-tooltip.html">
-      <span class="icon">chat_bubble</span>
-      <h3>Snackbar &amp; Tooltip</h3>
-      <p>Snackbar notifications. Plain and rich tooltips.</p>
-    </a>
-    <a class="demo-card" href="misc.html">
-      <span class="icon">widgets</span>
-      <h3>Miscellaneous</h3>
-      <p>Badge, Avatar, Divider, Elevation, Typography, Heading, Icon, Shape, Segmented Button, Expansion Panel, Stepper, Paginator, TOC, and more.</p>
-    </a>
+  <div class="portal-body">
+    <!-- ═══ SIDEBAR ═══ -->
+    <nav class="portal-sidebar" id="sidebar">
+      <div class="portal-sidebar__group-title">Actions</div>
+      <button class="portal-sidebar__item active" onclick="showPage('button')">
+        <span class="material-symbols-outlined">smart_button</span> Button
+      </button>
+      <button class="portal-sidebar__item" onclick="showPage('icon-button')">
+        <span class="material-symbols-outlined">radio_button_checked</span> Icon Button
+      </button>
+      <button class="portal-sidebar__item" onclick="showPage('fab')">
+        <span class="material-symbols-outlined">add_circle</span> FAB
+      </button>
+      <button class="portal-sidebar__item" onclick="showPage('fab-menu')">
+        <span class="material-symbols-outlined">menu_open</span> FAB Menu
+      </button>
+      <button class="portal-sidebar__item" onclick="showPage('segmented-button')">
+        <span class="material-symbols-outlined">view_week</span> Segmented Button
+      </button>
+      <button class="portal-sidebar__item" onclick="showPage('button-group')">
+        <span class="material-symbols-outlined">view_column</span> Button Group
+      </button>
+      <button class="portal-sidebar__item" onclick="showPage('split-button')">
+        <span class="material-symbols-outlined">call_split</span> Split Button
+      </button>
+
+      <div class="portal-sidebar__group-title">Containment</div>
+      <button class="portal-sidebar__item" onclick="showPage('card')">
+        <span class="material-symbols-outlined">dashboard</span> Card
+      </button>
+      <button class="portal-sidebar__item" onclick="showPage('dialog')">
+        <span class="material-symbols-outlined">open_in_new</span> Dialog
+      </button>
+      <button class="portal-sidebar__item" onclick="showPage('expansion-panel')">
+        <span class="material-symbols-outlined">expand_more</span> Expansion Panel
+      </button>
+      <button class="portal-sidebar__item" onclick="showPage('divider')">
+        <span class="material-symbols-outlined">horizontal_rule</span> Divider
+      </button>
+      <button class="portal-sidebar__item" onclick="showPage('elevation')">
+        <span class="material-symbols-outlined">layers</span> Elevation
+      </button>
+
+      <div class="portal-sidebar__group-title">Communication</div>
+      <button class="portal-sidebar__item" onclick="showPage('badge')">
+        <span class="material-symbols-outlined">notifications</span> Badge
+      </button>
+      <button class="portal-sidebar__item" onclick="showPage('snackbar')">
+        <span class="material-symbols-outlined">chat_bubble</span> Snackbar
+      </button>
+      <button class="portal-sidebar__item" onclick="showPage('tooltip')">
+        <span class="material-symbols-outlined">info</span> Tooltip
+      </button>
+      <button class="portal-sidebar__item" onclick="showPage('progress-indicator')">
+        <span class="material-symbols-outlined">pending</span> Progress Indicator
+      </button>
+      <button class="portal-sidebar__item" onclick="showPage('loading-indicator')">
+        <span class="material-symbols-outlined">autorenew</span> Loading Indicator
+      </button>
+
+      <div class="portal-sidebar__group-title">Selection</div>
+      <button class="portal-sidebar__item" onclick="showPage('checkbox')">
+        <span class="material-symbols-outlined">check_box</span> Checkbox
+      </button>
+      <button class="portal-sidebar__item" onclick="showPage('radio')">
+        <span class="material-symbols-outlined">radio_button_checked</span> Radio
+      </button>
+      <button class="portal-sidebar__item" onclick="showPage('switch')">
+        <span class="material-symbols-outlined">toggle_on</span> Switch
+      </button>
+      <button class="portal-sidebar__item" onclick="showPage('chips')">
+        <span class="material-symbols-outlined">label</span> Chips
+      </button>
+      <button class="portal-sidebar__item" onclick="showPage('slider')">
+        <span class="material-symbols-outlined">tune</span> Slider
+      </button>
+      <button class="portal-sidebar__item" onclick="showPage('option')">
+        <span class="material-symbols-outlined">check_circle</span> Option
+      </button>
+
+      <div class="portal-sidebar__group-title">Text Input</div>
+      <button class="portal-sidebar__item" onclick="showPage('text-field')">
+        <span class="material-symbols-outlined">text_fields</span> Text Field
+      </button>
+      <button class="portal-sidebar__item" onclick="showPage('select')">
+        <span class="material-symbols-outlined">arrow_drop_down_circle</span> Select
+      </button>
+      <button class="portal-sidebar__item" onclick="showPage('autocomplete')">
+        <span class="material-symbols-outlined">manage_search</span> Autocomplete
+      </button>
+
+      <div class="portal-sidebar__group-title">Navigation</div>
+      <button class="portal-sidebar__item" onclick="showPage('app-bar')">
+        <span class="material-symbols-outlined">web_asset</span> App Bar
+      </button>
+      <button class="portal-sidebar__item" onclick="showPage('nav-bar')">
+        <span class="material-symbols-outlined">bottom_navigation</span> Nav Bar
+      </button>
+      <button class="portal-sidebar__item" onclick="showPage('nav-rail')">
+        <span class="material-symbols-outlined">side_navigation</span> Nav Rail
+      </button>
+      <button class="portal-sidebar__item" onclick="showPage('nav-menu')">
+        <span class="material-symbols-outlined">menu_open</span> Nav Menu
+      </button>
+      <button class="portal-sidebar__item" onclick="showPage('drawer')">
+        <span class="material-symbols-outlined">menu</span> Drawer
+      </button>
+      <button class="portal-sidebar__item" onclick="showPage('tabs')">
+        <span class="material-symbols-outlined">tab</span> Tabs
+      </button>
+      <button class="portal-sidebar__item" onclick="showPage('stepper')">
+        <span class="material-symbols-outlined">timeline</span> Stepper
+      </button>
+      <button class="portal-sidebar__item" onclick="showPage('paginator')">
+        <span class="material-symbols-outlined">last_page</span> Paginator
+      </button>
+      <button class="portal-sidebar__item" onclick="showPage('toc')">
+        <span class="material-symbols-outlined">toc</span> TOC
+      </button>
+
+      <div class="portal-sidebar__group-title">Layout</div>
+      <button class="portal-sidebar__item" onclick="showPage('list')">
+        <span class="material-symbols-outlined">list</span> List
+      </button>
+      <button class="portal-sidebar__item" onclick="showPage('menu')">
+        <span class="material-symbols-outlined">more_vert</span> Menu
+      </button>
+      <button class="portal-sidebar__item" onclick="showPage('toolbar')">
+        <span class="material-symbols-outlined">build</span> Toolbar
+      </button>
+      <button class="portal-sidebar__item" onclick="showPage('slide-group')">
+        <span class="material-symbols-outlined">view_carousel</span> Slide Group
+      </button>
+      <button class="portal-sidebar__item" onclick="showPage('avatar')">
+        <span class="material-symbols-outlined">account_circle</span> Avatar
+      </button>
+
+      <div class="portal-sidebar__group-title">Typography &amp; Style</div>
+      <button class="portal-sidebar__item" onclick="showPage('typography')">
+        <span class="material-symbols-outlined">format_size</span> Typography
+      </button>
+      <button class="portal-sidebar__item" onclick="showPage('heading')">
+        <span class="material-symbols-outlined">title</span> Heading
+      </button>
+      <button class="portal-sidebar__item" onclick="showPage('icon')">
+        <span class="material-symbols-outlined">emoji_symbols</span> Icon
+      </button>
+      <button class="portal-sidebar__item" onclick="showPage('shape')">
+        <span class="material-symbols-outlined">hexagon</span> Shape
+      </button>
+    </nav>
+
+    <!-- ═══ MAIN CONTENT ═══ -->
+    <main class="portal-main" id="main-content">
+
+      <!-- ── Button ── -->
+      <div data-page="button" class="active">
+        <h1 class="page-title">Button</h1>
+        <p class="page-subtitle">Common buttons in all variants, sizes and states per Material Design 3.</p>
+
+        <section>
+          <h2>Button Variants</h2>
+          <div class="demo-row">
+            <button class="m3e-button m3e-button--filled">Filled</button>
+            <button class="m3e-button m3e-button--tonal">Tonal</button>
+            <button class="m3e-button m3e-button--elevated">Elevated</button>
+            <button class="m3e-button m3e-button--outlined">Outlined</button>
+            <button class="m3e-button m3e-button--text">Text</button>
+          </div>
+        </section>
+
+        <section>
+          <h2>Button Sizes</h2>
+          <div class="demo-row">
+            <button class="m3e-button m3e-button--filled m3e-button--extra-small">XS</button>
+            <button class="m3e-button m3e-button--filled m3e-button--small">Small</button>
+            <button class="m3e-button m3e-button--filled m3e-button--medium">Medium</button>
+            <button class="m3e-button m3e-button--filled m3e-button--large">Large</button>
+            <button class="m3e-button m3e-button--filled m3e-button--extra-large">X-Large</button>
+          </div>
+        </section>
+
+        <section>
+          <h2>Buttons with Icons</h2>
+          <div class="demo-row">
+            <button class="m3e-button m3e-button--filled"><span class="m3e-button__icon material-symbols-outlined">add</span> Create</button>
+            <button class="m3e-button m3e-button--tonal"><span class="m3e-button__icon material-symbols-outlined">send</span> Send</button>
+            <button class="m3e-button m3e-button--outlined"><span class="m3e-button__icon material-symbols-outlined">favorite</span> Like</button>
+            <button class="m3e-button m3e-button--text"><span class="m3e-button__icon material-symbols-outlined">arrow_back</span> Back</button>
+          </div>
+        </section>
+
+        <section>
+          <h2>Square Buttons</h2>
+          <div class="demo-row">
+            <button class="m3e-button m3e-button--filled m3e-button--square"><span class="m3e-button__icon material-symbols-outlined">add</span></button>
+            <button class="m3e-button m3e-button--tonal m3e-button--square"><span class="m3e-button__icon material-symbols-outlined">edit</span></button>
+            <button class="m3e-button m3e-button--outlined m3e-button--square"><span class="m3e-button__icon material-symbols-outlined">delete</span></button>
+          </div>
+        </section>
+
+        <section>
+          <h2>Disabled State</h2>
+          <div class="demo-row">
+            <button class="m3e-button m3e-button--filled" disabled>Filled</button>
+            <button class="m3e-button m3e-button--tonal" disabled>Tonal</button>
+            <button class="m3e-button m3e-button--elevated" disabled>Elevated</button>
+            <button class="m3e-button m3e-button--outlined" disabled>Outlined</button>
+            <button class="m3e-button m3e-button--text" disabled>Text</button>
+          </div>
+        </section>
+      </div>
+
+      <!-- ── Icon Button ── -->
+      <div data-page="icon-button">
+        <h1 class="page-title">Icon Button</h1>
+        <p class="page-subtitle">Icon buttons for actions. Standard, filled, tonal, outlined and toggle states.</p>
+
+        <section>
+          <h2>Variants</h2>
+          <div class="demo-row">
+            <button class="m3e-icon-button" aria-label="Settings"><span class="material-symbols-outlined">settings</span></button>
+            <button class="m3e-icon-button m3e-icon-button--filled" aria-label="Favorite"><span class="material-symbols-outlined">favorite</span></button>
+            <button class="m3e-icon-button m3e-icon-button--tonal" aria-label="Bookmark"><span class="material-symbols-outlined">bookmark</span></button>
+            <button class="m3e-icon-button m3e-icon-button--outlined" aria-label="Share"><span class="material-symbols-outlined">share</span></button>
+          </div>
+        </section>
+
+        <section>
+          <h2>Toggle (Selected State)</h2>
+          <div class="demo-row">
+            <button class="m3e-icon-button" aria-pressed="false"><span class="material-symbols-outlined">bookmark_border</span></button>
+            <button class="m3e-icon-button m3e-icon-button--selected" aria-pressed="true"><span class="material-symbols-outlined">bookmark</span></button>
+          </div>
+          <div class="demo-row">
+            <button class="m3e-icon-button m3e-icon-button--filled" aria-pressed="false"><span class="material-symbols-outlined">favorite_border</span></button>
+            <button class="m3e-icon-button m3e-icon-button--filled m3e-icon-button--selected" aria-pressed="true"><span class="material-symbols-outlined">favorite</span></button>
+          </div>
+          <div class="demo-row">
+            <button class="m3e-icon-button m3e-icon-button--tonal" aria-pressed="false"><span class="material-symbols-outlined">star_border</span></button>
+            <button class="m3e-icon-button m3e-icon-button--tonal m3e-icon-button--selected" aria-pressed="true"><span class="material-symbols-outlined">star</span></button>
+          </div>
+          <div class="demo-row">
+            <button class="m3e-icon-button m3e-icon-button--outlined" aria-pressed="false"><span class="material-symbols-outlined">push_pin</span></button>
+            <button class="m3e-icon-button m3e-icon-button--outlined m3e-icon-button--selected" aria-pressed="true"><span class="material-symbols-outlined">push_pin</span></button>
+          </div>
+        </section>
+
+        <section>
+          <h2>Disabled</h2>
+          <div class="demo-row">
+            <button class="m3e-icon-button" disabled><span class="material-symbols-outlined">settings</span></button>
+            <button class="m3e-icon-button m3e-icon-button--filled" disabled><span class="material-symbols-outlined">favorite</span></button>
+            <button class="m3e-icon-button m3e-icon-button--tonal" disabled><span class="material-symbols-outlined">bookmark</span></button>
+            <button class="m3e-icon-button m3e-icon-button--outlined" disabled><span class="material-symbols-outlined">share</span></button>
+          </div>
+        </section>
+      </div>
+
+      <!-- ── FAB ── -->
+      <div data-page="fab">
+        <h1 class="page-title">FAB</h1>
+        <p class="page-subtitle">Floating Action Buttons in all sizes and color variants.</p>
+
+        <section>
+          <h2>FAB Sizes</h2>
+          <div class="demo-row" style="align-items: flex-end;">
+            <button class="m3e-fab m3e-fab--small" aria-label="Add small"><span class="m3e-fab__icon material-symbols-outlined">add</span></button>
+            <button class="m3e-fab" aria-label="Add"><span class="m3e-fab__icon material-symbols-outlined">add</span></button>
+            <button class="m3e-fab m3e-fab--large" aria-label="Add large"><span class="m3e-fab__icon material-symbols-outlined">add</span></button>
+          </div>
+        </section>
+
+        <section>
+          <h2>Color Variants</h2>
+          <div class="demo-row">
+            <button class="m3e-fab" aria-label="Primary"><span class="m3e-fab__icon material-symbols-outlined">edit</span></button>
+            <button class="m3e-fab m3e-fab--surface" aria-label="Surface"><span class="m3e-fab__icon material-symbols-outlined">edit</span></button>
+            <button class="m3e-fab m3e-fab--secondary" aria-label="Secondary"><span class="m3e-fab__icon material-symbols-outlined">edit</span></button>
+            <button class="m3e-fab m3e-fab--tertiary" aria-label="Tertiary"><span class="m3e-fab__icon material-symbols-outlined">edit</span></button>
+          </div>
+        </section>
+
+        <section>
+          <h2>Extended FAB</h2>
+          <div class="demo-row">
+            <button class="m3e-fab m3e-fab--extended"><span class="m3e-fab__icon material-symbols-outlined">edit</span><span class="m3e-fab__label">Compose</span></button>
+            <button class="m3e-fab m3e-fab--extended m3e-fab--secondary"><span class="m3e-fab__icon material-symbols-outlined">navigation</span><span class="m3e-fab__label">Navigate</span></button>
+            <button class="m3e-fab m3e-fab--extended m3e-fab--tertiary"><span class="m3e-fab__icon material-symbols-outlined">add</span><span class="m3e-fab__label">Create</span></button>
+          </div>
+        </section>
+      </div>
+
+      <!-- ── FAB Menu ── -->
+      <div data-page="fab-menu">
+        <h1 class="page-title">FAB Menu</h1>
+        <p class="page-subtitle">FAB with expandable menu items.</p>
+
+        <section>
+          <h2>Primary with Secondary Items</h2>
+          <div style="position: relative; height: 300px;">
+            <div class="m3e-fab-menu-wrapper" style="position: absolute; bottom: 16px; right: 16px;">
+              <button class="m3e-fab m3e-fab--large m3e-fab--primary" aria-label="Menu" aria-expanded="true"><span class="m3e-fab__icon material-symbols-outlined">add</span></button>
+              <div class="m3e-fab-menu m3e-fab-menu--open m3e-fab-menu--animated m3e-fab-menu--secondary" role="menu">
+                <button class="m3e-fab-menu-item" role="menuitem"><span class="m3e-fab-menu-item__wrapper"><span class="m3e-fab-menu-item__icon material-symbols-outlined">description</span><span class="m3e-fab-menu-item__label">New file</span></span></button>
+                <button class="m3e-fab-menu-item" role="menuitem"><span class="m3e-fab-menu-item__wrapper"><span class="m3e-fab-menu-item__icon material-symbols-outlined">folder</span><span class="m3e-fab-menu-item__label">New folder</span></span></button>
+                <button class="m3e-fab-menu-item" role="menuitem"><span class="m3e-fab-menu-item__wrapper"><span class="m3e-fab-menu-item__icon material-symbols-outlined">upload</span><span class="m3e-fab-menu-item__label">Upload</span></span></button>
+                <button class="m3e-fab-menu-item" role="menuitem" disabled><span class="m3e-fab-menu-item__wrapper"><span class="m3e-fab-menu-item__icon material-symbols-outlined">block</span><span class="m3e-fab-menu-item__label">Disabled</span></span></button>
+              </div>
+            </div>
+            <div class="m3e-fab-menu-wrapper" style="position: absolute; bottom: 16px; left: 16px;">
+              <button class="m3e-fab m3e-fab--large m3e-fab--tertiary" aria-label="Edit" aria-expanded="true"><span class="m3e-fab__icon material-symbols-outlined">edit</span></button>
+              <div class="m3e-fab-menu m3e-fab-menu--open m3e-fab-menu--animated m3e-fab-menu--tertiary" role="menu">
+                <button class="m3e-fab-menu-item" role="menuitem"><span class="m3e-fab-menu-item__wrapper"><span class="m3e-fab-menu-item__icon material-symbols-outlined">draw</span><span class="m3e-fab-menu-item__label">Draw</span></span></button>
+                <button class="m3e-fab-menu-item" role="menuitem"><span class="m3e-fab-menu-item__wrapper"><span class="m3e-fab-menu-item__icon material-symbols-outlined">highlight</span><span class="m3e-fab-menu-item__label">Highlight</span></span></button>
+              </div>
+            </div>
+          </div>
+        </section>
+      </div>
+
+      <!-- ── Card ── -->
+      <div data-page="card">
+        <h1 class="page-title">Card</h1>
+        <p class="page-subtitle">Card containers in filled, elevated, and outlined variants.</p>
+
+        <section>
+          <h2>Card Variants</h2>
+          <div class="demo-grid">
+            <div class="m3e-card m3e-card--filled"><div class="m3e-card__header">Filled Card</div><div class="m3e-card__content">This is a filled card with the default surface-container-highest background.</div></div>
+            <div class="m3e-card m3e-card--elevated"><div class="m3e-card__header">Elevated Card</div><div class="m3e-card__content">This elevated card has a shadow to indicate surface elevation.</div></div>
+            <div class="m3e-card m3e-card--outlined"><div class="m3e-card__header">Outlined Card</div><div class="m3e-card__content">This outlined card uses a visible border stroke.</div></div>
+          </div>
+        </section>
+
+        <section>
+          <h2>Card with Media</h2>
+          <div class="demo-grid">
+            <div class="m3e-card m3e-card--elevated">
+              <div class="m3e-card__media" style="height:180px;background:linear-gradient(135deg,var(--md-sys-color-primary-container),var(--md-sys-color-tertiary-container));"></div>
+              <div class="m3e-card__header">Image Card</div>
+              <div class="m3e-card__content">Cards can include media sections with images or illustrations.</div>
+              <div class="m3e-card__actions"><button class="m3e-button m3e-button--text">Learn More</button><button class="m3e-button m3e-button--filled">Action</button></div>
+            </div>
+            <div class="m3e-card m3e-card--outlined">
+              <div class="m3e-card__media" style="height:180px;background:linear-gradient(135deg,var(--md-sys-color-secondary-container),var(--md-sys-color-primary-container));"></div>
+              <div class="m3e-card__header">Outlined with Media</div>
+              <div class="m3e-card__content">Combine outlined variant with media for visual impact.</div>
+              <div class="m3e-card__actions"><button class="m3e-button m3e-button--text">Cancel</button><button class="m3e-button m3e-button--tonal">Confirm</button></div>
+            </div>
+          </div>
+        </section>
+
+        <section>
+          <h2>Actionable (Clickable) Cards</h2>
+          <div class="demo-grid">
+            <div class="m3e-card m3e-card--filled m3e-card--actionable" tabindex="0" role="button"><div class="m3e-card__header">Clickable Filled</div><div class="m3e-card__content">This card has hover and press states.</div></div>
+            <div class="m3e-card m3e-card--elevated m3e-card--actionable" tabindex="0" role="button"><div class="m3e-card__header">Clickable Elevated</div><div class="m3e-card__content">Elevated actionable card with interactive states.</div></div>
+            <div class="m3e-card m3e-card--outlined m3e-card--actionable" tabindex="0" role="button"><div class="m3e-card__header">Clickable Outlined</div><div class="m3e-card__content">Outlined actionable card with focus ring.</div></div>
+          </div>
+        </section>
+
+        <section>
+          <h2>Horizontal Card</h2>
+          <div style="max-width:500px;">
+            <div class="m3e-card m3e-card--elevated m3e-card--horizontal">
+              <div class="m3e-card__media" style="width:120px;min-height:120px;background:linear-gradient(135deg,var(--md-sys-color-tertiary-container),var(--md-sys-color-secondary-container));"></div>
+              <div class="m3e-card__content"><div class="m3e-card__header">Horizontal Layout</div>Media and content side-by-side.</div>
+            </div>
+          </div>
+        </section>
+
+        <section>
+          <h2>Disabled Card</h2>
+          <div style="max-width:350px;">
+            <div class="m3e-card m3e-card--filled m3e-card--disabled"><div class="m3e-card__header">Disabled Card</div><div class="m3e-card__content">This card is in a disabled state with reduced opacity.</div></div>
+          </div>
+        </section>
+      </div>
+
+      <!-- ── Checkbox ── -->
+      <div data-page="checkbox">
+        <h1 class="page-title">Checkbox</h1>
+        <p class="page-subtitle">Selection controls for toggling options on/off.</p>
+
+        <section>
+          <h2>States</h2>
+          <div class="demo-row">
+            <label class="m3e-checkbox"><input type="checkbox" class="m3e-checkbox__input" /><span class="m3e-checkbox__indicator"></span><span class="m3e-checkbox__label">Unchecked</span></label>
+            <label class="m3e-checkbox"><input type="checkbox" class="m3e-checkbox__input" checked /><span class="m3e-checkbox__indicator"></span><span class="m3e-checkbox__label">Checked</span></label>
+            <label class="m3e-checkbox"><input type="checkbox" class="m3e-checkbox__input" id="indeterminate-cb" /><span class="m3e-checkbox__indicator"></span><span class="m3e-checkbox__label">Indeterminate</span></label>
+          </div>
+        </section>
+
+        <section>
+          <h2>Error State</h2>
+          <div class="demo-row">
+            <label class="m3e-checkbox m3e-checkbox--error"><input type="checkbox" class="m3e-checkbox__input" /><span class="m3e-checkbox__indicator"></span><span class="m3e-checkbox__label">Required field</span></label>
+            <label class="m3e-checkbox m3e-checkbox--error"><input type="checkbox" class="m3e-checkbox__input" checked /><span class="m3e-checkbox__indicator"></span><span class="m3e-checkbox__label">Error checked</span></label>
+          </div>
+        </section>
+
+        <section>
+          <h2>Disabled</h2>
+          <div class="demo-row">
+            <label class="m3e-checkbox"><input type="checkbox" class="m3e-checkbox__input" disabled /><span class="m3e-checkbox__indicator"></span><span class="m3e-checkbox__label">Disabled</span></label>
+            <label class="m3e-checkbox"><input type="checkbox" class="m3e-checkbox__input" checked disabled /><span class="m3e-checkbox__indicator"></span><span class="m3e-checkbox__label">Disabled checked</span></label>
+          </div>
+        </section>
+      </div>
+
+      <!-- ── Radio ── -->
+      <div data-page="radio">
+        <h1 class="page-title">Radio</h1>
+        <p class="page-subtitle">Radio buttons for choosing from a list of options.</p>
+
+        <section>
+          <h2>Radio Group</h2>
+          <div class="demo-row" role="radiogroup">
+            <label class="m3e-radio"><input type="radio" name="option" class="m3e-radio__input" value="1" checked /><span class="m3e-radio__indicator"></span><span class="m3e-radio__label">Option A</span></label>
+            <label class="m3e-radio"><input type="radio" name="option" class="m3e-radio__input" value="2" /><span class="m3e-radio__indicator"></span><span class="m3e-radio__label">Option B</span></label>
+            <label class="m3e-radio"><input type="radio" name="option" class="m3e-radio__input" value="3" /><span class="m3e-radio__indicator"></span><span class="m3e-radio__label">Option C</span></label>
+          </div>
+        </section>
+
+        <section>
+          <h2>Disabled</h2>
+          <div class="demo-row">
+            <label class="m3e-radio"><input type="radio" name="disabled-radio" class="m3e-radio__input" disabled /><span class="m3e-radio__indicator"></span><span class="m3e-radio__label">Disabled</span></label>
+            <label class="m3e-radio"><input type="radio" name="disabled-radio" class="m3e-radio__input" checked disabled /><span class="m3e-radio__indicator"></span><span class="m3e-radio__label">Disabled selected</span></label>
+          </div>
+        </section>
+      </div>
+
+      <!-- ── Switch ── -->
+      <div data-page="switch">
+        <h1 class="page-title">Switch</h1>
+        <p class="page-subtitle">Switches for toggling states on and off.</p>
+
+        <section>
+          <h2>States</h2>
+          <div class="demo-row">
+            <label class="m3e-switch"><input type="checkbox" class="m3e-switch__input" role="switch" /><span class="m3e-switch__track"><span class="m3e-switch__thumb"></span></span><span class="m3e-switch__label">Off</span></label>
+            <label class="m3e-switch"><input type="checkbox" class="m3e-switch__input" role="switch" checked /><span class="m3e-switch__track"><span class="m3e-switch__thumb"></span></span><span class="m3e-switch__label">On</span></label>
+          </div>
+        </section>
+
+        <section>
+          <h2>Disabled</h2>
+          <div class="demo-row">
+            <label class="m3e-switch"><input type="checkbox" class="m3e-switch__input" role="switch" disabled /><span class="m3e-switch__track"><span class="m3e-switch__thumb"></span></span><span class="m3e-switch__label">Disabled off</span></label>
+            <label class="m3e-switch"><input type="checkbox" class="m3e-switch__input" role="switch" checked disabled /><span class="m3e-switch__track"><span class="m3e-switch__thumb"></span></span><span class="m3e-switch__label">Disabled on</span></label>
+          </div>
+        </section>
+      </div>
+
+      <!-- ── Text Field ── -->
+      <div data-page="text-field">
+        <h1 class="page-title">Text Field</h1>
+        <p class="page-subtitle">Filled and outlined text fields with icons, error, disabled, and counter.</p>
+
+        <section>
+          <h2>Filled Text Field</h2>
+          <div class="demo-grid">
+            <div class="m3e-form-field">
+              <div class="m3e-form-field__container">
+                <label class="m3e-form-field__label" for="p-filled1">Label</label>
+                <input class="m3e-form-field__input" id="p-filled1" type="text" placeholder=" " />
+              </div>
+              <div class="m3e-form-field__supporting">Supporting text</div>
+            </div>
+            <div class="m3e-form-field">
+              <div class="m3e-form-field__container">
+                <span class="m3e-form-field__prefix material-symbols-outlined">search</span>
+                <label class="m3e-form-field__label" for="p-filled-icon">Search</label>
+                <input class="m3e-form-field__input" id="p-filled-icon" type="text" placeholder=" " />
+                <span class="m3e-form-field__suffix material-symbols-outlined">mic</span>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section>
+          <h2>Outlined Text Field</h2>
+          <div class="demo-grid">
+            <div class="m3e-form-field m3e-form-field--outlined">
+              <div class="m3e-form-field__container">
+                <label class="m3e-form-field__label" for="p-outlined1">Email</label>
+                <input class="m3e-form-field__input" id="p-outlined1" type="email" placeholder=" " />
+              </div>
+              <div class="m3e-form-field__supporting">Enter your email address</div>
+            </div>
+            <div class="m3e-form-field m3e-form-field--outlined">
+              <div class="m3e-form-field__container">
+                <span class="m3e-form-field__prefix material-symbols-outlined">lock</span>
+                <label class="m3e-form-field__label" for="p-outlined-pwd">Password</label>
+                <input class="m3e-form-field__input" id="p-outlined-pwd" type="password" placeholder=" " />
+                <span class="m3e-form-field__suffix material-symbols-outlined">visibility</span>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section>
+          <h2>Error State</h2>
+          <div class="demo-grid">
+            <div class="m3e-form-field m3e-form-field--error">
+              <div class="m3e-form-field__container">
+                <label class="m3e-form-field__label" for="p-error1">Username</label>
+                <input class="m3e-form-field__input" id="p-error1" type="text" placeholder=" " value="a" aria-invalid="true" />
+              </div>
+              <div class="m3e-form-field__supporting" role="alert">Username must be at least 3 characters</div>
+            </div>
+            <div class="m3e-form-field m3e-form-field--outlined m3e-form-field--error">
+              <div class="m3e-form-field__container">
+                <label class="m3e-form-field__label" for="p-error2">Email</label>
+                <input class="m3e-form-field__input" id="p-error2" type="email" placeholder=" " value="invalid" aria-invalid="true" />
+              </div>
+              <div class="m3e-form-field__supporting" role="alert">Please enter a valid email</div>
+            </div>
+          </div>
+        </section>
+
+        <section>
+          <h2>Disabled State</h2>
+          <div class="demo-grid">
+            <div class="m3e-form-field m3e-form-field--disabled">
+              <div class="m3e-form-field__container">
+                <label class="m3e-form-field__label" for="p-dis1">Disabled</label>
+                <input class="m3e-form-field__input" id="p-dis1" type="text" placeholder=" " disabled />
+              </div>
+            </div>
+            <div class="m3e-form-field m3e-form-field--outlined m3e-form-field--disabled">
+              <div class="m3e-form-field__container">
+                <label class="m3e-form-field__label" for="p-dis2">Disabled Outlined</label>
+                <input class="m3e-form-field__input" id="p-dis2" type="text" placeholder=" " disabled />
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section>
+          <h2>With Character Counter</h2>
+          <div style="max-width:400px;">
+            <div class="m3e-form-field m3e-form-field--outlined">
+              <div class="m3e-form-field__container">
+                <label class="m3e-form-field__label" for="p-counter1">Bio</label>
+                <input class="m3e-form-field__input" id="p-counter1" type="text" placeholder=" " maxlength="100" />
+              </div>
+              <div style="display:flex;justify-content:space-between;">
+                <div class="m3e-form-field__supporting">Tell us about yourself</div>
+                <div class="m3e-form-field__counter">0 / 100</div>
+              </div>
+            </div>
+          </div>
+        </section>
+      </div>
+
+      <!-- ── Select ── -->
+      <div data-page="select">
+        <h1 class="page-title">Select</h1>
+        <p class="page-subtitle">Dropdown select controls, filled and outlined.</p>
+
+        <section>
+          <h2>Select Variants</h2>
+          <div class="demo-grid">
+            <div class="m3e-select">
+              <label class="m3e-select__label" for="p-sel1">Category</label>
+              <select class="m3e-select__input" id="p-sel1">
+                <option value="">Choose...</option><option value="1">Electronics</option><option value="2">Clothing</option><option value="3">Books</option>
+              </select>
+              <span class="m3e-select__icon material-symbols-outlined">arrow_drop_down</span>
+            </div>
+            <div class="m3e-select m3e-select--outlined">
+              <label class="m3e-select__label" for="p-sel2">Country</label>
+              <select class="m3e-select__input" id="p-sel2">
+                <option value="">Select...</option><option value="id">Indonesia</option><option value="us">United States</option><option value="jp">Japan</option>
+              </select>
+              <span class="m3e-select__icon material-symbols-outlined">arrow_drop_down</span>
+            </div>
+          </div>
+        </section>
+
+        <section>
+          <h2>Error &amp; Disabled</h2>
+          <div class="demo-grid">
+            <div class="m3e-select m3e-select--error">
+              <label class="m3e-select__label" for="p-sel-err">Required</label>
+              <select class="m3e-select__input" id="p-sel-err" aria-invalid="true"><option value="">Select...</option></select>
+              <span class="m3e-select__icon material-symbols-outlined">arrow_drop_down</span>
+            </div>
+            <div class="m3e-select m3e-select--disabled">
+              <label class="m3e-select__label" for="p-sel-dis">Disabled</label>
+              <select class="m3e-select__input" id="p-sel-dis" disabled><option>Locked</option></select>
+              <span class="m3e-select__icon material-symbols-outlined">arrow_drop_down</span>
+            </div>
+          </div>
+        </section>
+      </div>
+
+      <!-- ── Autocomplete ── -->
+      <div data-page="autocomplete">
+        <h1 class="page-title">Autocomplete</h1>
+        <p class="page-subtitle">Search input with dropdown suggestions.</p>
+
+        <section>
+          <h2>Autocomplete with Dropdown</h2>
+          <div style="max-width:400px;">
+            <div class="m3e-autocomplete">
+              <input class="m3e-autocomplete__input" type="text" placeholder="Search countries..." aria-label="Search countries" />
+              <div class="m3e-autocomplete__menu m3e-autocomplete__menu--open">
+                <div class="m3e-autocomplete__option m3e-autocomplete__option--selected"><span class="m3e-autocomplete__highlight">Indo</span>nesia</div>
+                <div class="m3e-autocomplete__option"><span class="m3e-autocomplete__highlight">Indo</span>-Pacific</div>
+                <div class="m3e-autocomplete__option m3e-autocomplete__option--disabled">India (unavailable)</div>
+              </div>
+            </div>
+          </div>
+        </section>
+      </div>
+
+      <!-- ── Slider ── -->
+      <div data-page="slider">
+        <h1 class="page-title">Slider</h1>
+        <p class="page-subtitle">Continuous and discrete sliders for value selection.</p>
+
+        <section>
+          <h2>Continuous Slider</h2>
+          <div style="max-width:400px;">
+            <div class="demo-label">Volume</div>
+            <input type="range" class="m3e-slider" min="0" max="100" value="50" aria-label="Volume" />
+            <br />
+            <div class="demo-label">Brightness</div>
+            <input type="range" class="m3e-slider" min="0" max="100" value="75" aria-label="Brightness" />
+          </div>
+        </section>
+
+        <section>
+          <h2>Discrete Slider (with steps)</h2>
+          <div style="max-width:400px;">
+            <div class="demo-label">Quality (steps of 10)</div>
+            <input type="range" class="m3e-slider" min="0" max="100" value="60" step="10" aria-label="Quality" />
+            <br />
+            <div class="demo-label">Rating (1-5)</div>
+            <input type="range" class="m3e-slider" min="1" max="5" value="3" step="1" aria-label="Rating" />
+          </div>
+        </section>
+
+        <section>
+          <h2>Disabled Slider</h2>
+          <div style="max-width:400px;">
+            <input type="range" class="m3e-slider" min="0" max="100" value="40" disabled aria-label="Disabled" />
+          </div>
+        </section>
+      </div>
+
+      <!-- ── Chips ── -->
+      <div data-page="chips">
+        <h1 class="page-title">Chips</h1>
+        <p class="page-subtitle">Chips help users enter information, make selections, filter content, or trigger actions.</p>
+
+        <section>
+          <h2>Assist Chips</h2>
+          <div class="demo-row">
+            <button class="m3e-chip"><span class="m3e-chip__icon material-symbols-outlined">event</span> Add to calendar</button>
+            <button class="m3e-chip"><span class="m3e-chip__icon material-symbols-outlined">directions</span> Get directions</button>
+            <button class="m3e-chip"><span class="m3e-chip__icon material-symbols-outlined">call</span> Call</button>
+          </div>
+        </section>
+
+        <section>
+          <h2>Filter Chips</h2>
+          <div class="demo-row">
+            <button class="m3e-chip m3e-chip--selected" aria-selected="true"><span class="m3e-chip__icon material-symbols-outlined">check</span> Running</button>
+            <button class="m3e-chip" aria-selected="false">Walking</button>
+            <button class="m3e-chip m3e-chip--selected" aria-selected="true"><span class="m3e-chip__icon material-symbols-outlined">check</span> Cycling</button>
+            <button class="m3e-chip" aria-selected="false">Hiking</button>
+          </div>
+        </section>
+
+        <section>
+          <h2>Input Chips (Removable)</h2>
+          <div class="demo-row">
+            <span class="m3e-chip"><span class="m3e-chip__icon material-symbols-outlined">person</span> Alice <button class="m3e-chip__remove" aria-label="Remove"><span class="material-symbols-outlined" style="font-size:18px;">close</span></button></span>
+            <span class="m3e-chip"><span class="m3e-chip__icon material-symbols-outlined">person</span> Bob <button class="m3e-chip__remove" aria-label="Remove"><span class="material-symbols-outlined" style="font-size:18px;">close</span></button></span>
+            <span class="m3e-chip m3e-chip--selected"><span class="m3e-chip__icon material-symbols-outlined">person</span> Carol <button class="m3e-chip__remove" aria-label="Remove"><span class="material-symbols-outlined" style="font-size:18px;">close</span></button></span>
+          </div>
+        </section>
+
+        <section>
+          <h2>Suggestion Chips</h2>
+          <div class="demo-row">
+            <button class="m3e-chip">Price: Low to High</button>
+            <button class="m3e-chip">Free shipping</button>
+            <button class="m3e-chip">On sale</button>
+            <button class="m3e-chip">4+ stars</button>
+          </div>
+        </section>
+
+        <section>
+          <h2>Elevated Chips</h2>
+          <div class="demo-row">
+            <button class="m3e-chip m3e-chip--elevated"><span class="m3e-chip__icon material-symbols-outlined">location_on</span> Nearby</button>
+            <button class="m3e-chip m3e-chip--elevated"><span class="m3e-chip__icon material-symbols-outlined">restaurant</span> Restaurants</button>
+            <button class="m3e-chip m3e-chip--elevated m3e-chip--selected" aria-selected="true"><span class="m3e-chip__icon material-symbols-outlined">check</span> Open now</button>
+          </div>
+        </section>
+
+        <section>
+          <h2>Disabled Chips</h2>
+          <div class="demo-row">
+            <button class="m3e-chip" disabled>Disabled</button>
+            <button class="m3e-chip m3e-chip--selected" disabled aria-selected="true"><span class="m3e-chip__icon material-symbols-outlined">check</span> Disabled Selected</button>
+            <button class="m3e-chip m3e-chip--elevated" disabled>Disabled Elevated</button>
+          </div>
+        </section>
+      </div>
+
+      <!-- ── Dialog ── -->
+      <div data-page="dialog">
+        <h1 class="page-title">Dialog</h1>
+        <p class="page-subtitle">Modal dialog windows for alerts, confirmations, and full-screen content.</p>
+
+        <section>
+          <h2>Basic Dialog</h2>
+          <div class="dialog-preview">
+            <div class="m3e-dialog" role="dialog" aria-modal="true">
+              <div class="m3e-dialog__header"><h2 class="m3e-dialog__title">Delete item?</h2></div>
+              <div class="m3e-dialog__content">This action cannot be undone. The item will be permanently removed.</div>
+              <div class="m3e-dialog__actions"><button class="m3e-button m3e-button--text">Cancel</button><button class="m3e-button m3e-button--filled">Delete</button></div>
+            </div>
+          </div>
+        </section>
+
+        <section>
+          <h2>Dialog with Icon</h2>
+          <div class="dialog-preview">
+            <div class="m3e-dialog" role="alertdialog" aria-modal="true">
+              <div class="m3e-dialog__header" style="text-align:center;">
+                <span class="material-symbols-outlined" style="font-size:32px;color:var(--md-sys-color-error);">warning</span>
+                <h2 class="m3e-dialog__title">Unsaved changes</h2>
+              </div>
+              <div class="m3e-dialog__content">You have unsaved changes. Do you want to save before leaving?</div>
+              <div class="m3e-dialog__actions"><button class="m3e-button m3e-button--text">Discard</button><button class="m3e-button m3e-button--tonal">Save</button></div>
+            </div>
+          </div>
+        </section>
+
+        <section>
+          <h2>Full-screen Dialog</h2>
+          <div class="dialog-preview" style="min-height:400px;">
+            <div class="m3e-dialog m3e-dialog--fullscreen" role="dialog" aria-modal="true" style="position:relative;width:100%;height:350px;">
+              <div class="m3e-dialog__header" style="display:flex;align-items:center;gap:16px;">
+                <button class="m3e-icon-button" aria-label="Close"><span class="material-symbols-outlined">close</span></button>
+                <h2 class="m3e-dialog__title" style="flex:1;">New Message</h2>
+                <button class="m3e-button m3e-button--filled">Send</button>
+              </div>
+              <div class="m3e-dialog__content"><p style="color:var(--md-sys-color-on-surface-variant);">Full-screen dialogs fill the entire viewport on mobile.</p></div>
+            </div>
+          </div>
+        </section>
+      </div>
+
+      <!-- ── Snackbar ── -->
+      <div data-page="snackbar">
+        <h1 class="page-title">Snackbar</h1>
+        <p class="page-subtitle">Brief messages at the bottom of the screen.</p>
+
+        <section>
+          <h2>Single Line</h2>
+          <div style="position:relative;min-height:80px;display:flex;align-items:flex-end;">
+            <div class="m3e-snackbar m3e-snackbar--visible" role="status" style="position:relative;"><span class="m3e-snackbar__text">File has been saved</span></div>
+          </div>
+        </section>
+
+        <section>
+          <h2>With Action</h2>
+          <div style="position:relative;min-height:80px;display:flex;align-items:flex-end;">
+            <div class="m3e-snackbar m3e-snackbar--visible" role="status" style="position:relative;"><span class="m3e-snackbar__text">Item deleted</span><button class="m3e-snackbar__action">Undo</button></div>
+          </div>
+        </section>
+
+        <section>
+          <h2>With Action &amp; Close</h2>
+          <div style="position:relative;min-height:80px;display:flex;align-items:flex-end;">
+            <div class="m3e-snackbar m3e-snackbar--visible" role="status" style="position:relative;">
+              <span class="m3e-snackbar__text">Connection lost</span>
+              <button class="m3e-snackbar__action">Retry</button>
+              <button class="m3e-snackbar__close" aria-label="Dismiss"><span class="material-symbols-outlined" style="font-size:18px;">close</span></button>
+            </div>
+          </div>
+        </section>
+
+        <section>
+          <h2>Multiline</h2>
+          <div style="position:relative;min-height:100px;display:flex;align-items:flex-end;">
+            <div class="m3e-snackbar m3e-snackbar--visible m3e-snackbar--multiline" role="status" style="position:relative;max-width:400px;">
+              <span class="m3e-snackbar__text">This is a longer message that wraps to multiple lines to provide more details.</span>
+              <button class="m3e-snackbar__action">Action</button>
+              <button class="m3e-snackbar__close" aria-label="Dismiss"><span class="material-symbols-outlined" style="font-size:18px;">close</span></button>
+            </div>
+          </div>
+        </section>
+      </div>
+
+      <!-- ── Tooltip ── -->
+      <div data-page="tooltip">
+        <h1 class="page-title">Tooltip</h1>
+        <p class="page-subtitle">Contextual information on hover/focus.</p>
+
+        <section>
+          <h2>Plain Tooltip</h2>
+          <div class="demo-row" style="gap:48px;">
+            <div class="m3e-tooltip-container" style="position:relative;">
+              <button class="m3e-icon-button"><span class="material-symbols-outlined">favorite</span></button>
+              <div class="m3e-tooltip m3e-tooltip--visible" role="tooltip">Add to favorites</div>
+            </div>
+            <div class="m3e-tooltip-container" style="position:relative;">
+              <button class="m3e-icon-button"><span class="material-symbols-outlined">share</span></button>
+              <div class="m3e-tooltip m3e-tooltip--visible m3e-tooltip--top" role="tooltip">Share</div>
+            </div>
+            <div class="m3e-tooltip-container" style="position:relative;">
+              <button class="m3e-icon-button"><span class="material-symbols-outlined">delete</span></button>
+              <div class="m3e-tooltip m3e-tooltip--visible m3e-tooltip--start" role="tooltip">Delete</div>
+            </div>
+          </div>
+        </section>
+
+        <section>
+          <h2>Rich Tooltip</h2>
+          <div style="position:relative;display:inline-block;">
+            <button class="m3e-button m3e-button--outlined">Hover me</button>
+            <div class="m3e-tooltip m3e-tooltip--rich m3e-tooltip--visible" role="tooltip" style="position:relative;margin-top:8px;">
+              <div class="m3e-tooltip__title">Rich tooltip</div>
+              Rich tooltips can contain a title and longer descriptive content.
+              <div class="m3e-tooltip__actions"><button class="m3e-button m3e-button--text" style="font-size:0.75rem;padding:4px 8px;">Learn more</button></div>
+            </div>
+          </div>
+        </section>
+      </div>
+
+      <!-- ── Tabs ── -->
+      <div data-page="tabs">
+        <h1 class="page-title">Tabs</h1>
+        <p class="page-subtitle">Primary and secondary tabs with icon support.</p>
+
+        <section>
+          <h2>Primary Tabs</h2>
+          <div class="nav-preview">
+            <div class="m3e-tabs" role="tablist">
+              <button class="m3e-tab m3e-tab--active" role="tab" aria-selected="true"><span class="m3e-tab__icon material-symbols-outlined">flight</span> Flights</button>
+              <button class="m3e-tab" role="tab" aria-selected="false"><span class="m3e-tab__icon material-symbols-outlined">hotel</span> Hotels</button>
+              <button class="m3e-tab" role="tab" aria-selected="false"><span class="m3e-tab__icon material-symbols-outlined">explore</span> Explore</button>
+            </div>
+          </div>
+        </section>
+
+        <section>
+          <h2>Secondary Tabs</h2>
+          <div class="nav-preview">
+            <div class="m3e-tabs m3e-tabs--secondary" role="tablist">
+              <button class="m3e-tab m3e-tab--active" role="tab" aria-selected="true">Overview</button>
+              <button class="m3e-tab" role="tab" aria-selected="false">Specifications</button>
+              <button class="m3e-tab" role="tab" aria-selected="false">Reviews</button>
+              <button class="m3e-tab" role="tab" aria-selected="false">Related</button>
+            </div>
+          </div>
+        </section>
+
+        <section>
+          <h2>Scrollable Tabs</h2>
+          <div class="nav-preview">
+            <div class="m3e-tabs m3e-tabs--scrollable" role="tablist">
+              <button class="m3e-tab m3e-tab--active" role="tab">Tab One</button>
+              <button class="m3e-tab" role="tab">Tab Two</button>
+              <button class="m3e-tab" role="tab">Tab Three</button>
+              <button class="m3e-tab" role="tab">Tab Four</button>
+              <button class="m3e-tab" role="tab">Tab Five</button>
+              <button class="m3e-tab" role="tab">Tab Six</button>
+              <button class="m3e-tab" role="tab">Tab Seven</button>
+              <button class="m3e-tab" role="tab">Tab Eight</button>
+            </div>
+          </div>
+        </section>
+      </div>
+
+      <!-- ── List ── -->
+      <div data-page="list">
+        <h1 class="page-title">List</h1>
+        <p class="page-subtitle">List items with leading/trailing elements and multiple lines.</p>
+
+        <section>
+          <h2>One-line List</h2>
+          <div style="max-width:400px;">
+            <div class="m3e-list" role="list">
+              <div class="m3e-list-item m3e-list-item--interactive" role="listitem" tabindex="0"><div class="m3e-list-item__leading material-symbols-outlined">inbox</div><div class="m3e-list-item__text"><span class="m3e-list-item__headline">Inbox</span></div><div class="m3e-list-item__trailing">24</div></div>
+              <div class="m3e-list-item m3e-list-item--interactive" role="listitem" tabindex="0"><div class="m3e-list-item__leading material-symbols-outlined">send</div><div class="m3e-list-item__text"><span class="m3e-list-item__headline">Sent</span></div></div>
+              <div class="m3e-list-item m3e-list-item--interactive" role="listitem" tabindex="0"><div class="m3e-list-item__leading material-symbols-outlined">drafts</div><div class="m3e-list-item__text"><span class="m3e-list-item__headline">Drafts</span></div><div class="m3e-list-item__trailing">3</div></div>
+            </div>
+          </div>
+        </section>
+
+        <section>
+          <h2>Two-line List</h2>
+          <div style="max-width:400px;">
+            <div class="m3e-list" role="list">
+              <div class="m3e-list-item m3e-list-item--interactive" role="listitem" tabindex="0"><div class="m3e-list-item__leading material-symbols-outlined">person</div><div class="m3e-list-item__text"><span class="m3e-list-item__headline">Alice Johnson</span><span class="m3e-list-item__supporting">Software Engineer</span></div></div>
+              <div class="m3e-list-item m3e-list-item--interactive" role="listitem" tabindex="0"><div class="m3e-list-item__leading material-symbols-outlined">person</div><div class="m3e-list-item__text"><span class="m3e-list-item__headline">Bob Smith</span><span class="m3e-list-item__supporting">Product Designer</span></div></div>
+              <div class="m3e-list-item m3e-list-item--interactive" role="listitem" tabindex="0"><div class="m3e-list-item__leading material-symbols-outlined">person</div><div class="m3e-list-item__text"><span class="m3e-list-item__headline">Carol Lee</span><span class="m3e-list-item__supporting">Project Manager</span></div></div>
+            </div>
+          </div>
+        </section>
+
+        <section>
+          <h2>States</h2>
+          <div style="max-width:400px;">
+            <div class="m3e-list" role="listbox">
+              <div class="m3e-list-item m3e-list-item--selected" role="option" aria-selected="true" tabindex="0"><div class="m3e-list-item__leading material-symbols-outlined">check</div><div class="m3e-list-item__text"><span class="m3e-list-item__headline">Selected Item</span></div></div>
+              <div class="m3e-list-item m3e-list-item--interactive" role="option" tabindex="0"><div class="m3e-list-item__text"><span class="m3e-list-item__headline">Normal Item</span></div></div>
+              <div class="m3e-list-item m3e-list-item--disabled" role="option" aria-disabled="true"><div class="m3e-list-item__text"><span class="m3e-list-item__headline">Disabled Item</span></div></div>
+            </div>
+          </div>
+        </section>
+
+        <section>
+          <h2>Dense List</h2>
+          <div style="max-width:400px;">
+            <div class="m3e-list m3e-list--dense" role="list">
+              <div class="m3e-list-item m3e-list-item--interactive" role="listitem" tabindex="0"><div class="m3e-list-item__text"><span class="m3e-list-item__headline">Compact Item 1</span></div></div>
+              <div class="m3e-list-item m3e-list-item--interactive" role="listitem" tabindex="0"><div class="m3e-list-item__text"><span class="m3e-list-item__headline">Compact Item 2</span></div></div>
+              <div class="m3e-list-item m3e-list-item--interactive" role="listitem" tabindex="0"><div class="m3e-list-item__text"><span class="m3e-list-item__headline">Compact Item 3</span></div></div>
+            </div>
+          </div>
+        </section>
+      </div>
+
+      <!-- ── Menu ── -->
+      <div data-page="menu">
+        <h1 class="page-title">Menu</h1>
+        <p class="page-subtitle">Dropdown menus with icons, shortcuts, and dividers.</p>
+
+        <section>
+          <h2>Menu with Icons &amp; Shortcuts</h2>
+          <div style="max-width:280px;">
+            <div class="m3e-menu-container">
+              <div class="m3e-menu m3e-menu--open" role="menu">
+                <button class="m3e-menu-item" role="menuitem"><span class="m3e-menu-item__icon material-symbols-outlined">content_cut</span> Cut <span class="m3e-menu-item__trailing">⌘X</span></button>
+                <button class="m3e-menu-item" role="menuitem"><span class="m3e-menu-item__icon material-symbols-outlined">content_copy</span> Copy <span class="m3e-menu-item__trailing">⌘C</span></button>
+                <button class="m3e-menu-item" role="menuitem"><span class="m3e-menu-item__icon material-symbols-outlined">content_paste</span> Paste <span class="m3e-menu-item__trailing">⌘V</span></button>
+                <hr class="m3e-divider" />
+                <button class="m3e-menu-item" role="menuitem"><span class="m3e-menu-item__icon material-symbols-outlined">select_all</span> Select all <span class="m3e-menu-item__trailing">⌘A</span></button>
+              </div>
+            </div>
+          </div>
+        </section>
+      </div>
+
+      <!-- ── Option ── -->
+      <div data-page="option">
+        <h1 class="page-title">Option</h1>
+        <p class="page-subtitle">Selectable option items with check marks.</p>
+
+        <section>
+          <h2>Option Items</h2>
+          <div style="max-width:280px;border:1px solid var(--md-sys-color-outline-variant);border-radius:12px;overflow:hidden;">
+            <div class="m3e-option m3e-option--selected" role="option" aria-selected="true" tabindex="0"><span class="m3e-option__check material-symbols-outlined">check</span><span class="m3e-option__text">Indonesia</span></div>
+            <div class="m3e-option" role="option" tabindex="0"><span class="m3e-option__check"></span><span class="m3e-option__text">United States</span></div>
+            <div class="m3e-option" role="option" tabindex="0"><span class="m3e-option__check"></span><span class="m3e-option__text">Japan</span></div>
+            <div class="m3e-option m3e-option--disabled" role="option" aria-disabled="true"><span class="m3e-option__check"></span><span class="m3e-option__text">Unavailable</span></div>
+          </div>
+        </section>
+      </div>
+
+      <!-- ── App Bar ── -->
+      <div data-page="app-bar">
+        <h1 class="page-title">App Bar</h1>
+        <p class="page-subtitle">Top app bars in all sizes per M3 spec.</p>
+
+        <section>
+          <h2>Small (default)</h2>
+          <div class="nav-preview">
+            <header class="m3e-app-bar" role="banner">
+              <button class="m3e-icon-button" aria-label="Menu"><span class="material-symbols-outlined">menu</span></button>
+              <span class="m3e-app-bar__title">My App</span>
+              <div class="m3e-app-bar__actions"><button class="m3e-icon-button" aria-label="Search"><span class="material-symbols-outlined">search</span></button><button class="m3e-icon-button" aria-label="Account"><span class="material-symbols-outlined">account_circle</span></button></div>
+            </header>
+          </div>
+        </section>
+
+        <section>
+          <h2>Center-aligned</h2>
+          <div class="nav-preview">
+            <header class="m3e-app-bar m3e-app-bar--center" role="banner">
+              <button class="m3e-icon-button" aria-label="Back"><span class="material-symbols-outlined">arrow_back</span></button>
+              <span class="m3e-app-bar__title">Page Title</span>
+              <div class="m3e-app-bar__actions"><button class="m3e-icon-button" aria-label="More"><span class="material-symbols-outlined">more_vert</span></button></div>
+            </header>
+          </div>
+        </section>
+
+        <section>
+          <h2>Medium</h2>
+          <div class="nav-preview">
+            <header class="m3e-app-bar m3e-app-bar--medium" role="banner">
+              <button class="m3e-icon-button" aria-label="Menu"><span class="material-symbols-outlined">menu</span></button>
+              <span class="m3e-app-bar__title">Medium App Bar</span>
+              <div class="m3e-app-bar__actions"><button class="m3e-icon-button" aria-label="Search"><span class="material-symbols-outlined">search</span></button></div>
+            </header>
+          </div>
+        </section>
+
+        <section>
+          <h2>Large</h2>
+          <div class="nav-preview">
+            <header class="m3e-app-bar m3e-app-bar--large" role="banner">
+              <button class="m3e-icon-button" aria-label="Menu"><span class="material-symbols-outlined">menu</span></button>
+              <span class="m3e-app-bar__title">Large App Bar Title</span>
+              <div class="m3e-app-bar__actions"><button class="m3e-icon-button" aria-label="Attach"><span class="material-symbols-outlined">attach_file</span></button><button class="m3e-icon-button" aria-label="More"><span class="material-symbols-outlined">more_vert</span></button></div>
+            </header>
+          </div>
+        </section>
+
+        <section>
+          <h2>Elevated</h2>
+          <div class="nav-preview">
+            <header class="m3e-app-bar m3e-app-bar--elevated" role="banner">
+              <button class="m3e-icon-button" aria-label="Menu"><span class="material-symbols-outlined">menu</span></button>
+              <span class="m3e-app-bar__title">Elevated App Bar</span>
+              <div class="m3e-app-bar__actions"><button class="m3e-icon-button" aria-label="More"><span class="material-symbols-outlined">more_vert</span></button></div>
+            </header>
+          </div>
+        </section>
+      </div>
+
+      <!-- ── Nav Bar ── -->
+      <div data-page="nav-bar">
+        <h1 class="page-title">Nav Bar</h1>
+        <p class="page-subtitle">Bottom navigation bar with active/inactive items.</p>
+
+        <section>
+          <h2>Bottom Navigation Bar</h2>
+          <div class="nav-preview">
+            <nav class="m3e-nav-bar" aria-label="Main navigation">
+              <a class="m3e-nav-bar__item m3e-nav-bar__item--active" href="#" aria-current="page"><span class="m3e-nav-bar__icon material-symbols-outlined">home</span><span class="m3e-nav-bar__label">Home</span></a>
+              <a class="m3e-nav-bar__item" href="#"><span class="m3e-nav-bar__icon material-symbols-outlined">explore</span><span class="m3e-nav-bar__label">Explore</span></a>
+              <a class="m3e-nav-bar__item" href="#"><span class="m3e-nav-bar__icon material-symbols-outlined">library_books</span><span class="m3e-nav-bar__label">Library</span></a>
+              <a class="m3e-nav-bar__item" href="#"><span class="m3e-nav-bar__icon material-symbols-outlined">person</span><span class="m3e-nav-bar__label">Profile</span></a>
+            </nav>
+          </div>
+        </section>
+      </div>
+
+      <!-- ── Nav Rail ── -->
+      <div data-page="nav-rail">
+        <h1 class="page-title">Nav Rail</h1>
+        <p class="page-subtitle">Side navigation rail, compact and expanded.</p>
+
+        <section>
+          <h2>Compact</h2>
+          <div class="nav-preview" style="display:flex;height:320px;">
+            <nav class="m3e-nav-rail" aria-label="Side navigation" style="position:relative;height:100%;">
+              <a class="m3e-nav-rail__item m3e-nav-rail__item--active" href="#" aria-current="page"><span class="m3e-nav-rail__icon material-symbols-outlined">inbox</span><span class="m3e-nav-rail__label">Inbox</span></a>
+              <a class="m3e-nav-rail__item" href="#"><span class="m3e-nav-rail__icon material-symbols-outlined">article</span><span class="m3e-nav-rail__label">Articles</span></a>
+              <a class="m3e-nav-rail__item" href="#"><span class="m3e-nav-rail__icon material-symbols-outlined">chat</span><span class="m3e-nav-rail__label">Chat</span></a>
+              <a class="m3e-nav-rail__item" href="#"><span class="m3e-nav-rail__icon material-symbols-outlined">videocam</span><span class="m3e-nav-rail__label">Rooms</span></a>
+            </nav>
+            <div style="flex:1;padding:16px;color:var(--md-sys-color-on-surface-variant);">Content area</div>
+          </div>
+        </section>
+
+        <section>
+          <h2>Expanded</h2>
+          <div class="nav-preview" style="display:flex;height:320px;">
+            <nav class="m3e-nav-rail m3e-nav-rail--expanded" aria-label="Expanded navigation" style="position:relative;height:100%;">
+              <a class="m3e-nav-rail__item m3e-nav-rail__item--active" href="#" aria-current="page"><span class="m3e-nav-rail__icon material-symbols-outlined">dashboard</span><span class="m3e-nav-rail__label">Dashboard</span></a>
+              <a class="m3e-nav-rail__item" href="#"><span class="m3e-nav-rail__icon material-symbols-outlined">analytics</span><span class="m3e-nav-rail__label">Analytics</span></a>
+              <a class="m3e-nav-rail__item" href="#"><span class="m3e-nav-rail__icon material-symbols-outlined">settings</span><span class="m3e-nav-rail__label">Settings</span></a>
+            </nav>
+            <div style="flex:1;padding:16px;color:var(--md-sys-color-on-surface-variant);">Content area</div>
+          </div>
+        </section>
+      </div>
+
+      <!-- ── Nav Menu ── -->
+      <div data-page="nav-menu">
+        <h1 class="page-title">Nav Menu</h1>
+        <p class="page-subtitle">Navigation menu with grouped items and badges.</p>
+
+        <section>
+          <h2>Navigation Menu</h2>
+          <div class="nav-preview" style="padding:16px;">
+            <nav class="m3e-nav-menu" aria-label="File menu" style="max-width:280px;">
+              <div class="m3e-nav-menu__section-header">Main</div>
+              <a class="m3e-nav-menu__item m3e-nav-menu__item--active" href="#"><span class="m3e-nav-menu__icon material-symbols-outlined">home</span><span class="m3e-nav-menu__label">Home</span></a>
+              <a class="m3e-nav-menu__item" href="#"><span class="m3e-nav-menu__icon material-symbols-outlined">inbox</span><span class="m3e-nav-menu__label">Inbox</span><span class="m3e-nav-menu__badge">24</span></a>
+              <div class="m3e-nav-menu__divider"></div>
+              <div class="m3e-nav-menu__section-header">Categories</div>
+              <div class="m3e-nav-menu__group m3e-nav-menu__group--expanded">
+                <a class="m3e-nav-menu__item" href="#"><span class="m3e-nav-menu__icon material-symbols-outlined">folder</span><span class="m3e-nav-menu__label">Projects</span></a>
+                <div class="m3e-nav-menu__group-items">
+                  <a class="m3e-nav-menu__item" href="#" style="padding-left:48px;"><span class="m3e-nav-menu__label">Design</span></a>
+                  <a class="m3e-nav-menu__item" href="#" style="padding-left:48px;"><span class="m3e-nav-menu__label">Development</span></a>
+                </div>
+              </div>
+              <a class="m3e-nav-menu__item" href="#"><span class="m3e-nav-menu__icon material-symbols-outlined">settings</span><span class="m3e-nav-menu__label">Settings</span></a>
+            </nav>
+          </div>
+        </section>
+      </div>
+
+      <!-- ── Drawer ── -->
+      <div data-page="drawer">
+        <h1 class="page-title">Drawer</h1>
+        <p class="page-subtitle">Navigation drawer with items and badges.</p>
+
+        <section>
+          <h2>Standard Drawer</h2>
+          <div class="nav-preview" style="display:flex;height:320px;position:relative;">
+            <nav class="m3e-drawer m3e-drawer--open" role="navigation" style="position:relative;">
+              <div class="m3e-drawer__header"><div class="m3e-drawer__title">Mail</div></div>
+              <div class="m3e-drawer__content">
+                <a class="m3e-drawer__item m3e-drawer__item--active" href="#"><span class="m3e-drawer__item-icon material-symbols-outlined">inbox</span><span class="m3e-drawer__item-label">Inbox</span><span class="m3e-drawer__item-badge">24</span></a>
+                <a class="m3e-drawer__item" href="#"><span class="m3e-drawer__item-icon material-symbols-outlined">send</span><span class="m3e-drawer__item-label">Sent</span></a>
+                <a class="m3e-drawer__item" href="#"><span class="m3e-drawer__item-icon material-symbols-outlined">drafts</span><span class="m3e-drawer__item-label">Drafts</span><span class="m3e-drawer__item-badge">3</span></a>
+                <a class="m3e-drawer__item" href="#"><span class="m3e-drawer__item-icon material-symbols-outlined">delete</span><span class="m3e-drawer__item-label">Trash</span></a>
+              </div>
+            </nav>
+            <div style="flex:1;padding:16px;color:var(--md-sys-color-on-surface-variant);">Content area next to drawer</div>
+          </div>
+        </section>
+      </div>
+
+      <!-- ── Progress Indicator ── -->
+      <div data-page="progress-indicator">
+        <h1 class="page-title">Progress Indicator</h1>
+        <p class="page-subtitle">Linear and circular progress indicators, determinate and indeterminate.</p>
+
+        <section>
+          <h2>Linear — Determinate</h2>
+          <div style="max-width:500px;">
+            <div class="demo-label">25%</div>
+            <div class="m3e-progress--linear" role="progressbar" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"><div class="m3e-progress__bar" style="width:25%;"></div></div>
+            <br />
+            <div class="demo-label">75%</div>
+            <div class="m3e-progress--linear" role="progressbar" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100"><div class="m3e-progress__bar" style="width:75%;"></div></div>
+          </div>
+        </section>
+
+        <section>
+          <h2>Linear — Indeterminate</h2>
+          <div style="max-width:500px;">
+            <div class="m3e-progress--linear m3e-progress--indeterminate" role="progressbar"><div class="m3e-progress__bar"></div></div>
+          </div>
+        </section>
+
+        <section>
+          <h2>Circular — Determinate</h2>
+          <div class="demo-row">
+            <div class="m3e-progress--circular m3e-progress--small" role="progressbar" aria-valuenow="30"><svg viewBox="0 0 48 48"><circle class="m3e-progress__track" cx="24" cy="24" r="20" fill="none" stroke-width="4" /><circle class="m3e-progress__indicator" cx="24" cy="24" r="20" fill="none" stroke-width="4" stroke-dasharray="125.66" stroke-dashoffset="87.96" /></svg></div>
+            <div class="m3e-progress--circular" role="progressbar" aria-valuenow="60"><svg viewBox="0 0 48 48"><circle class="m3e-progress__track" cx="24" cy="24" r="20" fill="none" stroke-width="4" /><circle class="m3e-progress__indicator" cx="24" cy="24" r="20" fill="none" stroke-width="4" stroke-dasharray="125.66" stroke-dashoffset="50.26" /></svg></div>
+            <div class="m3e-progress--circular m3e-progress--large" role="progressbar" aria-valuenow="90"><svg viewBox="0 0 48 48"><circle class="m3e-progress__track" cx="24" cy="24" r="20" fill="none" stroke-width="4" /><circle class="m3e-progress__indicator" cx="24" cy="24" r="20" fill="none" stroke-width="4" stroke-dasharray="125.66" stroke-dashoffset="12.57" /></svg></div>
+          </div>
+        </section>
+
+        <section>
+          <h2>Circular — Indeterminate</h2>
+          <div class="demo-row">
+            <div class="m3e-progress--circular m3e-progress--indeterminate m3e-progress--small" role="progressbar"><svg viewBox="0 0 48 48"><circle class="m3e-progress__indicator" cx="24" cy="24" r="20" fill="none" stroke-width="4" /></svg></div>
+            <div class="m3e-progress--circular m3e-progress--indeterminate" role="progressbar"><svg viewBox="0 0 48 48"><circle class="m3e-progress__indicator" cx="24" cy="24" r="20" fill="none" stroke-width="4" /></svg></div>
+            <div class="m3e-progress--circular m3e-progress--indeterminate m3e-progress--large" role="progressbar"><svg viewBox="0 0 48 48"><circle class="m3e-progress__indicator" cx="24" cy="24" r="20" fill="none" stroke-width="4" /></svg></div>
+          </div>
+        </section>
+      </div>
+
+      <!-- ── Loading Indicator ── -->
+      <div data-page="loading-indicator">
+        <h1 class="page-title">Loading Indicator</h1>
+        <p class="page-subtitle">Loading spinner in multiple sizes.</p>
+
+        <section>
+          <h2>Sizes</h2>
+          <div class="demo-row">
+            <div class="m3e-loading-indicator m3e-loading-indicator--small" role="status" aria-label="Loading"><div class="m3e-loading-indicator__spinner"></div></div>
+            <div class="m3e-loading-indicator" role="status" aria-label="Loading"><div class="m3e-loading-indicator__spinner"></div></div>
+            <div class="m3e-loading-indicator m3e-loading-indicator--large" role="status" aria-label="Loading"><div class="m3e-loading-indicator__spinner"></div></div>
+          </div>
+        </section>
+
+        <section>
+          <h2>Contained Loading</h2>
+          <div style="max-width:300px;height:120px;position:relative;border:1px solid var(--md-sys-color-outline-variant);border-radius:12px;">
+            <div class="m3e-loading-indicator m3e-loading-indicator--contained" role="status" aria-label="Loading"><div class="m3e-loading-indicator__spinner"></div></div>
+          </div>
+        </section>
+      </div>
+
+      <!-- ── Badge ── -->
+      <div data-page="badge">
+        <h1 class="page-title">Badge</h1>
+        <p class="page-subtitle">Notification badges: dot, count, and large.</p>
+
+        <section>
+          <h2>Badge Variants</h2>
+          <div class="demo-row" style="gap:32px;">
+            <div class="m3e-badge-container" style="position:relative;display:inline-block;"><span class="material-symbols-outlined" style="font-size:28px;">mail</span><span class="m3e-badge" aria-label="3 notifications">3</span></div>
+            <div class="m3e-badge-container" style="position:relative;display:inline-block;"><span class="material-symbols-outlined" style="font-size:28px;">notifications</span><span class="m3e-badge m3e-badge--large" aria-label="120 notifications">120</span></div>
+            <div class="m3e-badge-container" style="position:relative;display:inline-block;"><span class="material-symbols-outlined" style="font-size:28px;">chat</span><span class="m3e-badge m3e-badge--dot" aria-label="New"></span></div>
+          </div>
+        </section>
+      </div>
+
+      <!-- ── Avatar ── -->
+      <div data-page="avatar">
+        <h1 class="page-title">Avatar</h1>
+        <p class="page-subtitle">User avatars in various sizes and shapes.</p>
+
+        <section>
+          <h2>Sizes</h2>
+          <div class="demo-row">
+            <div class="m3e-avatar m3e-avatar--small" style="background:var(--md-sys-color-primary-container);color:var(--md-sys-color-on-primary-container);">S</div>
+            <div class="m3e-avatar" style="background:var(--md-sys-color-secondary-container);color:var(--md-sys-color-on-secondary-container);">M</div>
+            <div class="m3e-avatar m3e-avatar--large" style="background:var(--md-sys-color-tertiary-container);color:var(--md-sys-color-on-tertiary-container);">L</div>
+            <div class="m3e-avatar m3e-avatar--extra-large" style="background:var(--md-sys-color-primary);color:var(--md-sys-color-on-primary);">XL</div>
+          </div>
+        </section>
+
+        <section>
+          <h2>With Icon &amp; Square</h2>
+          <div class="demo-row">
+            <div class="m3e-avatar" style="background:var(--md-sys-color-primary-container);color:var(--md-sys-color-on-primary-container);"><span class="material-symbols-outlined">person</span></div>
+            <div class="m3e-avatar m3e-avatar--square" style="background:var(--md-sys-color-secondary-container);color:var(--md-sys-color-on-secondary-container);"><span class="material-symbols-outlined">group</span></div>
+          </div>
+        </section>
+      </div>
+
+      <!-- ── Divider ── -->
+      <div data-page="divider">
+        <h1 class="page-title">Divider</h1>
+        <p class="page-subtitle">Horizontal and vertical dividers with inset options.</p>
+
+        <section>
+          <h2>Horizontal</h2>
+          <div style="max-width:500px;">
+            <div class="demo-label">Full Width</div><hr class="m3e-divider" /><br />
+            <div class="demo-label">Inset Start</div><hr class="m3e-divider m3e-divider--inset-start" /><br />
+            <div class="demo-label">Inset End</div><hr class="m3e-divider m3e-divider--inset-end" /><br />
+            <div class="demo-label">Inset Both</div><hr class="m3e-divider m3e-divider--inset" />
+          </div>
+        </section>
+
+        <section>
+          <h2>Vertical</h2>
+          <div class="demo-row" style="height:60px;">
+            <span>Left</span><hr class="m3e-divider m3e-divider--vertical" style="height:40px;" /><span>Right</span>
+          </div>
+        </section>
+      </div>
+
+      <!-- ── Elevation ── -->
+      <div data-page="elevation">
+        <h1 class="page-title">Elevation</h1>
+        <p class="page-subtitle">Shadow levels 0 through 5.</p>
+
+        <section>
+          <h2>Levels</h2>
+          <div class="demo-row" style="gap:24px;">
+            <div class="m3e-elevation-0" style="width:80px;height:80px;border-radius:16px;display:flex;align-items:center;justify-content:center;background:var(--md-sys-color-surface);">0</div>
+            <div class="m3e-elevation-1" style="width:80px;height:80px;border-radius:16px;display:flex;align-items:center;justify-content:center;background:var(--md-sys-color-surface);">1</div>
+            <div class="m3e-elevation-2" style="width:80px;height:80px;border-radius:16px;display:flex;align-items:center;justify-content:center;background:var(--md-sys-color-surface);">2</div>
+            <div class="m3e-elevation-3" style="width:80px;height:80px;border-radius:16px;display:flex;align-items:center;justify-content:center;background:var(--md-sys-color-surface);">3</div>
+            <div class="m3e-elevation-4" style="width:80px;height:80px;border-radius:16px;display:flex;align-items:center;justify-content:center;background:var(--md-sys-color-surface);">4</div>
+            <div class="m3e-elevation-5" style="width:80px;height:80px;border-radius:16px;display:flex;align-items:center;justify-content:center;background:var(--md-sys-color-surface);">5</div>
+          </div>
+        </section>
+      </div>
+
+      <!-- ── Segmented Button ── -->
+      <div data-page="segmented-button">
+        <h1 class="page-title">Segmented Button</h1>
+        <p class="page-subtitle">Single-select and multi-select segmented button groups.</p>
+
+        <section>
+          <h2>Single Select</h2>
+          <div class="demo-row">
+            <div class="m3e-segmented-button" role="group" aria-label="View mode">
+              <button class="m3e-segmented-button__segment m3e-segmented-button__segment--selected" aria-pressed="true"><span class="m3e-segmented-button__segment__icon material-symbols-outlined">view_list</span><span class="m3e-segmented-button__label">List</span></button>
+              <button class="m3e-segmented-button__segment" aria-pressed="false"><span class="m3e-segmented-button__segment__icon material-symbols-outlined">grid_view</span><span class="m3e-segmented-button__label">Grid</span></button>
+              <button class="m3e-segmented-button__segment" aria-pressed="false"><span class="m3e-segmented-button__segment__icon material-symbols-outlined">view_module</span><span class="m3e-segmented-button__label">Module</span></button>
+            </div>
+          </div>
+        </section>
+
+        <section>
+          <h2>Multi Select</h2>
+          <div class="demo-row">
+            <div class="m3e-segmented-button" role="group" aria-label="Size">
+              <button class="m3e-segmented-button__segment" aria-pressed="false"><span class="m3e-segmented-button__label">XS</span></button>
+              <button class="m3e-segmented-button__segment" aria-pressed="false"><span class="m3e-segmented-button__label">S</span></button>
+              <button class="m3e-segmented-button__segment m3e-segmented-button__segment--selected" aria-pressed="true"><span class="m3e-segmented-button__label">M</span></button>
+              <button class="m3e-segmented-button__segment" aria-pressed="false"><span class="m3e-segmented-button__label">L</span></button>
+              <button class="m3e-segmented-button__segment" aria-pressed="false"><span class="m3e-segmented-button__label">XL</span></button>
+            </div>
+          </div>
+        </section>
+      </div>
+
+      <!-- ── Expansion Panel ── -->
+      <div data-page="expansion-panel">
+        <h1 class="page-title">Expansion Panel</h1>
+        <p class="page-subtitle">Expandable/collapsible content panels.</p>
+
+        <section>
+          <h2>Expansion Panels</h2>
+          <div style="max-width:500px;">
+            <div class="m3e-expansion-panel m3e-expansion-panel--expanded">
+              <button class="m3e-expansion-panel__header" aria-expanded="true"><span class="m3e-expansion-panel__title">What is M3E?</span><span class="m3e-expansion-panel__icon material-symbols-outlined">expand_more</span></button>
+              <div class="m3e-expansion-panel__content">M3E is a Material Design 3 framework that provides both a CSS-only solution and Vue 3 interactive wrappers.</div>
+            </div>
+            <div class="m3e-expansion-panel">
+              <button class="m3e-expansion-panel__header" aria-expanded="false"><span class="m3e-expansion-panel__title">How to get started?</span><span class="m3e-expansion-panel__supporting">Quick start guide</span><span class="m3e-expansion-panel__icon material-symbols-outlined">expand_more</span></button>
+            </div>
+            <div class="m3e-expansion-panel m3e-expansion-panel--disabled">
+              <button class="m3e-expansion-panel__header" disabled aria-expanded="false"><span class="m3e-expansion-panel__title">Coming Soon</span><span class="m3e-expansion-panel__icon material-symbols-outlined">expand_more</span></button>
+            </div>
+          </div>
+        </section>
+      </div>
+
+      <!-- ── Stepper ── -->
+      <div data-page="stepper">
+        <h1 class="page-title">Stepper</h1>
+        <p class="page-subtitle">Vertical and horizontal step indicators.</p>
+
+        <section>
+          <h2>Vertical Stepper</h2>
+          <div style="max-width:500px;">
+            <div class="m3e-stepper" role="group" aria-label="Registration steps">
+              <div class="m3e-stepper__step m3e-stepper__step--completed"><div class="m3e-stepper__header"><span class="m3e-stepper__icon material-symbols-outlined">check</span><span class="m3e-stepper__label">Account setup</span></div><div class="m3e-stepper__content">Your account has been created.</div></div>
+              <div class="m3e-stepper__step m3e-stepper__step--active" aria-current="step"><div class="m3e-stepper__header"><span class="m3e-stepper__icon">2</span><span class="m3e-stepper__label">Personal info</span></div><div class="m3e-stepper__content">Fill in your personal details.<div class="m3e-stepper__actions" style="margin-top:16px;"><button class="m3e-button m3e-button--text">Back</button><button class="m3e-button m3e-button--filled">Continue</button></div></div></div>
+              <div class="m3e-stepper__step"><div class="m3e-stepper__header"><span class="m3e-stepper__icon">3</span><span class="m3e-stepper__label">Review</span><span class="m3e-stepper__label-optional">Optional</span></div></div>
+            </div>
+          </div>
+        </section>
+
+        <section>
+          <h2>Horizontal Stepper</h2>
+          <div class="m3e-stepper m3e-stepper--horizontal" role="group" aria-label="Order steps">
+            <div class="m3e-stepper__step m3e-stepper__step--completed"><div class="m3e-stepper__header"><span class="m3e-stepper__icon material-symbols-outlined">check</span><span class="m3e-stepper__label">Cart</span></div></div>
+            <div class="m3e-stepper__step m3e-stepper__step--active" aria-current="step"><div class="m3e-stepper__header"><span class="m3e-stepper__icon">2</span><span class="m3e-stepper__label">Shipping</span></div></div>
+            <div class="m3e-stepper__step"><div class="m3e-stepper__header"><span class="m3e-stepper__icon">3</span><span class="m3e-stepper__label">Payment</span></div></div>
+            <div class="m3e-stepper__step m3e-stepper__step--error"><div class="m3e-stepper__header"><span class="m3e-stepper__icon material-symbols-outlined">error</span><span class="m3e-stepper__label">Confirm</span></div></div>
+          </div>
+        </section>
+      </div>
+
+      <!-- ── Paginator ── -->
+      <div data-page="paginator">
+        <h1 class="page-title">Paginator</h1>
+        <p class="page-subtitle">Table pagination controls.</p>
+
+        <section>
+          <h2>Paginator</h2>
+          <div class="m3e-paginator" aria-label="Table pagination">
+            <span class="m3e-paginator__label">Rows per page:</span>
+            <select class="m3e-paginator__page-size" aria-label="Rows per page"><option>10</option><option>25</option><option>50</option></select>
+            <span class="m3e-paginator__range">1 – 10 of 97</span>
+            <div class="m3e-paginator__actions">
+              <button class="m3e-icon-button" disabled aria-label="First page"><span class="material-symbols-outlined">first_page</span></button>
+              <button class="m3e-icon-button" disabled aria-label="Previous page"><span class="material-symbols-outlined">chevron_left</span></button>
+              <button class="m3e-icon-button" aria-label="Next page"><span class="material-symbols-outlined">chevron_right</span></button>
+              <button class="m3e-icon-button" aria-label="Last page"><span class="material-symbols-outlined">last_page</span></button>
+            </div>
+          </div>
+        </section>
+      </div>
+
+      <!-- ── TOC ── -->
+      <div data-page="toc">
+        <h1 class="page-title">TOC</h1>
+        <p class="page-subtitle">Table of contents navigation.</p>
+
+        <section>
+          <h2>Table of Contents</h2>
+          <div style="max-width:240px;">
+            <nav class="m3e-toc" aria-label="Table of contents">
+              <div class="m3e-toc__overline">On this page</div>
+              <a class="m3e-toc__item m3e-toc__item--active" href="#" aria-current="location">Overview</a>
+              <a class="m3e-toc__item" href="#">Getting Started</a>
+              <a class="m3e-toc__item" href="#">Installation</a>
+              <a class="m3e-toc__item" href="#">Usage</a>
+              <a class="m3e-toc__item" href="#">API Reference</a>
+            </nav>
+          </div>
+        </section>
+      </div>
+
+      <!-- ── Button Group ── -->
+      <div data-page="button-group">
+        <h1 class="page-title">Button Group</h1>
+        <p class="page-subtitle">Connected button groups, horizontal and vertical.</p>
+
+        <section>
+          <h2>Connected Horizontal</h2>
+          <div class="demo-row">
+            <div class="m3e-button-group m3e-button-group--connected">
+              <button class="m3e-button m3e-button--outlined">Day</button>
+              <button class="m3e-button m3e-button--tonal">Week</button>
+              <button class="m3e-button m3e-button--outlined">Month</button>
+            </div>
+          </div>
+        </section>
+
+        <section>
+          <h2>Vertical</h2>
+          <div class="demo-row">
+            <div class="m3e-button-group m3e-button-group--connected m3e-button-group--vertical">
+              <button class="m3e-button m3e-button--outlined">Top</button>
+              <button class="m3e-button m3e-button--tonal">Middle</button>
+              <button class="m3e-button m3e-button--outlined">Bottom</button>
+            </div>
+          </div>
+        </section>
+      </div>
+
+      <!-- ── Split Button ── -->
+      <div data-page="split-button">
+        <h1 class="page-title">Split Button</h1>
+        <p class="page-subtitle">Primary action with dropdown toggle.</p>
+
+        <section>
+          <h2>Split Buttons</h2>
+          <div class="demo-row">
+            <div class="m3e-split-button">
+              <button class="m3e-button m3e-button--filled">Save</button>
+              <button class="m3e-split-button__toggle m3e-button m3e-button--filled"><span class="m3e-split-button__arrow material-symbols-outlined">arrow_drop_down</span></button>
+            </div>
+            <div class="m3e-split-button">
+              <button class="m3e-button m3e-button--tonal">Export</button>
+              <button class="m3e-split-button__toggle m3e-button m3e-button--tonal"><span class="m3e-split-button__arrow material-symbols-outlined">arrow_drop_down</span></button>
+            </div>
+          </div>
+        </section>
+      </div>
+
+      <!-- ── Toolbar ── -->
+      <div data-page="toolbar">
+        <h1 class="page-title">Toolbar</h1>
+        <p class="page-subtitle">Horizontal and vertical toolbars.</p>
+
+        <section>
+          <h2>Horizontal</h2>
+          <div class="demo-row">
+            <div class="m3e-toolbar" role="toolbar" aria-label="Text formatting">
+              <button class="m3e-icon-button" aria-label="Bold"><span class="material-symbols-outlined">format_bold</span></button>
+              <button class="m3e-icon-button" aria-label="Italic"><span class="material-symbols-outlined">format_italic</span></button>
+              <button class="m3e-icon-button" aria-label="Underline"><span class="material-symbols-outlined">format_underlined</span></button>
+              <button class="m3e-icon-button" aria-label="Align left"><span class="material-symbols-outlined">format_align_left</span></button>
+              <button class="m3e-icon-button" aria-label="Align center"><span class="material-symbols-outlined">format_align_center</span></button>
+            </div>
+          </div>
+        </section>
+
+        <section>
+          <h2>Elevated</h2>
+          <div class="demo-row">
+            <div class="m3e-toolbar m3e-toolbar--elevated" role="toolbar" aria-label="Actions">
+              <button class="m3e-icon-button" aria-label="Edit"><span class="material-symbols-outlined">edit</span></button>
+              <button class="m3e-icon-button" aria-label="Delete"><span class="material-symbols-outlined">delete</span></button>
+              <button class="m3e-icon-button" aria-label="Share"><span class="material-symbols-outlined">share</span></button>
+            </div>
+          </div>
+        </section>
+
+        <section>
+          <h2>Vertical</h2>
+          <div>
+            <div class="m3e-toolbar m3e-toolbar--vertical" role="toolbar" aria-orientation="vertical" style="display:inline-flex;">
+              <button class="m3e-icon-button" aria-label="Brush"><span class="material-symbols-outlined">brush</span></button>
+              <button class="m3e-icon-button" aria-label="Eraser"><span class="material-symbols-outlined">delete_sweep</span></button>
+              <button class="m3e-icon-button" aria-label="Undo"><span class="material-symbols-outlined">undo</span></button>
+              <button class="m3e-icon-button" aria-label="Redo"><span class="material-symbols-outlined">redo</span></button>
+            </div>
+          </div>
+        </section>
+      </div>
+
+      <!-- ── Slide Group ── -->
+      <div data-page="slide-group">
+        <h1 class="page-title">Slide Group</h1>
+        <p class="page-subtitle">Horizontally scrollable items with navigation arrows.</p>
+
+        <section>
+          <h2>Scrollable Items</h2>
+          <div class="m3e-slide-group">
+            <button class="m3e-slide-group__prev" aria-label="Previous"><span class="material-symbols-outlined">chevron_left</span></button>
+            <div class="m3e-slide-group__content">
+              <div class="m3e-slide-group__item" style="min-width:120px;height:80px;background:var(--md-sys-color-primary-container);border-radius:12px;display:flex;align-items:center;justify-content:center;">Item 1</div>
+              <div class="m3e-slide-group__item" style="min-width:120px;height:80px;background:var(--md-sys-color-secondary-container);border-radius:12px;display:flex;align-items:center;justify-content:center;">Item 2</div>
+              <div class="m3e-slide-group__item" style="min-width:120px;height:80px;background:var(--md-sys-color-tertiary-container);border-radius:12px;display:flex;align-items:center;justify-content:center;">Item 3</div>
+              <div class="m3e-slide-group__item" style="min-width:120px;height:80px;background:var(--md-sys-color-primary-container);border-radius:12px;display:flex;align-items:center;justify-content:center;">Item 4</div>
+              <div class="m3e-slide-group__item" style="min-width:120px;height:80px;background:var(--md-sys-color-secondary-container);border-radius:12px;display:flex;align-items:center;justify-content:center;">Item 5</div>
+              <div class="m3e-slide-group__item" style="min-width:120px;height:80px;background:var(--md-sys-color-tertiary-container);border-radius:12px;display:flex;align-items:center;justify-content:center;">Item 6</div>
+            </div>
+            <button class="m3e-slide-group__next" aria-label="Next"><span class="material-symbols-outlined">chevron_right</span></button>
+          </div>
+        </section>
+      </div>
+
+      <!-- ── Typography ── -->
+      <div data-page="typography">
+        <h1 class="page-title">Typography</h1>
+        <p class="page-subtitle">Full Material Design 3 type scale.</p>
+
+        <section>
+          <h2>Type Scale</h2>
+          <div class="m3e-display-large">Display Large</div>
+          <div class="m3e-display-medium">Display Medium</div>
+          <div class="m3e-display-small">Display Small</div>
+          <br />
+          <div class="m3e-headline-large">Headline Large</div>
+          <div class="m3e-headline-medium">Headline Medium</div>
+          <div class="m3e-headline-small">Headline Small</div>
+          <br />
+          <div class="m3e-title-large">Title Large</div>
+          <div class="m3e-title-medium">Title Medium</div>
+          <div class="m3e-title-small">Title Small</div>
+          <br />
+          <div class="m3e-body-large">Body Large</div>
+          <div class="m3e-body-medium">Body Medium</div>
+          <div class="m3e-body-small">Body Small</div>
+          <br />
+          <div class="m3e-label-large">Label Large</div>
+          <div class="m3e-label-medium">Label Medium</div>
+          <div class="m3e-label-small">Label Small</div>
+        </section>
+      </div>
+
+      <!-- ── Heading ── -->
+      <div data-page="heading">
+        <h1 class="page-title">Heading</h1>
+        <p class="page-subtitle">Heading component with display, headline, title, body, and label variants.</p>
+
+        <section>
+          <h2>Heading Variants</h2>
+          <div class="m3e-heading m3e-heading--display-large">Display Large</div>
+          <div class="m3e-heading m3e-heading--headline-medium">Headline Medium</div>
+          <div class="m3e-heading m3e-heading--title-large">Title Large</div>
+          <div class="m3e-heading m3e-heading--title-small m3e-heading--emphasized">Title Small Emphasized</div>
+          <div class="m3e-heading m3e-heading--label-large">Label Large</div>
+        </section>
+      </div>
+
+      <!-- ── Icon ── -->
+      <div data-page="icon">
+        <h1 class="page-title">Icon</h1>
+        <p class="page-subtitle">Icon component with sizes and weight variants.</p>
+
+        <section>
+          <h2>Sizes</h2>
+          <div class="demo-row">
+            <span class="m3e-icon m3e-icon--small material-symbols-outlined">home</span>
+            <span class="m3e-icon material-symbols-outlined">home</span>
+            <span class="m3e-icon m3e-icon--large material-symbols-outlined">home</span>
+            <span class="m3e-icon m3e-icon--extra-large material-symbols-outlined">home</span>
+          </div>
+        </section>
+
+        <section>
+          <h2>Variants</h2>
+          <div class="demo-row">
+            <span class="m3e-icon material-symbols-outlined">favorite</span>
+            <span class="m3e-icon m3e-icon--filled material-symbols-outlined" style="font-variation-settings:'FILL' 1;">favorite</span>
+            <span class="m3e-icon m3e-icon--thin material-symbols-outlined">favorite</span>
+            <span class="m3e-icon m3e-icon--bold material-symbols-outlined">favorite</span>
+          </div>
+        </section>
+      </div>
+
+      <!-- ── Shape ── -->
+      <div data-page="shape">
+        <h1 class="page-title">Shape</h1>
+        <p class="page-subtitle">Decorative shape components.</p>
+
+        <section>
+          <h2>Shapes</h2>
+          <div class="demo-row" style="gap:24px;">
+            <div class="m3e-shape m3e-shape--circle" style="width:64px;height:64px;background:var(--md-sys-color-primary-container);"></div>
+            <div class="m3e-shape m3e-shape--rounded-square" style="width:64px;height:64px;background:var(--md-sys-color-secondary-container);"></div>
+            <div class="m3e-shape m3e-shape--diamond" style="width:64px;height:64px;background:var(--md-sys-color-tertiary-container);"></div>
+            <div class="m3e-shape m3e-shape--pentagon" style="width:64px;height:64px;background:var(--md-sys-color-primary-container);"></div>
+            <div class="m3e-shape m3e-shape--hexagon" style="width:64px;height:64px;background:var(--md-sys-color-secondary-container);"></div>
+            <div class="m3e-shape m3e-shape--star" style="width:64px;height:64px;background:var(--md-sys-color-tertiary-container);"></div>
+            <div class="m3e-shape m3e-shape--heart" style="width:64px;height:64px;background:var(--md-sys-color-error-container);"></div>
+            <div class="m3e-shape m3e-shape--scallop" style="width:64px;height:64px;background:var(--md-sys-color-primary-container);"></div>
+          </div>
+        </section>
+      </div>
+
+    </main>
+
+    <!-- ═══ SETTINGS PANEL ═══ -->
+    <aside class="portal-settings hidden" id="settings-panel">
+      <div class="portal-settings__label">Color</div>
+      <input type="color" id="color-picker" value="#6750A4" aria-label="Theme color" />
+
+      <div class="portal-settings__label">Color Scheme</div>
+      <div class="toggle-group" id="scheme-toggle">
+        <button class="toggle-btn" data-scheme="light">☀ Light</button>
+        <button class="toggle-btn active" data-scheme="system">⚙ System</button>
+        <button class="toggle-btn" data-scheme="dark">🌙 Dark</button>
+      </div>
+
+      <div class="portal-settings__label">Directionality</div>
+      <div class="toggle-group" id="dir-toggle">
+        <button class="toggle-btn active" data-dir="ltr">LTR</button>
+        <button class="toggle-btn" data-dir="rtl">RTL</button>
+      </div>
+    </aside>
   </div>
+
+  <script>
+    // ── Page Navigation ──
+    function showPage(page) {
+      document.querySelectorAll('[data-page]').forEach(function(el) { el.classList.remove('active'); });
+      var target = document.querySelector('[data-page="' + page + '"]');
+      if (target) {
+        target.classList.add('active');
+        document.getElementById('main-content').scrollTop = 0;
+      }
+      document.querySelectorAll('.portal-sidebar__item').forEach(function(el) { el.classList.remove('active'); });
+      var items = document.querySelectorAll('.portal-sidebar__item');
+      for (var i = 0; i < items.length; i++) {
+        if (items[i].getAttribute('onclick') === "showPage('" + page + "')") {
+          items[i].classList.add('active');
+          break;
+        }
+      }
+      // Close sidebar on mobile
+      if (window.innerWidth <= 900) {
+        document.getElementById('sidebar').classList.add('hidden');
+      }
+    }
+
+    // ── Sidebar Toggle ──
+    document.getElementById('menu-toggle').addEventListener('click', function() {
+      document.getElementById('sidebar').classList.toggle('hidden');
+    });
+
+    // ── Settings Toggle ──
+    document.getElementById('settings-toggle').addEventListener('click', function() {
+      document.getElementById('settings-panel').classList.toggle('hidden');
+    });
+
+    // ── Color Picker ──
+    document.getElementById('color-picker').addEventListener('input', function(e) {
+      document.documentElement.style.setProperty('--md-sys-color-primary', e.target.value);
+    });
+
+    // ── Color Scheme ──
+    document.getElementById('scheme-toggle').addEventListener('click', function(e) {
+      var btn = e.target.closest('.toggle-btn');
+      if (!btn) return;
+      this.querySelectorAll('.toggle-btn').forEach(function(b) { b.classList.remove('active'); });
+      btn.classList.add('active');
+      var scheme = btn.dataset.scheme;
+      if (scheme === 'light') document.documentElement.style.colorScheme = 'light';
+      else if (scheme === 'dark') document.documentElement.style.colorScheme = 'dark';
+      else document.documentElement.style.colorScheme = '';
+    });
+
+    // ── Directionality ──
+    document.getElementById('dir-toggle').addEventListener('click', function(e) {
+      var btn = e.target.closest('.toggle-btn');
+      if (!btn) return;
+      this.querySelectorAll('.toggle-btn').forEach(function(b) { b.classList.remove('active'); });
+      btn.classList.add('active');
+      document.documentElement.dir = btn.dataset.dir;
+    });
+
+    // ── Indeterminate checkbox ──
+    var indeterminateCb = document.getElementById('indeterminate-cb');
+    if (indeterminateCb) indeterminateCb.indeterminate = true;
+  </script>
 </body>
 </html>
