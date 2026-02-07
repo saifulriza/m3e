@@ -113,28 +113,64 @@
 }
 
 /* Sizes */
-.m3e-slider--small {
+.m3e-slider--extra-small {
   height: 2rem;
 }
-.m3e-slider--small::-webkit-slider-runnable-track {
+.m3e-slider--extra-small::-webkit-slider-runnable-track {
   height: 1rem;
   border-radius: 0.5rem;
 }
-.m3e-slider--small::-moz-range-track {
+.m3e-slider--extra-small::-moz-range-track {
   height: 1rem;
   border-radius: 0.5rem;
 }
 
+.m3e-slider--small {
+  height: 2rem;
+}
+.m3e-slider--small::-webkit-slider-runnable-track {
+  height: 1.5rem;
+  border-radius: 0.75rem;
+}
+.m3e-slider--small::-moz-range-track {
+  height: 1.5rem;
+  border-radius: 0.75rem;
+}
+
+.m3e-slider--medium {
+  height: 3rem;
+}
+.m3e-slider--medium::-webkit-slider-runnable-track {
+  height: 2.5rem;
+  border-radius: 0.75rem;
+}
+.m3e-slider--medium::-moz-range-track {
+  height: 2.5rem;
+  border-radius: 0.75rem;
+}
+
 .m3e-slider--large {
-  height: 3.5rem;
+  height: 4rem;
 }
 .m3e-slider--large::-webkit-slider-runnable-track {
-  height: 2.5rem;
-  border-radius: 0.75rem;
+  height: 3.5rem;
+  border-radius: 1rem;
 }
 .m3e-slider--large::-moz-range-track {
-  height: 2.5rem;
-  border-radius: 0.75rem;
+  height: 3.5rem;
+  border-radius: 1rem;
+}
+
+.m3e-slider--extra-large {
+  height: 6.75rem;
+}
+.m3e-slider--extra-large::-webkit-slider-runnable-track {
+  height: 6rem;
+  border-radius: 1.75rem;
+}
+.m3e-slider--extra-large::-moz-range-track {
+  height: 6rem;
+  border-radius: 1.75rem;
 }
 
 /* Discrete (stepped) slider - custom track with tick marks */

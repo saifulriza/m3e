@@ -23,7 +23,10 @@
   color: var(--md-sys-color-inverse-on-surface);
   font-size: var(--md-sys-typescale-body-small-font-size);
   line-height: var(--md-sys-typescale-body-small-line-height);
-  white-space: nowrap;
+  white-space: normal;
+  min-height: 1.5rem;
+  min-width: 2.5rem;
+  max-width: 12.5rem;
   pointer-events: none;
   opacity: 0;
   transform: scale(0.8);

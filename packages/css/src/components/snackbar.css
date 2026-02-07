@@ -34,6 +34,7 @@
   transform: translateX(-50%) translateY(100%);
   z-index: 1000;
   max-width: min(42rem, calc(100vw - 2rem));
+  min-width: 21.5rem;
 }
 
 .m3e-snackbar--visible {

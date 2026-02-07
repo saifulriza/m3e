@@ -51,8 +51,11 @@
 .m3e-badge--large {
   min-width: 1.75rem;
   height: 1.75rem;
-  padding: 0 0.375rem;
-  font-size: var(--md-sys-typescale-label-medium-font-size);
+  padding: 0 0.5rem;
+  font-size: var(--md-sys-typescale-label-large-font-size);
+  font-weight: var(--md-sys-typescale-label-large-font-weight);
+  line-height: var(--md-sys-typescale-label-large-line-height);
+  letter-spacing: var(--md-sys-typescale-label-large-tracking);
 }
 
 @media (forced-colors: active) {

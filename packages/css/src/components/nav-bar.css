@@ -33,8 +33,8 @@
   justify-content: center;
   gap: 0.25rem;
   flex: 1 1 0;
-  min-width: 3rem;
-  max-width: 6rem;
+  min-width: 7rem;
+  max-width: fit-content;
   height: 100%;
   text-decoration: none;
   color: inherit;

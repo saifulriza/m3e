@@ -35,9 +35,11 @@
   padding: 0.5rem 1rem;
   text-decoration: none;
   color: var(--md-sys-color-on-surface-variant);
-  font-size: var(--md-sys-typescale-body-small-font-size);
-  line-height: var(--md-sys-typescale-body-small-line-height);
-  border-inline-start: 2px solid transparent;
+  font-size: var(--md-sys-typescale-body-large-font-size);
+  font-weight: var(--md-sys-typescale-body-large-font-weight);
+  line-height: var(--md-sys-typescale-body-large-line-height);
+  letter-spacing: var(--md-sys-typescale-body-large-tracking);
+  border-inline-start: 1px solid transparent;
   transition: color var(--md-sys-motion-duration-short-4) var(--md-sys-motion-easing-standard),
     border-color var(--md-sys-motion-duration-short-4) var(--md-sys-motion-easing-standard);
   overflow: hidden;

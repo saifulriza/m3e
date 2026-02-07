@@ -50,7 +50,7 @@
 
 /* Elevated */
 .m3e-toolbar--elevated {
-  box-shadow: var(--md-sys-elevation-level2);
+  box-shadow: var(--md-sys-elevation-level3);
 }
 
 @media (forced-colors: active) {
