@@ -1,0 +1,53 @@
+{
+  "name": "@m3e/vue",
+  "version": "1.1.11",
+  "description": "Material 3 Expressive Vue 3 components — interactive wrappers for @m3e/css.",
+  "author": "matraic <matraic@yahoo.com>",
+  "license": "MIT",
+  "homepage": "https://matraic.github.io/m3e/",
+  "type": "module",
+  "main": "./dist/m3e-vue.js",
+  "module": "./dist/m3e-vue.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "import": "./dist/m3e-vue.js",
+      "types": "./dist/index.d.ts"
+    },
+    "./css": "@m3e/css"
+  },
+  "files": [
+    "dist",
+    "src"
+  ],
+  "scripts": {
+    "build": "vite build",
+    "clean": "rimraf dist",
+    "lint": "echo \"@m3e/vue: skipping lint\"",
+    "cem": "echo \"@m3e/vue: skipping cem\""
+  },
+  "peerDependencies": {
+    "vue": "^3.3.0"
+  },
+  "dependencies": {
+    "@m3e/css": "1.1.11"
+  },
+  "devDependencies": {
+    "vue": "^3.5.13",
+    "@vitejs/plugin-vue": "^5.2.3",
+    "vite": "^6.1.0"
+  },
+  "keywords": [
+    "material-design",
+    "material-3",
+    "vue",
+    "vue3",
+    "components",
+    "design-system",
+    "css-framework"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/matraic/m3e.git"
+  }
+}

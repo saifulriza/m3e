@@ -59,7 +59,8 @@
     "@m3e/toc": "1.1.11",
     "@m3e/toolbar": "1.1.11",
     "@m3e/tooltip": "1.1.11",
-    "@m3e/css": "1.1.11"
+    "@m3e/css": "1.1.11",
+    "@m3e/vue": "1.1.11"
   },
   "peerDependencies": {
     "lit": "^3.3.0"

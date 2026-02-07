@@ -46,7 +46,8 @@
     "packages/tooltip",
     "packages/paginator",
     "packages/all",
-    "packages/css"
+    "packages/css",
+    "packages/vue"
   ],
   "scripts": {
     "build": "npm run build --workspaces",
