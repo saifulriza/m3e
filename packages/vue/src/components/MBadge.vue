@@ -1,5 +1,5 @@
 <template>
-  <div :class="classes" v-bind="$attrs">
+  <div :class="classes" :aria-label="badgeAriaLabel" v-bind="$attrs">
     <slot>{{ text }}</slot>
   </div>
 </template>
@@ -21,7 +21,12 @@ export default defineComponent({
       props.dot && "m3e-badge--dot",
       props.large && "m3e-badge--large",
     ]);
-    return { classes };
+    const badgeAriaLabel = computed(() => {
+      if (props.dot) return "New notification";
+      if (props.text != null) return `${props.text} notifications`;
+      return undefined;
+    });
+    return { classes, badgeAriaLabel };
   },
 });
 </script>

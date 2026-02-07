@@ -1,12 +1,20 @@
 <template>
-  <div :class="['m3e-progress-indicator', `m3e-progress-indicator--${type}`]" v-bind="$attrs">
+  <div
+    :class="['m3e-progress-indicator', `m3e-progress-indicator--${type}`]"
+    role="progressbar"
+    :aria-valuenow="indeterminate ? undefined : value"
+    :aria-valuemin="0"
+    :aria-valuemax="100"
+    :aria-label="ariaLabel"
+    v-bind="$attrs"
+  >
     <div
       v-if="type === 'linear'"
       class="m3e-progress-indicator__bar"
       :class="[indeterminate && 'm3e-progress-indicator__bar--indeterminate']"
       :style="!indeterminate ? { width: `${value}%` } : {}"
     ></div>
-    <svg v-else-if="type === 'circular'" class="m3e-progress-indicator__circle" viewBox="0 0 48 48">
+    <svg v-else-if="type === 'circular'" class="m3e-progress-indicator__circle" viewBox="0 0 48 48" aria-hidden="true">
       <circle
         class="m3e-progress-indicator__track"
         cx="24" cy="24" r="20"
@@ -39,6 +47,7 @@ export default defineComponent({
     },
     value: { type: Number, default: 0 },
     indeterminate: Boolean,
+    ariaLabel: { type: String, default: "Progress" },
   },
 });
 </script>

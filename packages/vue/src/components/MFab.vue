@@ -6,6 +6,7 @@
       extended && 'm3e-fab--extended',
       color && `m3e-fab--${color}`,
     ]"
+    :aria-label="ariaLabel || (extended ? undefined : label || icon)"
     v-bind="$attrs"
     @click="$emit('click', $event)"
   >
@@ -27,6 +28,7 @@ export default defineComponent({
   props: {
     icon: { type: String, default: "add" },
     label: { type: String, default: null },
+    ariaLabel: { type: String, default: null },
     size: {
       type: String,
       default: null,

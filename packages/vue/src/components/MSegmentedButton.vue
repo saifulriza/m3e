@@ -1,5 +1,5 @@
 <template>
-  <div :class="['m3e-segmented-button']" role="group" v-bind="$attrs">
+  <div :class="['m3e-segmented-button']" role="group" :aria-label="ariaLabel" v-bind="$attrs">
     <button
       v-for="(option, i) in options"
       :key="option.value ?? i"
@@ -8,6 +8,7 @@
         isSelected(option.value) && 'm3e-segmented-button__segment--selected',
       ]"
       :disabled="option.disabled"
+      :aria-pressed="isSelected(option.value)"
       @click="select(option.value)"
     >
       <span v-if="option.icon" class="m3e-segmented-button__segment__icon">{{ option.icon }}</span>
@@ -30,6 +31,7 @@ export default defineComponent({
       // [{value, label, icon?, disabled?}]
     },
     multiple: Boolean,
+    ariaLabel: { type: String, default: null },
   },
   emits: ["update:modelValue"],
   setup(props, { emit }) {

@@ -3,6 +3,7 @@
     :is="href ? 'a' : 'button'"
     :class="['m3e-nav-bar__item', active && 'm3e-nav-bar__item--active']"
     :href="href"
+    :aria-current="active ? 'page' : undefined"
     v-bind="$attrs"
     @click="$emit('click', $event)"
   >

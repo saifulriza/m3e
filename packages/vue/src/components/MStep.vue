@@ -7,16 +7,22 @@
       error && 'm3e-stepper__step--error',
       disabled && 'm3e-stepper__step--disabled',
     ]"
+    :aria-current="active ? 'step' : undefined"
   >
-    <div class="m3e-stepper__header" @click="$emit('click')">
-      <span class="m3e-stepper__icon">
+    <button
+      class="m3e-stepper__header"
+      :disabled="disabled"
+      :aria-label="`Step ${step}: ${label}`"
+      @click="$emit('click')"
+    >
+      <span class="m3e-stepper__icon" aria-hidden="true">
         <slot name="icon">{{ completed ? '✓' : step }}</slot>
       </span>
       <span class="m3e-stepper__label">
         <slot name="label">{{ label }}</slot>
         <span v-if="optional" class="m3e-stepper__label-optional">Optional</span>
       </span>
-    </div>
+    </button>
     <div v-if="active" class="m3e-stepper__content">
       <slot />
     </div>

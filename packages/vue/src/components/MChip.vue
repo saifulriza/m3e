@@ -6,6 +6,7 @@
       elevated && 'm3e-chip--elevated',
     ]"
     :disabled="disabled"
+    :aria-selected="selected || undefined"
     v-bind="$attrs"
     @click="onClick"
   >

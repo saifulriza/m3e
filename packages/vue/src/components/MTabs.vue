@@ -1,5 +1,5 @@
 <template>
-  <div :class="['m3e-tabs', secondary && 'm3e-tabs--secondary']" role="tablist" v-bind="$attrs">
+  <div :class="['m3e-tabs', secondary && 'm3e-tabs--secondary']" role="tablist" :aria-label="ariaLabel" v-bind="$attrs">
     <slot />
   </div>
 </template>
@@ -12,6 +12,7 @@ export default defineComponent({
   inheritAttrs: false,
   props: {
     secondary: Boolean,
+    ariaLabel: { type: String, default: null },
   },
 });
 </script>

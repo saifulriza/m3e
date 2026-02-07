@@ -8,6 +8,7 @@
     ]"
     :disabled="disabled"
     :aria-pressed="toggle ? toggled : undefined"
+    :aria-label="ariaLabel"
     v-bind="$attrs"
     @click="onClick"
   >
@@ -25,6 +26,7 @@ export default defineComponent({
   inheritAttrs: false,
   props: {
     icon: { type: String, default: null },
+    ariaLabel: { type: String, default: null },
     variant: {
       type: String,
       default: null,

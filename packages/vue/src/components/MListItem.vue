@@ -1,5 +1,14 @@
 <template>
-  <li class="m3e-list__item" v-bind="$attrs" @click="$emit('click', $event)">
+  <li
+    :class="['m3e-list__item', interactive && 'm3e-list__item--interactive']"
+    :tabindex="interactive ? 0 : undefined"
+    :role="interactive ? 'option' : undefined"
+    :aria-selected="interactive && selected ? 'true' : undefined"
+    v-bind="$attrs"
+    @click="$emit('click', $event)"
+    @keydown.enter="$emit('click', $event)"
+    @keydown.space.prevent="$emit('click', $event)"
+  >
     <span v-if="$slots.leading" class="m3e-list__item-leading">
       <slot name="leading" />
     </span>
@@ -25,6 +34,8 @@ export default defineComponent({
     headline: { type: String, default: "" },
     supporting: { type: String, default: null },
     trailing: { type: String, default: null },
+    interactive: Boolean,
+    selected: Boolean,
   },
   emits: ["click"],
 });

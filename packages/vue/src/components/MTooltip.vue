@@ -5,11 +5,13 @@
       @mouseleave="hide"
       @focusin="show"
       @focusout="hide"
+      :aria-describedby="visible ? tooltipId : undefined"
     >
       <slot />
     </div>
     <div
       v-if="visible"
+      :id="tooltipId"
       class="m3e-tooltip m3e-tooltip--visible"
       role="tooltip"
     >
@@ -21,6 +23,8 @@
 <script>
 import { defineComponent, ref, onBeforeUnmount } from "vue";
 
+let tooltipIdCounter = 0;
+
 export default defineComponent({
   name: "MTooltip",
   props: {
@@ -30,6 +34,7 @@ export default defineComponent({
   setup(props) {
     const visible = ref(false);
     const timer = ref(null);
+    const tooltipId = `m3e-tooltip-${++tooltipIdCounter}`;
 
     const show = () => {
       clearTimeout(timer.value);
@@ -45,7 +50,7 @@ export default defineComponent({
       clearTimeout(timer.value);
     });
 
-    return { visible, show, hide };
+    return { visible, show, hide, tooltipId };
   },
 });
 </script>

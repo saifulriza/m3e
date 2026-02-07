@@ -1,5 +1,5 @@
 <template>
-  <header :class="['m3e-app-bar', variant && `m3e-app-bar--${variant}`]" v-bind="$attrs">
+  <header :class="['m3e-app-bar', variant && `m3e-app-bar--${variant}`]" role="banner" v-bind="$attrs">
     <div v-if="$slots.leading" class="m3e-app-bar__leading">
       <slot name="leading" />
     </div>
