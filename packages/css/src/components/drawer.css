@@ -36,7 +36,7 @@
   inset-inline-start: 0;
   z-index: 200;
   transform: translateX(-100%);
-  transition: transform var(--md-sys-motion-duration-medium-2) var(--md-sys-motion-easing-emphasized);
+  transition: transform var(--md-sys-motion-duration-medium-4) var(--md-sys-motion-easing-emphasized);
   border: none;
   border-radius: 0 var(--md-sys-shape-corner-large) var(--md-sys-shape-corner-large) 0;
 }
@@ -58,7 +58,7 @@
   z-index: 199;
   opacity: 0;
   pointer-events: none;
-  transition: opacity var(--md-sys-motion-duration-medium-2) var(--md-sys-motion-easing-standard);
+  transition: opacity var(--md-sys-motion-duration-medium-4) var(--md-sys-motion-easing-standard);
 }
 
 .m3e-drawer-scrim--visible {

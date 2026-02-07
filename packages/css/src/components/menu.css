@@ -30,11 +30,11 @@
   border-radius: var(--md-sys-shape-corner-extra-small);
   background-color: var(--md-sys-color-surface-container);
   color: var(--md-sys-color-on-surface);
-  box-shadow: var(--md-sys-elevation-level2);
+  box-shadow: var(--md-sys-elevation-level3);
   display: none;
   flex-direction: column;
   overflow-y: auto;
-  max-height: 20rem;
+  max-height: 17.5rem;
 }
 
 .m3e-menu--open {

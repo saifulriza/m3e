@@ -17,7 +17,7 @@
   align-items: center;
   gap: 0.25rem;
   height: 4rem;
-  padding: 0 0.5rem;
+  padding: 0 0.25rem;
   background-color: var(--md-sys-color-surface);
   color: var(--md-sys-color-on-surface);
 }
@@ -31,7 +31,7 @@
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
-  padding-inline-start: 0.5rem;
+  padding-inline-start: 0.25rem;
 }
 
 .m3e-app-bar__actions {
@@ -50,7 +50,7 @@
 .m3e-app-bar--medium {
   height: auto;
   flex-wrap: wrap;
-  padding-bottom: 1.5rem;
+  padding-bottom: 0.75rem;
 }
 
 .m3e-app-bar--medium .m3e-app-bar__title {
@@ -64,7 +64,7 @@
 .m3e-app-bar--large {
   height: auto;
   flex-wrap: wrap;
-  padding-bottom: 1.75rem;
+  padding-bottom: 0.75rem;
 }
 
 .m3e-app-bar--large .m3e-app-bar__title {
@@ -76,7 +76,7 @@
 
 /* Elevated */
 .m3e-app-bar--elevated {
-  box-shadow: var(--md-sys-elevation-level2);
+  box-shadow: var(--md-sys-elevation-level1);
 }
 
 /* Surface container color */

@@ -78,6 +78,16 @@
   cursor: not-allowed;
 }
 
+/* Primary tabs (default) — taller height */
+.m3e-tabs--primary .m3e-tab {
+  height: 4rem;
+}
+
+.m3e-tabs--primary .m3e-tab--active::after {
+  left: 0.125rem;
+  right: 0.125rem;
+}
+
 /* Secondary tabs (full width) */
 .m3e-tabs--secondary .m3e-tab {
   flex: 1 1 0;
@@ -93,7 +103,7 @@
 }
 
 .m3e-tab__icon {
-  font-size: 1.25rem;
+  font-size: 1.5rem;
 }
 
 @media (forced-colors: active) {
