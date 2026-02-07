@@ -1,0 +1,156 @@
+/* ==========================================================================
+   M3E Drawer
+   CSS classes for Material 3 Expressive navigation drawers.
+
+   Usage:
+     <aside class="m3e-drawer m3e-drawer--open">
+       <div class="m3e-drawer__header">
+         <h3 class="m3e-drawer__title">Title</h3>
+       </div>
+       <nav class="m3e-drawer__content">
+         <a class="m3e-drawer__item m3e-drawer__item--active" href="#">
+           <span class="m3e-drawer__item-icon">home</span>
+           <span class="m3e-drawer__item-label">Home</span>
+         </a>
+       </nav>
+     </aside>
+   ========================================================================== */
+
+.m3e-drawer {
+  display: flex;
+  flex-direction: column;
+  width: 22.5rem;
+  max-width: 80vw;
+  height: 100%;
+  background-color: var(--md-sys-color-surface-container-low);
+  color: var(--md-sys-color-on-surface-variant);
+  overflow-y: auto;
+  border-inline-end: 1px solid var(--md-sys-color-outline-variant);
+}
+
+/* Modal drawer */
+.m3e-drawer--modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  inset-inline-start: 0;
+  z-index: 200;
+  transform: translateX(-100%);
+  transition: transform var(--md-sys-motion-duration-medium-4) var(--md-sys-motion-easing-emphasized);
+  border: none;
+  border-radius: 0 var(--md-sys-shape-corner-large) var(--md-sys-shape-corner-large) 0;
+}
+
+[dir="rtl"] .m3e-drawer--modal,
+.m3e-drawer--modal[dir="rtl"] {
+  transform: translateX(100%);
+}
+
+.m3e-drawer--modal.m3e-drawer--open {
+  transform: translateX(0);
+}
+
+/* Scrim (overlay backdrop) */
+.m3e-drawer-scrim {
+  position: fixed;
+  inset: 0;
+  background-color: color-mix(in srgb, var(--md-sys-color-scrim) 32%, transparent);
+  z-index: 199;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity var(--md-sys-motion-duration-medium-4) var(--md-sys-motion-easing-standard);
+}
+
+.m3e-drawer-scrim--visible {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.m3e-drawer__header {
+  padding: 1.75rem 1.75rem 0;
+}
+
+.m3e-drawer__title {
+  margin: 0;
+  font-size: var(--md-sys-typescale-title-small-font-size);
+  font-weight: var(--md-sys-typescale-title-small-font-weight);
+  line-height: var(--md-sys-typescale-title-small-line-height);
+  color: var(--md-sys-color-on-surface-variant);
+}
+
+.m3e-drawer__content {
+  display: flex;
+  flex-direction: column;
+  padding: 0.75rem;
+  gap: 0.125rem;
+}
+
+.m3e-drawer__item {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  height: 3.5rem;
+  padding: 0 1rem;
+  border-radius: var(--md-sys-shape-corner-full);
+  text-decoration: none;
+  color: var(--md-sys-color-on-surface-variant);
+  font-size: var(--md-sys-typescale-label-large-font-size);
+  font-weight: var(--md-sys-typescale-label-large-font-weight);
+  line-height: var(--md-sys-typescale-label-large-line-height);
+  letter-spacing: var(--md-sys-typescale-label-large-tracking);
+  cursor: pointer;
+  border: none;
+  background: none;
+  font-family: inherit;
+  width: 100%;
+  text-align: start;
+  transition: background-color var(--md-sys-motion-duration-short-4) var(--md-sys-motion-easing-standard);
+}
+
+.m3e-drawer__item:hover {
+  background-color: color-mix(in srgb, var(--md-sys-color-on-surface) var(--md-sys-state-hover-state-layer-opacity), transparent);
+}
+
+.m3e-drawer__item:focus-visible {
+  background-color: color-mix(in srgb, var(--md-sys-color-on-surface) var(--md-sys-state-focus-state-layer-opacity), transparent);
+  outline: none;
+}
+
+/* Active item */
+.m3e-drawer__item--active {
+  background-color: var(--md-sys-color-secondary-container);
+  color: var(--md-sys-color-on-secondary-container);
+}
+
+.m3e-drawer__item--active:hover {
+  background-color: color-mix(in srgb, var(--md-sys-color-on-secondary-container) var(--md-sys-state-hover-state-layer-opacity), var(--md-sys-color-secondary-container));
+}
+
+.m3e-drawer__item-icon {
+  font-size: 1.5rem;
+  flex-shrink: 0;
+}
+
+.m3e-drawer__item-label {
+  flex: 1 1 auto;
+}
+
+.m3e-drawer__item-badge {
+  margin-inline-start: auto;
+  font-size: var(--md-sys-typescale-label-large-font-size);
+  color: var(--md-sys-color-on-surface-variant);
+}
+
+@media (forced-colors: active) {
+  .m3e-drawer__item--active {
+    outline: 2px solid Highlight;
+  }
+}
+
+@media (prefers-reduced-motion) {
+  .m3e-drawer--modal,
+  .m3e-drawer-scrim,
+  .m3e-drawer__item {
+    transition: none;
+  }
+}

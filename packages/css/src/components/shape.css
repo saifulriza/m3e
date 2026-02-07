@@ -1,0 +1,96 @@
+/* ==========================================================================
+   M3E Shape
+   CSS classes for Material 3 Expressive shapes.
+
+   Usage:
+     <div class="m3e-shape m3e-shape--circle">
+       <img src="photo.jpg" alt="" />
+     </div>
+     <div class="m3e-shape m3e-shape--diamond"></div>
+   ========================================================================== */
+
+.m3e-shape {
+  display: inline-block;
+  width: var(--m3e-shape-size, 3rem);
+  aspect-ratio: 1 / 1;
+  overflow: hidden;
+  background-color: var(--m3e-shape-container-color, var(--md-sys-color-primary-container));
+  transition: clip-path var(--md-sys-motion-duration-medium-2) var(--md-sys-motion-easing-emphasized);
+  will-change: clip-path;
+}
+
+.m3e-shape img,
+.m3e-shape video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Circle */
+.m3e-shape--circle {
+  clip-path: circle(50%);
+}
+
+/* Diamond */
+.m3e-shape--diamond {
+  clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%);
+}
+
+/* Pentagon */
+.m3e-shape--pentagon {
+  clip-path: polygon(50% 0%, 100% 38%, 82% 100%, 18% 100%, 0% 38%);
+}
+
+/* Hexagon */
+.m3e-shape--hexagon {
+  clip-path: polygon(25% 0%, 75% 0%, 100% 50%, 75% 100%, 25% 100%, 0% 50%);
+}
+
+/* Octagon */
+.m3e-shape--octagon {
+  clip-path: polygon(29% 0%, 71% 0%, 100% 29%, 100% 71%, 71% 100%, 29% 100%, 0% 71%, 0% 29%);
+}
+
+/* Star */
+.m3e-shape--star {
+  clip-path: polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%);
+}
+
+/* Heart */
+.m3e-shape--heart {
+  clip-path: polygon(50% 100%, 0% 35%, 0% 20%, 15% 0%, 35% 0%, 50% 15%, 65% 0%, 85% 0%, 100% 20%, 100% 35%);
+}
+
+/* Rounded square */
+.m3e-shape--rounded-square {
+  border-radius: var(--md-sys-shape-corner-large);
+}
+
+/* Scallop */
+.m3e-shape--scallop {
+  clip-path: polygon(
+    50% 0%, 60% 10%, 75% 0%, 80% 15%, 100% 15%, 90% 30%, 100% 50%,
+    90% 65%, 100% 80%, 85% 85%, 75% 100%, 60% 90%, 50% 100%, 40% 90%,
+    25% 100%, 15% 85%, 0% 80%, 10% 65%, 0% 50%, 10% 30%, 0% 15%,
+    20% 15%, 25% 0%, 40% 10%
+  );
+}
+
+/* Size variants */
+.m3e-shape--small {
+  --m3e-shape-size: 2rem;
+}
+
+.m3e-shape--large {
+  --m3e-shape-size: 5rem;
+}
+
+.m3e-shape--extra-large {
+  --m3e-shape-size: 8rem;
+}
+
+@media (prefers-reduced-motion) {
+  .m3e-shape {
+    transition: none;
+  }
+}

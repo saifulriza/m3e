@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Buttons — M3E CSS Demo</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet" />
+  <link rel="stylesheet" href="../../packages/css/src/tokens.css" />
+  <link rel="stylesheet" href="../../packages/css/src/components/button.css" />
+  <link rel="stylesheet" href="../../packages/css/src/components/button-group.css" />
+  <link rel="stylesheet" href="../../packages/css/src/components/split-button.css" />
+  <link rel="stylesheet" href="demo-shared.css" />
+</head>
+<body>
+  <a class="back" href="index.html">← Back to all demos</a>
+  <h1>Buttons</h1>
+  <p class="page-subtitle">Common buttons, button groups and split buttons. All variants and sizes per Material Design 3.</p>
+
+  <!-- Variants -->
+  <section>
+    <h2>Button Variants</h2>
+    <div class="demo-row">
+      <button class="m3e-button m3e-button--filled">Filled</button>
+      <button class="m3e-button m3e-button--tonal">Tonal</button>
+      <button class="m3e-button m3e-button--elevated">Elevated</button>
+      <button class="m3e-button m3e-button--outlined">Outlined</button>
+      <button class="m3e-button m3e-button--text">Text</button>
+    </div>
+    <pre class="code">&lt;button class="m3e-button m3e-button--filled"&gt;Filled&lt;/button&gt;
+&lt;button class="m3e-button m3e-button--tonal"&gt;Tonal&lt;/button&gt;
+&lt;button class="m3e-button m3e-button--elevated"&gt;Elevated&lt;/button&gt;
+&lt;button class="m3e-button m3e-button--outlined"&gt;Outlined&lt;/button&gt;
+&lt;button class="m3e-button m3e-button--text"&gt;Text&lt;/button&gt;</pre>
+  </section>
+
+  <!-- Sizes -->
+  <section>
+    <h2>Button Sizes</h2>
+    <div class="demo-row">
+      <button class="m3e-button m3e-button--filled m3e-button--extra-small">XS</button>
+      <button class="m3e-button m3e-button--filled m3e-button--small">Small</button>
+      <button class="m3e-button m3e-button--filled m3e-button--medium">Medium</button>
+      <button class="m3e-button m3e-button--filled m3e-button--large">Large</button>
+      <button class="m3e-button m3e-button--filled m3e-button--extra-large">X-Large</button>
+    </div>
+  </section>
+
+  <!-- With Icons -->
+  <section>
+    <h2>Buttons with Icons</h2>
+    <div class="demo-row">
+      <button class="m3e-button m3e-button--filled">
+        <span class="m3e-button__icon material-symbols-outlined">add</span>
+        Create
+      </button>
+      <button class="m3e-button m3e-button--tonal">
+        <span class="m3e-button__icon material-symbols-outlined">send</span>
+        Send
+      </button>
+      <button class="m3e-button m3e-button--outlined">
+        <span class="m3e-button__icon material-symbols-outlined">favorite</span>
+        Like
+      </button>
+      <button class="m3e-button m3e-button--text">
+        <span class="m3e-button__icon material-symbols-outlined">arrow_back</span>
+        Back
+      </button>
+    </div>
+  </section>
+
+  <!-- Square -->
+  <section>
+    <h2>Square Buttons</h2>
+    <div class="demo-row">
+      <button class="m3e-button m3e-button--filled m3e-button--square">
+        <span class="m3e-button__icon material-symbols-outlined">add</span>
+      </button>
+      <button class="m3e-button m3e-button--tonal m3e-button--square">
+        <span class="m3e-button__icon material-symbols-outlined">edit</span>
+      </button>
+      <button class="m3e-button m3e-button--outlined m3e-button--square">
+        <span class="m3e-button__icon material-symbols-outlined">delete</span>
+      </button>
+    </div>
+  </section>
+
+  <!-- Disabled -->
+  <section>
+    <h2>Disabled State</h2>
+    <div class="demo-row">
+      <button class="m3e-button m3e-button--filled" disabled>Filled</button>
+      <button class="m3e-button m3e-button--tonal" disabled>Tonal</button>
+      <button class="m3e-button m3e-button--elevated" disabled>Elevated</button>
+      <button class="m3e-button m3e-button--outlined" disabled>Outlined</button>
+      <button class="m3e-button m3e-button--text" disabled>Text</button>
+    </div>
+  </section>
+
+  <!-- Button Group -->
+  <section>
+    <h2>Button Group</h2>
+    <h3>Connected Horizontal</h3>
+    <div class="demo-row">
+      <div class="m3e-button-group m3e-button-group--connected">
+        <button class="m3e-button m3e-button--outlined">Day</button>
+        <button class="m3e-button m3e-button--tonal">Week</button>
+        <button class="m3e-button m3e-button--outlined">Month</button>
+      </div>
+    </div>
+    <h3>Vertical</h3>
+    <div class="demo-row">
+      <div class="m3e-button-group m3e-button-group--connected m3e-button-group--vertical">
+        <button class="m3e-button m3e-button--outlined">Top</button>
+        <button class="m3e-button m3e-button--tonal">Middle</button>
+        <button class="m3e-button m3e-button--outlined">Bottom</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- Split Button -->
+  <section>
+    <h2>Split Button</h2>
+    <div class="demo-row">
+      <div class="m3e-split-button">
+        <button class="m3e-button m3e-button--filled">Save</button>
+        <button class="m3e-split-button__toggle m3e-button m3e-button--filled">
+          <span class="m3e-split-button__arrow material-symbols-outlined">arrow_drop_down</span>
+        </button>
+      </div>
+      <div class="m3e-split-button">
+        <button class="m3e-button m3e-button--tonal">Export</button>
+        <button class="m3e-split-button__toggle m3e-button m3e-button--tonal">
+          <span class="m3e-split-button__arrow material-symbols-outlined">arrow_drop_down</span>
+        </button>
+      </div>
+    </div>
+  </section>
+</body>
+</html>

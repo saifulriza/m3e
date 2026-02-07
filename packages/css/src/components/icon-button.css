@@ -1,0 +1,181 @@
+/* ==========================================================================
+   M3E Icon Button
+   CSS classes for Material 3 Expressive icon buttons.
+
+   Usage:
+     <button class="m3e-icon-button">
+       <span class="material-symbols-outlined">favorite</span>
+     </button>
+     <button class="m3e-icon-button m3e-icon-button--filled">
+       <span class="material-symbols-outlined">edit</span>
+     </button>
+   ========================================================================== */
+
+.m3e-icon-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  cursor: pointer;
+  user-select: none;
+  background-color: transparent;
+  color: var(--md-sys-color-on-surface-variant);
+  width: var(--m3e-icon-button-size, 2.5rem);
+  height: var(--m3e-icon-button-size, 2.5rem);
+  border-radius: var(--md-sys-shape-corner-full);
+  padding: 0;
+  font-size: var(--m3e-icon-button-icon-size, 1.5rem);
+  -webkit-tap-highlight-color: transparent;
+  transition: background-color var(--md-sys-motion-duration-short-4) var(--md-sys-motion-easing-standard),
+    color var(--md-sys-motion-duration-short-4) var(--md-sys-motion-easing-standard);
+}
+
+.m3e-icon-button:hover:not(:disabled) {
+  background-color: color-mix(in srgb, var(--md-sys-color-on-surface-variant) var(--md-sys-state-hover-state-layer-opacity), transparent);
+}
+
+.m3e-icon-button:focus-visible:not(:disabled) {
+  background-color: color-mix(in srgb, var(--md-sys-color-on-surface-variant) var(--md-sys-state-focus-state-layer-opacity), transparent);
+}
+
+.m3e-icon-button:active:not(:disabled) {
+  background-color: color-mix(in srgb, var(--md-sys-color-on-surface-variant) var(--md-sys-state-pressed-state-layer-opacity), transparent);
+}
+
+.m3e-icon-button:disabled {
+  color: color-mix(in srgb, var(--md-sys-color-on-surface) 38%, transparent);
+  cursor: not-allowed;
+}
+
+/* Filled */
+.m3e-icon-button--filled {
+  background-color: var(--md-sys-color-primary);
+  color: var(--md-sys-color-on-primary);
+}
+
+.m3e-icon-button--filled:hover:not(:disabled) {
+  background-color: color-mix(in srgb, var(--md-sys-color-on-primary) var(--md-sys-state-hover-state-layer-opacity), var(--md-sys-color-primary));
+}
+
+.m3e-icon-button--filled:disabled {
+  background-color: color-mix(in srgb, var(--md-sys-color-on-surface) 12%, transparent);
+  color: color-mix(in srgb, var(--md-sys-color-on-surface) 38%, transparent);
+}
+
+/* Tonal */
+.m3e-icon-button--tonal {
+  background-color: var(--md-sys-color-secondary-container);
+  color: var(--md-sys-color-on-secondary-container);
+}
+
+.m3e-icon-button--tonal:hover:not(:disabled) {
+  background-color: color-mix(in srgb, var(--md-sys-color-on-secondary-container) var(--md-sys-state-hover-state-layer-opacity), var(--md-sys-color-secondary-container));
+}
+
+.m3e-icon-button--tonal:disabled {
+  background-color: color-mix(in srgb, var(--md-sys-color-on-surface) 12%, transparent);
+  color: color-mix(in srgb, var(--md-sys-color-on-surface) 38%, transparent);
+}
+
+/* Outlined */
+.m3e-icon-button--outlined {
+  background-color: transparent;
+  color: var(--md-sys-color-on-surface-variant);
+  outline: 1px solid var(--md-sys-color-outline);
+  outline-offset: -1px;
+}
+
+.m3e-icon-button--outlined:hover:not(:disabled) {
+  background-color: color-mix(in srgb, var(--md-sys-color-on-surface-variant) var(--md-sys-state-hover-state-layer-opacity), transparent);
+}
+
+.m3e-icon-button--outlined:disabled {
+  outline-color: color-mix(in srgb, var(--md-sys-color-on-surface) 12%, transparent);
+  color: color-mix(in srgb, var(--md-sys-color-on-surface) 38%, transparent);
+}
+
+/* Toggle selected */
+.m3e-icon-button--selected {
+  background-color: var(--md-sys-color-primary);
+  color: var(--md-sys-color-on-primary);
+}
+
+/* Selected per-variant */
+.m3e-icon-button--selected.m3e-icon-button--filled {
+  background-color: var(--md-sys-color-primary);
+  color: var(--md-sys-color-on-primary);
+}
+.m3e-icon-button--selected.m3e-icon-button--tonal {
+  background-color: var(--md-sys-color-secondary-container);
+  color: var(--md-sys-color-on-secondary-container);
+}
+.m3e-icon-button--selected.m3e-icon-button--outlined {
+  background-color: var(--md-sys-color-inverse-surface);
+  color: var(--md-sys-color-inverse-on-surface);
+  outline-color: transparent;
+}
+
+/* Unselected states */
+.m3e-icon-button--unselected.m3e-icon-button--filled {
+  background-color: var(--md-sys-color-surface-container-highest);
+  color: var(--md-sys-color-primary);
+}
+.m3e-icon-button--unselected.m3e-icon-button--tonal {
+  background-color: var(--md-sys-color-surface-container-highest);
+  color: var(--md-sys-color-on-surface-variant);
+}
+
+/* Elevated */
+.m3e-icon-button--elevated {
+  background-color: var(--md-sys-color-surface-container-low);
+  color: var(--md-sys-color-primary);
+  box-shadow: var(--md-sys-elevation-level1);
+}
+.m3e-icon-button--elevated:hover:not(:disabled) {
+  background-color: color-mix(in srgb, var(--md-sys-color-primary) var(--md-sys-state-hover-state-layer-opacity), var(--md-sys-color-surface-container-low));
+  box-shadow: var(--md-sys-elevation-level2);
+}
+.m3e-icon-button--elevated:focus-visible:not(:disabled) {
+  background-color: color-mix(in srgb, var(--md-sys-color-primary) var(--md-sys-state-focus-state-layer-opacity), var(--md-sys-color-surface-container-low));
+  box-shadow: var(--md-sys-elevation-level1);
+}
+.m3e-icon-button--elevated:active:not(:disabled) {
+  background-color: color-mix(in srgb, var(--md-sys-color-primary) var(--md-sys-state-pressed-state-layer-opacity), var(--md-sys-color-surface-container-low));
+  box-shadow: var(--md-sys-elevation-level1);
+}
+.m3e-icon-button--elevated:disabled {
+  background-color: color-mix(in srgb, var(--md-sys-color-on-surface) 12%, transparent);
+  color: color-mix(in srgb, var(--md-sys-color-on-surface) 38%, transparent);
+  box-shadow: var(--md-sys-elevation-level0);
+}
+.m3e-icon-button--selected.m3e-icon-button--elevated {
+  background-color: var(--md-sys-color-primary);
+  color: var(--md-sys-color-on-primary);
+}
+
+/* Touch target */
+.m3e-icon-button::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  min-width: 3rem;
+  min-height: 3rem;
+  margin: auto;
+}
+
+@media (forced-colors: active) {
+  .m3e-icon-button:not(:disabled) {
+    color: ButtonText;
+    outline: 1px solid ButtonText;
+  }
+  .m3e-icon-button:disabled {
+    color: GrayText;
+    outline-color: GrayText;
+  }
+}
+
+@media (prefers-reduced-motion) {
+  .m3e-icon-button {
+    transition: none;
+  }
+}

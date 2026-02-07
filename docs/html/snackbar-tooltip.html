@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Snackbar &amp; Tooltip — M3E CSS Demo</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet" />
+  <link rel="stylesheet" href="../../packages/css/src/tokens.css" />
+  <link rel="stylesheet" href="../../packages/css/src/components/snackbar.css" />
+  <link rel="stylesheet" href="../../packages/css/src/components/tooltip.css" />
+  <link rel="stylesheet" href="../../packages/css/src/components/button.css" />
+  <link rel="stylesheet" href="../../packages/css/src/components/icon-button.css" />
+  <link rel="stylesheet" href="demo-shared.css" />
+</head>
+<body>
+  <a class="back" href="index.html">← Back to all demos</a>
+  <h1>Snackbar &amp; Tooltip</h1>
+  <p class="page-subtitle">Snackbar for brief messages. Tooltips for contextual info on hover/focus.</p>
+
+  <!-- Snackbar -->
+  <section>
+    <h2>Snackbar — Single Line</h2>
+    <div style="position: relative; min-height: 80px; display: flex; align-items: flex-end;">
+      <div class="m3e-snackbar m3e-snackbar--visible" role="status" aria-live="polite" style="position: relative;">
+        <span class="m3e-snackbar__text">File has been saved</span>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <h2>Snackbar — With Action</h2>
+    <div style="position: relative; min-height: 80px; display: flex; align-items: flex-end;">
+      <div class="m3e-snackbar m3e-snackbar--visible" role="status" aria-live="polite" style="position: relative;">
+        <span class="m3e-snackbar__text">Item deleted</span>
+        <button class="m3e-snackbar__action">Undo</button>
+      </div>
+    </div>
+    <pre class="code">&lt;div class="m3e-snackbar m3e-snackbar--visible" role="status" aria-live="polite"&gt;
+  &lt;span class="m3e-snackbar__text"&gt;Item deleted&lt;/span&gt;
+  &lt;button class="m3e-snackbar__action"&gt;Undo&lt;/button&gt;
+&lt;/div&gt;</pre>
+  </section>
+
+  <section>
+    <h2>Snackbar — With Action &amp; Close</h2>
+    <div style="position: relative; min-height: 80px; display: flex; align-items: flex-end;">
+      <div class="m3e-snackbar m3e-snackbar--visible" role="status" aria-live="polite" style="position: relative;">
+        <span class="m3e-snackbar__text">Connection lost</span>
+        <button class="m3e-snackbar__action">Retry</button>
+        <button class="m3e-snackbar__close" aria-label="Dismiss">
+          <span class="material-symbols-outlined" style="font-size: 18px;">close</span>
+        </button>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <h2>Snackbar — Multiline</h2>
+    <div style="position: relative; min-height: 100px; display: flex; align-items: flex-end;">
+      <div class="m3e-snackbar m3e-snackbar--visible m3e-snackbar--multiline" role="status" aria-live="polite" style="position: relative; max-width: 400px;">
+        <span class="m3e-snackbar__text">This is a longer message that wraps to multiple lines to provide more details about the action.</span>
+        <button class="m3e-snackbar__action">Action</button>
+        <button class="m3e-snackbar__close" aria-label="Dismiss">
+          <span class="material-symbols-outlined" style="font-size: 18px;">close</span>
+        </button>
+      </div>
+    </div>
+  </section>
+
+  <!-- Tooltip -->
+  <section>
+    <h2>Plain Tooltip</h2>
+    <div class="demo-row" style="gap: 48px;">
+      <div class="m3e-tooltip-container" style="position: relative;">
+        <button class="m3e-icon-button" aria-describedby="tip1">
+          <span class="material-symbols-outlined">favorite</span>
+        </button>
+        <div class="m3e-tooltip m3e-tooltip--visible" id="tip1" role="tooltip">
+          Add to favorites
+        </div>
+      </div>
+
+      <div class="m3e-tooltip-container" style="position: relative;">
+        <button class="m3e-icon-button" aria-describedby="tip2">
+          <span class="material-symbols-outlined">share</span>
+        </button>
+        <div class="m3e-tooltip m3e-tooltip--visible m3e-tooltip--top" id="tip2" role="tooltip">
+          Share
+        </div>
+      </div>
+
+      <div class="m3e-tooltip-container" style="position: relative;">
+        <button class="m3e-icon-button" aria-describedby="tip3">
+          <span class="material-symbols-outlined">delete</span>
+        </button>
+        <div class="m3e-tooltip m3e-tooltip--visible m3e-tooltip--start" id="tip3" role="tooltip">
+          Delete
+        </div>
+      </div>
+    </div>
+    <pre class="code">&lt;div class="m3e-tooltip-container"&gt;
+  &lt;button aria-describedby="tooltip-id"&gt;Trigger&lt;/button&gt;
+  &lt;div class="m3e-tooltip m3e-tooltip--visible" id="tooltip-id" role="tooltip"&gt;
+    Tooltip text
+  &lt;/div&gt;
+&lt;/div&gt;</pre>
+  </section>
+
+  <!-- Rich Tooltip -->
+  <section>
+    <h2>Rich Tooltip</h2>
+    <div style="position: relative; display: inline-block;">
+      <button class="m3e-button m3e-button--outlined" aria-describedby="rich-tip">Hover me</button>
+      <div class="m3e-tooltip m3e-tooltip--rich m3e-tooltip--visible" id="rich-tip" role="tooltip" style="position: relative; margin-top: 8px;">
+        <div class="m3e-tooltip__title">Rich tooltip</div>
+        Rich tooltips can contain a title and longer descriptive content. They remain visible when hovered.
+        <div class="m3e-tooltip__actions">
+          <button class="m3e-button m3e-button--text" style="font-size: 0.75rem; padding: 4px 8px;">Learn more</button>
+        </div>
+      </div>
+    </div>
+  </section>
+</body>
+</html>

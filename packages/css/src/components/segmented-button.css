@@ -1,0 +1,110 @@
+/* ==========================================================================
+   M3E Segmented Button
+   CSS classes for Material 3 Expressive segmented buttons.
+
+   Usage:
+     <div class="m3e-segmented-button" role="group">
+       <button class="m3e-segmented-button__segment m3e-segmented-button__segment--selected">
+         <span class="m3e-segmented-button__label">Day</span>
+       </button>
+       <button class="m3e-segmented-button__segment">
+         <span class="m3e-segmented-button__label">Week</span>
+       </button>
+       <button class="m3e-segmented-button__segment">
+         <span class="m3e-segmented-button__label">Month</span>
+       </button>
+     </div>
+   ========================================================================== */
+
+.m3e-segmented-button {
+  display: inline-flex;
+  align-items: center;
+  border-radius: var(--md-sys-shape-corner-full);
+  overflow: hidden;
+}
+
+.m3e-segmented-button__segment {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  border: 1px solid var(--md-sys-color-outline);
+  background-color: transparent;
+  color: var(--md-sys-color-on-surface);
+  font-family: inherit;
+  font-size: var(--md-sys-typescale-label-large-font-size);
+  font-weight: var(--md-sys-typescale-label-large-font-weight);
+  line-height: var(--md-sys-typescale-label-large-line-height);
+  letter-spacing: var(--md-sys-typescale-label-large-tracking);
+  padding: 0 1rem;
+  height: 2.5rem;
+  cursor: pointer;
+  user-select: none;
+  white-space: nowrap;
+  -webkit-tap-highlight-color: transparent;
+  transition: background-color var(--md-sys-motion-duration-short-4) var(--md-sys-motion-easing-standard),
+    color var(--md-sys-motion-duration-short-4) var(--md-sys-motion-easing-standard);
+  margin-inline-start: -1px;
+  position: relative;
+}
+
+.m3e-segmented-button__segment:first-child {
+  margin-inline-start: 0;
+  border-start-start-radius: var(--md-sys-shape-corner-full);
+  border-end-start-radius: var(--md-sys-shape-corner-full);
+}
+
+.m3e-segmented-button__segment:last-child {
+  border-start-end-radius: var(--md-sys-shape-corner-full);
+  border-end-end-radius: var(--md-sys-shape-corner-full);
+}
+
+.m3e-segmented-button__segment:hover:not(:disabled) {
+  background-color: color-mix(in srgb, var(--md-sys-color-on-surface) var(--md-sys-state-hover-state-layer-opacity), transparent);
+}
+
+.m3e-segmented-button__segment:focus-visible:not(:disabled) {
+  background-color: color-mix(in srgb, var(--md-sys-color-on-surface) var(--md-sys-state-focus-state-layer-opacity), transparent);
+  outline: none;
+  z-index: 1;
+}
+
+/* Selected */
+.m3e-segmented-button__segment--selected {
+  background-color: var(--md-sys-color-secondary-container);
+  color: var(--md-sys-color-on-secondary-container);
+}
+
+.m3e-segmented-button__segment--selected:hover:not(:disabled) {
+  background-color: color-mix(in srgb, var(--md-sys-color-on-secondary-container) var(--md-sys-state-hover-state-layer-opacity), var(--md-sys-color-secondary-container));
+}
+
+/* Disabled */
+.m3e-segmented-button__segment:disabled {
+  color: color-mix(in srgb, var(--md-sys-color-on-surface) 38%, transparent);
+  cursor: not-allowed;
+}
+
+.m3e-segmented-button__segment__icon {
+  font-size: 1.125rem;
+  flex-shrink: 0;
+}
+
+@media (forced-colors: active) {
+  .m3e-segmented-button__segment {
+    border-color: ButtonText;
+  }
+  .m3e-segmented-button__segment--selected {
+    background-color: Highlight;
+    color: HighlightText;
+  }
+  .m3e-segmented-button__segment:disabled {
+    border-color: GrayText;
+  }
+}
+
+@media (prefers-reduced-motion) {
+  .m3e-segmented-button__segment {
+    transition: none;
+  }
+}

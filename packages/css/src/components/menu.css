@@ -1,0 +1,99 @@
+/* ==========================================================================
+   M3E Menu
+   CSS classes for Material 3 Expressive menus.
+
+   Usage:
+     <div class="m3e-menu-container">
+       <button class="m3e-button">Open Menu</button>
+       <div class="m3e-menu m3e-menu--open">
+         <button class="m3e-menu-item">Item 1</button>
+         <button class="m3e-menu-item">Item 2</button>
+         <div class="m3e-divider"></div>
+         <button class="m3e-menu-item">Item 3</button>
+       </div>
+     </div>
+   ========================================================================== */
+
+.m3e-menu-container {
+  position: relative;
+  display: inline-flex;
+}
+
+.m3e-menu {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  z-index: 100;
+  min-width: 7rem;
+  max-width: 17.5rem;
+  padding: 0.5rem 0;
+  border-radius: var(--md-sys-shape-corner-extra-small);
+  background-color: var(--md-sys-color-surface-container);
+  color: var(--md-sys-color-on-surface);
+  box-shadow: var(--md-sys-elevation-level3);
+  display: none;
+  flex-direction: column;
+  overflow-y: auto;
+  max-height: 17.5rem;
+}
+
+.m3e-menu--open {
+  display: flex;
+}
+
+.m3e-menu-item {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  border: none;
+  cursor: pointer;
+  user-select: none;
+  background-color: transparent;
+  color: var(--md-sys-color-on-surface);
+  font-family: inherit;
+  font-size: var(--md-sys-typescale-body-large-font-size);
+  line-height: var(--md-sys-typescale-body-large-line-height);
+  padding: 0.5rem 0.75rem;
+  min-height: 3rem;
+  text-align: start;
+  width: 100%;
+  transition: background-color var(--md-sys-motion-duration-short-4) var(--md-sys-motion-easing-standard);
+}
+
+.m3e-menu-item:hover {
+  background-color: color-mix(in srgb, var(--md-sys-color-on-surface) var(--md-sys-state-hover-state-layer-opacity), transparent);
+}
+
+.m3e-menu-item:focus-visible {
+  background-color: color-mix(in srgb, var(--md-sys-color-on-surface) var(--md-sys-state-focus-state-layer-opacity), transparent);
+  outline: none;
+}
+
+.m3e-menu-item:disabled {
+  color: color-mix(in srgb, var(--md-sys-color-on-surface) 38%, transparent);
+  cursor: not-allowed;
+}
+
+.m3e-menu-item__icon {
+  font-size: 1.5rem;
+  flex-shrink: 0;
+  color: var(--md-sys-color-on-surface-variant);
+}
+
+.m3e-menu-item__trailing {
+  margin-inline-start: auto;
+  font-size: var(--md-sys-typescale-label-small-font-size);
+  color: var(--md-sys-color-on-surface-variant);
+}
+
+@media (forced-colors: active) {
+  .m3e-menu {
+    outline: 1px solid CanvasText;
+  }
+}
+
+@media (prefers-reduced-motion) {
+  .m3e-menu-item {
+    transition: none;
+  }
+}

@@ -1,0 +1,152 @@
+/* ==========================================================================
+   M3E Radio
+   CSS classes for Material 3 Expressive radio buttons.
+
+   Usage:
+     <label class="m3e-radio">
+       <input type="radio" class="m3e-radio__input" name="group" />
+       <span class="m3e-radio__indicator"></span>
+       <span class="m3e-radio__label">Option</span>
+     </label>
+   ========================================================================== */
+
+.m3e-radio {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  cursor: pointer;
+  user-select: none;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.m3e-radio__input {
+  position: absolute;
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.m3e-radio__indicator {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: var(--m3e-radio-size, 1.25rem);
+  height: var(--m3e-radio-size, 1.25rem);
+  border: 2px solid var(--md-sys-color-on-surface-variant);
+  border-radius: var(--md-sys-shape-corner-full);
+  transition: border-color var(--md-sys-motion-duration-short-4) var(--md-sys-motion-easing-standard);
+  flex-shrink: 0;
+  position: relative;
+}
+
+/* Inner dot */
+.m3e-radio__indicator::after {
+  content: "";
+  display: block;
+  width: 0.625rem;
+  height: 0.625rem;
+  border-radius: var(--md-sys-shape-corner-full);
+  background-color: var(--md-sys-color-primary);
+  transform: scale(0);
+  transition: transform var(--md-sys-motion-spring-fast-effects);
+}
+
+/* Checked */
+.m3e-radio__input:checked + .m3e-radio__indicator {
+  border-color: var(--md-sys-color-primary);
+}
+
+.m3e-radio__input:checked + .m3e-radio__indicator::after {
+  transform: scale(1);
+}
+
+/* Hover */
+.m3e-radio:hover .m3e-radio__indicator {
+  border-color: var(--md-sys-color-on-surface);
+}
+
+.m3e-radio:hover .m3e-radio__input:checked + .m3e-radio__indicator {
+  border-color: var(--md-sys-color-primary);
+}
+
+/* Focus */
+.m3e-radio__input:focus-visible + .m3e-radio__indicator {
+  outline: 2px solid var(--md-sys-color-primary);
+  outline-offset: 2px;
+}
+
+/* Disabled */
+.m3e-radio__input:disabled + .m3e-radio__indicator {
+  border-color: color-mix(in srgb, var(--md-sys-color-on-surface) 38%, transparent);
+}
+
+.m3e-radio__input:disabled:checked + .m3e-radio__indicator::after {
+  background-color: color-mix(in srgb, var(--md-sys-color-on-surface) 38%, transparent);
+}
+
+.m3e-radio__input:disabled ~ .m3e-radio__label {
+  color: color-mix(in srgb, var(--md-sys-color-on-surface) 38%, transparent);
+}
+
+.m3e-radio__label {
+  font-size: var(--md-sys-typescale-body-large-font-size);
+  line-height: var(--md-sys-typescale-body-large-line-height);
+  color: var(--md-sys-color-on-surface);
+}
+
+/* Error / Invalid */
+.m3e-radio--error .m3e-radio__indicator {
+  border-color: var(--md-sys-color-error);
+}
+.m3e-radio--error .m3e-radio__input:checked + .m3e-radio__indicator::after {
+  background-color: var(--md-sys-color-error);
+}
+
+/* State layer circle */
+.m3e-radio__indicator::before {
+  content: "";
+  position: absolute;
+  width: 2.5rem;
+  height: 2.5rem;
+  border-radius: var(--md-sys-shape-corner-full);
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  pointer-events: none;
+}
+
+.m3e-radio:hover .m3e-radio__indicator::before {
+  background-color: color-mix(in srgb, var(--md-sys-color-on-surface) 8%, transparent);
+}
+
+.m3e-radio:hover .m3e-radio__input:checked + .m3e-radio__indicator::before {
+  background-color: color-mix(in srgb, var(--md-sys-color-primary) 8%, transparent);
+}
+
+.m3e-radio:active .m3e-radio__indicator::before {
+  background-color: color-mix(in srgb, var(--md-sys-color-on-surface) 10%, transparent);
+}
+
+.m3e-radio:active .m3e-radio__input:checked + .m3e-radio__indicator::before {
+  background-color: color-mix(in srgb, var(--md-sys-color-primary) 10%, transparent);
+}
+
+.m3e-radio--error:hover .m3e-radio__indicator::before {
+  background-color: color-mix(in srgb, var(--md-sys-color-error) 8%, transparent);
+}
+
+@media (forced-colors: active) {
+  .m3e-radio__indicator {
+    border-color: ButtonText;
+  }
+  .m3e-radio__input:disabled + .m3e-radio__indicator {
+    border-color: GrayText;
+  }
+}
+
+@media (prefers-reduced-motion) {
+  .m3e-radio__indicator,
+  .m3e-radio__indicator::after {
+    transition: none;
+  }
+}

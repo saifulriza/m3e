@@ -1,0 +1,90 @@
+/* ==========================================================================
+   M3E Icon
+   CSS classes for Material 3 Expressive icons.
+
+   Usage:
+     <span class="m3e-icon">home</span>
+     <span class="m3e-icon m3e-icon--filled">favorite</span>
+     <span class="m3e-icon m3e-icon--large">settings</span>
+   ========================================================================== */
+
+.m3e-icon {
+  display: inline-block;
+  width: 1em;
+  height: 1em;
+  font-size: var(--m3e-icon-size, 1.5rem);
+  vertical-align: middle;
+  line-height: 1;
+  font-family: "Material Symbols Outlined", sans-serif;
+  font-variation-settings:
+    "FILL" 0,
+    "wght" 400,
+    "GRAD" 0,
+    "opsz" 24;
+  -webkit-font-smoothing: antialiased;
+  user-select: none;
+}
+
+/* Filled variant */
+.m3e-icon--filled {
+  font-variation-settings:
+    "FILL" 1,
+    "wght" 400,
+    "GRAD" 0,
+    "opsz" 24;
+}
+
+/* Rounded variant */
+.m3e-icon--rounded {
+  font-family: "Material Symbols Rounded", sans-serif;
+}
+
+/* Sharp variant */
+.m3e-icon--sharp {
+  font-family: "Material Symbols Sharp", sans-serif;
+}
+
+/* Sizes */
+.m3e-icon--small {
+  --m3e-icon-size: 1.25rem;
+  font-variation-settings:
+    "FILL" var(--m3e-icon-fill, 0),
+    "wght" 400,
+    "GRAD" 0,
+    "opsz" 20;
+}
+
+.m3e-icon--large {
+  --m3e-icon-size: 2.5rem;
+  font-variation-settings:
+    "FILL" var(--m3e-icon-fill, 0),
+    "wght" 400,
+    "GRAD" 0,
+    "opsz" 40;
+}
+
+.m3e-icon--extra-large {
+  --m3e-icon-size: 3rem;
+  font-variation-settings:
+    "FILL" var(--m3e-icon-fill, 0),
+    "wght" 400,
+    "GRAD" 0,
+    "opsz" 48;
+}
+
+/* Weight variants */
+.m3e-icon--thin {
+  font-variation-settings:
+    "FILL" var(--m3e-icon-fill, 0),
+    "wght" 100,
+    "GRAD" 0,
+    "opsz" 24;
+}
+
+.m3e-icon--bold {
+  font-variation-settings:
+    "FILL" var(--m3e-icon-fill, 0),
+    "wght" 700,
+    "GRAD" 0,
+    "opsz" 24;
+}

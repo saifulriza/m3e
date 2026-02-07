@@ -1,0 +1,65 @@
+/* ==========================================================================
+   M3E Badge
+   CSS classes for Material 3 Expressive badges.
+
+   Usage:
+     <div class="m3e-badge-container">
+       <button class="m3e-icon-button">icon</button>
+       <span class="m3e-badge">3</span>
+     </div>
+     <span class="m3e-badge m3e-badge--dot"></span>
+   ========================================================================== */
+
+.m3e-badge-container {
+  position: relative;
+  display: inline-flex;
+}
+
+.m3e-badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 1.375rem;
+  height: 1.375rem;
+  padding: 0 0.25rem;
+  border-radius: var(--md-sys-shape-corner-full);
+  background-color: var(--md-sys-color-error);
+  color: var(--md-sys-color-on-error);
+  font-size: var(--md-sys-typescale-label-small-font-size);
+  font-weight: var(--md-sys-typescale-label-small-font-weight);
+  line-height: var(--md-sys-typescale-label-small-line-height);
+}
+
+/* Positioned badge */
+.m3e-badge-container > .m3e-badge {
+  position: absolute;
+  top: -0.25rem;
+  right: -0.25rem;
+  inset-inline-end: -0.25rem;
+  inset-inline-start: auto;
+  z-index: 1;
+}
+
+/* Dot badge (no text) */
+.m3e-badge--dot {
+  min-width: 0.375rem;
+  height: 0.375rem;
+  padding: 0;
+}
+
+/* Large badge */
+.m3e-badge--large {
+  min-width: 1.75rem;
+  height: 1.75rem;
+  padding: 0 0.5rem;
+  font-size: var(--md-sys-typescale-label-large-font-size);
+  font-weight: var(--md-sys-typescale-label-large-font-weight);
+  line-height: var(--md-sys-typescale-label-large-line-height);
+  letter-spacing: var(--md-sys-typescale-label-large-tracking);
+}
+
+@media (forced-colors: active) {
+  .m3e-badge {
+    outline: 1px solid CanvasText;
+  }
+}

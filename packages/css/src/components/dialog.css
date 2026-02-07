@@ -1,0 +1,155 @@
+/* ==========================================================================
+   M3E Dialog
+   CSS classes for Material 3 Expressive dialogs.
+
+   Usage:
+     <dialog class="m3e-dialog">
+       <div class="m3e-dialog__header">
+         <h2 class="m3e-dialog__title">Title</h2>
+       </div>
+       <div class="m3e-dialog__content">Content</div>
+       <div class="m3e-dialog__actions">
+         <button class="m3e-button">Cancel</button>
+         <button class="m3e-button m3e-button--filled">OK</button>
+       </div>
+     </dialog>
+   ========================================================================== */
+
+.m3e-dialog {
+  display: flex;
+  flex-direction: column;
+  border: none;
+  border-radius: var(--md-sys-shape-corner-extra-large, 1.75rem);
+  background-color: var(--md-sys-color-surface-container-high);
+  color: var(--md-sys-color-on-surface);
+  box-shadow: var(--md-sys-elevation-level3);
+  padding: 0;
+  max-width: min(35rem, calc(100vw - 3rem));
+  min-width: 17.5rem;
+  overflow: visible;
+  /* Entry animation */
+  opacity: 0;
+  transform: translateY(-3.125rem) scaleY(0.8);
+  transform-origin: top;
+  visibility: hidden;
+  transition: opacity 150ms cubic-bezier(0.2, 0, 0.2, 1),
+    transform 150ms cubic-bezier(0.2, 0, 0.2, 1),
+    overlay 150ms cubic-bezier(0.2, 0, 0.2, 1) allow-discrete,
+    visibility 150ms cubic-bezier(0.2, 0, 0.2, 1) allow-discrete;
+}
+
+.m3e-dialog[open] {
+  visibility: visible;
+  opacity: 1;
+  transform: translateY(0) scaleY(1);
+  transition: opacity 500ms cubic-bezier(0.2, 0, 0.2, 1),
+    transform 500ms cubic-bezier(0.2, 0, 0.2, 1),
+    overlay 500ms cubic-bezier(0.2, 0, 0.2, 1) allow-discrete,
+    visibility 500ms cubic-bezier(0.2, 0, 0.2, 1) allow-discrete;
+}
+
+.m3e-dialog::backdrop {
+  background-color: color-mix(in srgb, var(--md-sys-color-scrim, #000) 0%, transparent);
+  transition: background-color 150ms cubic-bezier(0.2, 0, 0, 1),
+    overlay 150ms cubic-bezier(0.2, 0, 0, 1) allow-discrete,
+    visibility 150ms cubic-bezier(0.2, 0, 0, 1) allow-discrete;
+}
+
+.m3e-dialog[open]::backdrop {
+  background-color: color-mix(in srgb, var(--md-sys-color-scrim, #000) 32%, transparent);
+  transition: background-color 500ms cubic-bezier(0.2, 0, 0, 1),
+    overlay 500ms cubic-bezier(0.2, 0, 0, 1) allow-discrete,
+    visibility 500ms cubic-bezier(0.2, 0, 0, 1) allow-discrete;
+}
+
+@starting-style {
+  .m3e-dialog[open] {
+    opacity: 0;
+    transform: translateY(-3.125rem) scaleY(0.8);
+  }
+  .m3e-dialog[open]::backdrop {
+    background-color: color-mix(in srgb, var(--md-sys-color-scrim, #000) 0%, transparent);
+  }
+}
+
+.m3e-dialog__header {
+  flex: none;
+  display: flex;
+  align-items: center;
+  padding: 1.5rem 1.5rem 1rem;
+  background-color: var(--m3e-dialog-header-container-color, transparent);
+}
+
+.m3e-dialog__title {
+  flex: 1 1 auto;
+  margin: 0;
+  font-size: var(--md-sys-typescale-headline-small-font-size, 1.5rem);
+  font-weight: var(--md-sys-typescale-headline-small-font-weight, 500);
+  line-height: var(--md-sys-typescale-headline-small-line-height, 2rem);
+  letter-spacing: var(--md-sys-typescale-headline-small-tracking, 0);
+  color: var(--md-sys-color-on-surface);
+}
+
+.m3e-dialog__content {
+  padding-inline: 1.5rem;
+  font-size: var(--md-sys-typescale-body-medium-font-size, 0.875rem);
+  font-weight: var(--md-sys-typescale-body-medium-font-weight, 400);
+  line-height: var(--md-sys-typescale-body-medium-line-height, 1.25rem);
+  letter-spacing: var(--md-sys-typescale-body-medium-tracking, 0.015625rem);
+  color: var(--md-sys-color-on-surface-variant);
+  overflow-y: auto;
+  max-height: 50vh;
+}
+
+/* If no actions, content needs bottom padding */
+.m3e-dialog__content:last-child {
+  margin-bottom: 1.5rem;
+}
+
+.m3e-dialog__actions {
+  flex: none;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 0.5rem;
+  padding: 1.5rem;
+  min-height: 1.5rem;
+}
+
+/* Icon in header */
+.m3e-dialog__icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-inline-end: 1rem;
+  font-size: 1.5rem;
+  color: var(--md-sys-color-secondary);
+}
+
+/* Fullscreen variant */
+.m3e-dialog--fullscreen {
+  max-width: 100vw;
+  max-height: 100vh;
+  width: 100vw;
+  height: 100vh;
+  border-radius: 0;
+}
+
+@media (forced-colors: active) {
+  .m3e-dialog {
+    outline: 1px solid CanvasText;
+  }
+  .m3e-dialog::backdrop,
+  .m3e-dialog[open]::backdrop {
+    transition: none;
+  }
+}
+
+@media (prefers-reduced-motion) {
+  .m3e-dialog,
+  .m3e-dialog[open],
+  .m3e-dialog::backdrop,
+  .m3e-dialog[open]::backdrop {
+    transition: none;
+  }
+}

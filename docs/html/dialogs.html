@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Dialogs — M3E CSS Demo</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet" />
+  <link rel="stylesheet" href="../../packages/css/src/tokens.css" />
+  <link rel="stylesheet" href="../../packages/css/src/components/dialog.css" />
+  <link rel="stylesheet" href="../../packages/css/src/components/button.css" />
+  <link rel="stylesheet" href="../../packages/css/src/components/icon-button.css" />
+  <link rel="stylesheet" href="demo-shared.css" />
+  <style>
+    .dialog-preview {
+      position: relative;
+      background: var(--md-sys-color-surface-container);
+      border-radius: 16px;
+      padding: 32px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 300px;
+      margin-bottom: 16px;
+    }
+    .dialog-preview .m3e-dialog {
+      position: relative;
+      z-index: 1;
+    }
+  </style>
+</head>
+<body>
+  <a class="back" href="index.html">← Back to all demos</a>
+  <h1>Dialogs</h1>
+  <p class="page-subtitle">Modal dialog windows for alerts, confirmations, and full-screen content.</p>
+
+  <!-- Basic Dialog -->
+  <section>
+    <h2>Basic Dialog</h2>
+    <div class="dialog-preview">
+      <div class="m3e-dialog" role="dialog" aria-labelledby="dialog1-title" aria-modal="true">
+        <div class="m3e-dialog__header">
+          <h2 class="m3e-dialog__title" id="dialog1-title">Delete item?</h2>
+        </div>
+        <div class="m3e-dialog__content">
+          This action cannot be undone. The item will be permanently removed from your account.
+        </div>
+        <div class="m3e-dialog__actions">
+          <button class="m3e-button m3e-button--text">Cancel</button>
+          <button class="m3e-button m3e-button--filled">Delete</button>
+        </div>
+      </div>
+    </div>
+    <pre class="code">&lt;div class="m3e-dialog" role="dialog" aria-labelledby="title" aria-modal="true"&gt;
+  &lt;div class="m3e-dialog__header"&gt;
+    &lt;h2 class="m3e-dialog__title" id="title"&gt;Title&lt;/h2&gt;
+  &lt;/div&gt;
+  &lt;div class="m3e-dialog__content"&gt;Content...&lt;/div&gt;
+  &lt;div class="m3e-dialog__actions"&gt;
+    &lt;button class="m3e-button m3e-button--text"&gt;Cancel&lt;/button&gt;
+    &lt;button class="m3e-button m3e-button--filled"&gt;Confirm&lt;/button&gt;
+  &lt;/div&gt;
+&lt;/div&gt;</pre>
+  </section>
+
+  <!-- Dialog with Icon -->
+  <section>
+    <h2>Dialog with Icon</h2>
+    <div class="dialog-preview">
+      <div class="m3e-dialog" role="alertdialog" aria-labelledby="dialog2-title" aria-modal="true">
+        <div class="m3e-dialog__header" style="text-align: center;">
+          <span class="material-symbols-outlined" style="font-size: 32px; color: var(--md-sys-color-error);">warning</span>
+          <h2 class="m3e-dialog__title" id="dialog2-title">Unsaved changes</h2>
+        </div>
+        <div class="m3e-dialog__content">
+          You have unsaved changes. Do you want to save before leaving?
+        </div>
+        <div class="m3e-dialog__actions">
+          <button class="m3e-button m3e-button--text">Discard</button>
+          <button class="m3e-button m3e-button--tonal">Save</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Scrollable Dialog -->
+  <section>
+    <h2>Scrollable Dialog</h2>
+    <div class="dialog-preview">
+      <div class="m3e-dialog" role="dialog" aria-labelledby="dialog3-title" aria-modal="true">
+        <div class="m3e-dialog__header">
+          <h2 class="m3e-dialog__title" id="dialog3-title">Terms of Service</h2>
+        </div>
+        <div class="m3e-dialog__content" style="max-height: 160px; overflow-y: auto;">
+          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris.</p>
+          <p style="margin-top: 12px;">Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident.</p>
+          <p style="margin-top: 12px;">Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam.</p>
+        </div>
+        <div class="m3e-dialog__actions">
+          <button class="m3e-button m3e-button--text">Decline</button>
+          <button class="m3e-button m3e-button--filled">Accept</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Full-screen Dialog -->
+  <section>
+    <h2>Full-screen Dialog</h2>
+    <div class="dialog-preview" style="min-height: 400px;">
+      <div class="m3e-dialog m3e-dialog--fullscreen" role="dialog" aria-labelledby="dialog4-title" aria-modal="true" style="position: relative; width: 100%; height: 350px;">
+        <div class="m3e-dialog__header" style="display: flex; align-items: center; gap: 16px;">
+          <button class="m3e-icon-button" aria-label="Close">
+            <span class="material-symbols-outlined">close</span>
+          </button>
+          <h2 class="m3e-dialog__title" id="dialog4-title" style="flex: 1;">New Message</h2>
+          <button class="m3e-button m3e-button--filled">Send</button>
+        </div>
+        <div class="m3e-dialog__content">
+          <p style="color: var(--md-sys-color-on-surface-variant);">Full-screen dialogs fill the entire viewport on mobile and behave as regular dialogs on larger screens.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+</body>
+</html>

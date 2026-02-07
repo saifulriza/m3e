@@ -1,0 +1,99 @@
+/* ==========================================================================
+   M3E Snackbar
+   CSS classes for Material 3 Expressive snackbars.
+
+   Usage:
+     <div class="m3e-snackbar m3e-snackbar--visible">
+       <span class="m3e-snackbar__text">Message</span>
+       <button class="m3e-snackbar__action">Undo</button>
+       <button class="m3e-snackbar__close" aria-label="Close">&times;</button>
+     </div>
+   ========================================================================== */
+
+.m3e-snackbar {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  min-height: 3rem;
+  padding: 0 1rem 0 1rem;
+  border-radius: var(--md-sys-shape-corner-extra-small);
+  background-color: var(--md-sys-color-inverse-surface);
+  color: var(--md-sys-color-inverse-on-surface);
+  box-shadow: var(--md-sys-elevation-level3);
+  font-size: var(--md-sys-typescale-label-large-font-size);
+  font-weight: var(--md-sys-typescale-label-large-font-weight);
+  line-height: var(--md-sys-typescale-label-large-line-height);
+  letter-spacing: var(--md-sys-typescale-label-large-tracking);
+  transform: translateY(100%);
+  opacity: 0;
+  transition: transform var(--md-sys-motion-duration-medium-2) var(--md-sys-motion-easing-emphasized-decelerate),
+    opacity var(--md-sys-motion-duration-short-4) var(--md-sys-motion-easing-standard);
+  position: fixed;
+  bottom: 1rem;
+  left: 50%;
+  transform: translateX(-50%) translateY(100%);
+  z-index: 1000;
+  max-width: min(42rem, calc(100vw - 2rem));
+  min-width: 21.5rem;
+}
+
+.m3e-snackbar--visible {
+  transform: translateX(-50%) translateY(0);
+  opacity: 1;
+}
+
+.m3e-snackbar__text {
+  flex: 1 1 auto;
+  padding: 0.875rem 0;
+}
+
+.m3e-snackbar__action {
+  border: none;
+  background: none;
+  color: var(--md-sys-color-inverse-primary);
+  font-size: var(--md-sys-typescale-label-large-font-size);
+  font-weight: var(--md-sys-typescale-label-large-font-weight);
+  cursor: pointer;
+  padding: 0.5rem;
+  border-radius: var(--md-sys-shape-corner-extra-small);
+  font-family: inherit;
+}
+
+.m3e-snackbar__action:hover {
+  background-color: color-mix(in srgb, var(--md-sys-color-inverse-primary) var(--md-sys-state-hover-state-layer-opacity), transparent);
+}
+
+.m3e-snackbar__close {
+  border: none;
+  background: none;
+  color: var(--md-sys-color-inverse-on-surface);
+  cursor: pointer;
+  padding: 0.5rem;
+  font-size: 1.5rem;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Multi-line */
+.m3e-snackbar--multiline {
+  flex-wrap: wrap;
+  min-height: 4.25rem;
+}
+
+.m3e-snackbar--multiline .m3e-snackbar__text {
+  width: 100%;
+  flex-basis: 100%;
+}
+
+@media (forced-colors: active) {
+  .m3e-snackbar {
+    outline: 1px solid CanvasText;
+  }
+}
+
+@media (prefers-reduced-motion) {
+  .m3e-snackbar {
+    transition: none;
+  }
+}

@@ -1,0 +1,121 @@
+/* ==========================================================================
+   M3E Drawer Container
+   CSS classes for Material 3 Expressive drawer containers (layout).
+
+   Usage:
+     <div class="m3e-drawer-container">
+       <aside class="m3e-drawer-container__drawer m3e-drawer-container__drawer--open">
+         <nav class="m3e-drawer__content">...</nav>
+       </aside>
+       <main class="m3e-drawer-container__content">Main content</main>
+     </div>
+   ========================================================================== */
+
+.m3e-drawer-container {
+  display: flex;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  position: relative;
+}
+
+.m3e-drawer-container__drawer {
+  display: flex;
+  flex-direction: column;
+  width: 22.5rem;
+  max-width: 80vw;
+  height: 100%;
+  background-color: var(--md-sys-color-surface-container-low);
+  color: var(--md-sys-color-on-surface-variant);
+  overflow-y: auto;
+  flex-shrink: 0;
+  transition: transform var(--md-sys-motion-duration-medium-2) var(--md-sys-motion-easing-emphasized),
+    width var(--md-sys-motion-duration-medium-2) var(--md-sys-motion-easing-emphasized);
+}
+
+/* Side mode (default): pushes content */
+.m3e-drawer-container__drawer:not(.m3e-drawer-container__drawer--open) {
+  width: 0;
+  overflow: hidden;
+}
+
+/* Over mode: overlays content */
+.m3e-drawer-container__drawer--over {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  inset-inline-start: 0;
+  z-index: 200;
+  border-radius: 0 var(--md-sys-shape-corner-large) var(--md-sys-shape-corner-large) 0;
+  transform: translateX(-100%);
+  width: 22.5rem;
+}
+
+[dir="rtl"] .m3e-drawer-container__drawer--over {
+  transform: translateX(100%);
+}
+
+.m3e-drawer-container__drawer--over.m3e-drawer-container__drawer--open {
+  transform: translateX(0);
+}
+
+/* Push mode: pushes content with animation */
+.m3e-drawer-container__drawer--push:not(.m3e-drawer-container__drawer--open) {
+  margin-inline-start: -22.5rem;
+}
+
+/* End position */
+.m3e-drawer-container__drawer--end {
+  order: 1;
+  inset-inline-start: auto;
+  inset-inline-end: 0;
+}
+
+.m3e-drawer-container__drawer--end.m3e-drawer-container__drawer--over {
+  transform: translateX(100%);
+  border-radius: var(--md-sys-shape-corner-large) 0 0 var(--md-sys-shape-corner-large);
+}
+
+[dir="rtl"] .m3e-drawer-container__drawer--end.m3e-drawer-container__drawer--over {
+  transform: translateX(-100%);
+}
+
+.m3e-drawer-container__drawer--end.m3e-drawer-container__drawer--over.m3e-drawer-container__drawer--open {
+  transform: translateX(0);
+}
+
+/* Main content */
+.m3e-drawer-container__content {
+  flex: 1 1 auto;
+  overflow-y: auto;
+  min-width: 0;
+}
+
+/* Scrim */
+.m3e-drawer-container__scrim {
+  position: absolute;
+  inset: 0;
+  background-color: color-mix(in srgb, var(--md-sys-color-scrim) 32%, transparent);
+  z-index: 199;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity var(--md-sys-motion-duration-medium-2) var(--md-sys-motion-easing-standard);
+}
+
+.m3e-drawer-container__scrim--visible {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+@media (forced-colors: active) {
+  .m3e-drawer-container__drawer {
+    border-inline-end: 1px solid CanvasText;
+  }
+}
+
+@media (prefers-reduced-motion) {
+  .m3e-drawer-container__drawer,
+  .m3e-drawer-container__scrim {
+    transition: none;
+  }
+}

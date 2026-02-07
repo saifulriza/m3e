@@ -1,0 +1,125 @@
+/* ==========================================================================
+   M3E Tabs
+   CSS classes for Material 3 Expressive tabs.
+
+   Usage:
+     <div class="m3e-tabs">
+       <button class="m3e-tab m3e-tab--active">Tab 1</button>
+       <button class="m3e-tab">Tab 2</button>
+       <button class="m3e-tab">Tab 3</button>
+     </div>
+   ========================================================================== */
+
+.m3e-tabs {
+  display: flex;
+  border-bottom: 1px solid var(--md-sys-color-surface-container-highest);
+  overflow-x: auto;
+  scrollbar-width: none;
+}
+
+.m3e-tabs::-webkit-scrollbar {
+  display: none;
+}
+
+.m3e-tab {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  border: none;
+  cursor: pointer;
+  user-select: none;
+  background-color: transparent;
+  color: var(--md-sys-color-on-surface-variant);
+  font-family: inherit;
+  font-size: var(--md-sys-typescale-title-small-font-size);
+  font-weight: var(--md-sys-typescale-title-small-font-weight);
+  line-height: var(--md-sys-typescale-title-small-line-height);
+  letter-spacing: var(--md-sys-typescale-title-small-tracking);
+  padding: 0 1.5rem;
+  height: 3rem;
+  white-space: nowrap;
+  position: relative;
+  -webkit-tap-highlight-color: transparent;
+  transition: color var(--md-sys-motion-duration-short-4) var(--md-sys-motion-easing-standard);
+  flex: 0 0 auto;
+  min-width: 5rem;
+}
+
+.m3e-tab:hover:not(:disabled) {
+  color: var(--md-sys-color-on-surface);
+  background-color: color-mix(in srgb, var(--md-sys-color-on-surface) var(--md-sys-state-hover-state-layer-opacity), transparent);
+}
+
+.m3e-tab:focus-visible:not(:disabled) {
+  color: var(--md-sys-color-on-surface);
+  background-color: color-mix(in srgb, var(--md-sys-color-on-surface) var(--md-sys-state-focus-state-layer-opacity), transparent);
+}
+
+/* Active tab */
+.m3e-tab--active {
+  color: var(--md-sys-color-primary);
+}
+
+.m3e-tab--active::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  border-radius: 3px 3px 0 0;
+  background-color: var(--md-sys-color-primary);
+}
+
+/* Disabled */
+.m3e-tab:disabled {
+  color: color-mix(in srgb, var(--md-sys-color-on-surface) 38%, transparent);
+  cursor: not-allowed;
+}
+
+/* Primary tabs (default) — taller height */
+.m3e-tabs--primary .m3e-tab {
+  height: 4rem;
+}
+
+.m3e-tabs--primary .m3e-tab--active::after {
+  left: 0.125rem;
+  right: 0.125rem;
+}
+
+/* Secondary tabs (full width) */
+.m3e-tabs--secondary .m3e-tab {
+  flex: 1 1 0;
+}
+
+.m3e-tabs--secondary .m3e-tab--active::after {
+  height: 2px;
+}
+
+/* Scrollable tabs */
+.m3e-tabs--scrollable {
+  overflow-x: auto;
+}
+
+.m3e-tab__icon {
+  font-size: 1.5rem;
+}
+
+@media (forced-colors: active) {
+  .m3e-tab--active {
+    color: ButtonText;
+  }
+  .m3e-tab--active::after {
+    background-color: ButtonText;
+  }
+  .m3e-tab:disabled {
+    color: GrayText;
+  }
+}
+
+@media (prefers-reduced-motion) {
+  .m3e-tab {
+    transition: none;
+  }
+}

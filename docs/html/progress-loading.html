@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Progress &amp; Loading — M3E CSS Demo</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../../packages/css/src/tokens.css" />
+  <link rel="stylesheet" href="../../packages/css/src/components/progress-indicator.css" />
+  <link rel="stylesheet" href="../../packages/css/src/components/loading-indicator.css" />
+  <link rel="stylesheet" href="demo-shared.css" />
+</head>
+<body>
+  <a class="back" href="index.html">← Back to all demos</a>
+  <h1>Progress &amp; Loading</h1>
+  <p class="page-subtitle">Linear and circular progress indicators, plus loading spinners.</p>
+
+  <!-- Linear Determinate -->
+  <section>
+    <h2>Linear Progress — Determinate</h2>
+    <div style="max-width: 500px;">
+      <div class="demo-label">25%</div>
+      <div class="m3e-progress--linear" role="progressbar" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100" aria-label="Loading 25%">
+        <div class="m3e-progress__bar" style="width: 25%;"></div>
+      </div>
+      <br />
+      <div class="demo-label">50%</div>
+      <div class="m3e-progress--linear" role="progressbar" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100" aria-label="Loading 50%">
+        <div class="m3e-progress__bar" style="width: 50%;"></div>
+      </div>
+      <br />
+      <div class="demo-label">75%</div>
+      <div class="m3e-progress--linear" role="progressbar" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100" aria-label="Loading 75%">
+        <div class="m3e-progress__bar" style="width: 75%;"></div>
+      </div>
+      <br />
+      <div class="demo-label">100%</div>
+      <div class="m3e-progress--linear" role="progressbar" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100" aria-label="Complete">
+        <div class="m3e-progress__bar" style="width: 100%;"></div>
+      </div>
+    </div>
+    <br />
+    <pre class="code">&lt;div class="m3e-progress--linear" role="progressbar"
+     aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"&gt;
+  &lt;div class="m3e-progress__bar" style="width: 50%;"&gt;&lt;/div&gt;
+&lt;/div&gt;</pre>
+  </section>
+
+  <!-- Linear Indeterminate -->
+  <section>
+    <h2>Linear Progress — Indeterminate</h2>
+    <div style="max-width: 500px;">
+      <div class="m3e-progress--linear m3e-progress--indeterminate" role="progressbar" aria-label="Loading">
+        <div class="m3e-progress__bar"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Circular Determinate -->
+  <section>
+    <h2>Circular Progress — Determinate</h2>
+    <div class="demo-row">
+      <div class="m3e-progress--circular m3e-progress--small" role="progressbar" aria-valuenow="30" aria-valuemin="0" aria-valuemax="100" aria-label="30%">
+        <svg viewBox="0 0 48 48" aria-hidden="true">
+          <circle class="m3e-progress__track" cx="24" cy="24" r="20" fill="none" stroke-width="4" />
+          <circle class="m3e-progress__indicator" cx="24" cy="24" r="20" fill="none" stroke-width="4"
+                  stroke-dasharray="125.66" stroke-dashoffset="87.96" />
+        </svg>
+      </div>
+      <div class="m3e-progress--circular" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" aria-label="60%">
+        <svg viewBox="0 0 48 48" aria-hidden="true">
+          <circle class="m3e-progress__track" cx="24" cy="24" r="20" fill="none" stroke-width="4" />
+          <circle class="m3e-progress__indicator" cx="24" cy="24" r="20" fill="none" stroke-width="4"
+                  stroke-dasharray="125.66" stroke-dashoffset="50.26" />
+        </svg>
+      </div>
+      <div class="m3e-progress--circular m3e-progress--large" role="progressbar" aria-valuenow="90" aria-valuemin="0" aria-valuemax="100" aria-label="90%">
+        <svg viewBox="0 0 48 48" aria-hidden="true">
+          <circle class="m3e-progress__track" cx="24" cy="24" r="20" fill="none" stroke-width="4" />
+          <circle class="m3e-progress__indicator" cx="24" cy="24" r="20" fill="none" stroke-width="4"
+                  stroke-dasharray="125.66" stroke-dashoffset="12.57" />
+        </svg>
+      </div>
+    </div>
+  </section>
+
+  <!-- Circular Indeterminate -->
+  <section>
+    <h2>Circular Progress — Indeterminate</h2>
+    <div class="demo-row">
+      <div class="m3e-progress--circular m3e-progress--indeterminate m3e-progress--small" role="progressbar" aria-label="Loading">
+        <svg viewBox="0 0 48 48" aria-hidden="true">
+          <circle class="m3e-progress__indicator" cx="24" cy="24" r="20" fill="none" stroke-width="4" />
+        </svg>
+      </div>
+      <div class="m3e-progress--circular m3e-progress--indeterminate" role="progressbar" aria-label="Loading">
+        <svg viewBox="0 0 48 48" aria-hidden="true">
+          <circle class="m3e-progress__indicator" cx="24" cy="24" r="20" fill="none" stroke-width="4" />
+        </svg>
+      </div>
+      <div class="m3e-progress--circular m3e-progress--indeterminate m3e-progress--large" role="progressbar" aria-label="Loading">
+        <svg viewBox="0 0 48 48" aria-hidden="true">
+          <circle class="m3e-progress__indicator" cx="24" cy="24" r="20" fill="none" stroke-width="4" />
+        </svg>
+      </div>
+    </div>
+  </section>
+
+  <!-- Loading Indicator -->
+  <section>
+    <h2>Loading Indicator</h2>
+    <div class="demo-row">
+      <div class="m3e-loading-indicator m3e-loading-indicator--small" role="status" aria-live="polite" aria-label="Loading">
+        <div class="m3e-loading-indicator__spinner" aria-hidden="true"></div>
+      </div>
+      <div class="m3e-loading-indicator" role="status" aria-live="polite" aria-label="Loading">
+        <div class="m3e-loading-indicator__spinner" aria-hidden="true"></div>
+      </div>
+      <div class="m3e-loading-indicator m3e-loading-indicator--large" role="status" aria-live="polite" aria-label="Loading">
+        <div class="m3e-loading-indicator__spinner" aria-hidden="true"></div>
+      </div>
+    </div>
+
+    <h3>Contained Loading</h3>
+    <div style="max-width: 300px; height: 120px; position: relative; border: 1px solid var(--md-sys-color-outline-variant); border-radius: 12px;">
+      <div class="m3e-loading-indicator m3e-loading-indicator--contained" role="status" aria-live="polite" aria-label="Loading content">
+        <div class="m3e-loading-indicator__spinner" aria-hidden="true"></div>
+      </div>
+    </div>
+  </section>
+</body>
+</html>

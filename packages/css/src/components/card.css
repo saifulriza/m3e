@@ -1,0 +1,142 @@
+/* ==========================================================================
+   M3E Card
+   CSS classes for Material 3 Expressive cards.
+
+   Usage:
+     <div class="m3e-card m3e-card--filled">
+       <div class="m3e-card__content">Card content</div>
+     </div>
+     <div class="m3e-card m3e-card--outlined">
+       <div class="m3e-card__content">Card content</div>
+     </div>
+   ========================================================================== */
+
+.m3e-card {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  border-radius: var(--md-sys-shape-corner-medium);
+  overflow: hidden;
+  transition: box-shadow var(--md-sys-motion-duration-short-4) var(--md-sys-motion-easing-standard);
+}
+
+.m3e-card__content {
+  padding: 1rem;
+  flex: 1 1 auto;
+}
+
+.m3e-card__header {
+  padding: 1rem 1rem 0;
+}
+
+.m3e-card__actions {
+  padding: 0.5rem 1rem 1rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.m3e-card__media {
+  overflow: hidden;
+}
+
+.m3e-card__media img {
+  display: block;
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+}
+
+/* Variant: Filled */
+.m3e-card--filled {
+  background-color: var(--md-sys-color-surface-container-highest);
+  color: var(--md-sys-color-on-surface);
+}
+
+/* Variant: Elevated */
+.m3e-card--elevated {
+  background-color: var(--md-sys-color-surface-container-low);
+  color: var(--md-sys-color-on-surface);
+  box-shadow: var(--md-sys-elevation-level1);
+}
+.m3e-card--elevated:hover {
+  box-shadow: var(--md-sys-elevation-level2);
+}
+
+/* Variant: Outlined */
+.m3e-card--outlined {
+  background-color: var(--md-sys-color-surface);
+  color: var(--md-sys-color-on-surface);
+  outline: 1px solid var(--md-sys-color-outline-variant);
+  outline-offset: -1px;
+}
+
+/* Actionable */
+.m3e-card--actionable {
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+}
+.m3e-card--actionable:hover {
+  box-shadow: var(--md-sys-elevation-level2);
+}
+.m3e-card--actionable:focus-visible {
+  outline: 2px solid var(--md-sys-color-primary);
+  outline-offset: 2px;
+}
+.m3e-card--actionable:active {
+  box-shadow: var(--md-sys-elevation-level1);
+}
+
+/* Actionable filled — state layers */
+.m3e-card--actionable.m3e-card--filled:hover {
+  background-color: color-mix(in srgb, var(--md-sys-color-on-surface) 8%, var(--md-sys-color-surface-container-highest));
+}
+.m3e-card--actionable.m3e-card--filled:active {
+  background-color: color-mix(in srgb, var(--md-sys-color-on-surface) 10%, var(--md-sys-color-surface-container-highest));
+}
+
+/* Actionable elevated — elevation transitions */
+.m3e-card--actionable.m3e-card--elevated:hover {
+  box-shadow: var(--md-sys-elevation-level2);
+}
+.m3e-card--actionable.m3e-card--elevated:focus-visible {
+  box-shadow: var(--md-sys-elevation-level1);
+}
+.m3e-card--actionable.m3e-card--elevated:active {
+  box-shadow: var(--md-sys-elevation-level1);
+}
+
+/* Actionable outlined — border color changes */
+.m3e-card--actionable.m3e-card--outlined:hover {
+  outline-color: var(--md-sys-color-outline);
+  box-shadow: var(--md-sys-elevation-level1);
+}
+.m3e-card--actionable.m3e-card--outlined:focus-visible {
+  outline-color: var(--md-sys-color-primary);
+}
+.m3e-card--actionable.m3e-card--outlined:active {
+  box-shadow: var(--md-sys-elevation-level0);
+}
+
+/* Horizontal layout */
+.m3e-card--horizontal {
+  flex-direction: row;
+}
+
+/* Disabled */
+.m3e-card--disabled {
+  opacity: 0.38;
+  pointer-events: none;
+}
+
+@media (forced-colors: active) {
+  .m3e-card {
+    outline: 1px solid CanvasText;
+  }
+}
+
+@media (prefers-reduced-motion) {
+  .m3e-card {
+    transition: none;
+  }
+}

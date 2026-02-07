@@ -1,0 +1,94 @@
+/* Shared demo page styles */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+body {
+  font-family: 'Roboto', sans-serif;
+  background: var(--md-sys-color-surface);
+  color: var(--md-sys-color-on-surface);
+  padding: 24px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+a.back {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  color: var(--md-sys-color-primary);
+  text-decoration: none;
+  font-size: 0.875rem;
+  margin-bottom: 16px;
+}
+a.back:hover { text-decoration: underline; }
+h1 {
+  font-size: 2rem;
+  font-weight: 400;
+  margin-bottom: 4px;
+}
+.page-subtitle {
+  font-size: 0.875rem;
+  color: var(--md-sys-color-on-surface-variant);
+  margin-bottom: 32px;
+}
+section {
+  margin-bottom: 40px;
+}
+section h2 {
+  font-size: 1.375rem;
+  font-weight: 400;
+  margin-bottom: 16px;
+  color: var(--md-sys-color-on-surface);
+}
+section h3 {
+  font-size: 1rem;
+  font-weight: 500;
+  margin-bottom: 12px;
+  color: var(--md-sys-color-on-surface-variant);
+}
+.demo-row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 16px;
+}
+.demo-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 16px;
+  margin-bottom: 16px;
+}
+.demo-box {
+  border: 1px solid var(--md-sys-color-outline-variant);
+  border-radius: 16px;
+  padding: 24px;
+  margin-bottom: 16px;
+}
+.demo-label {
+  font-size: 0.75rem;
+  color: var(--md-sys-color-on-surface-variant);
+  margin-bottom: 8px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+pre.code {
+  background: var(--md-sys-color-surface-container-high);
+  border-radius: 12px;
+  padding: 16px;
+  font-size: 0.8125rem;
+  overflow-x: auto;
+  margin-bottom: 16px;
+  color: var(--md-sys-color-on-surface);
+}
+.material-symbols-outlined {
+  font-family: 'Material Symbols Outlined';
+  font-weight: normal;
+  font-style: normal;
+  font-size: 24px;
+  line-height: 1;
+  letter-spacing: normal;
+  text-transform: none;
+  display: inline-block;
+  white-space: nowrap;
+  word-wrap: normal;
+  direction: ltr;
+  -webkit-font-smoothing: antialiased;
+}

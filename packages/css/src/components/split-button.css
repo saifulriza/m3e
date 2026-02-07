@@ -1,0 +1,48 @@
+/* ==========================================================================
+   M3E Split Button
+   CSS classes for Material 3 Expressive split buttons.
+
+   Usage:
+     <div class="m3e-split-button">
+       <button class="m3e-button m3e-button--tonal">Action</button>
+       <button class="m3e-button m3e-button--tonal m3e-split-button__toggle" aria-label="More">
+         <span class="m3e-split-button__arrow">arrow_drop_down</span>
+       </button>
+     </div>
+   ========================================================================== */
+
+.m3e-split-button {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.125rem;
+}
+
+.m3e-split-button > .m3e-button:first-child {
+  border-start-end-radius: var(--md-sys-shape-corner-extra-small);
+  border-end-end-radius: var(--md-sys-shape-corner-extra-small);
+}
+
+.m3e-split-button > .m3e-button:last-child {
+  border-start-start-radius: var(--md-sys-shape-corner-extra-small);
+  border-end-start-radius: var(--md-sys-shape-corner-extra-small);
+  padding-inline: 0.5rem;
+  min-width: 0;
+}
+
+.m3e-split-button__arrow {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.375rem;
+  transition: transform var(--md-sys-motion-duration-short-4) var(--md-sys-motion-easing-standard);
+}
+
+.m3e-split-button--expanded .m3e-split-button__arrow {
+  transform: rotate(180deg);
+}
+
+@media (prefers-reduced-motion) {
+  .m3e-split-button__arrow {
+    transition: none;
+  }
+}

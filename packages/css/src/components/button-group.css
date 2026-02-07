@@ -1,0 +1,65 @@
+/* ==========================================================================
+   M3E Button Group
+   CSS classes for Material 3 Expressive button groups.
+
+   Usage:
+     <div class="m3e-button-group">
+       <button class="m3e-button m3e-button--tonal">Left</button>
+       <button class="m3e-button m3e-button--tonal">Center</button>
+       <button class="m3e-button m3e-button--tonal">Right</button>
+     </div>
+   ========================================================================== */
+
+.m3e-button-group {
+  display: inline-flex;
+  align-items: center;
+  flex-wrap: nowrap;
+  gap: var(--m3e-button-group-gap, 0.5rem);
+}
+
+/* Connected variant (no gap, shared borders) */
+.m3e-button-group--connected {
+  gap: 0;
+}
+
+.m3e-button-group--connected > .m3e-button,
+.m3e-button-group--connected > button {
+  border-radius: 0;
+}
+
+.m3e-button-group--connected > .m3e-button:first-child,
+.m3e-button-group--connected > button:first-child {
+  border-start-start-radius: var(--md-sys-shape-corner-full);
+  border-end-start-radius: var(--md-sys-shape-corner-full);
+}
+
+.m3e-button-group--connected > .m3e-button:last-child,
+.m3e-button-group--connected > button:last-child {
+  border-start-end-radius: var(--md-sys-shape-corner-full);
+  border-end-end-radius: var(--md-sys-shape-corner-full);
+}
+
+/* Vertical */
+.m3e-button-group--vertical {
+  flex-direction: column;
+}
+
+.m3e-button-group--vertical.m3e-button-group--connected > .m3e-button,
+.m3e-button-group--vertical.m3e-button-group--connected > button {
+  border-radius: 0;
+  width: 100%;
+}
+
+.m3e-button-group--vertical.m3e-button-group--connected > .m3e-button:first-child,
+.m3e-button-group--vertical.m3e-button-group--connected > button:first-child {
+  border-start-start-radius: var(--md-sys-shape-corner-full);
+  border-start-end-radius: var(--md-sys-shape-corner-full);
+  border-end-start-radius: 0;
+}
+
+.m3e-button-group--vertical.m3e-button-group--connected > .m3e-button:last-child,
+.m3e-button-group--vertical.m3e-button-group--connected > button:last-child {
+  border-end-start-radius: var(--md-sys-shape-corner-full);
+  border-end-end-radius: var(--md-sys-shape-corner-full);
+  border-start-end-radius: 0;
+}
