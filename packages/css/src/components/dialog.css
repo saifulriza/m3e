@@ -137,7 +137,7 @@
 
 @media (forced-colors: active) {
   .m3e-dialog {
-    border: 1px solid CanvasText;
+    outline: 1px solid CanvasText;
   }
   .m3e-dialog::backdrop,
   .m3e-dialog[open]::backdrop {

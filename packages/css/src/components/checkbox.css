@@ -173,11 +173,7 @@
   background-color: color-mix(in srgb, var(--md-sys-color-error) 8%, transparent);
 }
 
-/* Touch target */
-.m3e-checkbox__indicator::after {
-  min-width: 3rem;
-  min-height: 3rem;
-}
+/* Touch target - use the existing ::after since it's the checkmark */
 
 @media (forced-colors: active) {
   .m3e-checkbox__indicator {
