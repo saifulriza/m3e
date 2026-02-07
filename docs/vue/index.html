@@ -1,0 +1,930 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>M3E Vue 3 — Interactive Component Demos</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet" />
+  <link rel="stylesheet" href="../../packages/css/src/tokens.css" />
+  <link rel="stylesheet" href="../../packages/css/src/components/button.css" />
+  <link rel="stylesheet" href="../../packages/css/src/components/icon-button.css" />
+  <link rel="stylesheet" href="../../packages/css/src/components/fab.css" />
+  <link rel="stylesheet" href="../../packages/css/src/components/card.css" />
+  <link rel="stylesheet" href="../../packages/css/src/components/checkbox.css" />
+  <link rel="stylesheet" href="../../packages/css/src/components/radio.css" />
+  <link rel="stylesheet" href="../../packages/css/src/components/switch.css" />
+  <link rel="stylesheet" href="../../packages/css/src/components/form-field.css" />
+  <link rel="stylesheet" href="../../packages/css/src/components/select.css" />
+  <link rel="stylesheet" href="../../packages/css/src/components/slider.css" />
+  <link rel="stylesheet" href="../../packages/css/src/components/dialog.css" />
+  <link rel="stylesheet" href="../../packages/css/src/components/snackbar.css" />
+  <link rel="stylesheet" href="../../packages/css/src/components/chips.css" />
+  <link rel="stylesheet" href="../../packages/css/src/components/tabs.css" />
+  <link rel="stylesheet" href="../../packages/css/src/components/expansion-panel.css" />
+  <link rel="stylesheet" href="../../packages/css/src/components/badge.css" />
+  <link rel="stylesheet" href="../../packages/css/src/components/avatar.css" />
+  <link rel="stylesheet" href="../../packages/css/src/components/divider.css" />
+  <link rel="stylesheet" href="../../packages/css/src/components/progress-indicator.css" />
+  <link rel="stylesheet" href="../../packages/css/src/components/menu.css" />
+  <link rel="stylesheet" href="../../packages/css/src/components/tooltip.css" />
+  <link rel="stylesheet" href="../../packages/css/src/components/segmented-button.css" />
+  <link rel="stylesheet" href="../../packages/css/src/components/stepper.css" />
+  <link rel="stylesheet" href="../../packages/css/src/components/list.css" />
+  <link rel="stylesheet" href="../../packages/css/src/components/nav-bar.css" />
+  <link rel="stylesheet" href="../../packages/css/src/components/app-bar.css" />
+  <link rel="stylesheet" href="../../packages/css/src/components/drawer.css" />
+  <link rel="stylesheet" href="../../packages/css/src/components/toolbar.css" />
+  <link rel="stylesheet" href="../../packages/css/src/components/loading-indicator.css" />
+  <link rel="stylesheet" href="../../packages/css/src/components/typography.css" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: 'Roboto', sans-serif;
+      background: var(--md-sys-color-surface);
+      color: var(--md-sys-color-on-surface);
+    }
+    #app { max-width: 960px; margin: 0 auto; padding: 24px; }
+    h1 { font-size: 2rem; font-weight: 400; margin-bottom: 4px; }
+    .page-subtitle { font-size: 0.875rem; color: var(--md-sys-color-on-surface-variant); margin-bottom: 32px; }
+    section { margin-bottom: 40px; }
+    section h2 { font-size: 1.375rem; font-weight: 400; margin-bottom: 16px; }
+    section h3 { font-size: 1rem; font-weight: 500; margin-bottom: 12px; color: var(--md-sys-color-on-surface-variant); }
+    .demo-row { display: flex; flex-wrap: wrap; align-items: center; gap: 12px; margin-bottom: 16px; }
+    .demo-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 16px; margin-bottom: 16px; }
+    .state-display {
+      display: inline-block;
+      background: var(--md-sys-color-surface-container-high);
+      padding: 4px 12px;
+      border-radius: 8px;
+      font-size: 0.8125rem;
+      font-family: monospace;
+      color: var(--md-sys-color-on-surface-variant);
+    }
+    pre.code {
+      background: var(--md-sys-color-surface-container-high);
+      border-radius: 12px;
+      padding: 16px;
+      font-size: 0.8125rem;
+      overflow-x: auto;
+      margin-bottom: 16px;
+    }
+    .material-symbols-outlined {
+      font-family: 'Material Symbols Outlined';
+      font-weight: normal; font-style: normal; font-size: 24px;
+      line-height: 1; letter-spacing: normal; text-transform: none;
+      display: inline-block; white-space: nowrap; word-wrap: normal;
+      direction: ltr; -webkit-font-smoothing: antialiased;
+    }
+    .dialog-scrim {
+      position: fixed; inset: 0;
+      background: rgba(0,0,0,0.32);
+      display: flex; align-items: center; justify-content: center;
+      z-index: 100;
+    }
+    .menu-anchor { position: relative; display: inline-block; }
+  </style>
+</head>
+<body>
+  <div id="app">
+    <h1>M3E Vue 3 — Interactive Demos</h1>
+    <p class="page-subtitle">All components demonstrated with Vue 3 reactivity. State changes are shown in real-time.</p>
+
+    <!-- ======== BUTTONS ======== -->
+    <section>
+      <h2>Buttons</h2>
+      <h3>Click Counter</h3>
+      <div class="demo-row">
+        <button class="m3e-button m3e-button--filled" @click="buttonCount++">
+          <span class="m3e-button__icon material-symbols-outlined">add</span>
+          Clicked {{ buttonCount }} times
+        </button>
+        <button class="m3e-button m3e-button--outlined" @click="buttonCount = 0">Reset</button>
+      </div>
+      <span class="state-display">buttonCount: {{ buttonCount }}</span>
+
+      <h3>Loading State</h3>
+      <div class="demo-row">
+        <button class="m3e-button m3e-button--filled" :disabled="isLoading" @click="simulateLoading">
+          <span v-if="isLoading" class="m3e-button__icon material-symbols-outlined" style="animation: spin 1s linear infinite;">progress_activity</span>
+          <span v-else class="m3e-button__icon material-symbols-outlined">save</span>
+          {{ isLoading ? 'Saving...' : 'Save' }}
+        </button>
+      </div>
+      <span class="state-display">isLoading: {{ isLoading }}</span>
+    </section>
+
+    <!-- ======== ICON BUTTONS ======== -->
+    <section>
+      <h2>Icon Button — Toggle</h2>
+      <div class="demo-row">
+        <button class="m3e-icon-button" :class="{ 'm3e-icon-button--selected': isFavorite }"
+                :aria-pressed="isFavorite" :aria-label="isFavorite ? 'Unfavorite' : 'Favorite'"
+                @click="isFavorite = !isFavorite">
+          <span class="material-symbols-outlined" :style="isFavorite ? 'font-variation-settings: \'FILL\' 1;' : ''">
+            favorite
+          </span>
+        </button>
+        <button class="m3e-icon-button m3e-icon-button--filled"
+                :class="{ 'm3e-icon-button--selected': isBookmarked }"
+                :aria-pressed="isBookmarked" @click="isBookmarked = !isBookmarked"
+                :aria-label="isBookmarked ? 'Remove bookmark' : 'Bookmark'">
+          <span class="material-symbols-outlined">
+            {{ isBookmarked ? 'bookmark' : 'bookmark_border' }}
+          </span>
+        </button>
+      </div>
+      <span class="state-display">favorite: {{ isFavorite }} | bookmarked: {{ isBookmarked }}</span>
+    </section>
+
+    <!-- ======== CHECKBOX ======== -->
+    <section>
+      <h2>Checkbox</h2>
+      <div class="demo-row">
+        <label class="m3e-checkbox" v-for="item in checkboxItems" :key="item.label">
+          <input type="checkbox" class="m3e-checkbox__input" v-model="item.checked" />
+          <span class="m3e-checkbox__indicator"></span>
+          <span class="m3e-checkbox__label">{{ item.label }}</span>
+        </label>
+      </div>
+      <span class="state-display">selected: {{ checkboxItems.filter(i => i.checked).map(i => i.label).join(', ') || 'none' }}</span>
+    </section>
+
+    <!-- ======== RADIO ======== -->
+    <section>
+      <h2>Radio Group</h2>
+      <div class="demo-row" role="radiogroup" aria-label="Choose color">
+        <label class="m3e-radio" v-for="color in ['Red', 'Green', 'Blue']" :key="color">
+          <input type="radio" class="m3e-radio__input" :value="color" v-model="selectedColor" />
+          <span class="m3e-radio__indicator"></span>
+          <span class="m3e-radio__label">{{ color }}</span>
+        </label>
+      </div>
+      <span class="state-display">selectedColor: {{ selectedColor }}</span>
+    </section>
+
+    <!-- ======== SWITCH ======== -->
+    <section>
+      <h2>Switch</h2>
+      <div class="demo-row">
+        <label class="m3e-switch">
+          <input type="checkbox" class="m3e-switch__input" role="switch" v-model="darkMode" />
+          <span class="m3e-switch__track"><span class="m3e-switch__thumb"></span></span>
+          <span class="m3e-switch__label">Dark Mode</span>
+        </label>
+        <label class="m3e-switch">
+          <input type="checkbox" class="m3e-switch__input" role="switch" v-model="notifications" />
+          <span class="m3e-switch__track"><span class="m3e-switch__thumb"></span></span>
+          <span class="m3e-switch__label">Notifications</span>
+        </label>
+      </div>
+      <span class="state-display">darkMode: {{ darkMode }} | notifications: {{ notifications }}</span>
+    </section>
+
+    <!-- ======== TEXT FIELD ======== -->
+    <section>
+      <h2>Text Field — Two-way Binding</h2>
+      <div class="demo-grid">
+        <div class="m3e-form-field">
+          <div class="m3e-form-field__container">
+            <label class="m3e-form-field__label" for="vue-name">Name</label>
+            <input class="m3e-form-field__input" id="vue-name" type="text" placeholder=" " v-model="userName" />
+          </div>
+          <div class="m3e-form-field__supporting">Enter your full name</div>
+        </div>
+        <div class="m3e-form-field m3e-form-field--outlined" :class="{ 'm3e-form-field--error': emailError }">
+          <div class="m3e-form-field__container">
+            <label class="m3e-form-field__label" for="vue-email">Email</label>
+            <input class="m3e-form-field__input" id="vue-email" type="email" placeholder=" " v-model="userEmail"
+                   :aria-invalid="emailError ? 'true' : undefined" />
+          </div>
+          <div class="m3e-form-field__supporting" :role="emailError ? 'alert' : undefined">
+            {{ emailError || 'Enter a valid email address' }}
+          </div>
+        </div>
+      </div>
+      <span class="state-display">name: "{{ userName }}" | email: "{{ userEmail }}" {{ emailError ? '| ❌ ' + emailError : '' }}</span>
+    </section>
+
+    <!-- ======== SELECT ======== -->
+    <section>
+      <h2>Select</h2>
+      <div style="max-width: 300px;">
+        <div class="m3e-select m3e-select--outlined">
+          <label class="m3e-select__label" for="vue-select">Framework</label>
+          <select class="m3e-select__input" id="vue-select" v-model="selectedFramework">
+            <option value="">Choose...</option>
+            <option value="vue">Vue</option>
+            <option value="react">React</option>
+            <option value="angular">Angular</option>
+            <option value="svelte">Svelte</option>
+          </select>
+          <span class="m3e-select__icon material-symbols-outlined">arrow_drop_down</span>
+        </div>
+      </div>
+      <br />
+      <span class="state-display">selectedFramework: "{{ selectedFramework }}"</span>
+    </section>
+
+    <!-- ======== SLIDER ======== -->
+    <section>
+      <h2>Slider</h2>
+      <div style="max-width: 400px;">
+        <div style="display: flex; justify-content: space-between; margin-bottom: 4px;">
+          <span class="m3e-label-medium">Volume</span>
+          <span class="m3e-label-medium">{{ volume }}%</span>
+        </div>
+        <input type="range" class="m3e-slider" min="0" max="100" v-model.number="volume" aria-label="Volume" />
+      </div>
+      <br />
+      <div style="max-width: 400px;">
+        <div style="display: flex; justify-content: space-between; margin-bottom: 4px;">
+          <span class="m3e-label-medium">Rating</span>
+          <span class="m3e-label-medium">{{ rating }} / 5</span>
+        </div>
+        <input type="range" class="m3e-slider" min="1" max="5" step="1" v-model.number="rating" aria-label="Rating" />
+      </div>
+      <br />
+      <span class="state-display">volume: {{ volume }} | rating: {{ rating }}</span>
+    </section>
+
+    <!-- ======== CHIPS ======== -->
+    <section>
+      <h2>Filter Chips — Multi-select</h2>
+      <div class="demo-row">
+        <button v-for="tag in filterTags" :key="tag.label"
+                class="m3e-chip" :class="{ 'm3e-chip--selected': tag.selected }"
+                :aria-selected="tag.selected"
+                @click="tag.selected = !tag.selected">
+          <span v-if="tag.selected" class="m3e-chip__icon material-symbols-outlined">check</span>
+          {{ tag.label }}
+        </button>
+      </div>
+      <span class="state-display">selected: {{ filterTags.filter(t => t.selected).map(t => t.label).join(', ') || 'none' }}</span>
+
+      <h3>Input Chips — Removable</h3>
+      <div class="demo-row">
+        <span class="m3e-chip" v-for="(chip, i) in inputChips" :key="chip">
+          {{ chip }}
+          <button class="m3e-chip__remove" :aria-label="'Remove ' + chip" @click="inputChips.splice(i, 1)">
+            <span class="material-symbols-outlined" style="font-size: 18px;">close</span>
+          </button>
+        </span>
+        <button class="m3e-button m3e-button--text m3e-button--small" @click="inputChips.push('Tag ' + (inputChips.length + 1))" v-if="inputChips.length < 8">
+          <span class="m3e-button__icon material-symbols-outlined">add</span>
+          Add
+        </button>
+      </div>
+      <span class="state-display">chips: [{{ inputChips.map(c => '"' + c + '"').join(', ') }}]</span>
+    </section>
+
+    <!-- ======== TABS ======== -->
+    <section>
+      <h2>Tabs</h2>
+      <div class="m3e-tabs" role="tablist" aria-label="Content sections">
+        <button v-for="tab in tabs" :key="tab.id"
+                class="m3e-tab" :class="{ 'm3e-tab--active': activeTab === tab.id }"
+                role="tab" :aria-selected="activeTab === tab.id"
+                @click="activeTab = tab.id">
+          <span class="m3e-tab__icon material-symbols-outlined">{{ tab.icon }}</span>
+          {{ tab.label }}
+        </button>
+      </div>
+      <div style="padding: 16px; background: var(--md-sys-color-surface-container); border-radius: 0 0 16px 16px; min-height: 80px;">
+        <template v-if="activeTab === 'photos'">📸 Your photo library is empty. Start taking pictures!</template>
+        <template v-else-if="activeTab === 'videos'">🎬 No videos yet. Record your first video.</template>
+        <template v-else>🎵 Your music collection will appear here.</template>
+      </div>
+      <br />
+      <span class="state-display">activeTab: "{{ activeTab }}"</span>
+    </section>
+
+    <!-- ======== SEGMENTED BUTTON ======== -->
+    <section>
+      <h2>Segmented Button</h2>
+      <div class="demo-row">
+        <div class="m3e-segmented-button" role="group" aria-label="View mode">
+          <button v-for="mode in ['list', 'grid', 'gallery']" :key="mode"
+                  class="m3e-segmented-button__segment"
+                  :class="{ 'm3e-segmented-button__segment--selected': viewMode === mode }"
+                  :aria-pressed="viewMode === mode"
+                  @click="viewMode = mode">
+            <span class="m3e-segmented-button__segment__icon material-symbols-outlined">
+              {{ mode === 'list' ? 'view_list' : mode === 'grid' ? 'grid_view' : 'view_module' }}
+            </span>
+            <span class="m3e-segmented-button__label">{{ mode.charAt(0).toUpperCase() + mode.slice(1) }}</span>
+          </button>
+        </div>
+      </div>
+      <span class="state-display">viewMode: "{{ viewMode }}"</span>
+    </section>
+
+    <!-- ======== EXPANSION PANEL ======== -->
+    <section>
+      <h2>Expansion Panel — Accordion</h2>
+      <div style="max-width: 500px;">
+        <div v-for="(panel, idx) in panels" :key="panel.title"
+             class="m3e-expansion-panel" :class="{ 'm3e-expansion-panel--expanded': expandedPanel === idx }">
+          <button class="m3e-expansion-panel__header"
+                  :aria-expanded="expandedPanel === idx"
+                  @click="expandedPanel = expandedPanel === idx ? -1 : idx">
+            <span class="m3e-expansion-panel__title">{{ panel.title }}</span>
+            <span class="m3e-expansion-panel__icon material-symbols-outlined"
+                  :style="{ transform: expandedPanel === idx ? 'rotate(180deg)' : '', transition: 'transform 0.2s' }">
+              expand_more
+            </span>
+          </button>
+          <div class="m3e-expansion-panel__content" v-show="expandedPanel === idx">
+            {{ panel.content }}
+          </div>
+        </div>
+      </div>
+      <br />
+      <span class="state-display">expandedPanel: {{ expandedPanel }}</span>
+    </section>
+
+    <!-- ======== DIALOG ======== -->
+    <section>
+      <h2>Dialog</h2>
+      <div class="demo-row">
+        <button class="m3e-button m3e-button--filled" @click="showDialog = true">Open Dialog</button>
+        <button class="m3e-button m3e-button--outlined" @click="showAlertDialog = true">Open Alert</button>
+      </div>
+      <span class="state-display">showDialog: {{ showDialog }} | showAlertDialog: {{ showAlertDialog }} | dialogResult: "{{ dialogResult }}"</span>
+
+      <!-- Basic Dialog -->
+      <teleport to="body">
+        <div v-if="showDialog" class="dialog-scrim" @click.self="showDialog = false">
+          <div class="m3e-dialog" role="dialog" aria-labelledby="vue-dialog-title" aria-modal="true">
+            <div class="m3e-dialog__header">
+              <h2 class="m3e-dialog__title" id="vue-dialog-title">Confirm Action</h2>
+            </div>
+            <div class="m3e-dialog__content">
+              Are you sure you want to proceed? This will update your settings.
+            </div>
+            <div class="m3e-dialog__actions">
+              <button class="m3e-button m3e-button--text" @click="dialogResult = 'cancelled'; showDialog = false">Cancel</button>
+              <button class="m3e-button m3e-button--filled" @click="dialogResult = 'confirmed'; showDialog = false">Confirm</button>
+            </div>
+          </div>
+        </div>
+      </teleport>
+
+      <!-- Alert Dialog -->
+      <teleport to="body">
+        <div v-if="showAlertDialog" class="dialog-scrim">
+          <div class="m3e-dialog" role="alertdialog" aria-labelledby="vue-alert-title" aria-modal="true">
+            <div class="m3e-dialog__header" style="text-align: center;">
+              <span class="material-symbols-outlined" style="font-size: 32px; color: var(--md-sys-color-error);">warning</span>
+              <h2 class="m3e-dialog__title" id="vue-alert-title">Warning</h2>
+            </div>
+            <div class="m3e-dialog__content">
+              This action cannot be undone.
+            </div>
+            <div class="m3e-dialog__actions">
+              <button class="m3e-button m3e-button--text" @click="dialogResult = 'dismissed'; showAlertDialog = false">OK</button>
+            </div>
+          </div>
+        </div>
+      </teleport>
+    </section>
+
+    <!-- ======== SNACKBAR ======== -->
+    <section>
+      <h2>Snackbar</h2>
+      <div class="demo-row">
+        <button class="m3e-button m3e-button--tonal" @click="showSnackbar('Item saved successfully')">Show Snackbar</button>
+        <button class="m3e-button m3e-button--outlined" @click="showSnackbar('Item deleted', true)">With Undo</button>
+      </div>
+      <span class="state-display">snackbarVisible: {{ snackbarVisible }}</span>
+      <teleport to="body">
+        <div v-if="snackbarVisible" style="position: fixed; bottom: 24px; left: 50%; transform: translateX(-50%); z-index: 200;">
+          <div class="m3e-snackbar m3e-snackbar--visible" role="status" aria-live="polite">
+            <span class="m3e-snackbar__text">{{ snackbarMessage }}</span>
+            <button v-if="snackbarHasAction" class="m3e-snackbar__action" @click="snackbarVisible = false; dialogResult = 'undone'">Undo</button>
+            <button class="m3e-snackbar__close" aria-label="Dismiss" @click="snackbarVisible = false">
+              <span class="material-symbols-outlined" style="font-size: 18px;">close</span>
+            </button>
+          </div>
+        </div>
+      </teleport>
+    </section>
+
+    <!-- ======== MENU ======== -->
+    <section>
+      <h2>Menu</h2>
+      <div class="menu-anchor">
+        <button class="m3e-button m3e-button--outlined" @click="showMenu = !showMenu"
+                :aria-expanded="showMenu" aria-haspopup="true">
+          <span class="m3e-button__icon material-symbols-outlined">more_vert</span>
+          Options
+        </button>
+        <div v-if="showMenu" class="m3e-menu-container" style="position: absolute; top: 100%; left: 0; margin-top: 4px; z-index: 50;">
+          <div class="m3e-menu m3e-menu--open" role="menu">
+            <button class="m3e-menu-item" role="menuitem" @click="menuSelection = 'Edit'; showMenu = false">
+              <span class="m3e-menu-item__icon material-symbols-outlined">edit</span>
+              Edit
+            </button>
+            <button class="m3e-menu-item" role="menuitem" @click="menuSelection = 'Duplicate'; showMenu = false">
+              <span class="m3e-menu-item__icon material-symbols-outlined">content_copy</span>
+              Duplicate
+            </button>
+            <button class="m3e-menu-item" role="menuitem" @click="menuSelection = 'Delete'; showMenu = false">
+              <span class="m3e-menu-item__icon material-symbols-outlined">delete</span>
+              Delete
+            </button>
+          </div>
+        </div>
+      </div>
+      <br /><br />
+      <span class="state-display">showMenu: {{ showMenu }} | menuSelection: "{{ menuSelection }}"</span>
+    </section>
+
+    <!-- ======== TOOLTIP ======== -->
+    <section>
+      <h2>Tooltip (hover)</h2>
+      <div class="demo-row" style="gap: 32px;">
+        <div class="menu-anchor" @mouseenter="tooltipTarget = 'bold'" @mouseleave="tooltipTarget = ''" @focus="tooltipTarget = 'bold'" @blur="tooltipTarget = ''">
+          <button class="m3e-icon-button" aria-describedby="tip-bold">
+            <span class="material-symbols-outlined">format_bold</span>
+          </button>
+          <div v-if="tooltipTarget === 'bold'" class="m3e-tooltip m3e-tooltip--visible" id="tip-bold" role="tooltip"
+               style="position: absolute; top: 100%; left: 50%; transform: translateX(-50%); margin-top: 4px; white-space: nowrap;">
+            Bold (Ctrl+B)
+          </div>
+        </div>
+        <div class="menu-anchor" @mouseenter="tooltipTarget = 'italic'" @mouseleave="tooltipTarget = ''" @focus="tooltipTarget = 'italic'" @blur="tooltipTarget = ''">
+          <button class="m3e-icon-button" aria-describedby="tip-italic">
+            <span class="material-symbols-outlined">format_italic</span>
+          </button>
+          <div v-if="tooltipTarget === 'italic'" class="m3e-tooltip m3e-tooltip--visible" id="tip-italic" role="tooltip"
+               style="position: absolute; top: 100%; left: 50%; transform: translateX(-50%); margin-top: 4px; white-space: nowrap;">
+            Italic (Ctrl+I)
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ======== PROGRESS ======== -->
+    <section>
+      <h2>Progress Indicator</h2>
+      <div style="max-width: 400px;">
+        <div style="display: flex; justify-content: space-between; margin-bottom: 8px;">
+          <span class="m3e-label-medium">Upload Progress</span>
+          <span class="m3e-label-medium">{{ uploadProgress }}%</span>
+        </div>
+        <div class="m3e-progress--linear" role="progressbar"
+             :aria-valuenow="uploadProgress" aria-valuemin="0" aria-valuemax="100"
+             aria-label="Upload progress">
+          <div class="m3e-progress__bar" :style="{ width: uploadProgress + '%', transition: 'width 0.3s' }"></div>
+        </div>
+      </div>
+      <br />
+      <div class="demo-row">
+        <button class="m3e-button m3e-button--tonal" @click="simulateUpload" :disabled="uploadProgress > 0 && uploadProgress < 100">
+          {{ uploadProgress === 100 ? 'Upload Again' : 'Start Upload' }}
+        </button>
+        <button class="m3e-button m3e-button--text" @click="uploadProgress = 0">Reset</button>
+      </div>
+      <span class="state-display">uploadProgress: {{ uploadProgress }}</span>
+    </section>
+
+    <!-- ======== BADGE ======== -->
+    <section>
+      <h2>Badge — Dynamic Count</h2>
+      <div class="demo-row" style="gap: 32px;">
+        <div class="m3e-badge-container" style="position: relative; display: inline-block;">
+          <button class="m3e-icon-button" aria-label="Notifications" @click="badgeCount = Math.max(0, badgeCount - 1)">
+            <span class="material-symbols-outlined">notifications</span>
+          </button>
+          <span v-if="badgeCount > 0" class="m3e-badge"
+                :class="{ 'm3e-badge--large': badgeCount >= 100 }"
+                :aria-label="badgeCount + ' notifications'">
+            {{ badgeCount > 999 ? '999+' : badgeCount }}
+          </span>
+          <span v-else class="m3e-badge m3e-badge--dot" aria-label="No new notifications" style="display: none;"></span>
+        </div>
+        <button class="m3e-button m3e-button--text" @click="badgeCount += Math.floor(Math.random() * 5) + 1">
+          <span class="m3e-button__icon material-symbols-outlined">add</span>
+          Add Notifications
+        </button>
+        <button class="m3e-button m3e-button--text" @click="badgeCount = 0">Clear All</button>
+      </div>
+      <span class="state-display">badgeCount: {{ badgeCount }}</span>
+    </section>
+
+    <!-- ======== STEPPER ======== -->
+    <section>
+      <h2>Stepper — Interactive</h2>
+      <div style="max-width: 500px;">
+        <div class="m3e-stepper" role="group" aria-label="Registration steps">
+          <div v-for="(step, idx) in stepperSteps" :key="step.label"
+               class="m3e-stepper__step"
+               :class="{
+                 'm3e-stepper__step--completed': currentStep > idx,
+                 'm3e-stepper__step--active': currentStep === idx,
+               }"
+               :aria-current="currentStep === idx ? 'step' : undefined">
+            <button class="m3e-stepper__header" @click="currentStep = idx" style="cursor: pointer; background: none; border: none; display: flex; align-items: center; gap: 12px; padding: 12px 0; width: 100%;">
+              <span class="m3e-stepper__icon">
+                <span v-if="currentStep > idx" class="material-symbols-outlined">check</span>
+                <span v-else>{{ idx + 1 }}</span>
+              </span>
+              <span class="m3e-stepper__label">{{ step.label }}</span>
+            </button>
+            <div class="m3e-stepper__content" v-if="currentStep === idx">
+              {{ step.description }}
+              <div class="m3e-stepper__actions" style="margin-top: 12px; display: flex; gap: 8px;">
+                <button v-if="idx > 0" class="m3e-button m3e-button--text" @click="currentStep--">Back</button>
+                <button v-if="idx < stepperSteps.length - 1" class="m3e-button m3e-button--filled" @click="currentStep++">Continue</button>
+                <button v-else class="m3e-button m3e-button--filled" @click="currentStep = 0">Finish</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <br />
+      <span class="state-display">currentStep: {{ currentStep }} ({{ stepperSteps[currentStep]?.label }})</span>
+    </section>
+
+    <!-- ======== LIST ======== -->
+    <section>
+      <h2>List — Selectable</h2>
+      <div style="max-width: 400px;">
+        <div class="m3e-list" role="listbox" aria-label="Select an item">
+          <div v-for="item in listItems" :key="item.id"
+               class="m3e-list-item m3e-list-item--interactive"
+               :class="{ 'm3e-list-item--selected': selectedListItem === item.id }"
+               role="option" :aria-selected="selectedListItem === item.id"
+               tabindex="0"
+               @click="selectedListItem = item.id"
+               @keydown.enter="selectedListItem = item.id"
+               @keydown.space.prevent="selectedListItem = item.id">
+            <div class="m3e-list-item__leading material-symbols-outlined">{{ item.icon }}</div>
+            <div class="m3e-list-item__text">
+              <span class="m3e-list-item__headline">{{ item.title }}</span>
+              <span class="m3e-list-item__supporting">{{ item.subtitle }}</span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <br />
+      <span class="state-display">selectedListItem: {{ selectedListItem }}</span>
+    </section>
+
+    <!-- ======== FAB ======== -->
+    <section>
+      <h2>FAB — Variants</h2>
+      <div class="demo-row" style="align-items: flex-end; gap: 16px;">
+        <button class="m3e-fab m3e-fab--small" aria-label="Add" @click="fabAction = 'small clicked'">
+          <span class="m3e-fab__icon material-symbols-outlined">add</span>
+        </button>
+        <button class="m3e-fab" aria-label="Edit" @click="fabAction = 'medium clicked'">
+          <span class="m3e-fab__icon material-symbols-outlined">edit</span>
+        </button>
+        <button class="m3e-fab m3e-fab--large m3e-fab--secondary" aria-label="Create" @click="fabAction = 'large clicked'">
+          <span class="m3e-fab__icon material-symbols-outlined">add</span>
+        </button>
+        <button class="m3e-fab m3e-fab--extended m3e-fab--tertiary" @click="fabAction = 'extended clicked'">
+          <span class="m3e-fab__icon material-symbols-outlined">edit</span>
+          <span class="m3e-fab__label">Compose</span>
+        </button>
+      </div>
+      <br />
+      <span class="state-display">fabAction: "{{ fabAction }}"</span>
+    </section>
+
+    <!-- ======== DRAWER ======== -->
+    <section>
+      <h2>Drawer — Toggle</h2>
+      <div class="demo-row">
+        <button class="m3e-button m3e-button--outlined" @click="showDrawer = !showDrawer">
+          {{ showDrawer ? 'Close' : 'Open' }} Drawer
+        </button>
+      </div>
+      <div style="display: flex; height: 280px; border: 1px solid var(--md-sys-color-outline-variant); border-radius: 16px; overflow: hidden; position: relative;">
+        <nav v-if="showDrawer" class="m3e-drawer m3e-drawer--open" role="navigation" style="position: relative;">
+          <div class="m3e-drawer__header">
+            <div class="m3e-drawer__title">Navigation</div>
+          </div>
+          <div class="m3e-drawer__content">
+            <a v-for="item in drawerItems" :key="item.label"
+               class="m3e-drawer__item"
+               :class="{ 'm3e-drawer__item--active': activeDrawerItem === item.label }"
+               href="#" @click.prevent="activeDrawerItem = item.label">
+              <span class="m3e-drawer__item-icon material-symbols-outlined">{{ item.icon }}</span>
+              <span class="m3e-drawer__item-label">{{ item.label }}</span>
+            </a>
+          </div>
+        </nav>
+        <div style="flex: 1; padding: 16px; color: var(--md-sys-color-on-surface-variant);">
+          Content: {{ activeDrawerItem }}
+        </div>
+      </div>
+      <br />
+      <span class="state-display">showDrawer: {{ showDrawer }} | activeDrawerItem: "{{ activeDrawerItem }}"</span>
+    </section>
+
+    <!-- ======== TOOLBAR ======== -->
+    <section>
+      <h2>Toolbar — Interactive</h2>
+      <div class="m3e-toolbar" role="toolbar" aria-label="Text formatting">
+        <button v-for="tool in toolbarItems" :key="tool.icon"
+                class="m3e-icon-button"
+                :class="{ 'm3e-icon-button--selected': activeTool === tool.label }"
+                :aria-label="tool.label" :aria-pressed="activeTool === tool.label"
+                @click="activeTool = activeTool === tool.label ? '' : tool.label">
+          <span class="material-symbols-outlined">{{ tool.icon }}</span>
+        </button>
+      </div>
+      <br />
+      <span class="state-display">activeTool: "{{ activeTool }}"</span>
+    </section>
+
+    <!-- ======== AVATAR + CARD ======== -->
+    <section>
+      <h2>Card with Avatar — Data-driven</h2>
+      <div class="demo-grid">
+        <div v-for="user in users" :key="user.name" class="m3e-card m3e-card--outlined">
+          <div class="m3e-card__header" style="display: flex; align-items: center; gap: 12px;">
+            <div class="m3e-avatar" :style="{ background: user.color, color: 'white' }">
+              {{ user.name.charAt(0) }}
+            </div>
+            <div>
+              <div style="font-weight: 500;">{{ user.name }}</div>
+              <div style="font-size: 0.875rem; color: var(--md-sys-color-on-surface-variant);">{{ user.role }}</div>
+            </div>
+          </div>
+          <div class="m3e-card__content">{{ user.bio }}</div>
+          <div class="m3e-card__actions">
+            <button class="m3e-button m3e-button--text" @click="selectedUser = user.name">View Profile</button>
+          </div>
+        </div>
+      </div>
+      <span class="state-display">selectedUser: "{{ selectedUser }}"</span>
+    </section>
+
+    <!-- ======== NAV BAR ======== -->
+    <section>
+      <h2>Bottom Navigation Bar</h2>
+      <div style="border: 1px solid var(--md-sys-color-outline-variant); border-radius: 16px; overflow: hidden;">
+        <div style="padding: 16px; min-height: 60px; color: var(--md-sys-color-on-surface-variant);">
+          Current page: {{ activeNavItem }}
+        </div>
+        <nav class="m3e-nav-bar" aria-label="App navigation">
+          <button v-for="item in navItems" :key="item.label"
+                  class="m3e-nav-bar__item"
+                  :class="{ 'm3e-nav-bar__item--active': activeNavItem === item.label }"
+                  :aria-current="activeNavItem === item.label ? 'page' : undefined"
+                  @click="activeNavItem = item.label">
+            <span class="m3e-nav-bar__icon material-symbols-outlined">{{ item.icon }}</span>
+            <span class="m3e-nav-bar__label">{{ item.label }}</span>
+          </button>
+        </nav>
+      </div>
+      <br />
+      <span class="state-display">activeNavItem: "{{ activeNavItem }}"</span>
+    </section>
+
+    <!-- ======== LOADING INDICATOR ======== -->
+    <section>
+      <h2>Loading Indicator</h2>
+      <div class="demo-row">
+        <button class="m3e-button m3e-button--tonal" @click="isLoadingContent = !isLoadingContent">
+          {{ isLoadingContent ? 'Stop Loading' : 'Start Loading' }}
+        </button>
+      </div>
+      <div v-if="isLoadingContent" style="display: flex; align-items: center; gap: 12px; margin-top: 12px;">
+        <div class="m3e-loading-indicator" role="status" aria-live="polite" aria-label="Loading content">
+          <div class="m3e-loading-indicator__spinner" aria-hidden="true"></div>
+        </div>
+        <span class="m3e-body-medium">Loading content...</span>
+      </div>
+    </section>
+
+    <hr class="m3e-divider" style="margin: 40px 0;" />
+    <p class="m3e-body-small" style="text-align: center; color: var(--md-sys-color-on-surface-variant);">
+      M3E Vue 3 Interactive Demo — All components use <code>@m3e/css</code> classes with Vue 3 reactivity.
+    </p>
+  </div>
+
+  <script src="https://unpkg.com/vue@3/dist/vue.global.prod.js"></script>
+  <script>
+    const { createApp, ref, reactive, computed, watch } = Vue;
+
+    createApp({
+      setup() {
+        // Buttons
+        const buttonCount = ref(0);
+        const isLoading = ref(false);
+        function simulateLoading() {
+          isLoading.value = true;
+          setTimeout(() => { isLoading.value = false; }, 2000);
+        }
+
+        // Icon Buttons
+        const isFavorite = ref(false);
+        const isBookmarked = ref(false);
+
+        // Checkbox
+        const checkboxItems = reactive([
+          { label: 'Design', checked: true },
+          { label: 'Develop', checked: false },
+          { label: 'Test', checked: false },
+          { label: 'Deploy', checked: true },
+        ]);
+
+        // Radio
+        const selectedColor = ref('Red');
+
+        // Switch
+        const darkMode = ref(false);
+        const notifications = ref(true);
+
+        // Text Field
+        const userName = ref('');
+        const userEmail = ref('');
+        const emailError = computed(() => {
+          if (!userEmail.value) return '';
+          if (!userEmail.value.includes('@')) return 'Please enter a valid email';
+          return '';
+        });
+
+        // Select
+        const selectedFramework = ref('');
+
+        // Slider
+        const volume = ref(50);
+        const rating = ref(3);
+
+        // Chips
+        const filterTags = reactive([
+          { label: 'JavaScript', selected: true },
+          { label: 'TypeScript', selected: false },
+          { label: 'Python', selected: true },
+          { label: 'Go', selected: false },
+          { label: 'Rust', selected: false },
+        ]);
+        const inputChips = reactive(['Vue', 'React', 'Svelte']);
+
+        // Tabs
+        const tabs = [
+          { id: 'photos', label: 'Photos', icon: 'photo_library' },
+          { id: 'videos', label: 'Videos', icon: 'videocam' },
+          { id: 'music', label: 'Music', icon: 'library_music' },
+        ];
+        const activeTab = ref('photos');
+
+        // Segmented Button
+        const viewMode = ref('list');
+
+        // Expansion Panel
+        const panels = [
+          { title: 'What is M3E?', content: 'M3E is a Material Design 3 framework providing CSS-only and Vue 3 interactive components for building modern UIs.' },
+          { title: 'How to install?', content: 'Install via npm: npm install @m3e/css @m3e/vue. Import the CSS and register the Vue plugin.' },
+          { title: 'Browser support?', content: 'M3E supports all modern browsers including Chrome, Firefox, Safari, and Edge.' },
+        ];
+        const expandedPanel = ref(0);
+
+        // Dialog
+        const showDialog = ref(false);
+        const showAlertDialog = ref(false);
+        const dialogResult = ref('');
+
+        // Snackbar
+        const snackbarVisible = ref(false);
+        const snackbarMessage = ref('');
+        const snackbarHasAction = ref(false);
+        let snackbarTimer = null;
+        function showSnackbar(message, hasAction = false) {
+          snackbarMessage.value = message;
+          snackbarHasAction.value = hasAction;
+          snackbarVisible.value = true;
+          clearTimeout(snackbarTimer);
+          snackbarTimer = setTimeout(() => { snackbarVisible.value = false; }, 4000);
+        }
+
+        // Menu
+        const showMenu = ref(false);
+        const menuSelection = ref('');
+
+        // Tooltip
+        const tooltipTarget = ref('');
+
+        // Progress
+        const uploadProgress = ref(0);
+        let uploadTimer = null;
+        function simulateUpload() {
+          uploadProgress.value = 0;
+          clearInterval(uploadTimer);
+          uploadTimer = setInterval(() => {
+            uploadProgress.value += Math.floor(Math.random() * 15) + 5;
+            if (uploadProgress.value >= 100) {
+              uploadProgress.value = 100;
+              clearInterval(uploadTimer);
+            }
+          }, 300);
+        }
+
+        // Badge
+        const badgeCount = ref(5);
+
+        // Stepper
+        const stepperSteps = [
+          { label: 'Account', description: 'Create your account with email and password.' },
+          { label: 'Profile', description: 'Add your personal information and photo.' },
+          { label: 'Preferences', description: 'Set your notification and privacy preferences.' },
+          { label: 'Review', description: 'Review all information before submitting.' },
+        ];
+        const currentStep = ref(1);
+
+        // List
+        const listItems = [
+          { id: 1, icon: 'inbox', title: 'Inbox', subtitle: '24 new messages' },
+          { id: 2, icon: 'send', title: 'Sent', subtitle: 'Last sent 2 hours ago' },
+          { id: 3, icon: 'drafts', title: 'Drafts', subtitle: '3 unsaved drafts' },
+          { id: 4, icon: 'delete', title: 'Trash', subtitle: '12 items' },
+        ];
+        const selectedListItem = ref(1);
+
+        // FAB
+        const fabAction = ref('');
+
+        // Drawer
+        const showDrawer = ref(true);
+        const drawerItems = [
+          { icon: 'home', label: 'Home' },
+          { icon: 'dashboard', label: 'Dashboard' },
+          { icon: 'analytics', label: 'Analytics' },
+          { icon: 'settings', label: 'Settings' },
+        ];
+        const activeDrawerItem = ref('Home');
+
+        // Toolbar
+        const toolbarItems = [
+          { icon: 'format_bold', label: 'Bold' },
+          { icon: 'format_italic', label: 'Italic' },
+          { icon: 'format_underlined', label: 'Underline' },
+          { icon: 'format_align_left', label: 'Align Left' },
+          { icon: 'format_align_center', label: 'Align Center' },
+        ];
+        const activeTool = ref('');
+
+        // User cards
+        const users = [
+          { name: 'Alice', role: 'Engineer', bio: 'Full-stack developer passionate about UI.', color: 'var(--md-sys-color-primary)' },
+          { name: 'Bob', role: 'Designer', bio: 'Creating beautiful and accessible designs.', color: 'var(--md-sys-color-secondary)' },
+          { name: 'Carol', role: 'PM', bio: 'Shipping products that users love.', color: 'var(--md-sys-color-tertiary)' },
+        ];
+        const selectedUser = ref('');
+
+        // Nav Bar
+        const navItems = [
+          { icon: 'home', label: 'Home' },
+          { icon: 'explore', label: 'Explore' },
+          { icon: 'library_books', label: 'Library' },
+          { icon: 'person', label: 'Profile' },
+        ];
+        const activeNavItem = ref('Home');
+
+        // Loading
+        const isLoadingContent = ref(false);
+
+        return {
+          buttonCount, isLoading, simulateLoading,
+          isFavorite, isBookmarked,
+          checkboxItems,
+          selectedColor,
+          darkMode, notifications,
+          userName, userEmail, emailError,
+          selectedFramework,
+          volume, rating,
+          filterTags, inputChips,
+          tabs, activeTab,
+          viewMode,
+          panels, expandedPanel,
+          showDialog, showAlertDialog, dialogResult,
+          snackbarVisible, snackbarMessage, snackbarHasAction, showSnackbar,
+          showMenu, menuSelection,
+          tooltipTarget,
+          uploadProgress, simulateUpload,
+          badgeCount,
+          stepperSteps, currentStep,
+          listItems, selectedListItem,
+          fabAction,
+          showDrawer, drawerItems, activeDrawerItem,
+          toolbarItems, activeTool,
+          users, selectedUser,
+          navItems, activeNavItem,
+          isLoadingContent,
+        };
+      }
+    }).mount('#app');
+  </script>
+  <style>
+    @keyframes spin { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
+  </style>
+</body>
+</html>
