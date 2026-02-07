@@ -39,6 +39,20 @@
   <link rel="stylesheet" href="../../packages/css/src/components/toolbar.css" />
   <link rel="stylesheet" href="../../packages/css/src/components/loading-indicator.css" />
   <link rel="stylesheet" href="../../packages/css/src/components/typography.css" />
+  <link rel="stylesheet" href="../../packages/css/src/components/fab-menu.css" />
+  <link rel="stylesheet" href="../../packages/css/src/components/autocomplete.css" />
+  <link rel="stylesheet" href="../../packages/css/src/components/button-group.css" />
+  <link rel="stylesheet" href="../../packages/css/src/components/nav-menu.css" />
+  <link rel="stylesheet" href="../../packages/css/src/components/nav-rail.css" />
+  <link rel="stylesheet" href="../../packages/css/src/components/paginator.css" />
+  <link rel="stylesheet" href="../../packages/css/src/components/split-button.css" />
+  <link rel="stylesheet" href="../../packages/css/src/components/toc.css" />
+  <link rel="stylesheet" href="../../packages/css/src/components/heading.css" />
+  <link rel="stylesheet" href="../../packages/css/src/components/icon.css" />
+  <link rel="stylesheet" href="../../packages/css/src/components/shape.css" />
+  <link rel="stylesheet" href="../../packages/css/src/components/slide-group.css" />
+  <link rel="stylesheet" href="../../packages/css/src/components/option.css" />
+  <link rel="stylesheet" href="../../packages/css/src/components/elevation.css" />
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
     body {
@@ -704,9 +718,370 @@
       </div>
     </section>
 
+    <!-- ======== APP BAR ======== -->
+    <section>
+      <h2>App Bar</h2>
+      <div style="border: 1px solid var(--md-sys-color-outline-variant); border-radius: 16px; overflow: hidden;">
+        <header class="m3e-app-bar" :class="'m3e-app-bar--' + appBarSize" role="banner">
+          <button class="m3e-icon-button" aria-label="Menu" @click="appBarAction = 'menu'">
+            <span class="material-symbols-outlined">menu</span>
+          </button>
+          <span class="m3e-app-bar__title">{{ appBarSize.charAt(0).toUpperCase() + appBarSize.slice(1) }} App Bar</span>
+          <div class="m3e-app-bar__actions">
+            <button class="m3e-icon-button" aria-label="Search" @click="appBarAction = 'search'">
+              <span class="material-symbols-outlined">search</span>
+            </button>
+            <button class="m3e-icon-button" aria-label="More" @click="appBarAction = 'more'">
+              <span class="material-symbols-outlined">more_vert</span>
+            </button>
+          </div>
+        </header>
+        <div style="padding: 16px; min-height: 40px; color: var(--md-sys-color-on-surface-variant);">
+          Content area below the app bar
+        </div>
+      </div>
+      <div class="demo-row" style="margin-top: 12px;">
+        <button v-for="size in ['small', 'center', 'medium', 'large']" :key="size"
+                class="m3e-button" :class="appBarSize === size ? 'm3e-button--filled' : 'm3e-button--outlined'"
+                @click="appBarSize = size">
+          {{ size }}
+        </button>
+      </div>
+      <span class="state-display">appBarSize: "{{ appBarSize }}" | appBarAction: "{{ appBarAction }}"</span>
+    </section>
+
+    <!-- ======== DIVIDER ======== -->
+    <section>
+      <h2>Divider</h2>
+      <h3>Horizontal Variants</h3>
+      <p class="m3e-body-small" style="margin-bottom: 8px;">Full width</p>
+      <hr class="m3e-divider" />
+      <p class="m3e-body-small" style="margin: 8px 0;">Inset</p>
+      <hr class="m3e-divider m3e-divider--inset" />
+      <p class="m3e-body-small" style="margin: 8px 0;">Inset start</p>
+      <hr class="m3e-divider m3e-divider--inset-start" />
+      <h3 style="margin-top: 16px;">Vertical</h3>
+      <div class="demo-row" style="height: 40px;">
+        <span>Left</span>
+        <hr class="m3e-divider m3e-divider--vertical" />
+        <span>Right</span>
+      </div>
+    </section>
+
+    <!-- ======== HEADING ======== -->
+    <section>
+      <h2>Heading — Typography Scale</h2>
+      <div>
+        <div v-for="variant in headingVariants" :key="variant.cls" style="margin-bottom: 8px;">
+          <span :class="'m3e-heading m3e-heading--' + variant.cls">{{ variant.label }}</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- ======== ICON ======== -->
+    <section>
+      <h2>Icon — Sizes & Variants</h2>
+      <h3>Sizes</h3>
+      <div class="demo-row" style="align-items: flex-end;">
+        <span class="m3e-icon m3e-icon--small material-symbols-outlined">star</span>
+        <span class="m3e-icon material-symbols-outlined">star</span>
+        <span class="m3e-icon m3e-icon--large material-symbols-outlined">star</span>
+        <span class="m3e-icon m3e-icon--extra-large material-symbols-outlined">star</span>
+      </div>
+      <h3>Weight Variants</h3>
+      <div class="demo-row">
+        <span class="m3e-icon m3e-icon--thin material-symbols-outlined">home</span>
+        <span class="m3e-icon material-symbols-outlined">home</span>
+        <span class="m3e-icon m3e-icon--bold material-symbols-outlined">home</span>
+        <span class="m3e-icon m3e-icon--filled material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">home</span>
+      </div>
+    </section>
+
+    <!-- ======== SHAPE ======== -->
+    <section>
+      <h2>Shape — Decorative Shapes</h2>
+      <div class="demo-row" style="gap: 16px;">
+        <div v-for="shape in shapes" :key="shape"
+             class="m3e-shape" :class="'m3e-shape--' + shape"
+             :style="{ width: '56px', height: '56px', background: 'var(--md-sys-color-primary-container)', display: 'flex', alignItems: 'center', justifyContent: 'center' }">
+          <span class="m3e-body-small" style="font-size: 10px;">{{ shape }}</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- ======== AUTOCOMPLETE ======== -->
+    <section>
+      <h2>Autocomplete</h2>
+      <div style="max-width: 360px; position: relative;">
+        <div class="m3e-autocomplete">
+          <div class="m3e-form-field">
+            <div class="m3e-form-field__container">
+              <label class="m3e-form-field__label" for="vue-ac">Search countries</label>
+              <input class="m3e-form-field__input m3e-autocomplete__input" id="vue-ac" type="text" placeholder=" "
+                     v-model="acQuery" @focus="acOpen = true" @input="acOpen = true"
+                     role="combobox" :aria-expanded="acOpen && filteredCountries.length > 0" aria-haspopup="listbox"
+                     aria-autocomplete="list" aria-controls="ac-listbox" />
+            </div>
+          </div>
+          <div v-if="acOpen && filteredCountries.length > 0"
+               class="m3e-autocomplete__menu m3e-autocomplete__menu--open"
+               id="ac-listbox" role="listbox">
+            <div v-for="country in filteredCountries" :key="country"
+                 class="m3e-autocomplete__option"
+                 :class="{ 'm3e-autocomplete__option--selected': acValue === country }"
+                 role="option" :aria-selected="acValue === country"
+                 @click="acValue = country; acQuery = country; acOpen = false">
+              {{ country }}
+            </div>
+          </div>
+        </div>
+      </div>
+      <br />
+      <span class="state-display">query: "{{ acQuery }}" | selected: "{{ acValue }}"</span>
+    </section>
+
+    <!-- ======== BUTTON GROUP ======== -->
+    <section>
+      <h2>Button Group</h2>
+      <h3>Connected (single select)</h3>
+      <div class="m3e-button-group m3e-button-group--connected" role="group" aria-label="Alignment">
+        <button v-for="align in ['left', 'center', 'right', 'justify']" :key="align"
+                class="m3e-button m3e-button--outlined"
+                :class="{ 'm3e-button--tonal': bgAlign === align }"
+                :aria-pressed="bgAlign === align"
+                @click="bgAlign = align">
+          <span class="m3e-button__icon material-symbols-outlined">format_align_{{ align }}</span>
+        </button>
+      </div>
+      <br />
+      <span class="state-display">alignment: "{{ bgAlign }}"</span>
+    </section>
+
+    <!-- ======== FAB MENU ======== -->
+    <section>
+      <h2>FAB Menu</h2>
+      <div style="position: relative; height: 200px; border: 1px solid var(--md-sys-color-outline-variant); border-radius: 16px; overflow: visible;">
+        <div class="m3e-fab-menu" style="position: absolute; bottom: 16px; right: 16px;">
+          <div class="m3e-fab-menu__items" :class="{ 'm3e-fab-menu__items--open': fabMenuOpen }">
+            <button v-for="action in fabMenuActions" :key="action.label"
+                    class="m3e-fab m3e-fab--small m3e-fab--surface m3e-fab-menu__item"
+                    :aria-label="action.label"
+                    @click="fabMenuResult = action.label; fabMenuOpen = false">
+              <span class="m3e-fab__icon material-symbols-outlined">{{ action.icon }}</span>
+              <span class="m3e-fab-menu__label">{{ action.label }}</span>
+            </button>
+          </div>
+          <button class="m3e-fab m3e-fab--primary" :aria-expanded="fabMenuOpen" aria-haspopup="true"
+                  @click="fabMenuOpen = !fabMenuOpen" :aria-label="fabMenuOpen ? 'Close menu' : 'Open actions'">
+            <span class="m3e-fab__icon material-symbols-outlined"
+                  :style="{ transform: fabMenuOpen ? 'rotate(45deg)' : '', transition: 'transform 0.2s' }">
+              add
+            </span>
+          </button>
+        </div>
+      </div>
+      <span class="state-display">fabMenuOpen: {{ fabMenuOpen }} | action: "{{ fabMenuResult }}"</span>
+    </section>
+
+    <!-- ======== SPLIT BUTTON ======== -->
+    <section>
+      <h2>Split Button</h2>
+      <div style="position: relative; display: inline-block;">
+        <div class="m3e-split-button" :class="{ 'm3e-split-button--expanded': splitOpen }">
+          <button class="m3e-button m3e-button--filled" @click="splitAction = splitPrimary">
+            <span class="m3e-button__icon material-symbols-outlined">{{ splitIcons[splitPrimary] }}</span>
+            {{ splitPrimary }}
+          </button>
+          <button class="m3e-split-button__toggle m3e-button m3e-button--filled"
+                  :aria-expanded="splitOpen" aria-haspopup="true"
+                  @click="splitOpen = !splitOpen">
+            <span class="m3e-split-button__arrow material-symbols-outlined">arrow_drop_down</span>
+          </button>
+        </div>
+        <div v-if="splitOpen" class="m3e-menu-container" style="position: absolute; top: 100%; left: 0; margin-top: 4px; z-index: 50;">
+          <div class="m3e-menu m3e-menu--open" role="menu">
+            <button v-for="opt in ['Save', 'Print', 'Share']" :key="opt"
+                    class="m3e-menu-item" role="menuitem"
+                    @click="splitPrimary = opt; splitOpen = false">
+              {{ opt }}
+            </button>
+          </div>
+        </div>
+      </div>
+      <br /><br />
+      <span class="state-display">primary: "{{ splitPrimary }}" | lastAction: "{{ splitAction }}"</span>
+    </section>
+
+    <!-- ======== NAV RAIL ======== -->
+    <section>
+      <h2>Navigation Rail</h2>
+      <div style="display: flex; height: 300px; border: 1px solid var(--md-sys-color-outline-variant); border-radius: 16px; overflow: hidden;">
+        <nav class="m3e-nav-rail" :class="{ 'm3e-nav-rail--expanded': navRailExpanded }" role="navigation" aria-label="Main navigation">
+          <button class="m3e-icon-button m3e-nav-rail__fab" aria-label="Menu" @click="navRailExpanded = !navRailExpanded">
+            <span class="material-symbols-outlined">menu</span>
+          </button>
+          <button v-for="item in navRailItems" :key="item.label"
+                  class="m3e-nav-rail__item"
+                  :class="{ 'm3e-nav-rail__item--active': activeNavRailItem === item.label }"
+                  :aria-current="activeNavRailItem === item.label ? 'page' : undefined"
+                  @click="activeNavRailItem = item.label">
+            <span class="m3e-nav-rail__icon material-symbols-outlined">{{ item.icon }}</span>
+            <span class="m3e-nav-rail__label">{{ item.label }}</span>
+          </button>
+        </nav>
+        <div style="flex: 1; padding: 16px; color: var(--md-sys-color-on-surface-variant);">
+          Page: {{ activeNavRailItem }}
+        </div>
+      </div>
+      <span class="state-display">expanded: {{ navRailExpanded }} | active: "{{ activeNavRailItem }}"</span>
+    </section>
+
+    <!-- ======== NAV MENU ======== -->
+    <section>
+      <h2>Navigation Menu</h2>
+      <div style="max-width: 280px; border: 1px solid var(--md-sys-color-outline-variant); border-radius: 16px; overflow: hidden;">
+        <nav class="m3e-nav-menu" role="navigation" aria-label="Side navigation">
+          <div class="m3e-nav-menu__section-header">Main</div>
+          <button v-for="item in navMenuItems" :key="item.label"
+                  class="m3e-nav-menu__item"
+                  :class="{ 'm3e-nav-menu__item--active': activeNavMenuItem === item.label }"
+                  @click="activeNavMenuItem = item.label">
+            <span class="m3e-nav-menu__icon material-symbols-outlined">{{ item.icon }}</span>
+            <span class="m3e-nav-menu__label">{{ item.label }}</span>
+            <span v-if="item.badge" class="m3e-nav-menu__badge">{{ item.badge }}</span>
+          </button>
+          <hr class="m3e-nav-menu__divider" />
+          <div class="m3e-nav-menu__section-header">Settings</div>
+          <div class="m3e-nav-menu__group" :class="{ 'm3e-nav-menu__group--expanded': navMenuGroupOpen }">
+            <button class="m3e-nav-menu__item" @click="navMenuGroupOpen = !navMenuGroupOpen" :aria-expanded="navMenuGroupOpen">
+              <span class="m3e-nav-menu__icon material-symbols-outlined">settings</span>
+              <span class="m3e-nav-menu__label">Settings</span>
+              <span class="material-symbols-outlined" style="font-size: 18px; margin-left: auto;"
+                    :style="{ transform: navMenuGroupOpen ? 'rotate(180deg)' : '', transition: 'transform 0.2s' }">
+                expand_more
+              </span>
+            </button>
+            <div class="m3e-nav-menu__group-items" v-show="navMenuGroupOpen">
+              <button class="m3e-nav-menu__item" :class="{ 'm3e-nav-menu__item--active': activeNavMenuItem === 'General' }" @click="activeNavMenuItem = 'General'">
+                <span class="m3e-nav-menu__label">General</span>
+              </button>
+              <button class="m3e-nav-menu__item" :class="{ 'm3e-nav-menu__item--active': activeNavMenuItem === 'Privacy' }" @click="activeNavMenuItem = 'Privacy'">
+                <span class="m3e-nav-menu__label">Privacy</span>
+              </button>
+            </div>
+          </div>
+        </nav>
+      </div>
+      <br />
+      <span class="state-display">active: "{{ activeNavMenuItem }}" | settingsGroup: {{ navMenuGroupOpen }}</span>
+    </section>
+
+    <!-- ======== OPTION ======== -->
+    <section>
+      <h2>Option Items</h2>
+      <div style="max-width: 300px; border: 1px solid var(--md-sys-color-outline-variant); border-radius: 12px; overflow: hidden;">
+        <div v-for="opt in optionItems" :key="opt.label"
+             class="m3e-option"
+             :class="{ 'm3e-option--selected': selectedOption === opt.label, 'm3e-option--disabled': opt.disabled }"
+             role="option" :aria-selected="selectedOption === opt.label" :aria-disabled="opt.disabled"
+             @click="!opt.disabled && (selectedOption = opt.label)">
+          <span class="m3e-option__icon material-symbols-outlined">{{ opt.icon }}</span>
+          <span class="m3e-option__text">{{ opt.label }}</span>
+          <span v-if="selectedOption === opt.label" class="m3e-option__check material-symbols-outlined">check</span>
+        </div>
+      </div>
+      <br />
+      <span class="state-display">selectedOption: "{{ selectedOption }}"</span>
+    </section>
+
+    <!-- ======== PAGINATOR ======== -->
+    <section>
+      <h2>Paginator</h2>
+      <div class="m3e-paginator" aria-label="Pagination">
+        <span class="m3e-paginator__label">Rows per page:</span>
+        <select class="m3e-paginator__page-size" v-model.number="pageSize" aria-label="Rows per page">
+          <option v-for="s in [5, 10, 25, 50]" :key="s" :value="s">{{ s }}</option>
+        </select>
+        <span class="m3e-paginator__range" aria-live="polite">
+          {{ (currentPage - 1) * pageSize + 1 }}–{{ Math.min(currentPage * pageSize, totalItems) }} of {{ totalItems }}
+        </span>
+        <div class="m3e-paginator__actions">
+          <button class="m3e-icon-button" aria-label="First page" :disabled="currentPage <= 1" @click="currentPage = 1">
+            <span class="material-symbols-outlined">first_page</span>
+          </button>
+          <button class="m3e-icon-button" aria-label="Previous page" :disabled="currentPage <= 1" @click="currentPage--">
+            <span class="material-symbols-outlined">chevron_left</span>
+          </button>
+          <button class="m3e-icon-button" aria-label="Next page" :disabled="currentPage >= totalPages" @click="currentPage++">
+            <span class="material-symbols-outlined">chevron_right</span>
+          </button>
+          <button class="m3e-icon-button" aria-label="Last page" :disabled="currentPage >= totalPages" @click="currentPage = totalPages">
+            <span class="material-symbols-outlined">last_page</span>
+          </button>
+        </div>
+      </div>
+      <br />
+      <span class="state-display">page: {{ currentPage }}/{{ totalPages }} | pageSize: {{ pageSize }} | total: {{ totalItems }}</span>
+    </section>
+
+    <!-- ======== SLIDE GROUP ======== -->
+    <section>
+      <h2>Slide Group</h2>
+      <div class="m3e-slide-group" style="max-width: 500px;">
+        <button class="m3e-slide-group__prev m3e-icon-button" aria-label="Previous" @click="slideOffset = Math.max(0, slideOffset - 120)">
+          <span class="material-symbols-outlined">chevron_left</span>
+        </button>
+        <div class="m3e-slide-group__content" :style="{ transform: 'translateX(-' + slideOffset + 'px)', transition: 'transform 0.3s' }">
+          <button v-for="i in 12" :key="i"
+                  class="m3e-chip m3e-slide-group__item"
+                  :class="{ 'm3e-chip--selected': slideSelected === i }"
+                  @click="slideSelected = i">
+            Item {{ i }}
+          </button>
+        </div>
+        <button class="m3e-slide-group__next m3e-icon-button" aria-label="Next" @click="slideOffset = Math.min(500, slideOffset + 120)">
+          <span class="material-symbols-outlined">chevron_right</span>
+        </button>
+      </div>
+      <br />
+      <span class="state-display">selected: {{ slideSelected }} | offset: {{ slideOffset }}px</span>
+    </section>
+
+    <!-- ======== TABLE OF CONTENTS ======== -->
+    <section>
+      <h2>Table of Contents</h2>
+      <div style="max-width: 280px;">
+        <nav class="m3e-toc" aria-label="Table of contents">
+          <span class="m3e-toc__overline">On this page</span>
+          <a v-for="item in tocItems" :key="item.id"
+             class="m3e-toc__item"
+             :class="{ 'm3e-toc__item--active': activeTocItem === item.id }"
+             :href="'#' + item.id"
+             :aria-current="activeTocItem === item.id ? 'location' : undefined"
+             @click.prevent="activeTocItem = item.id">
+            {{ item.label }}
+          </a>
+        </nav>
+      </div>
+      <br />
+      <span class="state-display">activeTocItem: "{{ activeTocItem }}"</span>
+    </section>
+
+    <!-- ======== ELEVATION ======== -->
+    <section>
+      <h2>Elevation Levels</h2>
+      <div class="demo-row" style="gap: 24px;">
+        <div v-for="level in [0, 1, 2, 3, 4, 5]" :key="level"
+             :class="'m3e-elevation-' + level"
+             style="width: 80px; height: 80px; border-radius: 16px; display: flex; align-items: center; justify-content: center; background: var(--md-sys-color-surface);">
+          <span class="m3e-body-small">Level {{ level }}</span>
+        </div>
+      </div>
+    </section>
+
     <hr class="m3e-divider" style="margin: 40px 0;" />
     <p class="m3e-body-small" style="text-align: center; color: var(--md-sys-color-on-surface-variant);">
-      M3E Vue 3 Interactive Demo — All components use <code>@m3e/css</code> classes with Vue 3 reactivity.
+      M3E Vue 3 Interactive Demo — All {{ totalComponentCount }} components demonstrated with <code>@m3e/css</code> classes and Vue 3 reactivity.
     </p>
   </div>
 
@@ -892,6 +1267,106 @@
         // Loading
         const isLoadingContent = ref(false);
 
+        // App Bar
+        const appBarSize = ref('small');
+        const appBarAction = ref('');
+
+        // Heading variants
+        const headingVariants = [
+          { cls: 'display-large', label: 'Display Large' },
+          { cls: 'display-medium', label: 'Display Medium' },
+          { cls: 'headline-large', label: 'Headline Large' },
+          { cls: 'headline-medium', label: 'Headline Medium' },
+          { cls: 'title-large', label: 'Title Large' },
+          { cls: 'title-medium', label: 'Title Medium' },
+          { cls: 'label-large', label: 'Label Large' },
+        ];
+
+        // Shapes
+        const shapes = ['circle', 'diamond', 'pentagon', 'hexagon', 'octagon', 'star', 'heart', 'rounded-square'];
+
+        // Autocomplete
+        const acQuery = ref('');
+        const acValue = ref('');
+        const acOpen = ref(false);
+        const countries = ['Argentina', 'Australia', 'Austria', 'Brazil', 'Canada', 'China', 'Denmark', 'Egypt', 'Finland', 'France', 'Germany', 'India', 'Indonesia', 'Italy', 'Japan', 'Mexico', 'Netherlands', 'Norway', 'Poland', 'Spain', 'Sweden', 'Switzerland', 'Turkey', 'United Kingdom', 'United States'];
+        const filteredCountries = computed(() => {
+          if (!acQuery.value) return countries.slice(0, 8);
+          const q = acQuery.value.toLowerCase();
+          return countries.filter(c => c.toLowerCase().includes(q)).slice(0, 8);
+        });
+
+        // Button Group
+        const bgAlign = ref('left');
+
+        // FAB Menu
+        const fabMenuOpen = ref(false);
+        const fabMenuResult = ref('');
+        const fabMenuActions = [
+          { icon: 'image', label: 'Photo' },
+          { icon: 'videocam', label: 'Video' },
+          { icon: 'mic', label: 'Audio' },
+        ];
+
+        // Split Button
+        const splitOpen = ref(false);
+        const splitPrimary = ref('Save');
+        const splitAction = ref('');
+        const splitIcons = { Save: 'save', Print: 'print', Share: 'share' };
+
+        // Nav Rail
+        const navRailExpanded = ref(false);
+        const navRailItems = [
+          { icon: 'home', label: 'Home' },
+          { icon: 'search', label: 'Search' },
+          { icon: 'bookmark', label: 'Saved' },
+          { icon: 'person', label: 'Profile' },
+        ];
+        const activeNavRailItem = ref('Home');
+
+        // Nav Menu
+        const navMenuItems = [
+          { icon: 'inbox', label: 'Inbox', badge: '24' },
+          { icon: 'send', label: 'Sent' },
+          { icon: 'drafts', label: 'Drafts', badge: '3' },
+          { icon: 'delete', label: 'Trash' },
+        ];
+        const activeNavMenuItem = ref('Inbox');
+        const navMenuGroupOpen = ref(false);
+
+        // Option
+        const optionItems = [
+          { icon: 'text_format', label: 'Plain text' },
+          { icon: 'code', label: 'Source code' },
+          { icon: 'table_chart', label: 'Spreadsheet' },
+          { icon: 'lock', label: 'Encrypted', disabled: true },
+        ];
+        const selectedOption = ref('Plain text');
+
+        // Paginator
+        const pageSize = ref(10);
+        const currentPage = ref(1);
+        const totalItems = 127; // demo dataset size
+        const totalPages = computed(() => Math.ceil(totalItems / pageSize.value));
+        watch(pageSize, () => { currentPage.value = 1; });
+
+        // Slide Group
+        const slideOffset = ref(0);
+        const slideSelected = ref(1);
+
+        // Table of Contents
+        const tocItems = [
+          { id: 'overview', label: 'Overview' },
+          { id: 'installation', label: 'Installation' },
+          { id: 'components', label: 'Components' },
+          { id: 'theming', label: 'Theming' },
+          { id: 'accessibility', label: 'Accessibility' },
+        ];
+        const activeTocItem = ref('overview');
+
+        // Total component count
+        const totalComponentCount = 45;
+
         return {
           buttonCount, isLoading, simulateLoading,
           isFavorite, isBookmarked,
@@ -919,6 +1394,20 @@
           users, selectedUser,
           navItems, activeNavItem,
           isLoadingContent,
+          appBarSize, appBarAction,
+          headingVariants,
+          shapes,
+          acQuery, acValue, acOpen, filteredCountries,
+          bgAlign,
+          fabMenuOpen, fabMenuResult, fabMenuActions,
+          splitOpen, splitPrimary, splitAction, splitIcons,
+          navRailExpanded, navRailItems, activeNavRailItem,
+          navMenuItems, activeNavMenuItem, navMenuGroupOpen,
+          optionItems, selectedOption,
+          pageSize, currentPage, totalItems, totalPages,
+          slideOffset, slideSelected,
+          tocItems, activeTocItem,
+          totalComponentCount,
         };
       }
     }).mount('#app');
